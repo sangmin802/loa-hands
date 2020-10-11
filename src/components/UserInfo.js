@@ -14,12 +14,38 @@ function UnserInfo(redux){
     getUserData(name);
     return null;
   }else{
-    const {equipInfo, classImg} = userData;
+    const {equipInfo, classImg, classLogoImg, className, expeditionLv, itemLv, reachItemLv, userName, Lv} = userData;
     const equipArr = Object.values(equipInfo);
 
     return(
       <div className="userInfo">
         <div className="userInfoTop">
+          <div className="expeditionLv infoTopCont">
+            {expeditionLv}
+          </div>
+          <div className="itemLv infoTopCont">
+            <div className="curItemLv">
+              {itemLv}
+            </div>
+            <div className="reachItemLv">
+              {reachItemLv}
+            </div>
+          </div>
+          <div className="classNameLv infoTopCont">
+            <div className="classNameWrap">
+              <div className="classLogo">
+                <img src={classLogoImg} alt={className}/>
+              </div>
+              <div className="className">
+                {className}
+              </div>
+            </div>
+          </div>
+          <div className="userNameLv infoTopCont">
+            {Lv} {userName}
+          </div>
+        </div>
+        <div className="userInfoCenter">
           <div className="userInfoLeft absolute equipImgWrap">
             {insertImgComp([...equipArr], 0, 6)}
           </div>

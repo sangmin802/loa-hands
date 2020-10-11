@@ -13,10 +13,12 @@ function Header(redux){
 
   return(
     <div className="header">
-      <form onSubmit={userOnSubmit}>
-        <input type="text" name="searchedUser"/>
-        <input type="submit" value="검색"/>
-      </form>
+      <div className="innerHeader">
+        <form onSubmit={userOnSubmit}>
+          <input type="text" name="searchedUser"/>
+          <input type="submit" value="검색"/>
+        </form>
+      </div>
     </div>
   )
 }

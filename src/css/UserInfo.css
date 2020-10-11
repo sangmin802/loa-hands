@@ -1,14 +1,45 @@
 .userInfo {
   overflow : hidden;
   background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b') #333;
-  background-position: 50% 40%;
+  background-position: 50% 50%;
+  background-size : cover;
   margin-top : 1rem;
   padding : 1rem;
   border-radius : 5px;
 }
-
 /* userInfoTop */
 .userInfoTop {
+  display : flex;
+  flex-direction : column;
+  width : 30%;
+  min-width : 300px;
+}
+.userInfoTop * { 
+  color : rgba(222,222,222); 
+  font-size : .9rem;
+}
+.infoTopCont {
+  padding : .3rem;
+  background : #333;
+  margin-bottom : .5rem;
+  width : fit-content;
+  border-radius : 5px;
+}
+.classNameWrap {
+  display : flex;
+  align-items : center;
+}
+.classLogo {
+  width : 30%;
+  margin-right : .5rem;
+}
+.classLogo img {
+  display : block;
+  width : 100%;
+}
+
+/* userInfoCenter */
+.userInfoCenter {
   position : relative;
   display : flex;
 }

@@ -15,8 +15,8 @@ function App(redux) {
         <div className={setLoadingBgStyle()}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
+        <Connect.Header />
         <div className="AppWrap">
-          <Connect.Header />
           <Route exact path="/" component={Connect.Home}/>
           <Route path="/userInfo/:name" component={Connect.UserInfo}/>
         </div>
