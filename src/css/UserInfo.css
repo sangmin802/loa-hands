@@ -1,9 +1,12 @@
 .userInfo {
-  overflow : hidden;
-  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b') #333;
-  background-position: 50% 50%;
-  background-size : cover;
-  margin-top : 1rem;
+  padding : 1rem;
+  border-radius : 5px;
+}
+.userInfoTopCetnerWrap {
+  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding : 1rem;
   border-radius : 5px;
 }
@@ -20,7 +23,7 @@
 }
 .infoTopCont {
   padding : .3rem;
-  background : #333;
+  background : #222;
   margin-bottom : .5rem;
   width : fit-content;
   border-radius : 5px;
@@ -40,11 +43,12 @@
 
 /* userInfoCenter */
 .userInfoCenter {
-  position : relative;
   display : flex;
+  align-items : center;
 }
 .userClassImg {
   width : 70%;
+  height : fit-content;
   margin : 0 auto;
 }
 .userClassImg img {
@@ -52,20 +56,60 @@
   width : 100%;
 }
 .equipImgWrap {
-  width : 10%;
+  width : 12%;
 }
 .equipImgWrap .EquipImg {
   width : 100%;
+  position : relative;
   margin-bottom : .5rem;
 }
-.equipImgWrap .EquipImg .equipPartImg {
-  display : block;
-  width : 100%;
+
+/* userInfoBottom */
+.userInfoBottom {
+  margin-top : 2rem;
 }
-.equipImgWrap .EquipImg .equipMainImg {
-  display : block;
-  width : 100%;
-  transform : scale(.85);
+.equipList {
+  position : relative;
+  display : flex;
+  align-items : center;
+  margin-bottom : .5rem;
+  padding : .5rem;
+  background : #222;
+  border-radius : 3px;
 }
-.userInfoLeft { left : 0; }
-.userInfoRight { right : 0; }
+.equipList:last-child {
+  margin-bottom : 0;
+}
+.equipListImg {
+  position : relative;
+  width : 15%;
+  height : fit-content;
+  margin-right : .5rem;
+}
+.equipListContent {
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+}
+.equipListContent * {
+  color : rgba(222,222,222);
+  font-size : .9rem;
+}
+
+/* 아이템 상세보기 */
+.equipListDetail {
+  width : 70%;
+  position : absolute;
+  bottom : 20%;
+  left : 5%;
+  background : black;
+}
+.equipListDetail * {
+  color : white;
+  font-size : .9rem;
+}
+.equipListDetailImg {
+  position : relative;
+  width : 30%;
+  margin : 0 auto;
+}

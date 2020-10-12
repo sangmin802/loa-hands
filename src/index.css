@@ -10,22 +10,26 @@ body {
 .absolute {
   position : absolute;
 }
+.imgWidth {
+  display : block;
+  width : 100%;
+}
+.equipMainImg {
+  top : 0;
+  transform : scale(.9);
+}
 
-.gradient0 {
-  background : linear-gradient(135deg, #232323, #575757);
-}
-.gradient1 {
-  background : linear-gradient(135deg, #18220b, #304911);
-}
-.gradient2 {
-  background : linear-gradient(135deg, #111f2c, #113d5d);
-}
-.gradient3 {
-  background : linear-gradient(135deg, #261331, #480d5d);
-}
-.gradient4 {
-  background : linear-gradient(135deg, #362003, #9e5f04);
-}
-.gradient5 {
-  background : linear-gradient(135deg, #341a09, #a24006);
-}
+.zIndex10 { z-index : 10; }
+.zIndex99 { z-index : 99; }
+.gradient0 { background : linear-gradient(135deg, #232323, #575757); }
+.gradient1 { background : linear-gradient(135deg, #18220b, #304911); }
+.gradient2 { background : linear-gradient(135deg, #111f2c, #113d5d); }
+.gradient3 { background : linear-gradient(135deg, #261331, #480d5d); }
+.gradient4 { background : linear-gradient(135deg, #362003, #9e5f04); }
+.gradient5 { background : linear-gradient(135deg, #341a09, #a24006); }
+.color0 { color : #575757 !important; }
+.color1 { color : #304911 !important; }
+.color2 { color : #113d5d !important; }
+.color3 { color : #480d5d !important; }
+.color4 { color : #9e5f04 !important; }
+.color5 { color : #a24006 !important; }

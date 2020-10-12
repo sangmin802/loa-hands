@@ -8,7 +8,7 @@ function App(redux) {
   const {isLoading} = redux;
 
   const setLoadingBgStyle = () => {
-    return isLoading ? 'loadingBg' : 'displayNone'
+    return isLoading ? 'loadingBg zIndex99' : 'displayNone'
   }
   return (
       <div className="App">

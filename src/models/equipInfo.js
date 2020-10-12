@@ -1,3 +1,5 @@
+import EquipInfoDetail from './equipInfoDetail.js';
+
 export default class EquipInfo{
   constructor(script0){
     const partsArr = ["000_head", "001_shoulder", "002_cloth", "003_pants", "004_glove", "005_weapon", "006_necklace", "007_earing1", "008_earing2", "009_ring1", "010_ring2", "011_stone"];
@@ -12,7 +14,7 @@ export default class EquipInfo{
       equipKeyArr.forEach((key) => {
         const num = Number(key.substr(key.length-3, key.length))
         if(partsArr[num]){
-          this[partsArr[num]].detail = equip[key];
+          this[partsArr[num]].detail = new EquipInfoDetail(equip[key], num);
         }
       })
     }
