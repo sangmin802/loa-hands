@@ -3,7 +3,10 @@
   border-radius : 5px;
 }
 .userInfoTopCetnerWrap {
-  background : #222;
+  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding : 1rem;
   border-radius : 5px;
 }
@@ -98,6 +101,30 @@
 }
 .userExpeditionChar:hover {
   background : #333;
+}
+
+/* userInfoCenter */
+.userInfoCenter {
+  display : flex;
+  align-items : center;
+  margin-top : 2rem;
+}
+.userClassImg {
+  width : 70%;
+  height : fit-content;
+  margin : 0 auto;
+}
+.userClassImg img {
+  display : block;
+  width : 100%;
+}
+.equipImgWrap {
+  width : 12%;
+}
+.equipImgWrap .EquipImg {
+  width : 100%;
+  position : relative;
+  margin-bottom : .5rem;
 }
 
 /* userInfoBottom */

@@ -28,6 +28,10 @@ export default class UserInfo {
     if(this.garden === ' ') this.garden = '컨텐츠 개방 필요'
     this.className = badge[1].children[0].alt;
     this.classSrc = badge[1].children[0].attributes[0].value
+
+    const str = this.classSrc.split('thumb/')[1];
+    const end = str.indexOf('_m.png');
+    this.classEngName = str.substring(0, end);
   }
 
   setUserEquipInfo(raw){
