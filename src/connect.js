@@ -31,6 +31,7 @@ export default {
         })
         .catch(() => {
           dispatch({type : 'loadingToggle', bool : false})
+          history.push(`/`)
         });
       }
     }
@@ -53,6 +54,7 @@ export default {
         })
         .catch(() => {
           dispatch({type : 'loadingToggle', bool : false})
+          history.push(`/`)
         });
       }
     }

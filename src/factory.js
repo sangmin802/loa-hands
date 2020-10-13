@@ -126,7 +126,7 @@ export default {
     return color;
   },
 
-  recursiveFunction(val, fun){
-    return fun(val, fun);
+  recursiveFunction(val, fun, name){
+    return fun(val, fun, name);
   }
 }

@@ -1,10 +1,19 @@
+/* header */
+.header {
+  width : 100%;
+  margin-bottom : 1.5rem;
+}
 .innerHeader {
-  padding : 1.3rem 0;
   display : flex;
+  max-width : 600px;
+  min-width : 360px;
+  margin : 0 auto;
+  padding : 1rem;
   justify-content : space-between;
   align-items : center;
 }
 .searchForm {
+  height : fit-content;
   border-bottom : 1px solid white;
 }
 input[type=text] {

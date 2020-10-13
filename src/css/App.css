@@ -15,20 +15,6 @@
   background : rgba(0,0,0,.7);
 }
 
-/* header */
-.header {
-  width : 100%;
-  margin-bottom : 1.5rem;
-}
-.innerHeader {
-  display : flex;
-  max-width : 600px;
-  min-width : 360px;
-  margin : 0 auto;
-  padding : .5rem;
-  justify-content : flex-end;
-}
-
 /* gifIng */
 .lds-spinner {
   position: absolute;

@@ -3,10 +3,7 @@
   border-radius : 5px;
 }
 .userInfoTopCetnerWrap {
-  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b');
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background : #222;
   padding : 1rem;
   border-radius : 5px;
 }
@@ -22,30 +19,42 @@
   border-radius : 5px;
   cursor : pointer;
 }
-.userInfoTop * { 
-  color : rgba(222,222,222); 
-}
-.searchedUserInfo {
-  width : fit-content;
-}
-.infoTopCont {
-  padding : .3rem;
+.userInfoBox {
   background : #222;
-  margin-bottom : .5rem;
-  width : fit-content;
+  padding : .5rem;
   border-radius : 5px;
 }
-.classNameWrap {
+.userClass {
+  width : fit-content;
   display : flex;
   align-items : center;
+  margin-bottom : .3rem;
 }
-.classLogo {
-  width : 30%;
+.userNameNLvNServer, .userItemLv, .userExtraInfo {
+  display : flex;
+  width : 100%;
+  align-items : center;
+  margin-bottom : .3rem;
+}
+.userClassEmb {
+  width : 40%;
   margin-right : .5rem;
 }
-.classLogo img {
-  display : block;
-  width : 100%;
+.userLvNname {
+  margin-right : 1rem;
+  max-width : 60%;
+}
+.curUserItemLv {
+  margin-right : 1.5rem;
+}
+.userExtraInfo > div {
+  margin-right : .7rem;
+}
+.userInfoBox {
+  text-align : center;
+}
+.userInfoTitle {
+  margin-bottom : .3rem;
 }
 
 .searchedUserExpedition {
@@ -78,11 +87,10 @@
 }
 .userExpeditionCharWrap {
   display : flex;
-  flex-direction : column;
+  flex-wrap : wrap;
 }
 .userExpeditionChar {
-  display : flex;
-  width : 100%;
+  width : 50%;
   margin-bottom : .5rem;
   padding : .5rem;
   border-radius : 5px;
@@ -90,37 +98,6 @@
 }
 .userExpeditionChar:hover {
   background : #333;
-}
-.userExpeditionCharImg {
-  width : 20%;
-  margin-right : .5rem;
-}
-.userExpeditionCharInfo {
-  display : flex;
-  align-items : center;
-}
-
-/* userInfoCenter */
-.userInfoCenter {
-  display : flex;
-  align-items : center;
-}
-.userClassImg {
-  width : 70%;
-  height : fit-content;
-  margin : 0 auto;
-}
-.userClassImg img {
-  display : block;
-  width : 100%;
-}
-.equipImgWrap {
-  width : 12%;
-}
-.equipImgWrap .EquipImg {
-  width : 100%;
-  position : relative;
-  margin-bottom : .5rem;
 }
 
 /* userInfoBottom */

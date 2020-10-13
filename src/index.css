@@ -45,7 +45,6 @@ body {
 .color4, .color4 * { color : #ff9500 !important; font-weight: bold; }
 .color5, .color5 * { color : #ff5e00 !important; font-weight: bold; }
 .overflowDot {
-  width: 100%; 
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap;

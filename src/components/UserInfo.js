@@ -7,11 +7,11 @@ import EquipList from './EquipList.js';
 function UnserInfo(redux){
   const {userData, match : {params : {name}}, getUserData} = redux;
   const history = useHistory();
-  const insertImgComp = function(arr, startNum, endNum){
-    return arr.splice(startNum, endNum).map((equip, index) =>{
-      return <EquipImg key={`EquipImg${index}`} data={equip}/>
-    })
-  }
+  // const insertImgComp = function(arr, startNum, endNum){
+  //   return arr.splice(startNum, endNum).map((equip, index) =>{
+  //     return <EquipImg key={`EquipImg${index}`} data={equip}/>
+  //   })
+  // }
 
   const [state, setState] = useState({pop : false})
   const {pop} = state;
@@ -19,99 +19,136 @@ function UnserInfo(redux){
   if(pop) displayPop = 'displayBlock';
 
   if(!userData){
-    getUserData(name);
+    getUserData(name, history);
     return null;
   }else{
-    const {equipInfo, classImg, classLogoImg, className, expeditionLv, itemLv, reachItemLv, userName, Lv, expeditionUserWrap} = userData;
+    const {Lv, className, classSrc, curBigLv, curSamllLv, equipInfo, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title} = userData;
     const equipArr = Object.values(equipInfo);
     
     return(
       <div className="userInfo">
-        <div className="userInfoTopCetnerWrap">
-          <div className="userInfoTop">
-            <div className="showExpeditionWrap"
+        <div className="userInfoTop">
+          <div className="showExpeditionWrap"
+            onClick={() => {
+              setState({...state, pop : true})
+            }}
+          >
+            원정대 캐릭터 보기
+          </div>
+          <div className="searchedUserInfo">
+            <div className="userClass userInfoBox">
+              <div className="userClassEmb">
+                <img className="imgWidth" src={classSrc} alt={className} />
+              </div>
+              <div className="userClassName rem11">
+                {className}
+              </div>
+            </div>
+            <div className="userNameNLvNServer">
+              <div className="userLvNname userInfoBox rem11 overflowDot">
+                {Lv} {name}
+              </div>
+              <div className="userServer userInfoBox rem11 overflowDot">
+                {server} <small>Lv {expeditionLv}</small>
+              </div>
+            </div>
+            <div className="userItemLv">
+              <div className="curUserItemLv userInfoBox">
+                <div className="userInfoTitle rem11">
+                  현재 아이템 레벨
+                </div>
+                <div className="userInfoValue rem1">
+                  {curBigLv} <small>{curSamllLv}</small>
+                </div>
+              </div>
+              <div className="reachUserItemLv userInfoBox">
+                <div className="userInfoTitle rem11">
+                  달성 아이템 레벨
+                </div>
+                <div className="userInfoValue rem1">
+                  {reachBigLv} <small>{reachSamllLv}</small>
+                </div>
+              </div>
+            </div>
+            <div className="userExtraInfo">
+              <div className="userGarden userInfoBox">
+                <div className="userInfoTitle rem11">
+                  영지
+                </div>
+                <div className="userInfoValue rem1 overflowDot">
+                  {garden}
+                </div>
+              </div>
+              <div className="userPvp userInfoBox">
+                <div className="userInfoTitle rem11">
+                  PVP
+                </div>
+                <div className="userInfoValue rem1">
+                  {pvp}
+                </div>
+              </div>
+              <div className="userTitle userInfoBox">
+                <div className="userInfoTitle rem11">
+                  칭호
+                </div>
+                <div className="userInfoValue rem1 overflowDot">
+                  {title}
+                </div>
+              </div>
+              <div className="userTitle userInfoBox">
+                <div className="userInfoTitle rem11">
+                  길드
+                </div>
+                <div className="userInfoValue rem1 overflowDot">
+                  {guild}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>
+            <div className="searchedUserExpeditionClose"
               onClick={() => {
-                setState({...state, pop : true})
+                setState({...state, pop : false})
               }}
             >
-              원정대 캐릭터 보기
+              닫기
             </div>
-            <div className="searchedUserInfo">
-              <div className="expeditionLv infoTopCont rem09">
-                {expeditionLv}
-              </div>
-              <div className="itemLv infoTopCont">
-                <div className="curItemLv rem09">
-                  {itemLv}
-                </div>
-                <div className="reachItemLv rem09">
-                  {reachItemLv}
-                </div>
-              </div>
-              <div className="classNameLv infoTopCont">
-                <div className="classNameWrap">
-                  <div className="classLogo">
-                    <img src={classLogoImg} alt={className}/>
+            {expeditionUserWrap.map((wrap, index) => {
+              return(
+                <div className="userExpedition" key={`userExpedition${index}`}>
+                  <div className="userExpeditionServer rem13">
+                    {wrap.server}
                   </div>
-                  <div className="className rem09">
-                    {className}
+                  <div className="userExpeditionCharWrap">
+                    {wrap.charList.map((char, index) => {
+                      return(
+                        <div className="userExpeditionChar rem09 overflowDot" key={`userExpeditionChar${index}`}
+                          onClick={() => {
+                            getUserData(char.name, history)
+                            setState({...state, pop : false})
+                          }}
+                        >
+                          {char.lv} {char.name}
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
-              </div>
-              <div className="userNameLv infoTopCont overflowDot rem09">
-                {Lv} {userName}
-              </div>
-            </div>
-            <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>
-              <div className="searchedUserExpeditionClose"
-                onClick={() => {
-                  setState({...state, pop : false})
-                }}
-              >
-                닫기
-              </div>
-              {expeditionUserWrap.map((wrap, index) => {
-                return(
-                  <div className="userExpedition" key={`userExpedition${index}`}>
-                    <div className="userExpeditionServer rem13">
-                      {wrap.server}
-                    </div>
-                    <div className="userExpeditionCharWrap">
-                      {wrap.charList.map((char, index) => {
-                        return(
-                          <div className="userExpeditionChar" key={`userExpeditionChar${index}`}
-                            onClick={() => {
-                              getUserData(char.name, history)
-                              setState({...state, pop : false})
-                            }}
-                          >
-                            <div className="userExpeditionCharImg">
-                              <img className="imgWidth" src={char.classImg}/>
-                            </div>
-                            <div className="userExpeditionCharInfo rem11 overflowDot">
-                              {char.Lv} {char.name}
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-          <div className="userInfoCenter">
-            <div className="userInfoLeft equipImgWrap">
-              {insertImgComp([...equipArr], 0, 6)}
-            </div>
-            <div className="userClassImg">
-              <img src={classImg} alt="classImg"/>
-            </div>
-            <div className="userInfoRight equipImgWrap">
-              {insertImgComp([...equipArr], 6, 6)}
-            </div>
+              )
+            })}
           </div>
         </div>
+        {/* <div className="userInfoCenter">
+          <div className="userInfoLeft equipImgWrap">
+            {insertImgComp([...equipArr], 0, 6)}
+          </div>
+          <div className="userClassImg">
+            <img src={classImg} alt="classImg"/>
+          </div>
+          <div className="userInfoRight equipImgWrap">
+            {insertImgComp([...equipArr], 6, 6)}
+          </div>
+        </div> */}
         <div className="userInfoBottom">
           {[...equipArr].map((equip, index) => {
             return <EquipList data={equip} key={`equipList${index}`}/>

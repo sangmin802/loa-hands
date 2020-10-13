@@ -10,20 +10,24 @@ export default class UserInfo {
     this.setUserEquipInfo(raw)
     
     // 모험단 유저
-    this.setExpeditionUserInfo(expedition)
+    this.setExpeditionUserInfo(raw, expedition)
   }
 
-  setUserBaseInfo(raw, name){
-    const classInfo = raw.getElementsByClassName("profile-character-info__img")[0];
+  setUserBaseInfo(raw){
+    const userInfo = [...raw.getElementsByClassName('myinfo__contents-level')[0].children];
+    const badge = [...raw.getElementsByClassName('myinfo__badge')[0].children];
 
-    this.userName = name;
-    this.expeditionLv = raw.getElementsByClassName("level-info__expedition")[0].innerText
-    this.Lv = raw.getElementsByClassName("level-info__item")[0].innerText
-    this.itemLv = raw.getElementsByClassName("level-info2__expedition")[0].innerText
-    this.reachItemLv = raw.getElementsByClassName("level-info2__item")[0].innerText
-    this.className = classInfo.attributes.alt.value
-    this.classLogoImg = classInfo.attributes.src.value
-    this.classImg = raw.getElementsByClassName("profile-equipment__character")[0].childNodes[0].attributes.src.value
+    this.expeditionLv = userInfo[0].children[0].children[1].innerText;
+    this.title = userInfo[0].children[1].children[1].innerText;
+    this.curBigLv = userInfo[1].children[0].children[1].childNodes[0].textContent;
+    this.curSamllLv = userInfo[1].children[0].children[1].childNodes[1].innerText;
+    this.reachBigLv = userInfo[1].children[1].children[1].childNodes[0].textContent;
+    this.reachSamllLv = userInfo[1].children[1].children[1].childNodes[1].innerText;
+    this.guild = userInfo[2].children[0].children[1].innerText;this.pvp = userInfo[2].children[1].children[1].innerText;
+    this.garden = userInfo[3].children[0].children[1].innerText;
+    if(this.garden === ' ') this.garden = '컨텐츠 개방 필요'
+    this.className = badge[1].children[0].alt;
+    this.classSrc = badge[1].children[0].attributes[0].value
   }
 
   setUserEquipInfo(raw){
@@ -32,63 +36,39 @@ export default class UserInfo {
     this.equipInfo = new EquipInfo(script0)
   }
 
-  setExpeditionUserInfo(expedition){
-    const [expeditionChar, expeditionServer] = expedition
-    this.expeditionUserWrap = Array.from(expeditionChar).map((ex, index) => {
+  setExpeditionUserInfo(raw, expedition){
+    const expeditionUserInfo = [...raw.getElementsByClassName('myinfo__character')[0].children];
+    const [lvWithName, , searchUserServer] = expeditionUserInfo;
+    this.name = lvWithName.childNodes[1].textContent.trim();
+    this.Lv = lvWithName.children[0].innerText;
+    this.server = searchUserServer.children[0].children[1].innerText;
+    
+    const serverWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "STRONG")
+    .filter(el => el.nodeName==="STRONG")
+    .map(str => str.innerText);
+    this.expeditionUserWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "UL")
+    .filter(el => el.nodeName==="UL")
+    .map((ul, index) => {
       return {
-        server : expeditionServer[index].innerText,
-        charList : ex
+        server : serverWrap[index],
+        charList : [...ul.children].map(li => {
+          return {
+            name : li.children[0].childNodes[1].textContent.trim(),
+            lv : li.children[0].children[0].innerText
+          }
+        })
       }
-    })
-    .map(wrap => {
-      const { charList, server } = wrap;
-      const children = charList.children;
-      const onlyLi = [];
-      [...children].forEach(child => {
-        if(child.nodeName==="LI"){
-          onlyLi.push(child); 
-        }
-      })
-      const charInfo = onlyLi.map(li => {
-        return Factory.recursiveFunction(li ,this.getButtonTag)
-      })
-      .map(arr => {
-        return arr[1]
-      })
-      .map(arr2 => {
-        return arr2[1]
-      })
-      .map(btn => {
-        const [,img,lvWrap,nameWrap,] = [...btn.childNodes];
-        const Lv = lvWrap.textContent;
-        const name = nameWrap.textContent;
-        const classImg = img.attributes.src.value;
-        const className = img.attributes.alt.value;
-        return { name, classImg, Lv, className };
-      })
-      return {server, charList : charInfo}
     })
   }
 
-  getButtonTag(el, fun){
-    if(el.nodeName!=='BUTTON'){
+  getWantedTag(el, fun, name){
+    if(el.nodeName!==name){
       const child = el.childNodes;
       return [...child].map(res => {
-        return fun(res, fun)
+        return fun(res, fun, name)
       })
     }else{
       return el;
     }
   }
 }
-
-
-// const onlyLi = [];
-// [...expeditionChar].forEach(child => {
-//     onlyLi.push(child);
-// })
-
-// onlyLi.map(li => {
-//   onlyButton.push(Factory.recursiveFunction(child ,this.getButtonTag, true))
-// })
-// console.log(onlyButton)
