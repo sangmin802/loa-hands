@@ -44,11 +44,12 @@ export default {
     }
   },(dispatch) => {
     return {
-      getUserData(name){
+      getUserData(name, history){
         dispatch({type : 'loadingToggle', bool : true});
         API.getUserData(name)
         .then((data) => {
           dispatch({type : 'getUserData', data, bool : false})
+          history.push(`/userInfo/${name}`)
         })
         .catch(() => {
           dispatch({type : 'loadingToggle', bool : false})

@@ -1,12 +1,16 @@
 import EquipInfo from "./equipInfo";
+import Factory from '../factory.js'
 
 export default class UserInfo {
-  constructor(raw, name){
+  constructor(raw, name, expedition){
     // 유저 기본정보 설정
     this.setUserBaseInfo(raw, name)
 
     // 유저 아이템정보 설정
     this.setUserEquipInfo(raw)
+    
+    // 모험단 유저
+    this.setExpeditionUserInfo(expedition)
   }
 
   setUserBaseInfo(raw, name){
@@ -27,4 +31,64 @@ export default class UserInfo {
     const script0 = script[0];
     this.equipInfo = new EquipInfo(script0)
   }
+
+  setExpeditionUserInfo(expedition){
+    const [expeditionChar, expeditionServer] = expedition
+    this.expeditionUserWrap = Array.from(expeditionChar).map((ex, index) => {
+      return {
+        server : expeditionServer[index].innerText,
+        charList : ex
+      }
+    })
+    .map(wrap => {
+      const { charList, server } = wrap;
+      const children = charList.children;
+      const onlyLi = [];
+      [...children].forEach(child => {
+        if(child.nodeName==="LI"){
+          onlyLi.push(child); 
+        }
+      })
+      const charInfo = onlyLi.map(li => {
+        return Factory.recursiveFunction(li ,this.getButtonTag)
+      })
+      .map(arr => {
+        return arr[1]
+      })
+      .map(arr2 => {
+        return arr2[1]
+      })
+      .map(btn => {
+        const [,img,lvWrap,nameWrap,] = [...btn.childNodes];
+        const Lv = lvWrap.textContent;
+        const name = nameWrap.textContent;
+        const classImg = img.attributes.src.value;
+        const className = img.attributes.alt.value;
+        return { name, classImg, Lv, className };
+      })
+      return {server, charList : charInfo}
+    })
+  }
+
+  getButtonTag(el, fun){
+    if(el.nodeName!=='BUTTON'){
+      const child = el.childNodes;
+      return [...child].map(res => {
+        return fun(res, fun)
+      })
+    }else{
+      return el;
+    }
+  }
 }
+
+
+// const onlyLi = [];
+// [...expeditionChar].forEach(child => {
+//     onlyLi.push(child);
+// })
+
+// onlyLi.map(li => {
+//   onlyButton.push(Factory.recursiveFunction(child ,this.getButtonTag, true))
+// })
+// console.log(onlyButton)

@@ -1,5 +1,8 @@
 import React from 'react';
+import '../css/Header.css';
+import '../index.css';
 import {useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Header(redux){
   const history = useHistory();
@@ -14,9 +17,12 @@ function Header(redux){
   return(
     <div className="header">
       <div className="innerHeader">
-        <form onSubmit={userOnSubmit}>
+        <div className="logo">
+          <Link to="/" className="rem17">Loa Hands</Link>
+        </div>
+        <form onSubmit={userOnSubmit} className="searchForm">
           <input type="text" name="searchedUser"/>
-          <input type="submit" value="검색"/>
+          <input type="submit" value="찾기"/>
         </form>
       </div>
     </div>

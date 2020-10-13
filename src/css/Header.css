@@ -1,0 +1,27 @@
+.innerHeader {
+  padding : 1.3rem 0;
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+}
+.searchForm {
+  border-bottom : 1px solid white;
+}
+input[type=text] {
+  background : none;
+  border : 0;
+  color : white;
+  padding : .3rem;
+}
+input:focus {
+  outline : none;
+  background : none;
+  border : 0;
+}
+input[type=submit] {
+  background : none;
+  border : 0;
+  color : white;
+  padding : .3rem;
+  cursor : pointer;
+}

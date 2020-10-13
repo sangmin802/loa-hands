@@ -12,14 +12,21 @@
 }
 /* userInfoTop */
 .userInfoTop {
-  display : flex;
-  flex-direction : column;
-  width : 30%;
-  min-width : 300px;
+  position : relative;
+  width : 100%;
+}
+.showExpeditionWrap {
+  float : right;
+  background : #222;
+  padding : .3rem;
+  border-radius : 5px;
+  cursor : pointer;
 }
 .userInfoTop * { 
   color : rgba(222,222,222); 
-  font-size : .9rem;
+}
+.searchedUserInfo {
+  width : fit-content;
 }
 .infoTopCont {
   padding : .3rem;
@@ -39,6 +46,58 @@
 .classLogo img {
   display : block;
   width : 100%;
+}
+
+.searchedUserExpedition {
+  position : absolute;
+  display : none;
+  width : 85%;
+  top : 0;
+  right : 0;
+  background : #222;
+  padding : 1.5rem;
+  max-height : 600px;
+  border-radius : 5px;
+  overflow-y : scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.searchedUserExpedition::-webkit-scrollbar {
+  display: none;
+}
+.searchedUserExpeditionClose {
+  float : right;
+  cursor : pointer;
+}
+.userExpedition {
+  margin-bottom : 1rem;
+}
+.userExpeditionServer {
+  font-weight : bold;
+  margin-bottom : 1rem;
+}
+.userExpeditionCharWrap {
+  display : flex;
+  flex-direction : column;
+}
+.userExpeditionChar {
+  display : flex;
+  width : 100%;
+  margin-bottom : .5rem;
+  padding : .5rem;
+  border-radius : 5px;
+  cursor : pointer;
+}
+.userExpeditionChar:hover {
+  background : #333;
+}
+.userExpeditionCharImg {
+  width : 20%;
+  margin-right : .5rem;
+}
+.userExpeditionCharInfo {
+  display : flex;
+  align-items : center;
 }
 
 /* userInfoCenter */
@@ -93,23 +152,77 @@
 }
 .equipListContent * {
   color : rgba(222,222,222);
-  font-size : .9rem;
 }
 
 /* 아이템 상세보기 */
 .equipListDetail {
   width : 70%;
+  padding : .5rem;
   position : absolute;
   bottom : 20%;
   left : 5%;
   background : black;
+  display : none;
+  background : rgba(0,0,0,0.85);
+  max-height : 600px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.equipListDetail::-webkit-scrollbar {
+  display: none;
 }
 .equipListDetail * {
   color : white;
-  font-size : .9rem;
 }
 .equipListDetailImg {
   position : relative;
   width : 30%;
-  margin : 0 auto;
+}
+.equipLilstDetailTop {
+  display : flex;
+  justify-content : space-between;
+}
+.equipListMainInfo {
+  width : 60%;
+  overflow : hidden;
+  display : flex;
+  flex-direction : column;
+  justify-content : space-between;
+}
+.equipListDetailQuality {
+  height : 10%;
+}
+.equipListDetailQuality .qualityValue {
+  height : 100%;
+}
+.itemPartBoxWrap, .singleTextWrap, .intentStringWrap {
+  margin : .5rem 0;
+}
+.itemPartBox, .singleText, .intentString {
+  margin-top : .5rem;
+}
+.itemPartBoxTitle {
+  font-weight : bold;
+  margin-bottom : .15rem;
+}
+.equipList:hover .equipListDetail {
+  display : block;
+}
+.tripodSkillCustom {
+  display : flex;
+  justify-content : space-between;
+  margin-top : .5rem;
+}
+.GemImg {
+  width : 20%;
+}
+.GemInfo {
+  display : flex;
+  width : 75%;
+  flex-direction : column;
+  justify-content : center;
+}
+.GemStat, .GemName {
+  width : 100%;
 }
