@@ -1,18 +1,21 @@
 import React from 'react';
 import '../css/App.css';
-import '../index.css';
 import { Route } from 'react-router-dom'
 import Connect from '../connect.js'
 
 function App(redux) {
   const {isLoading} = redux;
+  let isLoadingStyle1 = null;
+  let isLoadingStyle2 = 'displayNone';
 
-  const setLoadingBgStyle = () => {
-    return isLoading ? 'loadingBg zIndex99' : 'displayNone'
+  if(isLoading){
+    isLoadingStyle1 = 'height100vh'
+    isLoadingStyle2 = 'loadingBg zIndex99'
   }
+
   return (
-      <div className="App">
-        <div className={setLoadingBgStyle()}>
+      <div className={`App ${isLoadingStyle1}`}>
+        <div className={isLoadingStyle2}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
         <Connect.Header />

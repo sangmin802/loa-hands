@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 
 function EquipImg({data}){
   const {partImg, detail} = data;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import '../css/UserInfo.css';
 import EquipImg from './EquipImg.js';
@@ -12,9 +12,14 @@ function UnserInfo(redux){
       return <EquipImg key={`EquipImg${index}`} data={equip}/>
     })
   }
-
   const [state, setState] = useState({pop : false})
   const {pop} = state;
+
+  // UserData가 바뀔때만 
+  useEffect(() => { 
+    setState(prevState => ({...prevState, pop : false}))
+  }, [userData])
+
   let displayPop = null;
   if(pop) displayPop = 'displayBlock';
 
@@ -126,8 +131,8 @@ function UnserInfo(redux){
                         return(
                           <div className="userExpeditionChar rem09 overflowDot" key={`userExpeditionChar${index}`}
                             onClick={() => {
-                              getUserData(char.name, history)
                               setState({...state, pop : false})
+                              getUserData(char.name, history)
                             }}
                           >
                             {char.lv} {char.name}

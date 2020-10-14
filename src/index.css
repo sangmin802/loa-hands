@@ -1,4 +1,4 @@
-* {margin : 0; padding : 0; box-sizing : border-box; text-decoration: none; color : white;}
+* {margin : 0; padding : 0; box-sizing : border-box; text-decoration: none; color : white; font-family: 'Noto Sans KR', sans-serif;}
 
 body {
   background : #222;
@@ -22,7 +22,8 @@ body {
   transform : scale(.9);
 }
 
-.rem09 {font-size : 0.9rem;}
+.height100vh {height : 100vh; overflow : hidden;}
+.rem09 {font-size : 0.9rem; }
 .rem1 {font-size : 1rem;}
 .rem11 {font-size : 1.1rem;}
 .rem12 {font-size : 1.2rem;}

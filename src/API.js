@@ -13,6 +13,9 @@ export default {
       .then(data => {
         if(data.includes("alert('캐릭터 정보가 없습니다.")){
           getUserDataRej();
+        }else if(data.includes("서비스 점검")){
+          alert('서비스 점검중입니다.')
+          getUserDataRej();
         }else{
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html')

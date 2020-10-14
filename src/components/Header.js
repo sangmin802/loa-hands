@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/Header.css';
-import '../index.css';
 import {useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
