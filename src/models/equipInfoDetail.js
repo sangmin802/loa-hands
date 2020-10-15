@@ -22,6 +22,14 @@ export default class EquipInfoDetail {
     })
     
     Object.values(data)
+    .map(val => {
+      if(!val.type){
+        val.type = 'innerValid'
+        return val;
+      }else{
+        return val;
+      }
+    })
     .sort((a, b) => {
       const typeA = a.type.toUpperCase(); 
       const typeB = b.type.toUpperCase(); 

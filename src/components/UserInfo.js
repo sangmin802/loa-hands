@@ -1,35 +1,50 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
 import '../css/UserInfo.css';
 import EquipImg from './EquipImg.js';
 import EquipList from './EquipList.js';
+import AvatarList from './AvatarList.js';
 
 function UnserInfo(redux){
-  const {userData, match : {params : {name}}, getUserData} = redux;
+  const {userData, match : {params : {name}}, expeditionPop, equipTab, getUserData, expeditionPopToggle, changeEquipTab} = redux;
   const history = useHistory();
   const insertImgComp = function(arr, startNum, endNum){
     return arr.splice(startNum, endNum).map((equip, index) =>{
       return <EquipImg key={`EquipImg${index}`} data={equip}/>
     })
   }
-  const [state, setState] = useState({pop : false})
-  const {pop} = state;
-
-  // UserData가 바뀔때만 
-  useEffect(() => { 
-    setState(prevState => ({...prevState, pop : false}))
-  }, [userData])
-
   let displayPop = null;
-  if(pop) displayPop = 'displayBlock';
 
+  if(expeditionPop) displayPop = 'displayBlock';
   if(!userData){
     getUserData(name, history);
     return null;
   }else{
     const {Lv, className, classSrc, curBigLv, curSamllLv, equipInfo, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
-    const equipArr = Object.values(equipInfo);
-    
+    const [equipArr, avaterArr] = Object.keys(equipInfo)
+    .reduce((prev, cur) => {
+      if(!cur.includes('av_')){
+        prev[0].push(equipInfo[cur])
+      }else{
+        prev[1].push({...equipInfo[cur], avatarPart : cur})
+      }
+      return prev;
+    }, [[], []]);
+
+    let bottomContent = null;
+    switch(equipTab){
+      case 0 :
+        bottomContent = 
+          [...equipArr].map((equip, index) => {
+            return <EquipList data={equip} key={`equipList${index}`}/>
+          })
+      break;
+      case 1 :
+        bottomContent = <AvatarList data={avaterArr}/>;
+      break;  
+      default : return null;
+    }
+
     return(
       <div className="userInfo">
         <div className="userInfoTopCetnerWrap">
@@ -37,7 +52,7 @@ function UnserInfo(redux){
           <div className="userInfoTop">
             <div className="showExpeditionWrap"
               onClick={() => {
-                setState({...state, pop : true})
+                expeditionPopToggle(true)
               }}
             >
               원정대 캐릭터 보기
@@ -115,7 +130,7 @@ function UnserInfo(redux){
             <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>
               <div className="searchedUserExpeditionClose"
                 onClick={() => {
-                  setState({...state, pop : false})
+                  expeditionPopToggle(false)
                 }}
               >
                 닫기
@@ -131,7 +146,6 @@ function UnserInfo(redux){
                         return(
                           <div className="userExpeditionChar rem09 overflowDot" key={`userExpeditionChar${index}`}
                             onClick={() => {
-                              setState({...state, pop : false})
                               getUserData(char.name, history)
                             }}
                           >
@@ -158,9 +172,24 @@ function UnserInfo(redux){
           </div>
         </div>
         <div className="userInfoBottom">
-          {[...equipArr].map((equip, index) => {
-            return <EquipList data={equip} key={`equipList${index}`}/>
-          })}
+          <div className="userInfoBottomTabWrap">
+            {['장비', '아바타'].map((tab, index) => {
+              let target = null;
+              if(index===equipTab) target = "tabTarget"
+              return (
+                <div className={`userInfoBottomTab ${target}`}
+                  key={`userInfoBottomTab${index}`}
+                  onClick={() => {
+                      changeEquipTab(index)
+                    }
+                  }
+                >
+                  {tab}
+                </div>
+              )
+            })}
+          </div>
+          {bottomContent}
         </div>
       </div>
     )

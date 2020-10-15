@@ -6,13 +6,12 @@ import {Link} from 'react-router-dom';
 function Header(redux){
   const history = useHistory();
   const {getUserData} = redux;
-
+  
   const userOnSubmit = (e) => {
     e.preventDefault();
     const {target : {searchedUser : {value}}} = e;
     getUserData(value, history)
   }
-
   return(
     <div className="header">
       <div className="innerHeader">

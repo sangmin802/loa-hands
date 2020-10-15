@@ -12,7 +12,6 @@ function App(redux) {
     isLoadingStyle1 = 'height100vh'
     isLoadingStyle2 = 'loadingBg zIndex99'
   }
-
   return (
       <div className={`App ${isLoadingStyle1}`}>
         <div className={isLoadingStyle2}>

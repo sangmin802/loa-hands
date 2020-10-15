@@ -4,8 +4,8 @@ export default {
   getUserData(name){
     // "proxy": "https://m-lostark.game.onstove.com",
     // "homepage": "http://sangmin802.github.io/loa-hands",
-    const baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/Character/';
-    // const baseUrl = '/Profile/Character/';
+    // const baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/Character/';
+    const baseUrl = '/Profile/Character/';
     const encoded = encodeURIComponent(name);
     return new Promise((getUserDataRes, getUserDataRej) => {
       fetch(baseUrl+encoded)

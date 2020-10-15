@@ -131,6 +131,22 @@
 .userInfoBottom {
   margin-top : 2rem;
 }
+.userInfoBottomTabWrap {
+  background : #222;
+  display : flex;
+  padding : .5rem;
+  width : fit-content;
+  border-radius : 5px 5px 0 0;
+}
+.userInfoBottomTab {
+  margin-right : .5rem;
+  color : #666;
+  cursor : pointer;
+}
+.tabTarget {
+  color : white;
+}
+/* 장비리스트 */
 .equipList {
   position : relative;
   display : flex;
@@ -156,6 +172,40 @@
 }
 .equipListContent * {
   color : rgba(222,222,222);
+}
+
+/* 아바타리스트 */
+.avatarList {
+  background : #222;
+  padding : .5rem;
+  padding-top : 0;
+  display : flex;
+  justify-content : space-between;
+}
+.avatarListLeft, .avatarListRight {
+  width : 30%;
+}
+.avatarPartWrap {
+  display : flex;
+}
+.flexcolumn {
+  flex-direction : column;
+  align-items : flex-end;
+}
+.avatarWrap {
+  width : 50%;
+  margin-top : .5rem;
+  position : relative;
+}
+.avatarWrap .equipListDetail {
+  width : 400%;
+  left : 20%;
+}
+.avatarWrap:hover .equipListDetail {
+  display : block;
+}
+.avatarWrap .PosChange {
+  left : -320%;
 }
 
 /* 아이템 상세보기 */

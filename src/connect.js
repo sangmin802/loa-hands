@@ -21,14 +21,14 @@ export default {
     return {
       getUserData(name, history){
         if(name.replace(/ /g,'')){
-          dispatch({type : 'loadingToggle', bool : true});
+          dispatch({type : 'loadingToggle', loadingPop : true, expeditionPop : false});
           API.getUserData(name.replace(/ /g,''))
           .then((data) => {
-            dispatch({type : 'getUserData', data, bool : false})
+            dispatch({type : 'getUserData', data, loadingPop : false})
             history.push(`/userInfo/${name}`)
           })
           .catch(() => {
-            dispatch({type : 'loadingToggle', bool : false})
+            dispatch({type : 'loadingToggle', loadingPop : false})
             history.push(`/`)
           });
         }
@@ -40,21 +40,29 @@ export default {
 
   UserInfo : connect(state => {
     return {
-      userData : state.userData
+      userData : state.userData,
+      expeditionPop : state.expeditionPop,
+      equipTab : state.equipTab
     }
   },(dispatch) => {
     return {
       getUserData(name, history){
-        dispatch({type : 'loadingToggle', bool : true});
+        dispatch({type : 'loadingToggle', loadingPop : true});
         API.getUserData(name)
         .then((data) => {
-          dispatch({type : 'getUserData', data, bool : false})
+          dispatch({type : 'getUserData', data, loadingPop : false})
           history.push(`/userInfo/${name}`)
         })
         .catch(() => {
-          dispatch({type : 'loadingToggle', bool : false})
+          dispatch({type : 'loadingToggle', loadingPop : false})
           history.push(`/`)
         });
+      },
+      expeditionPopToggle(bool){
+        dispatch({type : 'expeditionPopToggle', expeditionPop : bool})
+      },
+      changeEquipTab(num){
+        dispatch({type : 'changeEquipTab', tab : num})
       }
     }
   })(UserInfo),
