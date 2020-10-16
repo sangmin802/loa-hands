@@ -131,14 +131,30 @@
 .userInfoBottom {
   margin-top : 2rem;
 }
-.userInfoBottomTabWrap {
+.userInfoBottomMainTabWrap {
   background : #222;
   display : flex;
   padding : .5rem;
   width : fit-content;
   border-radius : 5px 5px 0 0;
 }
-.userInfoBottomTab {
+.userInfoBottomMainTab {
+  margin-right : 2rem;
+  color : #666;
+  cursor : pointer;
+}
+.userInfoBottomMainTab:last-child {
+  margin-right : 0;
+}
+.userInfoBottomSubTabWrap {
+  background : #222;
+  display : flex;
+  padding : .5rem;
+  padding-top : 0;
+  width : fit-content;
+  border-radius : 5px 5px 0 0;
+}
+.userInfoBottomSubTab {
   margin-right : .5rem;
   color : #666;
   cursor : pointer;
@@ -146,14 +162,18 @@
 .tabTarget {
   color : white;
 }
+.bottomContent {
+  background : #222;
+  padding : .5rem;
+}
 /* 장비리스트 */
 .equipList {
   position : relative;
   display : flex;
   align-items : center;
   margin-bottom : .5rem;
-  padding : .5rem;
-  background : #222;
+  padding : .3rem;
+  background : #333;
   border-radius : 3px;
 }
 .equipList:last-child {
@@ -176,7 +196,8 @@
 
 /* 아바타리스트 */
 .avatarList {
-  background : #222;
+  background : #333;
+  border-radius : 5px;
   padding : .5rem;
   padding-top : 0;
   display : flex;

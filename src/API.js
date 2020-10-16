@@ -4,11 +4,14 @@ export default {
   getUserData(name){
     // "proxy": "https://m-lostark.game.onstove.com",
     // "homepage": "http://sangmin802.github.io/loa-hands",
-    // const baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/Character/';
-    const baseUrl = '/Profile/Character/';
-    const encoded = encodeURIComponent(name);
+    // const baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/';
+
+    const
+      baseUrl = '/Profile/',
+      encoded = encodeURIComponent(name);
+
     return new Promise((getUserDataRes, getUserDataRej) => {
-      fetch(baseUrl+encoded)
+      fetch(baseUrl+'Character/'+encoded)
       .then(httpRes => httpRes.text())
       .then(data => {
         if(data.includes("alert('캐릭터 정보가 없습니다.")){
@@ -17,13 +20,28 @@ export default {
           alert('서비스 점검중입니다.')
           getUserDataRej();
         }else{
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(data, 'text/html')
-          const body = doc.getElementsByTagName('body')[0]
-  
-          const expedition = body.getElementsByClassName('myinfo__character--wrapper2')[0];
-          const user = new UserInfo(body, name, expedition);
-          getUserDataRes(user);
+          const 
+            promiseAllArr = ['GetCollection'],
+            parser = new DOMParser(),
+            doc = parser.parseFromString(data, 'text/html'),
+            body = doc.getElementsByTagName('body')[0],
+            script = body.getElementsByTagName('script'),
+            expedition = body.getElementsByClassName('myinfo__character--wrapper2')[0],
+            [,memberNo,,pcId,,worldNo] = script[10].textContent.split('\''),
+            promiseParams = {
+              memberNo, pcId, worldNo
+            };
+          
+          Promise.all(
+            promiseAllArr.map(arr => {
+              return fetch(baseUrl+arr+'?'+new URLSearchParams(promiseParams).toString()).then(res => res.text())
+            })
+          )
+          .then(_PA => {
+            const user = new UserInfo(body, name, expedition, _PA);
+          
+            getUserDataRes(user);
+          })
         }
       })
     })

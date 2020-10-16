@@ -2,7 +2,7 @@ import EquipInfo from "./equipInfo";
 import Factory from '../factory.js'
 
 export default class UserInfo {
-  constructor(raw, name, expedition){
+  constructor(raw, name, expedition, _PA){
     // 유저 기본정보 설정
     this.setUserBaseInfo(raw, name)
 
@@ -11,6 +11,10 @@ export default class UserInfo {
     
     // 모험단 유저
     this.setExpeditionUserInfo(raw, expedition)
+
+    // 수집형 포인트
+    const [collection] = _PA;
+    this.setCollectionInfo(collection)
   }
 
   setUserBaseInfo(raw){
@@ -59,6 +63,48 @@ export default class UserInfo {
           return {
             name : li.children[0].childNodes[1].textContent.trim(),
             lv : li.children[0].children[0].innerText
+          }
+        })
+      }
+    })
+  }
+
+  setCollectionInfo(co){
+    const
+      parser = new DOMParser(),
+      doc = parser.parseFromString(co, 'text/html');
+
+    this.collectionMini = [...doc.getElementsByClassName('lui-tab__menu')[0].children].map(el => {
+      const child = el.childNodes;
+      return{
+        name : child[0].textContent.trim(),
+        size : child[1].innerText
+      }
+    });
+    this.collectionDetail = [...doc.getElementsByClassName('collection-list')]
+    .map(colPart => {
+      const 
+        child = colPart.children,
+        title = child[0].children[0].textContent,
+        getCount = child[0].children[1].children[0].textContent,
+        totalCount = child[0].children[1].children[1].textContent;
+      return {
+        title, getCount, totalCount,
+        detail : [...child[1].children]
+        .map(li => {
+          const 
+            childNodes = li.childNodes,
+            no = childNodes[0].textContent,
+            name = childNodes[1].textContent.trim(),
+            isGet = childNodes[2] ?
+              childNodes[2].textContent === '획득' ? 
+                true
+              :
+                false
+            :
+              false
+          return {
+            no, name, isGet
           }
         })
       }

@@ -2,8 +2,8 @@
   "name": "my-loa",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://sangmin802.github.io/loa-hands",
   "proxy": "https://m-lostark.game.onstove.com",
+  "homepage": "http://sangmin802.github.io/loa-hands",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

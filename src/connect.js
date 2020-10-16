@@ -4,6 +4,8 @@ import App from './components/App.js';
 import Header from './components/Header.js'
 import Home from './components/Home.js';
 import UserInfo from './components/UserInfo.js';
+import Ability from './components/Ability.js';
+import Collection from './components/Collection.js';
 
 
 export default {
@@ -42,7 +44,7 @@ export default {
     return {
       userData : state.userData,
       expeditionPop : state.expeditionPop,
-      equipTab : state.equipTab
+      userInfoMainTab : state.userInfoMainTab
     }
   },(dispatch) => {
     return {
@@ -61,9 +63,35 @@ export default {
       expeditionPopToggle(bool){
         dispatch({type : 'expeditionPopToggle', expeditionPop : bool})
       },
-      changeEquipTab(num){
-        dispatch({type : 'changeEquipTab', tab : num})
+      changeUserInfoMainTab(num){
+        dispatch({type : 'changeUserInfoMainTab', userInfoMainTab : num})
       }
     }
   })(UserInfo),
+
+  Ability : connect(state => {
+    return {
+      userData : state.userData,
+      userInfoSubTab : state.userInfoSubTab
+    }
+  }, (dispatch) => {
+    return {
+      changeUserInfoSubTab(num){
+        dispatch({type : 'changeUserInfoSubTab', userInfoSubTab : num})
+      }
+    }
+  })(Ability),
+
+  Collection : connect(state => {
+    return {
+      userData : state.userData,
+      userInfoSubTab : state.userInfoSubTab
+    }
+  }, (dispatch) => {
+    return {
+      changeUserInfoSubTab(num){
+        dispatch({type : 'changeUserInfoSubTab', userInfoSubTab : num})
+      }
+    }
+  })(Collection),
 }

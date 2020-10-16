@@ -1,12 +1,12 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import Connect from '../connect.js';
 import '../css/UserInfo.css';
+import Factory from '../factory.js';
 import EquipImg from './EquipImg.js';
-import EquipList from './EquipList.js';
-import AvatarList from './AvatarList.js';
 
 function UnserInfo(redux){
-  const {userData, match : {params : {name}}, expeditionPop, equipTab, getUserData, expeditionPopToggle, changeEquipTab} = redux;
+  const {userData, match : {params : {name}}, expeditionPop, userInfoMainTab, getUserData, expeditionPopToggle, changeUserInfoMainTab} = redux;
   const history = useHistory();
   const insertImgComp = function(arr, startNum, endNum){
     return arr.splice(startNum, endNum).map((equip, index) =>{
@@ -21,26 +21,15 @@ function UnserInfo(redux){
     return null;
   }else{
     const {Lv, className, classSrc, curBigLv, curSamllLv, equipInfo, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
-    const [equipArr, avaterArr] = Object.keys(equipInfo)
-    .reduce((prev, cur) => {
-      if(!cur.includes('av_')){
-        prev[0].push(equipInfo[cur])
-      }else{
-        prev[1].push({...equipInfo[cur], avatarPart : cur})
-      }
-      return prev;
-    }, [[], []]);
+    const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
 
     let bottomContent = null;
-    switch(equipTab){
+    switch(userInfoMainTab){
       case 0 :
-        bottomContent = 
-          [...equipArr].map((equip, index) => {
-            return <EquipList data={equip} key={`equipList${index}`}/>
-          })
+        bottomContent = <Connect.Ability />
       break;
       case 1 :
-        bottomContent = <AvatarList data={avaterArr}/>;
+        bottomContent = <Connect.Collection />
       break;  
       default : return null;
     }
@@ -172,15 +161,15 @@ function UnserInfo(redux){
           </div>
         </div>
         <div className="userInfoBottom">
-          <div className="userInfoBottomTabWrap">
-            {['장비', '아바타'].map((tab, index) => {
+          <div className="userInfoBottomMainTabWrap">
+            {['능력치', '수집형포인트'].map((tab, index) => {
               let target = null;
-              if(index===equipTab) target = "tabTarget"
+              if(index===userInfoMainTab) target = "tabTarget"
               return (
-                <div className={`userInfoBottomTab ${target}`}
-                  key={`userInfoBottomTab${index}`}
+                <div className={`userInfoBottomMainTab ${target}`}
+                  key={`userInfoBottomMainTab${index}`}
                   onClick={() => {
-                      changeEquipTab(index)
+                      changeUserInfoMainTab(index)
                     }
                   }
                 >

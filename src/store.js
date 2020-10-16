@@ -5,7 +5,8 @@ export default createStore((state, action) => {
     isLoading : false,
     userData : null,
     expeditionPopBool : false,
-    equipTab : 0
+    userInfoMainTab : 0,
+    userInfoSubTab : 0
   }
 
   if(state){
@@ -18,13 +19,18 @@ export default createStore((state, action) => {
         newState.isLoading = action.loadingPop;
         newState.expeditionPop = false;
         newState.userData = action.data;
-        newState.equipTab = 0
+        newState.userInfoMainTab = 0;
+        newState.userInfoSubTab = 0;
       break;
       case 'expeditionPopToggle' :
         newState.expeditionPop = action.expeditionPop;
       break;
-      case 'changeEquipTab' :
-        newState.equipTab = action.tab;
+      case 'changeUserInfoMainTab' :
+        newState.userInfoMainTab = action.userInfoMainTab;
+        newState.userInfoSubTab = 0;
+      break;
+      case 'changeUserInfoSubTab' :
+        newState.userInfoSubTab = action.userInfoSubTab;
       break;
       default : return null;
     }
