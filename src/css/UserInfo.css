@@ -149,8 +149,7 @@
 .userInfoBottomSubTabWrap {
   background : #222;
   display : flex;
-  padding : .5rem;
-  padding-top : 0;
+  margin-bottom : .5rem;
   width : fit-content;
   border-radius : 5px 5px 0 0;
 }
@@ -300,4 +299,28 @@
 }
 .GemStat, .GemName {
   width : 100%;
+}
+
+/* 수집품 */
+.userCollectionTitle {
+  margin-top : 1rem;
+}
+.userCollectionDetailWrap {
+  display : flex;
+  margin-top : 1rem;
+}
+.userCollectionDetailWrap > div {
+  width : 50%;
+}
+.userCollectionSide {
+  padding : .5rem;
+}
+.userCollectionIsGet {
+  margin-bottom : .6rem;
+}
+.userCollection {
+  display : flex;
+}
+.userCollectionNo {
+  margin-right : .3rem;
 }

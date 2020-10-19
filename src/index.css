@@ -21,6 +21,9 @@ body {
   top : 0;
   transform : scale(.9);
 }
+.textCenter {
+  text-align : center;
+}
 
 .height100vh {height : 100vh; overflow : hidden;}
 .rem09 {font-size : 0.9rem; }

@@ -4,8 +4,7 @@ import App from './components/App.js';
 import Header from './components/Header.js'
 import Home from './components/Home.js';
 import UserInfo from './components/UserInfo.js';
-import Ability from './components/Ability.js';
-import Collection from './components/Collection.js';
+import BottomContent from './components/BottomContent.js';
 
 
 export default {
@@ -69,10 +68,11 @@ export default {
     }
   })(UserInfo),
 
-  Ability : connect(state => {
+  BottomContent : connect(state => {
     return {
       userData : state.userData,
-      userInfoSubTab : state.userInfoSubTab
+      userInfoSubTab : state.userInfoSubTab,
+      userInfoMainTab : state.userInfoMainTab
     }
   }, (dispatch) => {
     return {
@@ -80,18 +80,5 @@ export default {
         dispatch({type : 'changeUserInfoSubTab', userInfoSubTab : num})
       }
     }
-  })(Ability),
-
-  Collection : connect(state => {
-    return {
-      userData : state.userData,
-      userInfoSubTab : state.userInfoSubTab
-    }
-  }, (dispatch) => {
-    return {
-      changeUserInfoSubTab(num){
-        dispatch({type : 'changeUserInfoSubTab', userInfoSubTab : num})
-      }
-    }
-  })(Collection),
+  })(BottomContent),
 }

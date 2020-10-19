@@ -23,21 +23,9 @@ function UnserInfo(redux){
     const {Lv, className, classSrc, curBigLv, curSamllLv, equipInfo, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
     const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
 
-    let bottomContent = null;
-    switch(userInfoMainTab){
-      case 0 :
-        bottomContent = <Connect.Ability />
-      break;
-      case 1 :
-        bottomContent = <Connect.Collection />
-      break;  
-      default : return null;
-    }
-
     return(
       <div className="userInfo">
         <div className="userInfoTopCetnerWrap">
-
           <div className="userInfoTop">
             <div className="showExpeditionWrap"
               onClick={() => {
@@ -178,7 +166,7 @@ function UnserInfo(redux){
               )
             })}
           </div>
-          {bottomContent}
+          <Connect.BottomContent />
         </div>
       </div>
     )

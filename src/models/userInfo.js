@@ -82,7 +82,7 @@ export default class UserInfo {
       }
     });
     this.collectionDetail = [...doc.getElementsByClassName('collection-list')]
-    .map(colPart => {
+    .map((colPart, index) => {
       const 
         child = colPart.children,
         title = child[0].children[0].textContent,
@@ -92,7 +92,7 @@ export default class UserInfo {
         title, getCount, totalCount,
         detail : [...child[1].children]
         .map(li => {
-          const 
+          let 
             childNodes = li.childNodes,
             no = childNodes[0].textContent,
             name = childNodes[1].textContent.trim(),
@@ -102,7 +102,18 @@ export default class UserInfo {
               :
                 false
             :
-              false
+              false;
+
+          if(index === 4){
+            const
+              get = childNodes[3].children[0].textContent,
+              total = childNodes[3].children[1].textContent,
+              area = childNodes[2].textContent.trim();
+            no = childNodes[1].textContent
+            
+            isGet = get === total ? true : false;
+            name = `${area} ${get} / ${total}`;
+          }
           return {
             no, name, isGet
           }
