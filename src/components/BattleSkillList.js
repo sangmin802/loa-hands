@@ -22,7 +22,6 @@ function BattleSkill({data}){
 function createUserSkillList(skillDetail){
   return skillDetail.map((skill, index) => {
     const {rune, skillImg, skillLv, skillName, skillTripod, skillType} = skill;
-
     let 
       skillNameLv = 'Lv'+skillLv,
       runeCont = null,
@@ -35,7 +34,7 @@ function createUserSkillList(skillDetail){
       runeCont = createRune(rune);
     }
     if(skillTripod){
-      skillTripodCont = createSkillTripod(skillTripod)
+      skillTripodCont = Factory.tripodSkillCustomParser([skillTripod], 'skill');
     }
 
     return (
@@ -67,30 +66,6 @@ function createUserSkillList(skillDetail){
           <div className="userSkillNameLv">
             <div className="rem09">{skillNameLv}</div>
             <div className="rem09">{skillName}</div>
-          </div>
-        </div>
-      </div>
-    )
-  })
-}
-
-function createSkillTripod(skillTripod){
-  return Object
-  .values(skillTripod.value)
-  .filter(res => res.name)
-  .map((tri, index) => {
-    const {name, desc, tier, slotData : {iconPath}} = tri;
-    return (
-      <div className="skillTripod" key={`skillTripod${index}`}>
-        <div className="skillTripodImg">
-          <img className="imgWidth" src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={name} />
-        </div>
-        <div className="skillTripodContent">
-          <div className="skillTripodNameLv">
-            {Factory.getOnlyText(tier)} {Factory.getOnlyText(name)}
-          </div>
-          <div className="skillTripodDesc">
-            {Factory.getOnlyText(desc)}
           </div>
         </div>
       </div>

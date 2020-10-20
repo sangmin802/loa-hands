@@ -1,5 +1,4 @@
 import React from 'react';
-import AccGem from './components/AccGem.js';
 
 export default {
   getOnlyText(string){
@@ -100,9 +99,50 @@ export default {
     .map(el => {
       return el.map((res, index) => {
         if(type === 'equip'){
-          return (
-            <AccGem data={res} key={'accGem'+index}/>
-          )
+          const {desc} = res;
+          let returnValue = 
+            <div className="tripodSkillCustom" key={`tripodSkillCustom${index}`}>
+              <div className="GemImg"></div>
+              <div className="GemInfo">
+                <div className="GemName overflowDot rem1">{desc}</div>
+                <div className="GemStat"></div>
+              </div>
+            </div>
+          if(desc !== '보석 장착 필요'){
+            const {name, slotData : {iconGrade, iconPath}} = res;
+            returnValue = 
+              <div className="tripodSkillCustom" key={`tripodSkillCustom${index}`}>
+                <div className='GemImg'>
+                  <img className={`gradient${iconGrade} imgWidth`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt="보석"/>
+                </div>
+                <div className="GemInfo">
+                  <div className={`GemName rem1 overflowDot color${iconGrade}`}>{this.getOnlyText(name)}</div>
+                  <div className="GemStat rem09 overflowDot">{desc}</div>
+                </div>
+              </div>
+          }
+        
+          return returnValue;
+        }else if(type === 'skill'){
+          if(res.name !== ''){
+            const {name, desc, tier, slotData : {iconPath}} = res;
+            return (
+              <div className="skillTripod" key={`skillTripod${index}`}>
+                <div className="skillTripodImg">
+                  <img className="imgWidth" src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={name} />
+                </div>
+                <div className="skillTripodContent">
+                  <div className="skillTripodNameLv">
+                    {this.getOnlyText(tier)} {this.getOnlyText(name)}
+                  </div>
+                  <div className="skillTripodDesc">
+                    {this.getOnlyText(desc)}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+          return null;
         }
         return null;
       })
@@ -165,7 +205,7 @@ export default {
       }else if(qualityValue >= 90){
         qualityColor = 3;
       }
-     
+
       if(equipGroupType === "Acc"){
         const TripodSkillCustom = this.getSameTypeObj(dataArray, "TripodSkillCustom")
         TripodSkillCustomWrap = 
