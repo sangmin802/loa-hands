@@ -2,6 +2,7 @@
 
 body {
   background : #222;
+  overflow-y : scroll;
 }
 
 .displayNone {
@@ -52,6 +53,9 @@ body {
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap;
+}
+.hoverTarget:hover .hoverContent {
+  display : block;
 }
 
 

@@ -11,7 +11,7 @@ function EquipList({data}){
   const equipListContent = createEquipListContent(partImg, detail);
 
   return(
-    <div className="equipList">
+    <div className="equipList hoverTarget">
       {equipListDetail}
       {equipListImg}
       {equipListContent}

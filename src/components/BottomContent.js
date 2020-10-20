@@ -2,13 +2,13 @@ import React from 'react';
 import Factory from '../factory.js'
 import EquipList from './EquipList.js';
 import AvatarList from './AvatarList.js';
+import BattleSkillList from './BattleSkillList.js';
 
 function BottomContent(redux){
   const 
     {userData, userInfoSubTab, changeUserInfoSubTab, userInfoMainTab} = redux,
-    {equipInfo} = userData,
+    {abilityInfo : {equipInfo, skillInfo}} = userData,
     [equipArr, avaterArr] = Factory.devideEquipInfo(equipInfo)
-  
   let 
     content = null,
     subTabArr = [];
@@ -29,7 +29,22 @@ function BottomContent(redux){
         default : return null;
       }
     break;
-    case 1 :
+    case 1 : 
+      subTabArr = ['전투스킬', '생활스킬'];
+      switch(userInfoSubTab){
+        case 0 :
+          if(skillInfo){
+            content = <BattleSkillList data = {skillInfo.battleSkill}/>
+          }else{
+            content = <div className="noBattleSkillInfo">설정된 스킬이 없습니다.</div>
+          }
+        break;
+        case 1 :
+        break;
+        default : return null;
+      }
+    break;
+    case 2 :
       subTabArr = userData.collectionMini.map(res => res.name);
       const 
         targetCollection = userData.collectionDetail[userInfoSubTab],
@@ -60,7 +75,7 @@ function BottomContent(redux){
                 return (
                   <div className="userCollection" key={`userCollection${index}`}>
                     <div className="userCollectionNo">{col.no}.</div>
-                    <div className="userCollectionName">{col.name}</div>
+                    <div className="userCollectionName overflowDot">{col.name}</div>
                   </div>
                 )
               })}

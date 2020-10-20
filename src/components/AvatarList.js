@@ -1,5 +1,5 @@
 import React from 'react';
-import EquipImg from './EquipImg.js';
+import UserInfoEquipImg from './UserInfoEquipImg.js';
 import Factory from '../factory.js';
 
 function AvatarList({data}){
@@ -50,9 +50,9 @@ function createAvatarDiv(arr, avatarPart, pos){
           equipListDetail = Factory.createEquipListDetail(partImg, detail, pos)
         }
         return (
-          <div className="avatarWrap" key={`avatar${index}`}>
+          <div className="avatarWrap hoverTarget" key={`avatar${index}`}>
             {equipListDetail}
-            <EquipImg data={res}/>
+            <UserInfoEquipImg data={res}/>
           </div>
         )
       })}

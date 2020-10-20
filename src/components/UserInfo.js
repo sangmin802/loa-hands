@@ -3,14 +3,14 @@ import {useHistory} from 'react-router-dom';
 import Connect from '../connect.js';
 import '../css/UserInfo.css';
 import Factory from '../factory.js';
-import EquipImg from './EquipImg.js';
+import UserInfoEquipImg from './UserInfoEquipImg.js';
 
 function UnserInfo(redux){
   const {userData, match : {params : {name}}, expeditionPop, userInfoMainTab, getUserData, expeditionPopToggle, changeUserInfoMainTab} = redux;
   const history = useHistory();
   const insertImgComp = function(arr, startNum, endNum){
     return arr.splice(startNum, endNum).map((equip, index) =>{
-      return <EquipImg key={`EquipImg${index}`} data={equip}/>
+      return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
     })
   }
   let displayPop = null;
@@ -20,7 +20,7 @@ function UnserInfo(redux){
     getUserData(name, history);
     return null;
   }else{
-    const {Lv, className, classSrc, curBigLv, curSamllLv, equipInfo, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
+    const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
     const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
 
     return(
@@ -150,7 +150,7 @@ function UnserInfo(redux){
         </div>
         <div className="userInfoBottom">
           <div className="userInfoBottomMainTabWrap">
-            {['능력치', '수집형포인트'].map((tab, index) => {
+            {['능력치','스킬' , '수집형포인트'].map((tab, index) => {
               let target = null;
               if(index===userInfoMainTab) target = "tabTarget"
               return (

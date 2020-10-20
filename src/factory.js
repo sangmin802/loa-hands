@@ -1,6 +1,5 @@
 import React from 'react';
 import AccGem from './components/AccGem.js';
-import EquipDetailActive from './components/EquipDetailActive';
 
 export default {
   getOnlyText(string){
@@ -93,16 +92,19 @@ export default {
     })
   },
 
-  tripodSkillCustomParser(_arr){
+  tripodSkillCustomParser(_arr, type){
     return _arr.map(tripod => {
       const {value} = tripod;
       return Object.values(value);
     })
     .map(el => {
       return el.map((res, index) => {
-        return (
-          <AccGem data={res} key={'accGem'+index}/>
-        )
+        if(type === 'equip'){
+          return (
+            <AccGem data={res} key={'accGem'+index}/>
+          )
+        }
+        return null;
       })
     })
   },
@@ -133,13 +135,27 @@ export default {
 
   createEquipListDetail(partImg, detail, pos){
     let result = 
-      <div className="equipListDetail"></div>
+      <div className="listDetail hoverContent"></div>
     if(detail){
-      const {ItemTitle0, NameTagBox0, equipGroupType} = detail;
-      const {value : {slotData : {iconPath, iconGrade}}} = ItemTitle0;
-      const [equipGrade,,tier, qualityValue] = this.multipleValues(ItemTitle0.value);
-      const itemName = this.getOnlyText(NameTagBox0.value);
-      let qualityColor = -2;
+      const 
+        {ItemTitle0, NameTagBox0, equipGroupType} = detail,
+        {value : {slotData : {iconPath, iconGrade}}} = ItemTitle0,
+        [equipGrade,,tier, qualityValue] = this.multipleValues(ItemTitle0.value),
+        itemName = this.getOnlyText(NameTagBox0.value),
+        dataArray = Object.values(detail),
+        SingleTextBox = this.getSameTypeObj(dataArray, "SingleTextBox"),
+        ItemPartBox = this.getSameTypeObj(dataArray, "ItemPartBox");
+
+      let 
+        qualityColor = -2,
+        qualityWrap = 
+        <div className='listDetailQuality'>
+          <div className={`qualityValue gradient${qualityColor}`} style={{width : `${qualityValue}%`}}/>
+        </div>,
+        TripodSkillCustomWrap = null,
+        IndentStringWrap = null
+
+
       if(qualityValue >= 0 && qualityValue < 10){
         qualityColor = -1
       }else if(qualityValue >= 10 && qualityValue < 70){
@@ -149,36 +165,55 @@ export default {
       }else if(qualityValue >= 90){
         qualityColor = 3;
       }
-  
-      let qualityWrap = 
-        <div className='equipListDetailQuality'>
-          <div className={`qualityValue gradient${qualityColor}`} style={{width : `${qualityValue}%`}}/>
-        </div>;
-      if(equipGroupType==="Stone"){
+     
+      if(equipGroupType === "Acc"){
+        const TripodSkillCustom = this.getSameTypeObj(dataArray, "TripodSkillCustom")
+        TripodSkillCustomWrap = 
+        <div className="tirpodSkillCustomWrap">
+          {this.tripodSkillCustomParser(TripodSkillCustom, 'equip')}
+        </div>
+      }
+
+      if(equipGroupType !== "Stone"){
+        const IndentStringGroup = this.getSameTypeObj(dataArray, "IndentStringGroup");
+        IndentStringWrap = 
+          <div className="intentStringWrap">
+            {this.intentStringGroupParser(IndentStringGroup)}
+          </div>
+      }else{
         qualityWrap = null;
       }
-  
+
       result = 
-        <div className={`equipListDetail zIndex10 ${pos}`}>
-          <div className="equipLilstDetailTop">
-            <div className="equipListDetailImg">
+        <div className={`listDetail hoverContent zIndex10 ${pos}`}>
+          <div className="listDetailTop">
+            <div className="listDetailImg">
               <img className="imgWidth" src={`//cdn-lostark.game.onstove.com${partImg}`} alt="partImg"/>
               <img className={`equipMainImg absolute imgWidth gradient${iconGrade}`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={iconPath} />
             </div>
-            <div className="equipListMainInfo">
-              <div className={`equipListDetailName overflowDot color${iconGrade} rem13`}>
+            <div className="listDetailMainInfo">
+              <div className={`listDetailName overflowDot color${iconGrade} rem13`}>
                 {itemName}
               </div>
-              <div className={`equipListDetailGrade overflowDot color${iconGrade} rem1`}>
+              <div className={`listDetailGrade overflowDot color${iconGrade} rem1`}>
                 {equipGrade}
               </div>
-              <div className='equipListDetailTier overflowDot rem09'>
+              <div className='listDetailTier overflowDot rem09'>
                 {tier}
               </div>
               {qualityWrap}
             </div>
           </div>
-          <EquipDetailActive data={detail}/>
+          <div className="listDetailBottom">
+            <div className="itemPartBoxWrap">
+              {this.itemPartBoxParser(ItemPartBox)}
+            </div>
+            {IndentStringWrap}
+            <div className="singleTextWrap">
+              {this.singleTextBoxParser(SingleTextBox)}
+            </div>
+            {TripodSkillCustomWrap}
+          </div>
         </div>
     }
     return result;
@@ -194,5 +229,5 @@ export default {
       }
       return prev;
     }, [[], []]);
-  }
+  },
 }

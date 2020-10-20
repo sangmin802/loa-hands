@@ -1,4 +1,4 @@
-import EquipInfo from "./equipInfo";
+import AbilityInfo from "./abilityInfo";
 import Factory from '../factory.js'
 
 export default class UserInfo {
@@ -6,8 +6,8 @@ export default class UserInfo {
     // 유저 기본정보 설정
     this.setUserBaseInfo(raw, name)
 
-    // 유저 아이템정보 설정
-    this.setUserEquipInfo(raw)
+    // 유저 능력치 설정
+    this.setUserAbilityInfo(raw)
     
     // 모험단 유저
     this.setExpeditionUserInfo(raw, expedition)
@@ -38,10 +38,10 @@ export default class UserInfo {
     this.classEngName = str.substring(0, end);
   }
 
-  setUserEquipInfo(raw){
+  setUserAbilityInfo(raw){
     const script = raw.getElementsByTagName('script')
     const script0 = script[0];
-    this.equipInfo = new EquipInfo(script0)
+    this.abilityInfo = new AbilityInfo(script0, raw)
   }
 
   setExpeditionUserInfo(raw, expedition){

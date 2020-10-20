@@ -217,20 +217,17 @@
   margin-top : .5rem;
   position : relative;
 }
-.avatarWrap .equipListDetail {
+.avatarWrap .listDetail {
   width : 400%;
   left : 20%;
-}
-.avatarWrap:hover .equipListDetail {
-  display : block;
 }
 .avatarWrap .PosChange {
   left : -320%;
 }
 
 /* 아이템 상세보기 */
-.equipListDetail {
-  width : 70%;
+.listDetail {
+  width : 85%;
   padding : .5rem;
   position : absolute;
   bottom : 20%;
@@ -243,31 +240,31 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-.equipListDetail::-webkit-scrollbar {
+.listDetail::-webkit-scrollbar {
   display: none;
 }
-.equipListDetail * {
+.listDetail * {
   color : white;
 }
-.equipListDetailImg {
+.listDetailTop {
+  display : flex;
+  justify-content : space-between;
+}
+.listDetailImg {
   position : relative;
   width : 30%;
 }
-.equipLilstDetailTop {
-  display : flex;
-  justify-content : space-between;
-}
-.equipListMainInfo {
-  width : 60%;
+.listDetailMainInfo {
+  width : 68%;
   overflow : hidden;
   display : flex;
   flex-direction : column;
-  justify-content : space-between;
+  justify-content : center;
 }
-.equipListDetailQuality {
+.listDetailQuality {
   height : 10%;
 }
-.equipListDetailQuality .qualityValue {
+.listDetailQuality .qualityValue {
   height : 100%;
 }
 .itemPartBoxWrap, .singleTextWrap, .intentStringWrap {
@@ -279,9 +276,6 @@
 .itemPartBoxTitle {
   font-weight : bold;
   margin-bottom : .15rem;
-}
-.equipList:hover .equipListDetail {
-  display : block;
 }
 .tripodSkillCustom {
   display : flex;
@@ -299,6 +293,55 @@
 }
 .GemStat, .GemName {
   width : 100%;
+}
+
+.skillRuneContent, .skillTripod {
+  display : flex;
+  margin-top : 1rem;
+  align-items : center;
+}
+.runeImg, .skillTripodImg {
+  width : 10%;
+  margin-right : .3rem;
+}
+.runeMainInfo, .skillTripodContent {
+  width : 80%;
+}
+.runeMainInfo div {
+  width : 100%;
+}
+
+/* 스킬 */
+.userSkillPoint {
+  padding : .5rem 0;
+  text-align : center;
+}
+.userSkillListWrap {
+  padding : .5rem;
+  padding-top : 0;
+}
+.userSkillList {
+  display : flex;
+  position : relative;
+  align-items : center;
+  margin-top : .5rem;
+  background : #333;
+  padding : .3rem;
+  border-radius : 3px;
+}
+.userSkillImg {
+  width : 15%;
+  margin-right : .5rem;
+  background : #222;
+}
+.userSkillImg img {
+  transform : scale(.9);
+}
+.userSkillNameLv {
+  display : flex;
+}
+.userSkillNameLv > div:last-child {
+  margin-left : .3rem;
 }
 
 /* 수집품 */
