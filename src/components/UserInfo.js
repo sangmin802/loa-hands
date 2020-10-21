@@ -20,7 +20,7 @@ function UnserInfo(redux){
     getUserData(name, history);
     return null;
   }else{
-    const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName} = userData;
+    const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini} = userData;
     const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
 
     return(
@@ -102,6 +102,42 @@ function UnserInfo(redux){
                     {guild}
                   </div>
                 </div>
+              </div>
+              <div className="userInfoCollection">
+                {
+                  collectionMini.map((col, index) => {
+                    let position = '-576px';
+                    switch(index){
+                      case 0 : 
+                      break;
+                      case 1 : position = '-622px';
+                      break;
+                      case 2 : position = '-530px';
+                      break;
+                      case 3 : position = '-506px';
+                      break;
+                      case 4 : position = '-644px';
+                      break;
+                      case 5 : position = '-667px';
+                      break;
+                      case 6 : position = '-552px';
+                      break;
+                      case 7 : position = '-599px';
+                      break;
+                      default : return null;
+                    }
+                    return (
+                      <div className="collectionMini" key={`collectionMini${index}`}>
+                        <div className="collectionMiniBg"
+                          style={{backgroundPosition : `-1225px ${position}`}}
+                        ></div>
+                        <div className="collectionMiniSize">
+                          {col.size}
+                        </div>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
             <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>

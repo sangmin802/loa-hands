@@ -16,11 +16,11 @@ function Header(redux){
     <div className="header">
       <div className="innerHeader">
         <div className="logo">
-          <Link to="/" className="rem17">Loa Hands</Link>
+          <Link to="/" className="rem17"></Link>
         </div>
         <form onSubmit={userOnSubmit} className="searchForm">
           <input type="text" name="searchedUser"/>
-          <input type="submit" value="찾기"/>
+          <input type="submit" value="검색"/>
         </form>
       </div>
     </div>

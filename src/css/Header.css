@@ -4,41 +4,49 @@
   margin-bottom : 1.5rem;
 }
 .innerHeader {
-  display : flex;
   max-width : 600px;
   min-width : 360px;
   margin : 0 auto;
   padding : 1rem;
-  justify-content : space-between;
-  align-items : center;
 }
 .logo {
-  width : 30%;
-  margin-right : 10%;
+  background : url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259');
+  background-position : 466px -89px;
+  width : 160px;
+  margin : 0 auto 10px;
+  height : 50px;
+}
+.logo * {
+  display : inline-block; width : 100%; height : 100%;
 }
 .searchForm {
   display : flex;
-  width : 60%;
+  margin : 0 auto;
+  width : 50%;
   height : fit-content;
-  border-bottom : 1px solid white;
 }
 input[type=text] {
   width : 80%;
   background : none;
   border : 0;
   color : white;
+  border-bottom : 1px solid white;
   padding : .3rem;
 }
 input:focus {
   outline : none;
   background : none;
   border : 0;
+  border-bottom : 1px solid white;
 }
 input[type=submit] {
   width : 20%;
   background : none;
   border : 0;
   color : white;
+  border : 1px solid white;
+  font-weight : bold;
+  border-radius : 3px 3px 3px 0;
   padding : .3rem;
   cursor : pointer;
 }

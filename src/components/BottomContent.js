@@ -40,6 +40,21 @@ function BottomContent(redux){
           }
         break;
         case 1 :
+          if(skillInfo){
+            content = 
+              <div className="userLifeSkillWrap">
+                {skillInfo.lifeSkill.map((skill, index) => {
+                  return(
+                    <div className="lifeSkillList" key={`lifeSkillList${index}`}>
+                      <div className="lifeSkillLv">{skill.lv}</div>
+                      <div className="lifeSkillName">{skill.name}</div>
+                    </div>
+                  )
+                })}
+              </div>
+          }else{
+            content = <div className="noBattleSkillInfo">생활스킬이 활성화되지 않았습니다.</div>
+          }
         break;
         default : return null;
       }
@@ -89,7 +104,7 @@ function BottomContent(redux){
   }
 
   return(
-    <div className="bottomContent">
+    <div className="userInfoBottomMainTabContent">
       <div className="userInfoBottomSubTabWrap">
         {subTabArr.map((tab, index) => {
           let target = null;

@@ -1,13 +1,17 @@
 export default class SkillInfo {
   constructor(skill, raw){
     this.battleSkill = {};
-    this.lifeSkill = {};
+
     const 
-      batteSkill = raw.getElementsByClassName('profile-skill-battle')[1];
+      batteSkill = raw.getElementsByClassName('profile-skill-battle')[1],
+      lifeSkill = raw.getElementsByClassName('profile-skill-life')[0];
 
 
     //  전투스킬
     this.setBattleSkill(skill, batteSkill);
+
+    // 생활스킬
+    this.setLifeSkill(lifeSkill)
   }
 
   setBattleSkill(skill, batteSkill){
@@ -56,6 +60,18 @@ export default class SkillInfo {
 
       return {
         skillImg, skillType, skillName, skillLv, skillTripod, rune
+      }
+    })
+  }
+
+  setLifeSkill(lifeSkill){
+    const
+      li = lifeSkill.children[1].children;
+
+    this.lifeSkill = [...li].map(li => {
+      return {
+        name : li.children[0].textContent,
+        lv : li.children[1].textContent
       }
     })
   }

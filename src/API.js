@@ -6,8 +6,8 @@ export default {
     // "homepage": "http://sangmin802.github.io/loa-hands",
 
     const
-      baseUrl = '/Profile/',
-      // baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/',
+      // baseUrl = '/Profile/',
+      baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/',
       encoded = encodeURIComponent(name);
 
     return new Promise((getUserDataRes, getUserDataRej) => {
