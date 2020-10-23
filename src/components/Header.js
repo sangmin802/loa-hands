@@ -19,8 +19,8 @@ function Header(redux){
           <Link to="/" className="rem17"></Link>
         </div>
         <form onSubmit={userOnSubmit} className="searchForm">
-          <input type="text" name="searchedUser"/>
-          <input type="submit" value="검색"/>
+          <input type="text" className="rem1" name="searchedUser"/>
+          <input type="submit" className="rem1" value="검색"/>
         </form>
       </div>
     </div>

@@ -39,66 +39,68 @@ function UnserInfo(redux){
                 <div className="userClassEmb">
                   <img className="imgWidth" src={classSrc} alt={className} />
                 </div>
-                <div className="userClassName rem11">
+                <div className="userClassName rem09">
                   {className}
                 </div>
               </div>
               <div className="userNameNLvNServer">
-                <div className="userLvNname userInfoBox rem11 overflowDot">
+                <div className="userLvNname userInfoBox rem09 overflowDot">
                   {Lv} {name}
                 </div>
-                <div className="userServer userInfoBox rem11 overflowDot">
+                <div className="userServer userInfoBox rem09 overflowDot">
                   {server} <small>Lv {expeditionLv}</small>
                 </div>
               </div>
               <div className="userItemLv">
                 <div className="curUserItemLv userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     현재 아이템 레벨
                   </div>
-                  <div className="userInfoValue rem1">
+                  <div className="userInfoValue rem09">
                     {curBigLv} <small>{curSamllLv}</small>
                   </div>
                 </div>
                 <div className="reachUserItemLv userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     달성 아이템 레벨
                   </div>
-                  <div className="userInfoValue rem1">
+                  <div className="userInfoValue rem09">
                     {reachBigLv} <small>{reachSamllLv}</small>
                   </div>
                 </div>
               </div>
-              <div className="userExtraInfo">
+              <div className="userExtraInfo userExtraInfo1">
                 <div className="userGarden userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     영지
                   </div>
-                  <div className="userInfoValue rem1 overflowDot">
+                  <div className="userInfoValue rem09 overflowDot">
                     {garden}
                   </div>
                 </div>
                 <div className="userPvp userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     PVP
                   </div>
-                  <div className="userInfoValue rem1">
+                  <div className="userInfoValue rem09">
                     {pvp}
                   </div>
                 </div>
+              </div>
+              <div className="userExtraInfo userExtraInfo1">
                 <div className="userTitle userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     칭호
                   </div>
-                  <div className="userInfoValue rem1 overflowDot">
+                  <div className="userInfoValue rem09 overflowDot">
                     {title}
                   </div>
                 </div>
                 <div className="userTitle userInfoBox">
-                  <div className="userInfoTitle rem11">
+                  <div className="userInfoTitle rem09">
                     길드
                   </div>
-                  <div className="userInfoValue rem1 overflowDot">
+                  <div className="userInfoValue rem09 overflowDot">
                     {guild}
                   </div>
                 </div>
@@ -106,30 +108,30 @@ function UnserInfo(redux){
               <div className="userInfoCollection">
                 {
                   collectionMini.map((col, index) => {
-                    let position = '-576px';
+                    let position = '-565px';
                     switch(index){
                       case 0 : 
                       break;
-                      case 1 : position = '-622px';
+                      case 1 : position = '-610px';
                       break;
-                      case 2 : position = '-530px';
+                      case 2 : position = '-520px';
                       break;
-                      case 3 : position = '-506px';
+                      case 3 : position = '-498px';
                       break;
-                      case 4 : position = '-644px';
+                      case 4 : position = '-634px';
                       break;
-                      case 5 : position = '-667px';
+                      case 5 : position = '-656px';
                       break;
-                      case 6 : position = '-552px';
+                      case 6 : position = '-542px';
                       break;
-                      case 7 : position = '-599px';
+                      case 7 : position = '-589px';
                       break;
                       default : return null;
                     }
                     return (
                       <div className="collectionMini" key={`collectionMini${index}`}>
                         <div className="collectionMiniBg"
-                          style={{backgroundPosition : `-1225px ${position}`}}
+                          style={{backgroundPosition : `-1207px ${position}`}}
                         ></div>
                         <div className="collectionMiniSize">
                           {col.size}

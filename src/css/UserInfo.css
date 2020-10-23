@@ -41,22 +41,27 @@
   align-items : center;
   margin-bottom : .3rem;
 }
+.userExtraInfo {
+  flex-wrap : wrap;
+}
 .userClassEmb {
-  width : 40%;
-  margin-right : .5rem;
+  width : 41px;
+  margin-right : .3rem;
 }
 .userLvNname {
-  margin-right : 1rem;
+  margin-right : .3rem;
   max-width : 60%;
 }
 .curUserItemLv {
-  margin-right : 1.5rem;
+  margin-right : .3rem;
 }
 .userExtraInfo > div {
-  margin-right : .7rem;
-  flex-grow : 1;
+  display : flex;
+  margin-right : .3rem;
+  width : fit-content;
+  overflow : hidden;
 }
-.userExtraInfo > div:last-child {
+.userExtraInfo > div:nth-child(2n) {
   margin-right : 0;
 }
 .userInfoBox {
@@ -65,7 +70,10 @@
 .userInfoTitle {
   margin-bottom : .3rem;
 }
-
+.userExtraInfo .userInfoTitle {
+  margin-bottom : 0;
+  margin-right : .7rem;
+}
 .searchedUserExpedition {
   position : absolute;
   display : none;
@@ -108,7 +116,6 @@
 .userExpeditionChar:hover {
   background : #333;
 }
-/* https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259 */
 .userInfoCollection {
   display : flex;
 }
@@ -117,10 +124,10 @@
   flex-grow : 1;
 }
 .collectionMiniBg {
-  width : 22px;
+  width : 20px;
   height : 24px;
   background : url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259');
-  background-size: 1270px 1229px;
+  background-size: 1250px 1209px;
   margin-right : .3rem;
 }
 .collectionMiniSize {

@@ -1,6 +1,6 @@
 .AppWrap {
   max-width : 600px;
-  min-width : 360px;
+  /* min-width : 360px; */
   margin : 0 auto;
   background : #333;
   border-radius : 5px;
