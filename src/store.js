@@ -1,17 +1,23 @@
 import { createStore } from 'redux';
+import API from './API.js'
 
 export default createStore((state, action) => {
-  if(!state) return {
-    isLoading : false,
-    userData : null,
-    expeditionPopBool : false,
-    userInfoMainTab : 0,
-    userInfoSubTab : 0
-  }
-
-  if(state){
+  if(!state){
+    return {
+      isLoading : false,
+      userData : null,
+      homeData : null,
+      expeditionPopBool : false,
+      userInfoMainTab : 0,
+      userInfoSubTab : 0
+    }
+  }else{
     const newState = {...state};
     switch(action.type){
+      case 'setHomeData' : 
+        newState.homeData = action.homeData;
+        newState.isLoading = action.loadingPop;
+      break;
       case 'loadingToggle' : 
         newState.isLoading = action.loadingPop;
       break;

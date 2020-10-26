@@ -1,6 +1,15 @@
 import React from 'react';
 
 export default {
+  returnBody(data){
+    const
+      parser = new DOMParser(),
+      doc = parser.parseFromString(data, 'text/html'),
+      body = doc.getElementsByTagName('body')[0];
+    
+    return body;
+  },
+
   getOnlyText(string){
     const newStr = string.replace(/<BR>/gi, "enter");
     const parsed = new DOMParser().parseFromString(newStr, "text/html").body.textContent;

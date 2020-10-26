@@ -1,4 +1,6 @@
-import UserInfo from './models/userInfo.js'
+import UserInfo from './models/userInfo.js';
+import HomeData from './models/homeData.js';
+import Factory from './factory.js'
 
 export default {
   getUserData(name){
@@ -6,8 +8,8 @@ export default {
     // "homepage": "http://sangmin802.github.io/loa-hands",
 
     const
-      // baseUrl = '/Profile/',
-      baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/',
+      baseUrl = '/Profile/',
+      // baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/',
       encoded = encodeURIComponent(name);
 
     return new Promise((getUserDataRes, getUserDataRej) => {
@@ -22,9 +24,7 @@ export default {
         }else{
           const 
             promiseAllArr = ['GetCollection'],
-            parser = new DOMParser(),
-            doc = parser.parseFromString(data, 'text/html'),
-            body = doc.getElementsByTagName('body')[0],
+            body = Factory.returnBody(data),
             script = body.getElementsByTagName('script'),
             expedition = body.getElementsByClassName('myinfo__character--wrapper2')[0],
             [,memberNo,,pcId,,worldNo] = script[10].textContent.split('\'');
@@ -44,6 +44,22 @@ export default {
             getUserDataRes(user);
           })
         }
+      })
+    })
+  },
+
+  getHomeData(){
+    const
+      baseUrl = '/News/Event/Now';
+      // baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/News/Event/Now'
+    return new Promise(res => {
+      fetch(baseUrl)
+      .then(res => res.text())
+      .then(data => {
+        // console.log(data)
+        const
+          body = Factory.returnBody(data);
+        res(new HomeData(body));
       })
     })
   }

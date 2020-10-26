@@ -37,7 +37,21 @@ export default {
     }
   })(Header),
 
-  Home : connect(state => state,)(Home),
+  Home : connect(state => {
+    return {
+      homeData : state.homeData
+    }
+  },(dispatch) => {
+    return {
+      setHomeData(){
+        dispatch({type : 'loadingToggle', loadingPop : true});
+        API.getHomeData()
+        .then(homeData => {
+          dispatch({type : 'setHomeData', homeData, loadingPop : false})
+        })
+      }
+    }
+  })(Home),
 
   UserInfo : connect(state => {
     return {

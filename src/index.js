@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import store from './store.js';
 import { HashRouter } from 'react-router-dom';
 
+
 ReactDOM.render(
   <Provider store = { store }>
     {/* <HashRouter basename="/loa-hands/"> */}
