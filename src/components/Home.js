@@ -1,9 +1,22 @@
 import React from 'react';
 
-function Home(redux){
-  const {homeData, setHomeData} = redux;
+import {useSelector, useDispatch} from 'react-redux';
+import * as Actions from '../actions.js';
+
+function Home(router){
+  const
+    dispatch = useDispatch(),
+    {homeData} = useSelector(state => ({
+      homeData : state.homeData,
+    }), (prev, next) => {
+      if(!prev.homeData){
+        return true
+      }
+    });
+    // {homeData, setHomeData} = redux;
   if(!homeData){
-    setHomeData();
+    dispatch(Actions.setHomeData_Thunk());
+    // setHomeData();
     return(
       <div className="home loading">
         로딩중
@@ -17,4 +30,4 @@ function Home(redux){
   )
 }
 
-export default Home;
+export default React.memo(Home, () => true);

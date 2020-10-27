@@ -1,23 +1,40 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import Connect from '../connect.js';
 import '../css/UserInfo.css';
 import Factory from '../factory.js';
 import UserInfoEquipImg from './UserInfoEquipImg.js';
 
-function UnserInfo(redux){
-  const {userData, match : {params : {name}}, expeditionPop, userInfoMainTab, getUserData, expeditionPopToggle, changeUserInfoMainTab} = redux;
-  const history = useHistory();
-  const insertImgComp = function(arr, startNum, endNum){
-    return arr.splice(startNum, endNum).map((equip, index) =>{
-      return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
-    })
-  }
+import {useSelector, useDispatch} from 'react-redux';
+import * as Actions from '../actions.js';
+import BottomContent from './BottomContent.js'
+
+function UnserInfo(router){
+  const
+    dispatch = useDispatch(),
+    {userData, expeditionPop, userInfoMainTab} = useSelector(state => ({
+      userData : state.userData,
+      expeditionPop : state.expeditionPop,
+      userInfoMainTab : state.userInfoMainTab,
+    }), (prev, next) => {
+      if(prev.userData === null){
+        return true;
+      }
+    }),
+    {match : {params : {name}}} = router,
+    // {userData, match : {params : {name}}, expeditionPop, userInfoMainTab, getUserData, expeditionPopToggle, changeUserInfoMainTab} = redux,
+    history = useHistory(),
+    insertImgComp = function(arr, startNum, endNum){
+      return arr.splice(startNum, endNum).map((equip, index) =>{
+        return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
+      })
+    };
+
   let displayPop = null;
 
   if(expeditionPop) displayPop = 'displayBlock';
   if(!userData){
-    getUserData(name, history);
+    dispatch(Actions.getUserData_Thunk(name, history));
+    // getUserData(name, history);
     return null;
   }else{
     const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini} = userData;
@@ -29,7 +46,8 @@ function UnserInfo(redux){
           <div className="userInfoTop">
             <div className="showExpeditionWrap"
               onClick={() => {
-                expeditionPopToggle(true)
+                dispatch(Actions.expeditionPopToggle(true));
+                // expeditionPopToggle(true)
               }}
             >
               원정대 캐릭터 보기
@@ -145,7 +163,8 @@ function UnserInfo(redux){
             <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>
               <div className="searchedUserExpeditionClose"
                 onClick={() => {
-                  expeditionPopToggle(false)
+                  dispatch(Actions.expeditionPopToggle(false));
+                  // expeditionPopToggle(false)
                 }}
               >
                 닫기
@@ -161,7 +180,8 @@ function UnserInfo(redux){
                         return(
                           <div className="userExpeditionChar rem09 overflowDot" key={`userExpeditionChar${index}`}
                             onClick={() => {
-                              getUserData(char.name, history)
+                              dispatch(Actions.getUserData_Thunk(char.name, history));
+                              // getUserData(char.name, history)
                             }}
                           >
                             {char.lv} {char.name}
@@ -195,7 +215,8 @@ function UnserInfo(redux){
                 <div className={`userInfoBottomMainTab ${target}`}
                   key={`userInfoBottomMainTab${index}`}
                   onClick={() => {
-                      changeUserInfoMainTab(index)
+                      dispatch(Actions.changeUserInfoMainTab(index));
+                      // changeUserInfoMainTab(index)
                     }
                   }
                 >
@@ -204,11 +225,12 @@ function UnserInfo(redux){
               )
             })}
           </div>
-          <Connect.BottomContent />
+          {/* <Connect.BottomContent /> */}
+          <BottomContent />
         </div>
       </div>
     )
   }
 }
 
-export default UnserInfo;
+export default React.memo(UnserInfo, () => true);

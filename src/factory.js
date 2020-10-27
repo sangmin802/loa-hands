@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default {
+  // 문자열을 Element화 해서, Body부분만 반환
   returnBody(data){
     const
       parser = new DOMParser(),
@@ -10,6 +11,8 @@ export default {
     return body;
   },
 
+  // 태그가 포함된 문자열에서 태그를 제외한 문자열만 반환
+  // BR태그가 있다면, div태그로 줄바꿈되도록 하고 {}를 통해 읽을수 있게 처리
   getOnlyText(string){
     const newStr = string.replace(/<BR>/gi, "enter");
     const parsed = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
@@ -22,10 +25,11 @@ export default {
         return null;
       })
     }else{
-      return new DOMParser().parseFromString(newStr, "text/html").body.textContent;
+      return parsed;
     }
   },
 
+  // 여러개의 value값(string, 그 외)을 가진 객체의 값들만 배열로 추출
   multipleValues(_val){
     let resultArr = [];
     const keyArr = Object.keys(_val)
@@ -39,6 +43,7 @@ export default {
     return resultArr;
   },
 
+  // 동일한 타입을 가진 객체만 찾아서 반환
   getSameTypeObj(_arr, _type){
     return _arr.filter(res => {
       if(res){
@@ -50,6 +55,7 @@ export default {
     })
   },
 
+  // 객체 타입 : itemPartBox 분석기
   itemPartBoxParser(_arr){
     return _arr.map(({value : {Element_000, Element_001}}, index) => {
       return (
@@ -61,6 +67,7 @@ export default {
     })
   },
 
+  // 객체 타입 : singleTextBox 분석기
   singleTextBoxParser(_arr){
     return _arr.map(({value}, index) => {
       return (
@@ -71,6 +78,7 @@ export default {
     })
   },
   
+  // 객체 타입 : intentStringGroup 분석기
   intentStringGroupParser(_arr){
     return _arr.map(intentString => {
       const {value} = intentString;
@@ -100,6 +108,8 @@ export default {
     })
   },
 
+  // 객체 타입 : tripodSkillCustom 분석기
+  //  장비와 스킬에 따라 다름
   tripodSkillCustomParser(_arr, type){
     return _arr.map(tripod => {
       const {value} = tripod;
@@ -130,7 +140,6 @@ export default {
                 </div>
               </div>
           }
-        
           return returnValue;
         }else if(type === 'skill'){
           if(res.name !== ''){
@@ -158,6 +167,7 @@ export default {
     })
   },
   
+  // 등급에 따른 글씨색상
   fontColorForGrade(_grade){
     let color = null;
     switch(_grade){
@@ -178,10 +188,12 @@ export default {
     return color;
   },
 
+  // 재귀함수
   recursiveFunction(val, fun, name){
     return fun(val, fun, name);
   },
 
+  // 장비나 아바타 마우스 호버시 상세내용 출력
   createEquipListDetail(partImg, detail, pos){
     let result = 
       <div className="listDetail hoverContent"></div>
@@ -268,6 +280,7 @@ export default {
     return result;
   },
 
+  // 아바타 or 장비 나누기
   devideEquipInfo(equipInfo){
     return Object.keys(equipInfo)
     .reduce((prev, cur) => {

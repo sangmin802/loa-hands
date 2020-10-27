@@ -4,11 +4,23 @@ import EquipList from './EquipList.js';
 import AvatarList from './AvatarList.js';
 import BattleSkillList from './BattleSkillList.js';
 
-function BottomContent(redux){
+import {useSelector, useDispatch} from 'react-redux';
+import * as Actions from '../actions.js';
+
+function BottomContent(){
   const 
-    {userData, userInfoSubTab, changeUserInfoSubTab, userInfoMainTab} = redux,
+    dispatch = useDispatch(),
+    {userData, userInfoSubTab, userInfoMainTab} = useSelector(state => {
+      return {
+        userData : state.userData,
+        userInfoSubTab : state.userInfoSubTab,
+        userInfoMainTab : state.userInfoMainTab
+      }
+    }),
+    // {userData, userInfoSubTab, changeUserInfoSubTab, userInfoMainTab} = redux,
     {abilityInfo : {equipInfo, skillInfo}} = userData,
-    [equipArr, avaterArr] = Factory.devideEquipInfo(equipInfo)
+    [equipArr, avaterArr] = Factory.devideEquipInfo(equipInfo);
+
   let 
     content = null,
     subTabArr = [];
@@ -113,7 +125,8 @@ function BottomContent(redux){
             <div className={`userInfoBottomSubTab ${target} textCenter`}
               key={`userInfoBottomSubTab${index}`}
               onClick={() => {
-                  changeUserInfoSubTab(index)
+                  dispatch(Actions.changeUserInfoSubTab(index))
+                  // changeUserInfoSubTab(index)
                 }
               }
             >
