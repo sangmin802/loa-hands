@@ -113,3 +113,21 @@
 .event {
   width : 49%;
 }
+/* 시간제 */
+.timerWrap {
+  display : flex;
+  flex-wrap : wrap;
+}
+.timer {
+  width : 33%;
+}
+.timerContent {
+  display : flex;
+  justify-content : space-between;
+}
+.timerImg {
+  width : 25%;
+}
+.timerTime {
+  width : 70%;
+}

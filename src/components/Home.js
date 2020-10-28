@@ -2,7 +2,9 @@ import React from 'react';
 import Event from './Event.js';
 
 import {useSelector, useDispatch, shallowEqual} from 'react-redux';
+import TimerWrap from './TimerWrap.js';
 import * as Actions from '../actions.js';
+
 import {dailyIsland} from '../JSON.js'
 
 function Home(router){
@@ -23,7 +25,7 @@ function Home(router){
   }
 
   const {events} = homeData;
-  console.log(dailyIsland)
+
   return(
     <div className="home">
       <div className="events homeSection">
@@ -36,9 +38,7 @@ function Home(router){
       </div>
       <div className="dailyIsland homeSection">
         <div className="homeSectionTitle rem1">일간 모험섬</div>
-        <div className="dailyIslandWrap">
-          <img src={dailyIsland[0].src}/>
-        </div>
+        <TimerWrap data={dailyIsland}/>
       </div>
     </div>
   )
