@@ -35,7 +35,7 @@ function Header(){
         >
         </div>
         <form onSubmit={userOnSubmit} className="searchForm">
-          <input type="text" className="rem1" name="searchedUser" ref={textInput}/>
+          <input type="text" name="searchedUser" ref={textInput}/>
           <input type="submit" className="rem1" value="검색"/>
         </form>
       </div>

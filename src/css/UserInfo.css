@@ -3,7 +3,7 @@
   border-radius : 5px;
 }
 .userInfoTopCetnerWrap {
-  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b');
+  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b=');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,7 +126,7 @@
 .collectionMiniBg {
   width : 20px;
   height : 24px;
-  background : url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259');
+  background : url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259=');
   background-size: 1250px 1209px;
   margin-right : .3rem;
 }

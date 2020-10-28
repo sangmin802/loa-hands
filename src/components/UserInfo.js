@@ -117,30 +117,30 @@ function UnserInfo(router){
               <div className="userInfoCollection">
                 {
                   collectionMini.map((col, index) => {
-                    let position = '-565px';
+                    let position = '392px';
                     switch(index){
                       case 0 : 
                       break;
-                      case 1 : position = '-610px';
+                      case 1 : position = '348px';
                       break;
-                      case 2 : position = '-520px';
+                      case 2 : position = '278px';
                       break;
-                      case 3 : position = '-498px';
+                      case 3 : position = '208px';
                       break;
-                      case 4 : position = '-634px';
+                      case 4 : position = '326px';
                       break;
-                      case 5 : position = '-656px';
+                      case 5 : position = '231px';
                       break;
-                      case 6 : position = '-542px';
+                      case 6 : position = '301px';
                       break;
-                      case 7 : position = '-589px';
+                      case 7 : position = '255px';
                       break;
                       default : return null;
                     }
                     return (
                       <div className="collectionMini" key={`collectionMini${index}`}>
                         <div className="collectionMiniBg"
-                          style={{backgroundPosition : `-1207px ${position}`}}
+                          style={{backgroundPosition : ` ${position} 110px`}}
                         ></div>
                         <div className="collectionMiniSize">
                           {col.size}
