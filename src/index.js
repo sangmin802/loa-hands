@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {HashRouter} from 'react-router-dom';
-// import App from './connect.js';
 import App from './components/App.js'
 import { Provider } from 'react-redux'
 import store from './store.js';
@@ -13,7 +12,6 @@ ReactDOM.render(
     <HashRouter>
       <React.StrictMode>
         <App />
-        {/* <App.App /> */}
       </React.StrictMode>
     </HashRouter>
   </Provider>,

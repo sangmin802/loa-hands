@@ -4,20 +4,17 @@ import EquipList from './EquipList.js';
 import AvatarList from './AvatarList.js';
 import BattleSkillList from './BattleSkillList.js';
 
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import * as Actions from '../actions.js';
 
 function BottomContent(){
   const 
     dispatch = useDispatch(),
-    {userData, userInfoSubTab, userInfoMainTab} = useSelector(state => {
-      return {
-        userData : state.userData,
-        userInfoSubTab : state.userInfoSubTab,
-        userInfoMainTab : state.userInfoMainTab
-      }
-    }),
-    // {userData, userInfoSubTab, changeUserInfoSubTab, userInfoMainTab} = redux,
+    {userData, userInfoSubTab, userInfoMainTab} = useSelector(state => ({
+      userData : state.userData,
+      userInfoSubTab : state.userInfoSubTab,
+      userInfoMainTab : state.userInfoMainTab
+    }), shallowEqual),
     {abilityInfo : {equipInfo, skillInfo}} = userData,
     [equipArr, avaterArr] = Factory.devideEquipInfo(equipInfo);
 
@@ -126,7 +123,6 @@ function BottomContent(){
               key={`userInfoBottomSubTab${index}`}
               onClick={() => {
                   dispatch(Actions.changeUserInfoSubTab(index))
-                  // changeUserInfoSubTab(index)
                 }
               }
             >
@@ -140,4 +136,4 @@ function BottomContent(){
   )
 }
 
-export default BottomContent;
+export default React.memo(BottomContent, () => true);

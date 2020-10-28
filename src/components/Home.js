@@ -1,31 +1,37 @@
 import React from 'react';
+import Event from './Event.js';
 
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import * as Actions from '../actions.js';
 
 function Home(router){
   const
     dispatch = useDispatch(),
-    {homeData} = useSelector(state => ({
+    state = useSelector(state => ({
       homeData : state.homeData,
-    }), (prev, next) => {
-      if(!prev.homeData){
-        return true
-      }
-    });
-    // {homeData, setHomeData} = redux;
-  if(!homeData){
-    dispatch(Actions.setHomeData_Thunk());
-    // setHomeData();
-    return(
-      <div className="home loading">
+    }), shallowEqual),
+    {homeData} = state;
+
+    if(!homeData){
+      dispatch(Actions.setHomeData_Thunk());
+      return(
+        <div className="home loading">
         로딩중
       </div>
     )
   }
+
+  const {events} = homeData;
   return(
     <div className="home">
-      홈화면입니다
+      <div className="events homeSection">
+        <div className="homeSectionTitle rem1">진행중인 이벤트</div>
+        <div className="eventsWrap">
+          {events.map((_event, index) => {
+            return <Event event={_event} key={`event${index}`}/>
+          })}
+        </div>
+      </div>
     </div>
   )
 }

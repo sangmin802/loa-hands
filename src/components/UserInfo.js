@@ -4,7 +4,7 @@ import '../css/UserInfo.css';
 import Factory from '../factory.js';
 import UserInfoEquipImg from './UserInfoEquipImg.js';
 
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import * as Actions from '../actions.js';
 import BottomContent from './BottomContent.js'
 
@@ -15,31 +15,23 @@ function UnserInfo(router){
       userData : state.userData,
       expeditionPop : state.expeditionPop,
       userInfoMainTab : state.userInfoMainTab,
-    }), (prev, next) => {
-      if(prev.userData === null){
-        return true;
-      }
-    }),
+    }),shallowEqual),
     {match : {params : {name}}} = router,
-    // {userData, match : {params : {name}}, expeditionPop, userInfoMainTab, getUserData, expeditionPopToggle, changeUserInfoMainTab} = redux,
     history = useHistory(),
     insertImgComp = function(arr, startNum, endNum){
       return arr.splice(startNum, endNum).map((equip, index) =>{
         return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
       })
     };
-
+    
   let displayPop = null;
-
   if(expeditionPop) displayPop = 'displayBlock';
   if(!userData){
     dispatch(Actions.getUserData_Thunk(name, history));
-    // getUserData(name, history);
     return null;
   }else{
     const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini} = userData;
     const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
-
     return(
       <div className="userInfo">
         <div className="userInfoTopCetnerWrap">
@@ -47,7 +39,6 @@ function UnserInfo(router){
             <div className="showExpeditionWrap"
               onClick={() => {
                 dispatch(Actions.expeditionPopToggle(true));
-                // expeditionPopToggle(true)
               }}
             >
               원정대 캐릭터 보기
@@ -164,7 +155,6 @@ function UnserInfo(router){
               <div className="searchedUserExpeditionClose"
                 onClick={() => {
                   dispatch(Actions.expeditionPopToggle(false));
-                  // expeditionPopToggle(false)
                 }}
               >
                 닫기
@@ -181,7 +171,6 @@ function UnserInfo(router){
                           <div className="userExpeditionChar rem09 overflowDot" key={`userExpeditionChar${index}`}
                             onClick={() => {
                               dispatch(Actions.getUserData_Thunk(char.name, history));
-                              // getUserData(char.name, history)
                             }}
                           >
                             {char.lv} {char.name}
@@ -216,7 +205,6 @@ function UnserInfo(router){
                   key={`userInfoBottomMainTab${index}`}
                   onClick={() => {
                       dispatch(Actions.changeUserInfoMainTab(index));
-                      // changeUserInfoMainTab(index)
                     }
                   }
                 >
@@ -225,7 +213,6 @@ function UnserInfo(router){
               )
             })}
           </div>
-          {/* <Connect.BottomContent /> */}
           <BottomContent />
         </div>
       </div>

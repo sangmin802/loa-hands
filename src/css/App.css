@@ -1,6 +1,6 @@
 .AppWrap {
   max-width : 600px;
-  /* min-width : 360px; */
+  min-width : 320px;
   margin : 0 auto;
   background : #333;
   border-radius : 5px;
@@ -94,4 +94,22 @@
   100% {
     opacity: 0;
   }
+}
+
+
+/* Home관련 */
+
+.homeSection {
+  margin-bottom : 20px;
+}
+.homeSectionTitle {
+  margin-bottom : 10px;
+}
+/* 이벤트 */
+.eventsWrap {
+  display : flex;
+  justify-content : space-between;
+}
+.event {
+  width : 49%;
 }

@@ -2,6 +2,7 @@ import API from './API.js';
 
 // Action types
 export const 
+  RESET = 'RESET',
   LOADING_TOGGLE = 'LOADING_TOGGLE',
   GET_USER_DATA = 'GET_USER_DATA',
   SET_HOME_DATA = 'SET_HOME_DATA',
@@ -56,19 +57,20 @@ export const getUserData_Thunk = (name, history) => (dispatch, getState) => {
     API.getUserData(name.replace(/ /g,''))
     .then((data) => {
       dispatch(getUserData(data, false))
-      history.push(`/userInfo/${name}`)
+      history.replace(`/userInfo/${name}`)
     })
     .catch(() => {
       dispatch(loadingToggle(false));
-      history.push(`/`)
+      history.replace(`/`)
     });
   }
 }
 
-export const setHomeData_Thunk = () => (dispatch, getState) => {
+export const setHomeData_Thunk = (history) => (dispatch, getState) => {
   dispatch(loadingToggle(true));
   API.getHomeData()
   .then(homeData => {
     dispatch(setHomeData(homeData, false))
+    if(history) history.replace('/');
   })
 }

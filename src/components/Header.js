@@ -1,19 +1,19 @@
 import React, { useRef } from 'react';
 import '../css/Header.css';
 import {useHistory} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from '../actions.js';
 
 function Header(){
   const 
     history = useHistory(),
+    homeData = useSelector(state => state.homeData),
     // {getUserData} = redux;
     dispatch = useDispatch();
 
   let textInput = useRef(null);
-  
+
   const userOnSubmit = (e) => {
     e.preventDefault();
     let {target : {searchedUser : {value}}} = e;
@@ -24,8 +24,15 @@ function Header(){
   return(
     <div className="header">
       <div className="innerHeader">
-        <div className="logo">
-          <Link to="/" replace className="rem17"></Link>
+        <div className="logo"
+          onClick={() => {
+            if(!homeData){
+              dispatch(Actions.setHomeData_Thunk(history));
+              return
+            }
+            history.replace('/')
+          }}
+        >
         </div>
         <form onSubmit={userOnSubmit} className="searchForm">
           <input type="text" className="rem1" name="searchedUser" ref={textInput}/>
