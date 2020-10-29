@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/loa-hands/precache-manifest.847f3029c79b3b17aa84b8e255b8c542.js"
+  "/loa-hands/precache-manifest.91e8010179c074768f2b98959c83e3f9.js"
 );
 
 self.addEventListener('message', (event) => {
