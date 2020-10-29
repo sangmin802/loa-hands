@@ -9,8 +9,8 @@ function Timer(props){
     endTimeBg = null,
     {name, src, time, setTime, lv, position, endTime} = props;
   const intervalArr = [];
+  
   useEffect(() => {
-    setState({...state, islState : 'NORMAL'})
     if(props.time){
       const 
         [hour, min] = props.time.split(':'),
@@ -56,12 +56,6 @@ function Timer(props){
       setState({...state, islState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
 
-  if(!time){
-    time = endTime;
-    endTimeBg = 'block';
-    timeOut = '종료';
-  };
-
   switch(islState){
     case 'APPEAR' : 
       borderColor = '#CC99FF';
@@ -75,7 +69,13 @@ function Timer(props){
       borderColor = null;
     break;
   }
-  
+
+  if(!time){
+    time = endTime;
+    endTimeBg = 'block';
+    timeOut = '종료';
+  };
+
   return(
     <div className="timer" style={{borderColor : borderColor}}>
       <div style={{display : endTimeBg}} className="endTimeBg"></div>
