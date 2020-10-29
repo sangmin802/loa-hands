@@ -8,8 +8,10 @@ function TimerWrap({data}){
   const [state, setState] = useState({time : null, setTimeFunc : setTime});
   const {setTimeFunc} = state;
   const date = new Date();
-  const newData = [...data];
-
+  // 배열 내 객체도 모두 복사
+  const newData = [...data].
+  map(obj => ({...obj}));
+  
   // 렌더링 시, 현재 시간 이후의 섬 시간들만 유지
   const validTimes = newData
   .map(is => is.time)

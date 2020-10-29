@@ -5,7 +5,7 @@ import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import TimerWrap from './TimerWrap.js';
 import * as Actions from '../actions.js';
 
-import {dailyIsland, fieldBoss} from '../JSON.js'
+import {dailyIsland, fieldBoss} from '../JSON.js';
 
 function Home(router){
   const
@@ -16,8 +16,7 @@ function Home(router){
     {homeData} = state,
     today = new Date().getSeconds(),
     yoil = new Date().getDay();
-    
-
+  
   // 자정일 때, homeData 새롭게 받아와서 Home 다시 렌더링
   useEffect(() => {
     const checkNight = function(){
@@ -42,7 +41,6 @@ function Home(router){
       </div>
     )
   }
-
   const 
     {events} = homeData,
     todayFeildBoss = fieldBoss
@@ -58,7 +56,6 @@ function Home(router){
       time : boss[yoil].time,
       endTime : boss[yoil].endTime
     }))
-  
   return(
     <div className="home">
       <div className="events homeSection">

@@ -10,6 +10,7 @@ function Timer(props){
     {name, src, time, setTime, lv, position, endTime} = props;
   const intervalArr = [];
   useEffect(() => {
+    setState({...state, islState : 'NORMAL'})
     if(props.time){
       const 
         [hour, min] = props.time.split(':'),
@@ -54,6 +55,7 @@ function Timer(props){
       sec = Math.floor((gap % _min) / _sec)
       setState({...state, islState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
+
   if(!time){
     time = endTime;
     endTimeBg = 'block';
@@ -69,8 +71,11 @@ function Timer(props){
       borderColor = '#FF6666';
       time = '출현중'
     break;
+    case 'NORMAL' : 
+      borderColor = null;
+    break;
   }
-
+  
   return(
     <div className="timer" style={{borderColor : borderColor}}>
       <div style={{display : endTimeBg}} className="endTimeBg"></div>
@@ -93,7 +98,7 @@ function Timer(props){
 function minusMin(time){
   if(time.includes(':')){
     const [hour, min] = time.split(':');
-    return `${addZero(hour)}:${addZero(Number(min)-3)}`;
+    return `${addZero(Number(hour))}:${addZero(Number(min)-3)}`;
   }
   return time;
 }
