@@ -16,4 +16,28 @@ export const dailyIsland = [
   {name : '우거진 갈대섬', src : '/img/island_03.png', time : ['02:13', '05:13', '08:13', '11:13', '14:13', '17:13', '20:13', '23:13']},
   {name : '신월의 섬', src : '/img/island_02.png', time : ['03:13', '07:13', '11:13', '15:13', '19:13', '23:13']},
   {name : '미지의 섬', src : '/img/island_01.png', time : ['04:33', '10:33', '16:33', '22:33']},
+  {name : '에라스모의 섬', src : '/img/island_10.png', time : ['06:03', '14:03', '20:03']},
 ]
+
+// 필드보스 일월화수목금토
+// {name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수'}
+// {name : '솔 그랑데', lv : 370, position : '대항해-알트아이젠'}
+// {name : '하르마게돈', lv : 550, position : '로헨델-파괴된 제나일'}
+// {name : '브리아레오스', lv : 505, position : '대항해-얼음과 불의 섬'}
+// {name : '티파니', lv : 915, position : '욘-무쇠망치 작업장'}
+// {name : '강림하신 호박신', lv : 885, position : '대항해-오르비스'}
+// {name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적'}
+// {name : '아우리온', lv : 960, position : '대항해-격류의 섬'}
+// {name : '모아케', lv : 1050, position : '파푸니카-티키타카 군락지'}
+// {name : '아드린느', lv : 1050, position : '대항해-환영 나비 섬'}
+// {name : '시그나투스', lv : 310, position : '아르데타인-갈라진 땅'}
+// {name : '혼재의 추오', lv : 310, position : '애니츠-소리의 숲'}
+// {name : '프록시마', lv : 415, position : '베른 북부-베르닐 산림'}
+// export const fieldBoss = [
+//   [
+//     {}
+//     {
+//       time : 2000
+//     }
+//   ]
+// ]
