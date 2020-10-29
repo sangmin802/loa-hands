@@ -10,6 +10,7 @@ function TimerWrap({data}){
   const date = new Date();
   const newData = [...data];
 
+  // 렌더링 시, 현재 시간 이후의 섬 시간들만 유지
   const validTimes = newData
   .map(is => is.time)
   .map(group => {
@@ -22,10 +23,10 @@ function TimerWrap({data}){
       return null;
     })
   })
-
   newData.forEach((is, index) => {
     is.time = validTimes[index]
   })
+  // 가장 먼저 열리는 섬 순서대로 진열. 종료시, 맨 뒤로
   newData.sort((a, b) => {
     const 
       time_a = a.time[0],
@@ -40,15 +41,19 @@ function TimerWrap({data}){
     }
     return 0;
   })
+  
   return(
     <div className="timerWrap">
       {newData.map((data, index) => {
-        let {name, src, time : [first]} = data;
+        let {name, src, time : [first], position, lv, endTime} = data;
         return <Timer 
                   setTime={setTimeFunc} 
                   name={name}  
                   src={src}
                   time={first}
+                  endTime={endTime}
+                  position={position}
+                  lv={lv}
                   key={`timer${index}`}
                 />
       })}

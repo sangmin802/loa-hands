@@ -5,7 +5,7 @@ import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import TimerWrap from './TimerWrap.js';
 import * as Actions from '../actions.js';
 
-import {dailyIsland} from '../JSON.js'
+import {dailyIsland, fieldBoss} from '../JSON.js'
 
 function Home(router){
   const
@@ -14,7 +14,9 @@ function Home(router){
       homeData : state.homeData,
     }), shallowEqual),
     {homeData} = state,
-    today = new Date().getSeconds();
+    today = new Date().getSeconds(),
+    yoil = new Date().getDay();
+    
 
   // 자정일 때, homeData 새롭게 받아와서 Home 다시 렌더링
   useEffect(() => {
@@ -41,8 +43,22 @@ function Home(router){
     )
   }
 
-  const {events} = homeData;
-
+  const 
+    {events} = homeData,
+    todayFeildBoss = fieldBoss
+    .filter(boss => {
+      if(boss[yoil].time) return boss;
+      return;
+    })
+    .map(boss => ({
+      name : boss.name,
+      lv : boss.lv,
+      position : boss.position,
+      src : boss.src,
+      time : boss[yoil].time,
+      endTime : boss[yoil].endTime
+    }))
+  
   return(
     <div className="home">
       <div className="events homeSection">
@@ -54,8 +70,12 @@ function Home(router){
         </div>
       </div>
       <div className="dailyIsland homeSection">
-        <div className="homeSectionTitle rem1 textCenter">일간 모험섬</div>
+        <div className="homeSectionTitle rem1 textCenter">오늘의 모험섬</div>
         <TimerWrap data={dailyIsland} today={today}/>
+      </div>
+      <div className="dailyIsland homeSection">
+        <div className="homeSectionTitle rem1 textCenter">오늘의 필드보스</div>
+        <TimerWrap data={todayFeildBoss} today={today}/>
       </div>
     </div>
   )

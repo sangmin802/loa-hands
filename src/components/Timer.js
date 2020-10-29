@@ -5,8 +5,9 @@ function Timer(props){
     now = new Date(),
     [state, setState] = useState({timeOut : null, islState : 'NORMAL'}),
     {timeOut, islState} = state,
-    color = null,
-    {name, src, time, setTime} = props;
+    borderColor = null,
+    endTimeBg = null,
+    {name, src, time, setTime, lv, position, endTime} = props;
   const intervalArr = [];
   useEffect(() => {
     if(props.time){
@@ -53,31 +54,38 @@ function Timer(props){
       sec = Math.floor((gap % _min) / _sec)
       setState({...state, islState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
-  if(!time) time = '내일 만나요';
+  if(!time){
+    time = endTime;
+    endTimeBg = 'block';
+    timeOut = '종료';
+  };
 
   switch(islState){
     case 'APPEAR' : 
-      color = '#CC99FF';
+      borderColor = '#CC99FF';
       time = '일렁이는중'
     break;
     case 'OPEN' : 
-      color = '#FF6666';
+      borderColor = '#FF6666';
       time = '출현중'
     break;
   }
 
   return(
-    <div className="timer" style={{borderColor : color}}>
+    <div className="timer" style={{borderColor : borderColor}}>
+      <div style={{display : endTimeBg}} className="endTimeBg"></div>
       <div className="timerName rem09 textCenter overflowDot">{name}</div>
       <div className="timerContent">
         <div className="timerImg">
           <img className="imgWidth" src={`https://github.com/sangmin802/loa-hands/blob/master/public/${src}?raw=true`} alt={name} />
+          <div className="timerLv rem07">{lv}</div>
         </div>
         <div className="timerTime">
           <div className="startTime rem08">{minusMin(time)}</div>
           <div className="timeOut rem08">{timeOut}</div>
         </div>
       </div>
+      <div className="timerName rem09 textCenter overflowDot">{position}</div>
     </div>
   )
 }

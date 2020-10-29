@@ -4,6 +4,7 @@
 body {
   background : #222;
   overflow-y : scroll;
+  padding : 0.5rem;
 }
 
 .displayNone {
@@ -28,6 +29,8 @@ body {
 }
 
 .height100vh {height : 100vh; overflow : hidden;}
+.vw07 {font-size : 0.7vw; }
+.rem07 {font-size : 0.7rem; }
 .rem08 {font-size : 0.8rem; }
 .rem09 {font-size : 0.9rem; }
 .rem1 {font-size : 1rem;}
