@@ -4,7 +4,7 @@ const initialStates = {
   homeData : null,
   expeditionPop : false,
   userInfoMainTab : 0,
-  userInfoSubTab : 0
+  userInfoSubTab : 0,
 }
 
 export default (state = initialStates, action) => {

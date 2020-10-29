@@ -40,7 +40,6 @@ function TimerWrap({data}){
     }
     return 0;
   })
-
   return(
     <div className="timerWrap">
       {newData.map((data, index) => {
@@ -57,4 +56,8 @@ function TimerWrap({data}){
   )
 }
 
-export default React.memo(TimerWrap, () => true);
+export default React.memo(TimerWrap, (prev, next) => {
+  // 자정이 되어서 변경된 homeDate로 Home이 다시 렌더링 될 때, Home에서 받아온 today 속성값의 변경으로 TimeWrap 다시 렌더링
+  if(prev.today !== next.today) return false;
+  return true;
+});

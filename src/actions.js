@@ -68,9 +68,11 @@ export const getUserData_Thunk = (name, history) => (dispatch, getState) => {
 
 export const setHomeData_Thunk = (history) => (dispatch, getState) => {
   dispatch(loadingToggle(true));
-  API.getHomeData()
-  .then(homeData => {
-    dispatch(setHomeData(homeData, false))
-    if(history) history.replace('/');
-  })
+  setTimeout(() => {
+    API.getHomeData()
+    .then(homeData => {
+      dispatch(setHomeData(homeData, false))
+      if(history) history.replace('/');
+    })
+  }, 1000)
 }

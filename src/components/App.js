@@ -4,13 +4,13 @@ import Header from './Header.js';
 import Home from './Home.js';
 import UserInfo from './UserInfo.js';
 import { Route } from 'react-router-dom'
-import {useSelector} from 'react-redux';
+import {useSelector, shallowEqual} from 'react-redux';
 
 function App(){
   const 
     state = useSelector(state => ({
       isLoading : state.isLoading,
-    })),
+    }), shallowEqual),
     {isLoading} = state;
 
   let 
@@ -21,7 +21,6 @@ function App(){
     isLoadingStyle1 = 'height100vh'
     isLoadingStyle2 = 'loadingBg zIndex99'
   }
-  
   return (
     <div className={`App ${isLoadingStyle1}`}>
       <div className={isLoadingStyle2}>

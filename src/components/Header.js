@@ -9,7 +9,6 @@ function Header(){
   const 
     history = useHistory(),
     homeData = useSelector(state => state.homeData),
-    // {getUserData} = redux;
     dispatch = useDispatch();
 
   let textInput = useRef(null);
@@ -18,7 +17,6 @@ function Header(){
     e.preventDefault();
     let {target : {searchedUser : {value}}} = e;
     dispatch(Actions.getUserData_Thunk(value, history))
-    // getUserData(value, history)
     textInput.current.value = null;
   }
   return(

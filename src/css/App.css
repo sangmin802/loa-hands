@@ -104,6 +104,9 @@
 }
 .homeSectionTitle {
   margin-bottom : 10px;
+  background : #222;
+  padding : .3rem;
+  border-radius : 3px 3px 0 0;
 }
 /* 이벤트 */
 .eventsWrap {
@@ -112,22 +115,46 @@
 }
 .event {
   width : 49%;
+  border : 1px solid #999;
+  border-radius : 3px;
+  overflow : hidden;
+}
+.eventContent {
+  padding : .3rem;
+  background : #222;
 }
 /* 시간제 */
 .timerWrap {
   display : flex;
+  justify-content : space-between;
   flex-wrap : wrap;
 }
 .timer {
-  width : 33%;
+  width : 32%;
+  margin-bottom : 10px;
+  border : 1px solid #999;
+  border-radius : 3px;
+  overflow : hidden;
+}
+.timerName {
+  background : #222;
+  padding : .1rem;
 }
 .timerContent {
   display : flex;
   justify-content : space-between;
+  padding : .3rem;
 }
 .timerImg {
   width : 25%;
 }
 .timerTime {
   width : 70%;
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+  align-items: center;
+}
+.timeOut {
+  color : #FF9933;
 }

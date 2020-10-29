@@ -15,7 +15,7 @@ function UnserInfo(router){
       userData : state.userData,
       expeditionPop : state.expeditionPop,
       userInfoMainTab : state.userInfoMainTab,
-    }),shallowEqual),
+    }), shallowEqual),
     {match : {params : {name}}} = router,
     history = useHistory(),
     insertImgComp = function(arr, startNum, endNum){
@@ -23,7 +23,6 @@ function UnserInfo(router){
         return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
       })
     };
-    
   let displayPop = null;
   if(expeditionPop) displayPop = 'displayBlock';
   if(!userData){
