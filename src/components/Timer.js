@@ -8,8 +8,8 @@ function Timer(props){
     borderColor = null,
     endTimeBg = null,
     {name, src, time, setTime, lv, position, endTime} = props;
-  const intervalArr = [];
-  
+    const intervalArr = [];
+
   useEffect(() => {
     if(props.time){
       const 
@@ -20,6 +20,9 @@ function Timer(props){
         islCloseTime = new Date(year, month, date, hour, min), // 섬 닫히는 시간
         islOpenTime = new Date(year, month, date, hour, min-3); // 섬 열리는 시간
         startInterval(1, intervalTime.bind(null, islCloseTime, islOpenTime, time), 1000)
+    }else{
+      // 만약, Wrap이 새롭게 랜더링 되고, 받아온 데이터에 시간이 없다면 NORMAL로 초기화
+      setState({...state, islState : 'NORMAL'});
     }
     return () => {
       intervalArr.forEach(interval => clearInterval(interval))
@@ -34,7 +37,7 @@ function Timer(props){
   }
   function intervalTime(_islCloseTime, _islOpenTime, _time){
     let gap = _islOpenTime-new Date();
-    let islState = 'NORMAL'
+    let islState = 'NORMAL';
     if(gap === 600000 || 600000 > gap){
       islState = 'APPEAR';
     }
@@ -52,10 +55,9 @@ function Timer(props){
       _hour = _min*60,
       hour = Math.floor(gap / _hour),
       min = Math.floor((gap % _hour) / _min),
-      sec = Math.floor((gap % _min) / _sec)
+      sec = Math.floor((gap % _min) / _sec);
       setState({...state, islState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
-
   switch(islState){
     case 'APPEAR' : 
       borderColor = '#CC99FF';
@@ -110,4 +112,7 @@ function addZero(num){
   return num;
 }
 
-export default Timer;
+export default React.memo(Timer, (prev, next) => {
+  // console.log(prev.name+':'+prev.time,next.name +':'+ next.time)
+  return false;
+});
