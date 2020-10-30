@@ -100,7 +100,6 @@
 
 
 /* Home관련 */
-
 .homeSection {
   margin-bottom : 20px;
 }
@@ -109,6 +108,9 @@
   background : #222;
   padding : .3rem;
   border-radius : 3px 3px 0 0;
+}
+.alert {
+  text-align : right;
 }
 /* 이벤트 */
 .eventsWrap {
@@ -128,16 +130,20 @@
 /* 시간제 */
 .timerWrap {
   display : flex;
-  justify-content : space-between;
   flex-wrap : wrap;
 }
 .timer {
   width : 32%;
-  margin-bottom : 10px;
+  width : calc((100% - 4%) / 3 - 0.01px);
+  margin-right : 2%;
+  margin-bottom : 2%;
   border : 1px solid #999;
   border-radius : 3px;
   overflow : hidden;
   position : relative;
+}
+.timer:nth-child(3n){
+  margin-right : 0;
 }
 .endTimeBg {
   position : absolute;

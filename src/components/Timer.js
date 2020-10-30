@@ -7,18 +7,20 @@ function Timer(props){
     {timeOut, targetState} = state,
     borderColor = null,
     endTimeBg = null,
-    {name, src, time, setTime, lv, position, endTime, contType} = props;
+    {name, src, time, setTime, lv, position, endTime, contType, waiting} = props;
     const intervalArr = [];
 
   useEffect(() => {
+
+    // 만약, 카운트다운이 끝나서 상위 이벤트 실행, 재렌더링 되었을 때 이후의 가능한 시간이 없다면 실행되지 않음.
     if(props.time){
       const 
         [hour, min] = props.time.split(':'),
         year = now.getFullYear(),
         month = now.getMonth(),
         date = now.getDate(),
-        closeTime = new Date(year, month, date, hour, min), // 섬 닫히는 시간
-        startTime = new Date(year, month, date, hour, min-3); // 섬 열리는 시간
+        closeTime = new Date(year, month, date, hour, min), // 종료 시간
+        startTime = new Date(year, month, date, hour, min-(waiting || 3)); // 시작 시간
         startInterval(1, intervalTime.bind(null, closeTime, startTime, time), 1000)
     }else{
       // 만약, Wrap이 새롭게 랜더링 되고, 받아온 데이터에 시간이 없다면 NORMAL로 초기화
@@ -35,11 +37,12 @@ function Timer(props){
     intervalArr.push(interval);
     return interval;
   }
+
   function intervalTime(_closeTime, _startTime, _time){
     let gap = _startTime-new Date();
     let targetState = 'NORMAL';
     if(gap === 600000 || 600000 > gap){
-      if(contType !== 'fieldBoss') targetState = 'APPEAR';
+      if(contType !== 'FIELD_BOSS' && contType !== 'CO_OCEAN') targetState = 'APPEAR';
     }
     if(gap === 0 || 0 > gap){
       targetState = 'OPEN';
@@ -58,6 +61,7 @@ function Timer(props){
       sec = Math.floor((gap % _min) / _sec);
       setState({...state, targetState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
+
   switch(targetState){
     case 'APPEAR' : 
       borderColor = '#CC99FF';
@@ -65,7 +69,7 @@ function Timer(props){
     break;
     case 'OPEN' : 
       borderColor = '#FF6666';
-      if(contType !== 'fieldBoss'){
+      if(contType !== 'FIELD_BOSS' && contType !== 'CO_OCEAN'){
         time = '출현중';
       }else{
         time = '대기중'
@@ -92,7 +96,7 @@ function Timer(props){
           <div className="timerLv rem07">{lv}</div>
         </div>
         <div className="timerTime">
-          <div className="startTime rem08">{minusMin(time)}</div>
+          <div className="startTime rem08">{minusMin(time, waiting)}</div>
           <div className="timeOut rem08">{timeOut}</div>
         </div>
       </div>
@@ -101,10 +105,10 @@ function Timer(props){
   )
 }
 
-function minusMin(time){
+function minusMin(time, waiting){
   if(time.includes(':')){
     const [hour, min] = time.split(':');
-    return `${addZero(Number(hour))}:${addZero(Number(min)-3)}`;
+    return `${addZero(Number(hour))}:${addZero(Number(min)-(waiting || 3))}`;
   }
   return time;
 }
@@ -116,7 +120,4 @@ function addZero(num){
   return num;
 }
 
-export default React.memo(Timer, (prev, next) => {
-  // console.log(prev.name+':'+prev.time,next.name +':'+ next.time)
-  return false;
-});
+export default Timer;

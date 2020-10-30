@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Timer from './Timer.js';
 
-function TimerWrap({data, contType}){
+function TimerWrap({data}){
   const setTime = (time) => {
    setState({...state, time}) 
   }
@@ -26,7 +26,14 @@ function TimerWrap({data, contType}){
   });
 
   newData.forEach((is, index) => {
-    is.time = validTimes[index]
+    is.time = validTimes[index];
+    if(typeof is.position !== 'string'){
+      if(validTimes[index].length !== 0){
+        is.position = is.position.slice(-validTimes[index].length);
+        return
+      };
+      is.position = [];
+    }
   })
 
   // 가장 먼저 열리는 섬 순서대로 진열. 종료시, 맨 뒤로
@@ -49,7 +56,10 @@ function TimerWrap({data, contType}){
     return(
       <div className="timerWrap">
         {newData.map((data, index) => {
-          let {name, src, time : [first], position, lv, endTime} = data;
+          let {name, src, time : [first], position, endPosition, lv, endTime, waiting, contType} = data;
+          if(typeof position !== 'string'){
+            position = position[0] || endPosition;
+          }
           return <Timer 
                     setTime={setTimeFunc} 
                     name={name}  
@@ -59,6 +69,7 @@ function TimerWrap({data, contType}){
                     position={position}
                     lv={lv}
                     contType={contType}
+                    waiting={waiting}
                     key={`timer${index}`}
                   />
         })}

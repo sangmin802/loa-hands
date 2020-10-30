@@ -9,10 +9,8 @@
   padding : .5rem;
 }
 .logo {
-  /* background : url("https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259");
-  background-position : 466px -89px; */
   background : url("https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite.png?50574d515b5eeac054bec676c98b8259=");
-  background-position : 398px 4px;
+  background-position : 398.5px 4px;
   width : 160px;
   margin : 0 auto 10px;
   height : 50px;

@@ -5,7 +5,7 @@ import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import TimerWrap from './TimerWrap.js';
 import * as Actions from '../actions.js';
 
-import {dailyIsland, fieldBoss, chaosGate} from '../JSON.js';
+import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../JSON.js';
 
 function Home(router){
   const
@@ -56,15 +56,22 @@ function Home(router){
       </div>
       <div className="dailyIsland homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 모험섬</div>
-        <TimerWrap data={dailyIsland} today={today} contType='island'/>
+        <TimerWrap data={dailyIsland} today={today} />
       </div>
       <div className="dailyFieldBoss homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 필드보스</div>
-        <TimerWrap data={fieldBoss[yoil]} today={today} contType='fieldBoss'/>
+        <TimerWrap data={fieldBoss[yoil]} today={today} />
       </div>
       <div className="dailyChaosGate homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 카오스 게이트</div>
-        <TimerWrap data={chaosGate[yoil]} today={today} contType='fieldBoss'/>
+        <TimerWrap data={chaosGate[yoil]} today={today} />
+      </div>
+      <div className="dailyOcean homeSection">
+        <div className="homeSectionTitle rem1 textCenter">오늘의 항해</div>
+        <TimerWrap data={oceanCont[yoil]} today={today} />
+        <div className="alert rem08">
+          유령선을 제외한 항해 컨텐츠의 최소 대기시간은 1분입니다.
+        </div>
       </div>
     </div>
   )
