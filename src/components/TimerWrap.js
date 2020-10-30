@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Timer from './Timer.js';
 
-function TimerWrap({data}){
+function TimerWrap({data, contType}){
   const setTime = (time) => {
    setState({...state, time}) 
   }
@@ -10,10 +10,9 @@ function TimerWrap({data}){
   const date = new Date();
 
   // 배열 내 객체도 모두 복사
-  const newData = [...data].
-  map(obj => ({...obj}));
+  const newData = [...data].map(obj => ({...obj}));
 
-  // 렌더링 시, 현재 시간 이후의 섬 시간들만 유지
+  // 렌더링 시, 현재 시간 이후의 시간들만 유지
   const validTimes = newData
   .map(is => is.time)
   .map(group => {
@@ -25,7 +24,8 @@ function TimerWrap({data}){
       if(Number(newTime) > Number(now)) return time;
       return null;
     })
-  })
+  });
+
   newData.forEach((is, index) => {
     is.time = validTimes[index]
   })
@@ -45,24 +45,34 @@ function TimerWrap({data}){
     }
     return 0;
   })
-  
-  return(
-    <div className="timerWrap">
-      {newData.map((data, index) => {
-        let {name, src, time : [first], position, lv, endTime} = data;
-        return <Timer 
-                  setTime={setTimeFunc} 
-                  name={name}  
-                  src={src}
-                  time={first}
-                  endTime={endTime}
-                  position={position}
-                  lv={lv}
-                  key={`timer${index}`}
-                />
-      })}
-    </div>
-  )
+  console.log(newData)
+
+  if(newData.length !== 0){
+    return(
+      <div className="timerWrap">
+        {newData.map((data, index) => {
+          let {name, src, time : [first], position, lv, endTime} = data;
+          return <Timer 
+                    setTime={setTimeFunc} 
+                    name={name}  
+                    src={src}
+                    time={first}
+                    endTime={endTime}
+                    position={position}
+                    lv={lv}
+                    contType={contType}
+                    key={`timer${index}`}
+                  />
+        })}
+      </div>
+    )
+  }else{
+    return(
+      <div className="noTimerContent textCenter">
+        다음에 만나요
+      </div>
+    )
+  }
 }
 
 export default React.memo(TimerWrap, (prev, next) => {

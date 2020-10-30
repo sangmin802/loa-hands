@@ -68,11 +68,11 @@ function Home(router){
       </div>
       <div className="dailyIsland homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 모험섬</div>
-        <TimerWrap data={dailyIsland} today={today}/>
+        <TimerWrap data={dailyIsland} today={today} contType='island'/>
       </div>
       <div className="dailyIsland homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 필드보스</div>
-        <TimerWrap data={todayFeildBoss} today={today}/>
+        <TimerWrap data={todayFeildBoss} today={today} contType='fieldBoss'/>
       </div>
     </div>
   )

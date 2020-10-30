@@ -3,11 +3,11 @@ import React, {useState, useEffect} from 'react';
 function Timer(props){
   let 
     now = new Date(),
-    [state, setState] = useState({timeOut : null, islState : 'NORMAL'}),
-    {timeOut, islState} = state,
+    [state, setState] = useState({timeOut : null, targetState : 'NORMAL'}),
+    {timeOut, targetState} = state,
     borderColor = null,
     endTimeBg = null,
-    {name, src, time, setTime, lv, position, endTime} = props;
+    {name, src, time, setTime, lv, position, endTime, contType} = props;
     const intervalArr = [];
 
   useEffect(() => {
@@ -17,12 +17,12 @@ function Timer(props){
         year = now.getFullYear(),
         month = now.getMonth(),
         date = now.getDate(),
-        islCloseTime = new Date(year, month, date, hour, min), // 섬 닫히는 시간
-        islOpenTime = new Date(year, month, date, hour, min-3); // 섬 열리는 시간
-        startInterval(1, intervalTime.bind(null, islCloseTime, islOpenTime, time), 1000)
+        closeTime = new Date(year, month, date, hour, min), // 섬 닫히는 시간
+        startTime = new Date(year, month, date, hour, min-3); // 섬 열리는 시간
+        startInterval(1, intervalTime.bind(null, closeTime, startTime, time), 1000)
     }else{
       // 만약, Wrap이 새롭게 랜더링 되고, 받아온 데이터에 시간이 없다면 NORMAL로 초기화
-      setState({...state, islState : 'NORMAL'});
+      setState({...state, targetState : 'NORMAL'});
     }
     return () => {
       intervalArr.forEach(interval => clearInterval(interval))
@@ -35,15 +35,15 @@ function Timer(props){
     intervalArr.push(interval);
     return interval;
   }
-  function intervalTime(_islCloseTime, _islOpenTime, _time){
-    let gap = _islOpenTime-new Date();
-    let islState = 'NORMAL';
+  function intervalTime(_closeTime, _startTime, _time){
+    let gap = _startTime-new Date();
+    let targetState = 'NORMAL';
     if(gap === 600000 || 600000 > gap){
-      islState = 'APPEAR';
+      if(contType === 'island') targetState = 'APPEAR';
     }
     if(gap === 0 || 0 > gap){
-      islState = 'OPEN';
-      gap = _islCloseTime-new Date();
+      targetState = 'OPEN';
+      gap = _closeTime-new Date();
       if(gap === 0 || 0 > gap){
         setTime(_time);
         return;
@@ -56,16 +56,20 @@ function Timer(props){
       hour = Math.floor(gap / _hour),
       min = Math.floor((gap % _hour) / _min),
       sec = Math.floor((gap % _min) / _sec);
-      setState({...state, islState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
+      setState({...state, targetState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
-  switch(islState){
+  switch(targetState){
     case 'APPEAR' : 
       borderColor = '#CC99FF';
       time = '일렁이는중'
     break;
     case 'OPEN' : 
       borderColor = '#FF6666';
-      time = '출현중'
+      if(contType === 'island'){
+        time = '출현중';
+      }else{
+        time = '대기중'
+      }
     break;
     case 'NORMAL' : 
       borderColor = null;
