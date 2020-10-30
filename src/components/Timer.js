@@ -39,7 +39,7 @@ function Timer(props){
     let gap = _startTime-new Date();
     let targetState = 'NORMAL';
     if(gap === 600000 || 600000 > gap){
-      if(contType === 'island') targetState = 'APPEAR';
+      if(contType !== 'fieldBoss') targetState = 'APPEAR';
     }
     if(gap === 0 || 0 > gap){
       targetState = 'OPEN';
@@ -65,7 +65,7 @@ function Timer(props){
     break;
     case 'OPEN' : 
       borderColor = '#FF6666';
-      if(contType === 'island'){
+      if(contType !== 'fieldBoss'){
         time = '출현중';
       }else{
         time = '대기중'

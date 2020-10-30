@@ -8,7 +8,6 @@ function TimerWrap({data, contType}){
   const [state, setState] = useState({time : null, setTimeFunc : setTime});
   const {setTimeFunc} = state;
   const date = new Date();
-
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({...obj}));
 
@@ -45,7 +44,6 @@ function TimerWrap({data, contType}){
     }
     return 0;
   })
-  console.log(newData)
 
   if(newData.length !== 0){
     return(

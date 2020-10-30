@@ -5,7 +5,7 @@ import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import TimerWrap from './TimerWrap.js';
 import * as Actions from '../actions.js';
 
-import {dailyIsland, fieldBoss} from '../JSON.js';
+import {dailyIsland, fieldBoss, chaosGate} from '../JSON.js';
 
 function Home(router){
   const
@@ -42,20 +42,8 @@ function Home(router){
     )
   }
   const 
-    {events} = homeData,
-    todayFeildBoss = fieldBoss
-    .filter(boss => {
-      if(boss[yoil].time) return boss;
-      return;
-    })
-    .map(boss => ({
-      name : boss.name,
-      lv : boss.lv,
-      position : boss.position,
-      src : boss.src,
-      time : boss[yoil].time,
-      endTime : boss[yoil].endTime
-    }))
+    {events} = homeData;
+
   return(
     <div className="home">
       <div className="events homeSection">
@@ -70,9 +58,13 @@ function Home(router){
         <div className="homeSectionTitle rem1 textCenter">오늘의 모험섬</div>
         <TimerWrap data={dailyIsland} today={today} contType='island'/>
       </div>
-      <div className="dailyIsland homeSection">
+      <div className="dailyFieldBoss homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 필드보스</div>
-        <TimerWrap data={todayFeildBoss} today={today} contType='fieldBoss'/>
+        <TimerWrap data={fieldBoss[yoil]} today={today} contType='fieldBoss'/>
+      </div>
+      <div className="dailyChaosGate homeSection">
+        <div className="homeSectionTitle rem1 textCenter">오늘의 카오스 게이트</div>
+        <TimerWrap data={chaosGate[yoil]} today={today} contType='fieldBoss'/>
       </div>
     </div>
   )
