@@ -112,6 +112,16 @@ export const chaosGate = [
 // 항해
 export const oceanCont = [
  [
-   {name : '기에나', }
- ] 
+   {name : '기에나', position : ['아르데타인', '베른', '애니츠'], endPosition : '애니츠', time : ['19:30', '21:30', '23:30'], endTimd : '23:30'},
+   {name : '프로키온', position : ['페이튼', '파푸니카', '로헨델'], endPosition : '로헨델', time : ['19:30', '21:30', '23:30'], endTimd : '23:30'},
+ ],
+ [
+  {name : '기에나', position : ['아르데타인', '애니츠', '베른'], endPosition : '베른', time : ['19:30', '21:30', '23:30'], endTimd : '23:30'},
+  {name : '프로키온', position : ['페이튼', '로헨델', '욘'], endPosition : '욘', time : ['19:30', '21:30', '23:30'], endTimd : '23:30'},
+  {name : '조화의 관문', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:00', '22:00'], endTime : '22:00'},
+  {name : '대지의 관문', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['18:00'], endTime : '18:00'},
+  {name : '인내의 관문', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['18:00'], endTime : '18:00'},
+  {name : '지혜의 관문', position : ['대항해-로헨델'], endPosition : '대항해-로헨델', time : ['22:00'], endTime : '22:00'},
+  {name : '인도의 관문', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['22:00'], endTime : '22:00'},
+ ]
 ]
