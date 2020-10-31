@@ -23,9 +23,9 @@ export const dailyIsland = [
 // 필드보스 일월화수목금토
 export const fieldBoss = [
   [
-    {id : 2, name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수', src : 'img/boss/boss_03.png', time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 2, name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수', src : 'img/boss/boss_02.png', time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 3, name : '에라스모', lv : 355, position : '대항해-에라스모의 섬', src : 'img/boss/boss_04.png', time : ['06:03', '14:03', '20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
-    {id : 4, name : '솔 그랑데', lv : 370, position : '대항해-알트아이젠', src : 'img/boss/boss_03.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 4, name : '솔 그랑데', lv : 370, position : '대항해-알트아이젠', src : 'img/boss/boss_01.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 8, name : '브리아레오스', lv : 505, position : '대항해-얼음과 불의 섬', src : 'img/boss/boss_03.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 9, name : '하르마게돈', lv : 550, position : '로헨델-파괴된 제나일', src : 'img/boss/boss_08.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 10, name : '강림하신 호박신', lv : 885, position : '대항해-오르비스', src : 'img/boss/boss_05.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
@@ -60,10 +60,10 @@ export const fieldBoss = [
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
   ],
   [
-    {id : 2, name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수', src : 'img/boss/boss_03.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 2, name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수', src : 'img/boss/boss_02.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 3, name : '에라스모', lv : 355, position : '대항해-에라스모의 섬', src : 'img/boss/boss_04.png', time : ['06:03', '14:03', '20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
-    {id : 4, name : '솔 그랑데', lv : 370, position : '대항해-알트아이젠', src : 'img/boss/boss_03.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
-    {id : 6, name : '프록시마', lv : 415, position : '베른 북부-베르닐 산림', src : 'img/boss/boss_00.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
+    {id : 4, name : '솔 그랑데', lv : 370, position : '대항해-알트아이젠', src : 'img/boss/boss_01.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 6, name : '프록시마', lv : 415, position : '베른 북부-베르닐 산림', src : 'img/boss/boss_00.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 7, name : '아드린느', lv : 460, position : '대항해-환영 나비 섬', src : 'img/boss/boss_12.png',time : ['20:33'], endTime : '20:33', contType : 'FIELD_BOSS'},
     {id : 8, name : '브리아레오스', lv : 505, position : '대항해-얼음과 불의 섬', src : 'img/boss/boss_03.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 9, name : '하르마게돈', lv : 550, position : '로헨델-파괴된 제나일', src : 'img/boss/boss_08.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
