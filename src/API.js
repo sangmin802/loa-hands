@@ -1,6 +1,7 @@
 import UserInfo from './models/userInfo.js';
 import HomeData from './models/homeData.js';
-import Factory from './factory.js'
+import Factory from './factory.js';
+import {PROXY} from './porxy.js';
 
 export default {
   getUserData(name){
@@ -9,7 +10,7 @@ export default {
 
     const
       // baseUrl = '/Profile/',
-      baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/Profile/',
+      baseUrl = `${PROXY}https://m-lostark.game.onstove.com/Profile/`,
       encoded = encodeURIComponent(name);
 
     return new Promise((getUserDataRes, getUserDataRej) => {
@@ -51,7 +52,7 @@ export default {
   getHomeData(){
     const
       // baseUrl = '/News/Event/Now';
-      baseUrl = 'https://cors-anywhere.herokuapp.com/https://m-lostark.game.onstove.com/News/Event/Now'
+      baseUrl = `${PROXY}https://m-lostark.game.onstove.com/News/Event/Now`
     return new Promise(res => {
       fetch(baseUrl)
       .then(res => res.text())

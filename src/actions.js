@@ -72,7 +72,7 @@ export const setHomeData_Thunk = (history) => (dispatch, getState) => {
     API.getHomeData()
     .then(homeData => {
       dispatch(setHomeData(homeData, false))
-      if(history) history.replace('/');
+      if(history) history.replace(`/`);
     })
   }, 1000)
 }

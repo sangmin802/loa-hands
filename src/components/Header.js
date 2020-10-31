@@ -28,7 +28,7 @@ function Header(){
               dispatch(Actions.setHomeData_Thunk(history));
               return
             }
-            history.replace('/')
+            history.replace(`/`)
           }}
         >
         </div>
