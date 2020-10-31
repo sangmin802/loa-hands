@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "43d0ed3dbafecd68891d00c4aabdf33a",
+    "revision": "676ab84b8641643efcbb4726cbe1aa54",
     "url": "/loa-hands/index.html"
   },
   {
