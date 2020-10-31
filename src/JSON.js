@@ -31,7 +31,7 @@ export const fieldBoss = [
     {id : 10, name : '강림하신 호박신', lv : 885, position : '대항해-오르비스', src : 'img/boss/boss_05.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 11, name : '티파니', lv : 915, position : '욘-무쇠망치 작업장', src : 'img/boss/boss_10.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 12, name : '아우리온', lv : 960, position : '대항해-격류의 섬', src : 'img/boss/boss_07.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
-    {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03'['20:03'], contType : 'FIELD_BOSS'},
+    {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
   ],
   [
@@ -70,7 +70,7 @@ export const fieldBoss = [
     {id : 10, name : '강림하신 호박신', lv : 885, position : '대항해-오르비스', src : 'img/boss/boss_05.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 11, name : '티파니', lv : 915, position : '욘-무쇠망치 작업장', src : 'img/boss/boss_10.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 12, name : '아우리온', lv : 960, position : '대항해-격류의 섬', src : 'img/boss/boss_07.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
-    {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03'['20:03'], contType : 'FIELD_BOSS'},
+    {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
   ]
 ]
