@@ -52,7 +52,6 @@ export default {
   async getHomeData(){
     const
       // baseUrl = '/News/Event/Now';
-      baseUrl = `${PROXY}https://m-lostark.game.onstove.com/News/Event/Now`,
       urlList = ['http://m.inven.co.kr/lostark/timer/','https://m-lostark.game.onstove.com/News/Event/Now'];
     
     return new Promise(res => {

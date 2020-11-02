@@ -20,17 +20,17 @@ export const dailyIsland = [
 
 // 캘린더섬 리스트
 export const calendarIsland = [
-  {name : '기회의 섬', src : 'calendar_00.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
-  {name : '수라도', src : 'calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '포르페', src : 'calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
-  {name : '쿵덕쿵 아일랜드', src : 'calendar_03.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '볼라르', src : 'calendar_04.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '블루홀 섬', src : 'calendar_05.jpg', lv : 1005, position : '대항해', contType : 'ISLAND'},
-  {name : '하모니 섬', src : 'calendar_06.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '고요한 안식의 섬', src : 'calendar_07.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
-  {name : '몬테 섬', src : 'calendar_08.jpg', lv : 900, position : '대항해', contType : 'ISLAND'},
-  {name : '죽음의 협곡', src : 'calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '메데이아', src : 'calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '기회의 섬', src : '/img/calendar/calendar_00.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
+  {name : '수라도', src : '/img/calendar/calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '포르페', src : '/img/calendar/calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
+  {name : '쿵덕쿵 아일랜드', src : '/img/calendar/calendar_03.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '볼라르', src : '/img/calendar/calendar_04.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '블루홀 섬', src : '/img/calendar/calendar_05.jpg', lv : 1005, position : '대항해', contType : 'ISLAND'},
+  {name : '하모니 섬', src : '/img/calendar/calendar_06.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '고요한 안식의 섬', src : '/img/calendar/calendar_07.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
+  {name : '몬테 섬', src : '/img/calendar/calendar_08.jpg', lv : 900, position : '대항해', contType : 'ISLAND'},
+  {name : '죽음의 협곡', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '메데이아', src : '/img/calendar/calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
 ]
 
 // 필드보스 일월화수목금토

@@ -33,15 +33,14 @@ export default class HomeData {
     const 
       timerList = [...raw.getElementsByClassName('info')];
 
-
     this.calendar = timerList.reduce((prev, next) => {
       const
         name = next.getElementsByClassName('npcname')[0].textContent,
         target = calendarIsland.find(cal => cal.name===name);
 
-      if(next.textContent.includes('14:00')){
+      if(next.textContent.includes('14:00') && target){
         prev[0].push({...target, time : ['14:13'], endTime : '14:13'});
-      }else if(next.textContent.includes('21:00')){
+      }else if(next.textContent.includes('21:00') && target){
         prev[1].push({...target, time : ['21:13'], endTime : '21:13'});
       }
       return prev;

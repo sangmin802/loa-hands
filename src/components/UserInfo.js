@@ -23,7 +23,9 @@ function UnserInfo(router){
         return <UserInfoEquipImg key={`EquipImg${index}`} data={equip}/>
       })
     };
+
   let displayPop = null;
+  
   if(expeditionPop) displayPop = 'displayBlock';
   if(!userData){
     dispatch(Actions.getUserData_Thunk(name, history));
