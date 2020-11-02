@@ -86,13 +86,17 @@ function Timer(props){
     timeOut = '종료';
   };
 
+  if(!src.includes('http')){
+    src = `https://github.com/sangmin802/loa-hands/blob/master/public/${src}?raw=true`
+  }
+
   return(
     <div className="timer" style={{borderColor : borderColor}}>
       <div style={{display : endTimeBg}} className="endTimeBg"></div>
       <div className="timerName rem09 textCenter overflowDot">{name}</div>
       <div className="timerContent">
         <div className="timerImg">
-          <img className="imgWidth" src={`https://github.com/sangmin802/loa-hands/blob/master/public/${src}?raw=true`} alt={name} />
+          <img className="imgWidth" src={src} alt={name} />
           <div className="timerLv rem07">{lv}</div>
         </div>
         <div className="timerTime">

@@ -54,6 +54,21 @@ function Home(router){
           })}
         </div>
       </div>
+      <div className="dailyCalendar homeSection">
+        <div className="homeSectionTitle rem1 textCenter">오늘의 캘린더섬</div>
+        {
+          homeData.calendar.map((cal, index) => {
+            if(cal.length !== 0){
+              return(
+                <div className={`calender${index}`} key={`calender${index}`}>
+                  <TimerWrap data={cal} today={today} />
+                </div>
+              )
+            }
+            return null;
+          })
+        }
+      </div>
       <div className="dailyIsland homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 모험섬</div>
         <TimerWrap data={dailyIsland} today={today} />

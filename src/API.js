@@ -49,18 +49,21 @@ export default {
     })
   },
 
-  getHomeData(){
+  async getHomeData(){
     const
       // baseUrl = '/News/Event/Now';
-      baseUrl = `${PROXY}https://m-lostark.game.onstove.com/News/Event/Now`
+      baseUrl = `${PROXY}https://m-lostark.game.onstove.com/News/Event/Now`,
+      urlList = ['http://m.inven.co.kr/lostark/timer/','https://m-lostark.game.onstove.com/News/Event/Now'];
+    
     return new Promise(res => {
-      fetch(baseUrl)
-      .then(res => res.text())
-      .then(data => {
-        // console.log(data)
-        const
-          body = Factory.returnBody(data);
-        res(new HomeData(body));
+      Promise.all(
+        urlList.map(url => {
+          return fetch(PROXY+url)
+          .then(urlRes => urlRes.text())
+        })
+      )
+      .then(bodys => {
+        res(new HomeData(bodys))
       })
     })
   }

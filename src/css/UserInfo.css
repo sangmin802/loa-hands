@@ -148,7 +148,8 @@
   width : 100%;
 }
 .equipImgWrap {
-  width : 12%;
+  width : 10%;
+  min-width : 34px;
 }
 .equipImgWrap .EquipImg {
   width : 100%;
@@ -209,8 +210,8 @@
 }
 .equipListImg {
   position : relative;
-  width : 15%;
-  height : fit-content;
+  width : 12%;
+  min-width : 40px;
   margin-right : .5rem;
 }
 .equipListContent {
@@ -256,7 +257,8 @@
 
 /* 아이템 상세보기 */
 .listDetail {
-  width : 85%;
+  width : 320px;
+  max-width : 85%;
   padding : .5rem;
   position : absolute;
   bottom : 20%;
@@ -281,11 +283,10 @@
 }
 .listDetailImg {
   position : relative;
-  width : 30%;
-  border : 1px solid #999;
+  width : 20%;
 }
 .listDetailMainInfo {
-  width : 68%;
+  width : 78%;
   overflow : hidden;
   display : flex;
   flex-direction : column;
@@ -310,15 +311,16 @@
 .tripodSkillCustom {
   display : flex;
   justify-content : space-between;
+  align-items : center;
   margin-top : .5rem;
 }
 .GemImg {
-  width : 15%;
-  border : 1px solid #999;
+  width : 12%;
+  height : fit-content;
 }
 .GemInfo {
   display : flex;
-  width : 80%;
+  width : 86%;
   flex-direction : column;
   justify-content : center;
 }

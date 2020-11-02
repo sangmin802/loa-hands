@@ -60,7 +60,7 @@ export default {
     return _arr.map(({value : {Element_000, Element_001}}, index) => {
       return (
         <div className="itemPartBox" key={'itemPartBox'+index}>
-          <div className="itemPartBoxTitle rem11">{this.getOnlyText(Element_000)}</div>
+          <div className="itemPartBoxTitle rem09">{this.getOnlyText(Element_000)}</div>
           <div className="itemPartBoxContent rem09">{this.getOnlyText(Element_001)}</div>
         </div>
       )
@@ -88,7 +88,7 @@ export default {
       return el.map(({topStr, contentStr}, index) => {
         return (
           <div className="intentString" key={'intentString'+index}>
-            <div className="intentStringTitle rem11">
+            <div className="intentStringTitle rem09">
               {this.getOnlyText(topStr)}
             </div>
             <div className="intentStringContentWrap">
@@ -123,7 +123,7 @@ export default {
             <div className="tripodSkillCustom" key={`tripodSkillCustom${index}`}>
               <div className="GemImg"></div>
               <div className="GemInfo">
-                <div className="GemName overflowDot rem1">{desc}</div>
+                <div className="GemName overflowDot rem09">{desc}</div>
                 <div className="GemStat"></div>
               </div>
             </div>
@@ -131,12 +131,12 @@ export default {
             const {name, slotData : {iconGrade, iconPath}} = res;
             returnValue = 
               <div className="tripodSkillCustom" key={`tripodSkillCustom${index}`}>
-                <div className='GemImg'>
+                <div className='GemImg' style={{border : '1px solid #999'}}>
                   <img className={`gradient${iconGrade} imgWidth`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt="보석"/>
                 </div>
                 <div className="GemInfo">
-                  <div className={`GemName rem1 overflowDot color${iconGrade}`}>{this.getOnlyText(name)}</div>
-                  <div className="GemStat rem09 overflowDot">{desc}</div>
+                  <div className={`GemName rem09 overflowDot color${iconGrade}`}>{this.getOnlyText(name)}</div>
+                  <div className="GemStat rem08 overflowDot">{desc}</div>
                 </div>
               </div>
           }
@@ -253,7 +253,7 @@ export default {
               <img className={`equipMainImg absolute imgWidth gradient${iconGrade}`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={iconPath} />
             </div>
             <div className="listDetailMainInfo">
-              <div className={`listDetailName overflowDot color${iconGrade} rem13`}>
+              <div className={`listDetailName overflowDot color${iconGrade} rem11`}>
                 {itemName}
               </div>
               <div className={`listDetailGrade overflowDot color${iconGrade} rem1`}>
