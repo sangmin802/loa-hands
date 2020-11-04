@@ -194,7 +194,7 @@ export default {
   },
 
   // 장비나 아바타 마우스 호버시 상세내용 출력
-  createEquipListDetail(partImg, detail, pos){
+  createEquipListDetail(partImg, detail, pos, type){
     let result = 
       <div className="listDetail hoverContent"></div>
     if(detail){
@@ -246,7 +246,7 @@ export default {
       }
 
       result = 
-        <div className={`listDetail hoverContent zIndex10 ${pos}`}>
+        <div className={`listDetail hoverContent zIndex10 ${pos} listDetail${type}`}>
           <div className="listDetailTop">
             <div className="listDetailImg">
               <img className="imgWidth" src={`//cdn-lostark.game.onstove.com${partImg}`} alt="partImg"/>

@@ -47,7 +47,7 @@ function createAvatarDiv(arr, avatarPart, pos){
         const {partImg, detail} = res;
         let equipListDetail = null;
         if(detail){
-          equipListDetail = Factory.createEquipListDetail(partImg, detail, pos)
+          equipListDetail = Factory.createEquipListDetail(partImg, detail, pos, 'AVATAR')
         }
         return (
           <div className="avatarWrap hoverTarget" key={`avatar${index}`}>

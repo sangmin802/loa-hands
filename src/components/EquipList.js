@@ -5,7 +5,7 @@ function EquipList({data}){
   const {partImg, detail} = data;
   let equipListDetail = null;
   if(detail){
-    equipListDetail = Factory.createEquipListDetail(partImg, detail)
+    equipListDetail = Factory.createEquipListDetail(partImg, detail, null, 'EQUIP')
   }
   const equipListImg = createEquipListImg(partImg, detail);
   const equipListContent = createEquipListContent(partImg, detail);
