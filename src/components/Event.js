@@ -12,8 +12,8 @@ function Events({event}){
         <img className="imgWidth" src={img} alt={name} />
       </div>
       <div className="eventContent">
-        <div className="eventName rem09 textCenter">{name}</div>
-        <div className="eventDate rem08 textCenter">{date}</div>
+        <div className="eventName rem09 textCenter overflowDot">{name}</div>
+        <div className="eventDate rem08 textCenter overflowDot">{date}</div>
       </div>
     </div>
   )
