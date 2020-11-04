@@ -116,12 +116,14 @@
 .eventsWrap {
   display : flex;
   justify-content : space-between;
+  flex-wrap : wrap;
 }
 .event {
   width : 49%;
   border : 1px solid #999;
   border-radius : 3px;
   overflow : hidden;
+  margin-bottom : 2%;
 }
 .eventContent {
   padding : .3rem;
