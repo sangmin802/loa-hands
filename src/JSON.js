@@ -6,16 +6,16 @@ export const partsImg = ['/2018/obt/assets/images/common/game/bg_equipment_slot1
 // 섬 닫히는 시간을 기준으로 작성
 // 처음에는 -3분을 하여 섬 열리는 시간으로 카운트다운 하다가, 그 차이가 0이나 0보다 작을 때, 현제 JSON시간으로 다시 계산하여 3분뒤에 닫히는 카운트다운 진행
 export const dailyIsland = [
-  {name : '환각의섬', src : '/img/island/island_00.png', time : ['00:13', '02:13', '04:13', '06:13', '08:13', '10:13', '12:13', '14:13', '16:13', '18:13', '20:13', '22:13'], endTime : '22:13', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '무릉도원', src : '/img/island/island_04.png', time : ['00:13', '06:13', '12:13', '18:13'], endTime : '18:13', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '잠자는 노래의 섬', src : '/img/island/island_05.png', time : ['00:33', '03:33', '06:33', '09:33', '12:33', '15:33', '18:33', '21:33'], endTime : '21:33', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '두키 섬', src : '/img/island/island_06.png', time : ['01:03', '05:03', '09:03', '13:03', '17:03', '21:03'], endTime : '21:03', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '그릇된 욕망의 섬', src : '/img/island/island_07.png', time : ['01:33', '07:33', '13:33', '19:33'], endTime : '19:33', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '환각의섬', src : '/img/island/island_00.png', time : ['00:03', '02:03', '04:03', '06:03', '08:03', '10:03', '12:03', '14:03', '16:03', '18:03', '20:03', '22:03'], endTime : '22:03', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '무릉도원', src : '/img/island/island_04.png', time : ['00:03', '06:03', '12:03', '18:03'], endTime : '18:03', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '잠자는 노래의 섬', src : '/img/island/island_05.png', time : ['00:23', '03:23', '06:23', '09:23', '12:23', '15:23', '18:23', '21:23'], endTime : '21:23', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '두키 섬', src : '/img/island/island_06.png', time : ['00:53', '04:53', '08:53', '12:53', '16:53', '20:53'], endTime : '20:53', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '그릇된 욕망의 섬', src : '/img/island/island_07.png', time : ['01:23', '07:23', '13:23', '19:23'], endTime : '19:23', lv : 250, position : '대항해', contType : 'ISLAND'},
   {name : '스피다 섬', src : '/img/island/island_08.png', time : ['01:43', '07:43', '13:43', '19:43', '22:43'], endTime : '22:43', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '알라케르', src : '/img/island/island_09.png', time : ['02:03', '08:03', '14:03', '20:03'], endTime : '20:03', lv : 302, position : '대항해', contType : 'ISLAND'},
-  {name : '우거진 갈대섬', src : '/img/island/island_03.png', time : ['02:13', '05:13', '08:13', '11:13', '14:13', '17:13', '20:13', '23:13'], endTime : '23:13', lv : 505, position : '대항해', contType : 'ISLAND'},
-  {name : '신월의 섬', src : '/img/island/island_02.png', time : ['03:13', '07:13', '11:13', '15:13', '19:13', '23:13'], endTime : '23:13', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '미지의 섬', src : '/img/island/island_01.png', time : ['04:33', '10:33', '16:33', '22:33'], endTime : '22:33', lv : 460, position : '대항해', contType : 'ISLAND'},
+  {name : '알라케르', src : '/img/island/island_09.png', time : ['01:53', '07:53', '13:53', '19:53'], endTime : '19:53', lv : 302, position : '대항해', contType : 'ISLAND'},
+  {name : '우거진 갈대섬', src : '/img/island/island_03.png', time : ['02:03', '05:03', '08:03', '11:03', '14:03', '17:03', '20:03', '23:03'], endTime : '23:03', lv : 505, position : '대항해', contType : 'ISLAND'},
+  {name : '신월의 섬', src : '/img/island/island_02.png', time : ['03:03', '07:03', '11:03', '15:03', '19:03', '23:03'], endTime : '23:03', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '미지의 섬', src : '/img/island/island_01.png', time : ['04:23', '10:23', '16:23', '22:23'], endTime : '22:23', lv : 460, position : '대항해', contType : 'ISLAND'},
 ]
 
 // 캘린더섬 리스트
