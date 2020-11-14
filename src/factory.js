@@ -226,7 +226,6 @@ export default {
       }else if(qualityValue >= 90){
         qualityColor = 3;
       }
-
       if(equipGroupType === "Acc"){
         const TripodSkillCustom = this.getSameTypeObj(dataArray, "TripodSkillCustom")
         TripodSkillCustomWrap = 

@@ -6,12 +6,11 @@ export default class SkillInfo {
       batteSkill = raw.getElementsByClassName('profile-skill-battle')[1],
       lifeSkill = raw.getElementsByClassName('profile-skill-life')[0];
 
-
     //  전투스킬
     this.setBattleSkill(skill, batteSkill);
 
     // 생활스킬
-    this.setLifeSkill(lifeSkill)
+    this.setLifeSkill(lifeSkill);
   }
 
   setBattleSkill(skill, batteSkill){
@@ -31,6 +30,7 @@ export default class SkillInfo {
       });
 
     const skillArr = Object.values(skill);
+
     this.battleSkill.usePoint = use;
     this.battleSkill.getPoint = get;
     this.battleSkill.skillDetail = useSkillList.map(el => {
@@ -52,7 +52,7 @@ export default class SkillInfo {
       if(children[1].children[3].dataset.runetooltip){
         const runeJSON = JSON.parse(children[1].children[3].dataset.runetooltip);
         rune = {
-          runeInfo : Object.values(matchSkillArr).find(res => res.type==="ItemPartBox"),
+          runeInfo : Object.values(runeJSON).find(res => res.type==="ItemPartBox"),
           runeImg : children[1].children[3].children[0].attributes.src.value,
           runeGrade : runeJSON.Element_001.value.leftStr0
         }
