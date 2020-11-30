@@ -50,10 +50,11 @@ export default class UserInfo {
     this.name = lvWithName.childNodes[1].textContent.trim();
     this.Lv = lvWithName.children[0].innerText;
     this.server = searchUserServer.children[0].children[1].innerText;
-    
+
     const serverWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "STRONG")
     .filter(el => el.nodeName==="STRONG")
     .map(str => str.innerText);
+
     this.expeditionUserWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "UL")
     .filter(el => el.nodeName==="UL")
     .map((ul, index) => {
@@ -123,13 +124,10 @@ export default class UserInfo {
   }
 
   getWantedTag(el, fun, name){
-    if(el.nodeName!==name){
-      const child = el.childNodes;
-      return [...child].map(res => {
-        return fun(res, fun, name)
-      })
-    }else{
-      return el;
+    const child = [...el.children];
+    for(let i = 0; i < child.length; i++){
+      if(child[i].nodeName !== name) child[i] = fun(child[i], fun, name);
     }
+    return child;
   }
 }

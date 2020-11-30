@@ -11,7 +11,6 @@ function Timer(props){
     const intervalArr = [];
 
   useEffect(() => {
-
     // 만약, 카운트다운이 끝나서 상위 이벤트 실행, 재렌더링 되었을 때 이후의 가능한 시간이 없다면 실행되지 않음.
     if(props.time){
       const 

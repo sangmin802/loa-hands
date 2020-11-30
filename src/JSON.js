@@ -21,16 +21,16 @@ export const dailyIsland = [
 // 캘린더섬 리스트
 export const calendarIsland = [
   {name : '기회의 섬', src : '/img/calendar/calendar_00.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
-  {name : '수라도', src : '/img/calendar/calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '포르페', src : '/img/calendar/calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
-  {name : '쿵덕쿵 아일랜드', src : '/img/calendar/calendar_03.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
-  {name : '볼라르', src : '/img/calendar/calendar_04.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '수라도 섬', src : '/img/calendar/calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '포르페 섬', src : '/img/calendar/calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
+  {name : '쿵덕쿵 아일랜드 섬', src : '/img/calendar/calendar_03.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '볼라르 섬', src : '/img/calendar/calendar_04.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
   {name : '블루홀 섬', src : '/img/calendar/calendar_05.jpg', lv : 1005, position : '대항해', contType : 'ISLAND'},
   {name : '하모니 섬', src : '/img/calendar/calendar_06.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
   {name : '고요한 안식의 섬', src : '/img/calendar/calendar_07.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
   {name : '몬테 섬', src : '/img/calendar/calendar_08.jpg', lv : 900, position : '대항해', contType : 'ISLAND'},
-  {name : '죽음의 협곡', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '메데이아', src : '/img/calendar/calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '죽음의 협곡 섬', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '메데이아 섬', src : '/img/calendar/calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
 ]
 
 // 필드보스 일월화수목금토
@@ -131,11 +131,11 @@ export const oceanCont = [
  [
   {name : '기에나', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['아르데타인', '애니츠', '베른'], endPosition : '베른', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
   {name : '프로키온', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['페이튼', '로헨델', '욘'], endPosition : '욘', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
-  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:11', '22:11'], endTime : '22:11', waiting : 1},
-  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-로헨델'], endPosition : '대항해-로헨델', time : ['22:11'], endTime : '22:11', waiting : 1},
-  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['22:11'], endTime : '22:11', waiting : 1},
+  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:01', '22:01'], endTime : '22:01', waiting : 1},
+  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-로헨델'], endPosition : '대항해-로헨델', time : ['22:01'], endTime : '22:01', waiting : 1},
+  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['22:01'], endTime : '22:01', waiting : 1},
  ],
  [
   {name : '기에나', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['애니츠', '베른', '아르데타인'], endPosition : '아르데타인', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
@@ -147,11 +147,11 @@ export const oceanCont = [
  [
   {name : '기에나', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['베른', '아르데타인', '애니츠'], endPosition : '애니츠', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
   {name : '프로키온', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['욘', '페이튼', '파푸니카'], endPosition : '파푸니카', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
-  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:11', '22:11'], endTime : '22:11', waiting : 1},
-  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : '대항해-로헨델', endPosition : '대항해-로헨델', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['22:11'], endTime : '22:11', waiting : 1},
-  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['22:11'], endTime : '22:11', waiting : 1},
+  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:01', '22:01'], endTime : '22:01', waiting : 1},
+  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : '대항해-로헨델', endPosition : '대항해-로헨델', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['22:01'], endTime : '22:01', waiting : 1},
+  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['22:01'], endTime : '22:01', waiting : 1},
  ],
  [
   {name : '기에나', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['아르데타인', '애니츠', '베른'], endPosition : '베른', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
@@ -167,11 +167,11 @@ export const oceanCont = [
 [
   {name : '기에나', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['베른', '아르데타인', '애니츠'], endPosition : '애니츠', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
   {name : '프로키온', contType : 'CO_OCEAN', lv : '-', src : '/img/ocean/ocean_01.png', position : ['로헨델', '욘', '파푸니카'], endPosition : '파푸니카', time : ['19:31', '21:31', '23:31'], endTime : '23:31', waiting : 1},
-  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:11', '23:11'], endTime : '23:11', waiting : 1},
-  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['18:11'], endTime : '18:11', waiting : 1},
-  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-로헨델'], endPosition : '대항해-로헨델', time : ['23:11'], endTime : '23:11', waiting : 1},
-  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['23:11'], endTime : '23:11', waiting : 1},
+  {name : '조화의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-베른 북부', '대항해-베른 북부'], endPosition : '대항해-베른 북부', time : ['18:01', '23:01'], endTime : '23:01', waiting : 1},
+  {name : '대지의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-욘'], endPosition : '대항해-욘', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '인내의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-페이튼'], endPosition : '대항해-페이튼', time : ['18:01'], endTime : '18:01', waiting : 1},
+  {name : '지혜의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-로헨델'], endPosition : '대항해-로헨델', time : ['23:01'], endTime : '23:01', waiting : 1},
+  {name : '인도의 관문', contType : 'GATE', lv : '-', src : '/img/ocean/ocean_02.png', position : ['대항해-파푸니카'], endPosition : '대항해-파푸니카', time : ['23:01'], endTime : '23:01', waiting : 1},
   {name : '악몽을 떠도는 유령선', contType : 'PHANTOM_SHIP', lv : 415, src : '/img/ocean/ocean_03.png', position : '로헨델', endPosition : '로헨델', time : ['19:13'], endTime : '19:13'},
   {name : '그림자를 헤매는 유령선', contType : 'PHANTOM_SHIP', lv : 915, src : '/img/ocean/ocean_03.png', position : '페이튼', endPosition : '페이튼', time : ['19:13'], endTime : '19:13'},
   {name : '폭풍을 부르는 유령선', contType : 'PHANTOM_SHIP', lv : 1370, src : '/img/ocean/ocean_03.png', position : '파푸니카', endPosition : '파푸니카', time : ['19:13'], endTime : '19:13'},

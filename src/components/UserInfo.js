@@ -31,7 +31,7 @@ function UnserInfo(router){
     dispatch(Actions.getUserData_Thunk(name, history));
     return null;
   }else{
-    const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini} = userData;
+    const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini, name} = userData;
     const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
     return(
       <div className="userInfo">

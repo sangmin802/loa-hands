@@ -34,7 +34,6 @@ export default class HomeData {
       timerList = [...raw.getElementsByClassName('info')],
       _ = new Date(),
       today = `${_.getFullYear()}-${this.zero(_.getMonth()+1)}-${this.zero(_.getDate())}`;
-
     this.calendar = timerList.reduce((prev, next) => {
       const
         name = next.getElementsByClassName('npcname')[0].textContent,
@@ -42,9 +41,9 @@ export default class HomeData {
 
       if(next.textContent.includes(today) && target){
         if(next.textContent.includes('14:00')){
-          prev[0].push({...target, time : ['14:13'], endTime : '14:13'});
+          prev[0].push({...target, time : ['14:03'], endTime : '14:03'});
         }else if(next.textContent.includes('21:00')){
-          prev[1].push({...target, time : ['21:13'], endTime : '21:13'});
+          prev[1].push({...target, time : ['21:03'], endTime : '21:03'});
         }
       }
       return prev;
