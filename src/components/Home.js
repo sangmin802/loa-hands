@@ -36,7 +36,7 @@ function Home(router){
   useEffect(() => {    
     if(!homeData) return dispatch(Actions.setHomeData_Thunk());
   }, [])
-    
+  
   return(
     <div className="home">
       {

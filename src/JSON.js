@@ -29,7 +29,7 @@ export const calendarIsland = [
   {name : '하모니 섬', src : '/img/calendar/calendar_06.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
   {name : '고요한 안식의 섬', src : '/img/calendar/calendar_07.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
   {name : '몬테 섬', src : '/img/calendar/calendar_08.jpg', lv : 900, position : '대항해', contType : 'ISLAND'},
-  {name : '죽음의 협곡 섬', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '죽음의 협곡', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
   {name : '메데이아 섬', src : '/img/calendar/calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
 ]
 
