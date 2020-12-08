@@ -48,7 +48,7 @@ function Home({homeData, Event, TimerWrap, dailyIsland, fieldBoss, chaosGate, oc
         <div className="homeSectionTitle rem1 textCenter">오늘의 항해</div>
         <TimerWrap data={oceanCont[yoil]} today={today} />
         <div className="alert rem08">
-          유령선을 제외한 항해 컨텐츠의 최소 대기시간은 1분입니다.
+          항해 관문의 유지시간은 1분 입니다.
         </div>
       </div>
     </div>

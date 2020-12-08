@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 function Timer(props){
   const [state, setState] = GetState();
-  const {timeOut, targetState} = state;
-
+  
+  let {timeOut, targetState} = state;
   let {name, src, time, lv, position, endTime, contType, waiting} = props;
   let borderColor = null;
   let endTimeBg = null;
