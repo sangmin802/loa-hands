@@ -1,21 +1,11 @@
 import React from 'react';
 import '../css/App.css';
-import Header from './Header.js';
-import Home from './Home.js';
-import UserInfo from './UserInfo.js';
 import { Route } from 'react-router-dom'
-import {useSelector, shallowEqual} from 'react-redux';
 
-function App(){
-  const 
-    state = useSelector(state => ({
-      isLoading : state.isLoading,
-    }), shallowEqual),
-    {isLoading} = state;
+function App({isLoading, HeaderContainer, HomeContainer, UserInfo, LoadingSpinner}){
 
-  let 
-    isLoadingStyle1 = null,
-    isLoadingStyle2 = 'displayNone';
+  let isLoadingStyle1 = null;
+  let isLoadingStyle2 = 'displayNone';
   
   if(isLoading){
     isLoadingStyle1 = 'height100vh'
@@ -23,13 +13,11 @@ function App(){
   }
   return (
     <div className={`App ${isLoadingStyle1}`}>
-      <div className={isLoadingStyle2}>
-        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      </div>
+      <LoadingSpinner isLoadingStyle={isLoadingStyle2}/>
       <div className="innerApp">
-        <Header />
+        <HeaderContainer />
         <div className="AppWrap">
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={HomeContainer}/>
           <Route path="/userInfo/:name" component={UserInfo}/>
         </div>
       </div>
