@@ -32,7 +32,7 @@ function UnserInfo(router){
     return null;
   }else{
     const {Lv, className, classSrc, curBigLv, curSamllLv, abilityInfo : {equipInfo}, expeditionLv, expeditionUserWrap, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, classEngName, collectionMini, name} = userData;
-    const [equipArr, ] = Factory.devideEquipInfo(equipInfo)
+    const [equipArr, ] = Factory.divideEquipInfo(equipInfo)
     return(
       <div className="userInfo">
         <div className="userInfoTopCetnerWrap">

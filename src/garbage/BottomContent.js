@@ -16,7 +16,7 @@ function BottomContent(){
       userInfoMainTab : state.userInfoMainTab
     }), shallowEqual),
     {abilityInfo : {equipInfo, skillInfo}} = userData,
-    [equipArr, avaterArr] = Factory.devideEquipInfo(equipInfo);
+    [equipArr, avaterArr] = Factory.divideEquipInfo(equipInfo);
 
   let 
     content = null,

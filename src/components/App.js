@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/App.css';
 import { Route } from 'react-router-dom'
 
-function App({isLoading, HeaderContainer, HomeContainer, UserInfo, LoadingSpinner}){
+function App({isLoading, HeaderContainer, HomeContainer, UserInfoContainer, LoadingSpinner}){
 
   let isLoadingStyle1 = null;
   let isLoadingStyle2 = 'displayNone';
@@ -18,7 +18,7 @@ function App({isLoading, HeaderContainer, HomeContainer, UserInfo, LoadingSpinne
         <HeaderContainer />
         <div className="AppWrap">
           <Route exact path="/" component={HomeContainer}/>
-          <Route path="/userInfo/:name" component={UserInfo}/>
+          <Route path="/userInfo/:name" component={UserInfoContainer}/>
         </div>
       </div>
     </div>

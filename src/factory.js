@@ -280,7 +280,7 @@ export default {
   },
 
   // 아바타 or 장비 나누기
-  devideEquipInfo(equipInfo){
+  divideEquipInfo(equipInfo){
     return Object.keys(equipInfo)
     .reduce((prev, cur) => {
       if(!cur.includes('av_')){
