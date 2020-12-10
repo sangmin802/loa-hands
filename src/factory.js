@@ -243,7 +243,6 @@ export default {
       }else{
         qualityWrap = null;
       }
-
       result = 
         <div className={`listDetail hoverContent zIndex10 ${pos} listDetail${type}`}>
           <div className="listDetailTop">

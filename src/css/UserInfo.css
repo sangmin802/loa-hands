@@ -248,17 +248,18 @@
   position : relative;
 }
 .avatarWrap .listDetail {
-  width : 400%;
+  width : 600%;
   left : 20%;
 }
 .avatarWrap .PosChange {
-  left : -320%;
+  left : -520%;
 }
 
 /* 아이템 상세보기 */
 .listDetail {
   padding : .5rem;
   position : absolute;
+  width : 80%;
   bottom : 20%;
   left : 5%;
   background : black;

@@ -1,0 +1,90 @@
+import React from 'react';
+
+function UserAvatarList({
+  data,
+  UserItemHover,
+  UserInfoEquipImg,
+  ItemPartBox,
+  IntentString,
+  SingleTextBox,
+}){
+  const avatarName = ['Weapon', 'Inst', 'Head', 'Face', 'Cloth', 'Pants'];
+  const avatarArr = divdeAvatar(data);
+  return(
+    <div className="avatarList">
+      <div className="avatarListLeft">
+        {avatarArr.slice(0, 2).map((res, index) => {
+          return <Avatar 
+            key={`avatarLeft${index}`}
+            arr={res}
+            avatarPart={avatarName[index]}
+            comps={{UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox}}
+          />
+        })}
+      </div>
+      <div className="avatarListRight">
+        {avatarArr.slice(2, 6).map((res, index) => {
+          return <Avatar 
+            key={`avatarRight${index}`}
+            arr={res}
+            avatarPart={avatarName[index+2]}
+            pos='PosChange'
+            comps={{UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox}}
+          />
+        })}
+      </div>
+    </div>
+  )
+}
+
+function divdeAvatar(data){
+  return data.reduce((prev, cur) => {
+    let num = null;
+    if(cur.avatarPart.includes("weapon")){
+      num = 0;
+    }else if(cur.avatarPart.includes("inst")){
+      num = 1;
+    }else if(cur.avatarPart.includes("head")){
+      num = 2;
+    }else if(cur.avatarPart.includes("face")){
+      num = 3;
+    }else if(cur.avatarPart.includes("cloth")){
+      num = 4;
+    }else if(cur.avatarPart.includes("pants")){
+      num = 5;
+    }
+    prev[num].push(cur)
+    return prev;
+  }, [[],[],[],[],[],[]]);
+}
+
+function Avatar({arr, avatarPart, pos, comps}){
+  const {UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox} = comps
+  let flex = 'normal';
+  if(avatarPart === 'Face') flex = 'column';
+  
+  return (
+    <div className={`avatarPartWrap avatar${avatarPart} flex${flex}`}>
+      {arr.map((res, index) => {
+        const {partImg, detail} = res;
+        return (
+          <div className="avatarWrap hoverTarget" key={`avatar${index}`}>
+            {
+              detail&&
+              <UserItemHover 
+                partImg={partImg}
+                detail={detail}
+                pos={pos}
+                ItemPartBox={ItemPartBox}
+                IntentString={IntentString}
+                SingleTextBox={SingleTextBox}
+              />
+            }
+            <UserInfoEquipImg data={res}/>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+export default UserAvatarList;

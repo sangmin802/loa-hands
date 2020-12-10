@@ -6,11 +6,16 @@ import * as Actions from '../../../actions.js';
 
 import UserDetailInfo from '../Presentational/UserDetailInfo.js';
 import EquipList from '../../EquipList.js';
-import AvatarList from '../../AvatarList.js';
-import LifeSkillList from '../Presentational/LifeSkillList.js';
-import BattleSkillList from '../../BattleSkillList.js';
+import UserAvatarList from '../Presentational/UserAvatarList.js';
+import UserLifeSkillList from '../Presentational/UserLifeSkillList.js';
+import UserBattleSkillList from '../Presentational/UserBattleSkillList.js';
 import UserCollectionList from '../Presentational/UserCollectionList.js';
 import Tab from '../../@Shared/Tab.js';
+import UserItemHover from '../Presentational/UserItemHover.js'
+import UserInfoEquipImg from '../Presentational/UserInfoEquipImg.js'
+import ItemPartBox from '../../@Shared/ItemPartBox.js'
+import IntentString from '../../@Shared/IntentString.js'
+import SingleTextBox from '../../@Shared/SingleTextBox.js'
 
 function UserDetailInfoContainer(){
   const {dispatch} = _.GetHooks();
@@ -23,11 +28,16 @@ function UserDetailInfoContainer(){
             userInfoSubTab={userInfoSubTab}
             userInfoMainTab={userInfoMainTab}
             EquipList={EquipList}
-            AvatarList={AvatarList}
-            LifeSkillList={LifeSkillList}
-            BattleSkillList={BattleSkillList}
+            UserAvatarList={UserAvatarList}
+            UserLifeSkillList={UserLifeSkillList}
+            UserBattleSkillList={UserBattleSkillList}
             UserCollectionList={UserCollectionList}
             Tab={Tab}
+            UserItemHover={UserItemHover}
+            UserInfoEquipImg={UserInfoEquipImg}
+            ItemPartBox={ItemPartBox}
+            IntentString={IntentString}
+            SingleTextBox={SingleTextBox}
          />
 }
 

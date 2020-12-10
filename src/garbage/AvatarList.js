@@ -3,7 +3,7 @@ import UserInfoEquipImg from './UserInfoEquipImg.js';
 import Factory from '../factory.js';
 
 function AvatarList({data}){
-  const [weapon, inst, head, face, cloth, pants] = data.reduce((prev, cur) => {
+  const arr = data.reduce((prev, cur) => {
     let num = null;
     if(cur.avatarPart.includes("weapon")){
       num = 0;
@@ -21,6 +21,8 @@ function AvatarList({data}){
     prev[num].push(cur)
     return prev;
   }, [[],[],[],[],[],[]])
+
+  const [weapon, inst, head, face, cloth, pants] = arr;
   
   return(
     <div className="avatarList">
