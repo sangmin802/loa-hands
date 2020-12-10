@@ -50,8 +50,8 @@ function SetContent(userData, mainTab, subTab, comps){
   };
   if(mainTab === 0 && subTab === 0) content = [...equipArr].map((equip, index) => (<EquipList data={equip} key={`equipList${index}`}/>))
   if(mainTab === 0 && subTab === 1) content = <AvatarList data={avaterArr}/>;
-  if(mainTab === 1 && subTab === 0) content = skillInfo.battleSkill ? <BattleSkillList data = {skillInfo.battleSkill}/> : <div className="noBattleSkillInfo">설정된 스킬이 없습니다.</div>
-  if(mainTab === 1 && subTab === 1) content = skillInfo.lifeSkill ? <LifeSkillList data = {skillInfo.lifeSkill} /> : <div className="noBattleSkillInfo">생활스킬이 활성화되지 않았습니다.</div>
+  if(mainTab === 1 && subTab === 0) content = skillInfo ? <BattleSkillList data = {skillInfo.battleSkill}/> : <div className="noBattleSkillInfo">설정된 스킬이 없습니다.</div>
+  if(mainTab === 1 && subTab === 1) content = skillInfo ? <LifeSkillList data = {skillInfo.lifeSkill} /> : <div className="noBattleSkillInfo">생활스킬이 활성화되지 않았습니다.</div>
 
   return {content, subTabArr};
 }

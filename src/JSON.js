@@ -21,8 +21,8 @@ export const dailyIsland = [
 // 캘린더섬 리스트
 export const calendarIsland = [
   {name : '기회의 섬', src : '/img/calendar/calendar_00.jpg', lv : 505, position : '대항해', contType : 'ISLAND'},
-  {name : '수라도 섬', src : '/img/calendar/calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
-  {name : '포르페 섬', src : '/img/calendar/calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
+  {name : '수라도', src : '/img/calendar/calendar_01.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
+  {name : '포르페', src : '/img/calendar/calendar_02.jpg', lv : 325, position : '대항해', contType : 'ISLAND'},
   {name : '쿵덕쿵 아일랜드', src : '/img/calendar/calendar_03.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
   {name : '볼라르 섬', src : '/img/calendar/calendar_04.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
   {name : '블루홀 섬', src : '/img/calendar/calendar_05.jpg', lv : 1005, position : '대항해', contType : 'ISLAND'},

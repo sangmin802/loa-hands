@@ -39,7 +39,7 @@ function ParseDetail(detail){
 function UserCollectionSideWrap({side, index, arr}){
   return(
     <div className={`userCollectionSide userCollection${side}`}>
-      <div className="userCollectionIsGet">
+      <div className="userCollectionIsGet textCenter">
         {index === 0 ? '획득' : '미획득'}
       </div>
       {arr.map((col, colIndex) => {
