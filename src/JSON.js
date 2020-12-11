@@ -31,6 +31,7 @@ export const calendarIsland = [
   {name : '몬테 섬', src : '/img/calendar/calendar_08.jpg', lv : 900, position : '대항해', contType : 'ISLAND'},
   {name : '죽음의 협곡', src : '/img/calendar/calendar_09.jpg', lv : 400, position : '대항해', contType : 'ISLAND'},
   {name : '메데이아', src : '/img/calendar/calendar_10.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
+  {name : '스노우팡 아일랜드', src : '/img/calendar/calendar_11.jpg', lv : 250, position : '대항해', contType : 'ISLAND'},
 ]
 
 // 필드보스 일월화수목금토
