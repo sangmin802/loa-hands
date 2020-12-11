@@ -1,7 +1,9 @@
 import React from 'react';
 import _ from '../../../Utility.js';
 
-function BattleSkillList({data}){
+function BattleSkillList({
+  data
+}){
   const {getPoint, usePoint, skillDetail} = data;
 
   return(

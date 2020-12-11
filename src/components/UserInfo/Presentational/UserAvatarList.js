@@ -1,12 +1,11 @@
 import React from 'react';
 
+// 컴포넌트
+import UserItemHover from './UserItemHover.js';
+import UserInfoEquipImg from './UserInfoEquipImg.js';
+
 function UserAvatarList({
-  data,
-  UserItemHover,
-  UserInfoEquipImg,
-  ItemPartBox,
-  IntentString,
-  SingleTextBox,
+  data
 }){
   const avatarName = ['Weapon', 'Inst', 'Head', 'Face', 'Cloth', 'Pants'];
   const avatarArr = divdeAvatar(data);
@@ -18,7 +17,6 @@ function UserAvatarList({
             key={`avatarLeft${index}`}
             arr={res}
             avatarPart={avatarName[index]}
-            comps={{UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox}}
           />
         })}
       </div>
@@ -29,7 +27,6 @@ function UserAvatarList({
             arr={res}
             avatarPart={avatarName[index+2]}
             pos='PosChange'
-            comps={{UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox}}
           />
         })}
       </div>
@@ -58,8 +55,7 @@ function divdeAvatar(data){
   }, [[],[],[],[],[],[]]);
 }
 
-function Avatar({arr, avatarPart, pos, comps}){
-  const {UserItemHover,UserInfoEquipImg,ItemPartBox,IntentString,SingleTextBox} = comps
+function Avatar({arr, avatarPart, pos}){
   let flex = 'normal';
   if(avatarPart === 'Face') flex = 'column';
   
@@ -75,9 +71,6 @@ function Avatar({arr, avatarPart, pos, comps}){
                 partImg={partImg}
                 detail={detail}
                 pos={pos}
-                ItemPartBox={ItemPartBox}
-                IntentString={IntentString}
-                SingleTextBox={SingleTextBox}
               />
             }
             <UserInfoEquipImg data={res}/>

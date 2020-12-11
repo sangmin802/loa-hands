@@ -1,14 +1,16 @@
 import React from 'react';
 import _ from '../../../Utility.js';
 
+// 컴포넌트
+import ItemPartBox from '../../@Shared/ItemPartBox.js';
+import IntentString from '../../@Shared/IntentString.js';
+import SingleTextBox from '../../@Shared/SingleTextBox.js';
+
 function UserItemHover({
   partImg, 
   detail, 
   pos, 
-  type,
-  ItemPartBox,
-  IntentString,
-  SingleTextBox
+  type
 }){
   if(!detail) return null;
 
@@ -50,10 +52,16 @@ function UserItemHover({
           />
         }
         <SingleTextBox arr={_.getSameTypeObj(dataArray, "SingleTextBox")}/>
-        <TripodContents 
-          equipTripod={_.getSameTypeObj(dataArray, "TripodSkillCustom")}
-          equipGroupType={equipGroupType}
-        />
+        {
+          _.getSameTypeObj(dataArray, "TripodSkillCustom").map((res, index) => {
+            return <TripodContents 
+              key={`EquipGem${index}`}
+              equipTripod={res}
+              equipGroupType={equipGroupType}
+            />
+          })
+        }
+
       </div>
     </div>
   )
@@ -77,44 +85,46 @@ function CreateQualityGraph(qualityColor, qualityValue, equipGroupType){
 }
 
 function TripodContents({equipTripod, equipGroupType}){
-  if(equipGroupType==="Acc") return null;
   if(!equipTripod) return null;
-  if(!equipTripod.value) return null;
   const tripodValues = Object.values(equipTripod.value);
   return (
     <>
       {
         tripodValues.map((res, index) => {
-          const {desc} = res;
-          const bool = desc !== '보석 장착 필요';
-          return (
-            <div className="tripodSkillCustom"  key={`equipTripod${res.name}${index}`}>
-              <div
-                className="GemImg"
-                style={bool ? {border : '1px solid #999'} : null}
-              >
-                {bool ? <img className={`gradient${res.iconGrade} imgWidth`} src={`//cdn-lostark.game.onstove.com/${res.iconPath}`} alt="보석"/> : null}
-              </div>
-              <div className="GemInfo">
-                <div 
-                  className={`
-                  GemName 
-                  overflowDot 
-                  rem09 
-                  ${bool ? `color${res.iconGrade}` : ''}
-                  `}
-                >
-                  {bool ? _.getOnlyText(res.name) : desc}
-                </div>
-                <div className="GemStat rem08 overflowDot">
-                  {bool ? desc : null}
-                </div>
-              </div>
-            </div>
-          )
+          if(equipGroupType==='Acc') return <Gem key={`gemTripod${res.name}${index}`} data={res} />
         })
       }
     </>
   ) 
+}
+
+function Gem({data}){
+  const {desc} = data;
+  const bool = desc !== '보석 장착 필요';
+  return (
+    <div className="tripodSkillCustom">
+      <div
+        className="GemImg"
+        style={bool ? {border : '1px solid #999'} : null}
+      >
+        {bool ? <img className={`gradient${data.slotData.iconGrade} imgWidth`} src={`//cdn-lostark.game.onstove.com/${data.slotData.iconPath}`} alt="보석"/> : null}
+      </div>
+      <div className="GemInfo">
+        <div 
+          className={`
+          GemName 
+          overflowDot 
+          rem09 
+          ${bool ? `color${data.iconGrade}` : ''}
+          `}
+        >
+          {bool ? _.getOnlyText(data.name) : desc}
+        </div>
+        <div className="GemStat rem08 overflowDot">
+          {bool ? desc : null}
+        </div>
+      </div>
+    </div>
+  )
 }
 export default UserItemHover;

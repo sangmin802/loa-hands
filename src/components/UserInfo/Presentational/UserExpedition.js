@@ -1,13 +1,13 @@
 import React from 'react';
+import _ from '../../../Utility.js';
 
 function UserExpedition({
-  history,
   getUserData,
   expeditionUserWrap,
   expeditionPopToggle,
   expeditionPop
 }){
-
+  const {history} = _.GetHooks();
   let displayPop = null;
   if(expeditionPop) displayPop = 'displayBlock';
 

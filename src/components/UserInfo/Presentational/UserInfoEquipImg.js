@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EquipImg({data}){
+function UserInfoEquipImg({data}){
   const {partImg, detail} = data;
   let returnTag = 
     <div className="EquipImg">
@@ -17,4 +17,4 @@ function EquipImg({data}){
   return returnTag;
 }
 
-export default EquipImg
+export default UserInfoEquipImg;

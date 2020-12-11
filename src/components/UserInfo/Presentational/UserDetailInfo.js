@@ -1,25 +1,23 @@
 import React from 'react';
 import _ from '../../../Utility.js';
 
+// 컴포넌트
+import Tab from '../../@Shared/Tab.js';
+import UserCollectionList from './UserCollectionList.js';
+import UserEquipList from './UserEquipList.js';
+import UserAvatarList from './UserAvatarList.js';
+import UserBattleSkillList from './UserBattleSkillList.js';
+import UserLifeSkillList from './UserLifeSkillList.js';
+
+
 function UserDetailInfo({
   changeUserInfoSubTab, 
   userData, 
   userInfoSubTab, 
-  userInfoMainTab,
-  EquipList,
-  UserAvatarList,
-  UserLifeSkillList,
-  UserBattleSkillList,
-  UserCollectionList,
-  Tab,
-  UserItemHover,
-  UserInfoEquipImg,
-  ItemPartBox,
-  IntentString,
-  SingleTextBox
+  userInfoMainTab
 }){
 
-  const {content, subTabArr} = SetContent(userData, userInfoMainTab, userInfoSubTab, {EquipList, UserAvatarList, UserLifeSkillList, UserBattleSkillList, UserCollectionList, UserItemHover, UserInfoEquipImg, ItemPartBox, IntentString, SingleTextBox});
+  const {content, subTabArr} = SetContent(userData, userInfoMainTab, userInfoSubTab);
 
   return(
     <div className="userInfoBottomMainTabContent">
@@ -39,8 +37,7 @@ function UserDetailInfo({
   )
 }
 
-function SetContent(userData, mainTab, subTab, comps){
-  const {EquipList, UserAvatarList, UserLifeSkillList, UserBattleSkillList, UserCollectionList, UserItemHover, UserInfoEquipImg, ItemPartBox, IntentString, SingleTextBox} = comps;
+function SetContent(userData, mainTab, subTab){
   const {abilityInfo : {equipInfo, skillInfo}, collectionDetail, collectionMini} = userData;
   const [equipArr, avaterArr] = _.divideEquipInfo(equipInfo);
   
@@ -53,8 +50,8 @@ function SetContent(userData, mainTab, subTab, comps){
     subTabArr = collectionMini.map(res => res.name)
     content = <UserCollectionList data={collectionDetail[subTab]}/>
   };
-  if(mainTab === 0 && subTab === 0) content = [...equipArr].map((equip, index) => (<EquipList data={equip} key={`equipList${index}`}/>))
-  if(mainTab === 0 && subTab === 1) content = <UserAvatarList data={avaterArr} UserItemHover={UserItemHover} UserInfoEquipImg={UserInfoEquipImg} ItemPartBox={ItemPartBox} IntentString={IntentString} SingleTextBox={SingleTextBox}/>;
+  if(mainTab === 0 && subTab === 0) content = [...equipArr].map((equip, index) => (<UserEquipList data={equip} key={`userEquipList${index}`} />))
+  if(mainTab === 0 && subTab === 1) content = <UserAvatarList data={avaterArr} />;
   if(mainTab === 1 && subTab === 0) content = skillInfo ? <UserBattleSkillList data = {skillInfo.battleSkill}/> : <div className="noBattleSkillInfo">설정된 스킬이 없습니다.</div>
   if(mainTab === 1 && subTab === 1) content = skillInfo ? <UserLifeSkillList data = {skillInfo.lifeSkill} /> : <div className="noBattleSkillInfo">생활스킬이 활성화되지 않았습니다.</div>
 

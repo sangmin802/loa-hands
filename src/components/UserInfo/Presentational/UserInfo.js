@@ -2,19 +2,20 @@ import React from 'react';
 import '../../../css/UserInfo.css';
 import _ from '../../../Utility.js';
 
+// 컴포넌트
+import UserBasicInfo from './UserBasicInfo.js';
+import UserExpedition from './UserExpedition.js';
+import UserInfoEquipImg from './UserInfoEquipImg.js';
+import Tab from '../../@Shared/Tab.js';
+import UserDetailInfoContainer from '../Container/UserDetailInfoContainer.js';
+
 function UserInfo({
-  history,
   userData, 
   getUserData,
   expeditionPop, 
   expeditionPopToggle, 
   userInfoMainTab, 
-  changeUserInfoMainTab, 
-  UserDetailInfoContainer, 
-  UserInfoEquipImg, 
-  UserBasicInfo, 
-  UserExpedition,
-  Tab
+  changeUserInfoMainTab
 }){
 
   const {abilityInfo : {equipInfo}, expeditionUserWrap, classEngName} = userData;
@@ -34,7 +35,6 @@ function UserInfo({
             userData={userData}
           />
           <UserExpedition 
-            history={history}
             getUserData={getUserData}
             expeditionUserWrap={expeditionUserWrap}
             expeditionPopToggle={expeditionPopToggle}

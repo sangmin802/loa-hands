@@ -3,12 +3,8 @@ import {useSelector, shallowEqual} from 'react-redux';
 import * as Actions from '../../../actions.js';
 import _ from '../../../Utility.js';
 
-import UserDetailInfoContainer from './UserDetailInfoContainer.js';
-import UserInfoEquipImg from '../Presentational/UserInfoEquipImg.js';
+// 컴포넌트
 import UserInfo from '../Presentational/UserInfo.js';
-import UserBasicInfo from '../Presentational/UserBasicInfo.js';
-import UserExpedition from '../Presentational/UserExpedition.js';
-import Tab from '../../@Shared/Tab.js';
 
 
 function UserInfoContainer({match : {params : {name}}}){
@@ -21,18 +17,12 @@ function UserInfoContainer({match : {params : {name}}}){
     return null;
   }
   return <UserInfo 
-            history={history}
             userData={userData}
             getUserData={getUserData}
             expeditionPop={expeditionPop}
             expeditionPopToggle={expeditionPopToggle}
             userInfoMainTab={userInfoMainTab}
             changeUserInfoMainTab={changeUserInfoMainTab}
-            UserDetailInfoContainer={UserDetailInfoContainer}
-            UserInfoEquipImg={UserInfoEquipImg}
-            UserBasicInfo={UserBasicInfo}
-            UserExpedition={UserExpedition}
-            Tab={Tab}
          />
 }
 

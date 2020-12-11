@@ -6,13 +6,12 @@ import _ from '../../../Utility.js';
 import Header from '../Presentational/Header.js';
 
 function HeaderContainer(){
-  const {history, dispatch} = _.GetHooks();
+  const {dispatch} = _.GetHooks();
   const homeData = GetState();
   const {getUserData, setHomeData} = SetDispatchers(dispatch);
 
   return <Header 
             homeData={homeData}
-            history={history}
             getUserData={getUserData}
             setHomeData={setHomeData}
          />

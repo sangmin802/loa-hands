@@ -1,8 +1,14 @@
 import React, { useRef } from 'react';
 import '../../../css/Header.css';
+import _ from '../../../Utility.js';
 
-function Header({homeData, history, getUserData, setHomeData}){
+function Header({
+  homeData, 
+  getUserData, 
+  setHomeData
+}){
   let textInput = useRef(null);
+  const {history} = _.GetHooks();
   const userOnSubmit = (e) => {
     e.preventDefault();
     let {target : {searchedUser : {value}}} = e;
