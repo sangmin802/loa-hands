@@ -1,5 +1,4 @@
 import AbilityInfo from "./abilityInfo";
-import Factory from '../factory.js'
 
 export default class UserInfo {
   constructor(raw, name, expedition, _PA){
@@ -51,11 +50,11 @@ export default class UserInfo {
     this.Lv = lvWithName.children[0].innerText;
     this.server = searchUserServer.children[0].children[1].innerText;
 
-    const serverWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "STRONG")
+    const serverWrap = this.getWantedTag(expedition, this.getWantedTag, "STRONG")
     .filter(el => el.nodeName==="STRONG")
     .map(str => str.innerText);
 
-    this.expeditionUserWrap = Factory.recursiveFunction(expedition, this.getWantedTag, "UL")
+    this.expeditionUserWrap = this.getWantedTag(expedition, this.getWantedTag, "UL")
     .filter(el => el.nodeName==="UL")
     .map((ul, index) => {
       return {
@@ -97,13 +96,7 @@ export default class UserInfo {
             childNodes = li.childNodes,
             no = childNodes[0].textContent,
             name = childNodes[1].textContent.trim(),
-            isGet = childNodes[2] ?
-              childNodes[2].textContent === '획득' ? 
-                true
-              :
-                false
-            :
-              false;
+            isGet = childNodes[2]?.textContent === '획득';
 
           if(index === 4){
             const

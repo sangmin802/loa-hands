@@ -28,10 +28,10 @@ body {
 }
 
 .height100vh {height : 100vh; overflow : hidden;}
-.vw07 {font-size : 0.7vw; }
-.rem07 {font-size : 0.7rem; }
-.rem08 {font-size : 0.8rem; }
-.rem09 {font-size : 0.9rem; }
+.vw07 {font-size : 0.7vw;}
+.rem07 {font-size : 0.7rem;}
+.rem08 {font-size : 0.8rem;}
+.rem09 {font-size : 0.9rem;}
 .rem1 {font-size : 1rem;}
 .rem11 {font-size : 1.1rem;}
 .rem12 {font-size : 1.2rem;}

@@ -124,6 +124,7 @@
   border-radius : 3px;
   overflow : hidden;
   margin-bottom : 2%;
+  cursor : pointer;
 }
 .eventContent {
   padding : .3rem;

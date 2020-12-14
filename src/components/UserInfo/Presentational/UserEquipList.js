@@ -46,13 +46,15 @@ function EquipContent({detail}){
   if(!detail) return <div className="equipListContent"></div>;
   const {NameTagBox0, ItemTitle0} = detail;
   const itemName = _.getOnlyText(NameTagBox0.value);
-  const [equipGrade,,tier] = _.multipleValues(ItemTitle0.value);
-  
+  const [,second,third] = _.multipleValues(ItemTitle0.value);
+  let desc = third;
+  if(third === '장착중') desc = `${second} (티어 0)`;
+  if(third === '') desc = `아이템 티어 0`;
+
   return(
     <div className="equipListContent">
-      <div className="equipListGrade rem09">{equipGrade}</div>
-      <div className="equipListTier rem09">{tier}</div>
-      <div className="equipListName rem09">{itemName}</div>
+      <div className="equipListTier rem08">{desc}</div>
+      <div className={`equipListName rem09`}>{itemName}</div>
     </div>
   )
 }

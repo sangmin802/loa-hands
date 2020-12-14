@@ -1,14 +1,14 @@
-import Factory from '../factory.js';
+import _ from '../Utility.js';
 import {calendarIsland} from '../JSON.js';
 
 export default class HomeData {
   constructor(raw){
     const [calendar, events] = raw;
     // 이벤트리스트
-    this.setEvents(Factory.returnBody(events));
+    this.setEvents(_.returnBody(events));
 
     // 캘린더섬
-    this.setCalendar(Factory.returnBody(calendar));
+    this.setCalendar(_.returnBody(calendar));
   }
 
   setEvents(raw){
@@ -39,12 +39,18 @@ export default class HomeData {
         name = next.getElementsByClassName('npcname')[0].textContent,
         target = calendarIsland.find(cal => cal.name===name);
 
-      if(next.textContent.includes(today) && target){
-        if(next.textContent.includes('14:00')){
-          prev[0].push({...target, time : ['14:03'], endTime : '14:03'});
-        }else if(next.textContent.includes('21:00')){
-          prev[1].push({...target, time : ['21:03'], endTime : '21:03'});
-        }
+      // if(next.textContent.includes(today) && target){
+      //   if(next.textContent.includes('14:00')){
+      //     prev[0].push({...target, time : ['14:03'], endTime : '14:03'});
+      //   }else if(next.textContent.includes('21:00')){
+      //     prev[1].push({...target, time : ['21:03'], endTime : '21:03'});
+      //   }
+      // }
+      if(!next.textContent.includes(today) || !target) return prev;
+      if(next.textContent.includes('14:00')){
+        prev[0].push({...target, time : ['14:03'], endTime : '14:03'});
+      }else if(next.textContent.includes('21:00')){
+        prev[1].push({...target, time : ['21:03'], endTime : '21:03'});
       }
       return prev;
     }, [[], []])

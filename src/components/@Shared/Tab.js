@@ -4,7 +4,7 @@ function Tab({index, tab, tabDispatcher, tabName}){
   let target = null;
   if(index===tab) target = "tabTarget"
   return (
-    <div className={`userInfoBottomMainTab ${target}`}
+    <div className={`userInfoBottomSubTab textCenter ${target}`}
       onClick={() => {
         tabDispatcher(index)
       }}

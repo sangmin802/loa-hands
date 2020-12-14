@@ -1,6 +1,14 @@
 import React from 'react';
 
-function Home({homeData, Event, TimerWrap, dailyIsland, fieldBoss, chaosGate, oceanCont}){
+function Home({
+  homeData, 
+  Event, 
+  TimerWrap, 
+  dailyIsland, 
+  fieldBoss, 
+  chaosGate, 
+  oceanCont
+}){
 
   const today = new Date().getSeconds();
   const yoil = new Date().getDay();

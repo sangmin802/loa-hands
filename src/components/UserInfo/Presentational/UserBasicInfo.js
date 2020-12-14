@@ -1,5 +1,8 @@
 import React from 'react';
 
+// 컴포넌트
+import CollectionImg from '../../@Shared/CollectionImg.js';
+
 function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, collectionMini, name}}){
 
   return (
@@ -77,46 +80,13 @@ function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllL
       <div className="userInfoCollection">
         {
           collectionMini.map((col, index) => {
-            let position = '720px';
-            switch(index){
-              case 0 : 
-              break;
-              case 1 : position = '673px';
-              break;
-              case 2 : position = '767px';
-              break;
-              case 3 : position = '787px';
-              break;
-              case 4 : position = '652px';
-              break;
-              case 5 : position = '627px';
-              break;
-              case 6 : position = '741px';
-              break;
-              case 7 : position = '696px';
-              break;
-              default : return null;
-            }
-            return <CollectionMini 
+            return <CollectionImg 
                       key={`collectionMini${index}`}
-                      position={position}
+                      index={index}
                       size={col.size}
                    />
           })
         }
-      </div>
-    </div>
-  )
-}
-
-function CollectionMini({position, size}){
-  return (
-    <div className="collectionMini">
-      <div className="collectionMiniBg"
-        style={{backgroundPosition : ` ${position} 50px`}}
-      ></div>
-      <div className="collectionMiniSize">
-        {size}
       </div>
     </div>
   )

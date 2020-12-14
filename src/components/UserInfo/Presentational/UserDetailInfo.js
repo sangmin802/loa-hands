@@ -8,6 +8,7 @@ import UserEquipList from './UserEquipList.js';
 import UserAvatarList from './UserAvatarList.js';
 import UserBattleSkillList from './UserBattleSkillList.js';
 import UserLifeSkillList from './UserLifeSkillList.js';
+import CollectionImg from '../../@Shared/CollectionImg.js';
 
 
 function UserDetailInfo({
@@ -47,7 +48,13 @@ function SetContent(userData, mainTab, subTab){
   if(mainTab === 0) subTabArr = ['장비', '아바타'];
   if(mainTab === 1) subTabArr = ['전투스킬', '생활스킬'];
   if(mainTab === 2) {
-    subTabArr = collectionMini.map(res => res.name)
+    subTabArr = collectionMini.map((col, index) => {
+      return <CollectionImg 
+                key={`collectionMini${index}`}
+                index={index}
+                size={col.size}
+             />
+    })
     content = <UserCollectionList data={collectionDetail[subTab]}/>
   };
   if(mainTab === 0 && subTab === 0) content = [...equipArr].map((equip, index) => (<UserEquipList data={equip} key={`userEquipList${index}`} />))

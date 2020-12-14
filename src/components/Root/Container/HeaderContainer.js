@@ -7,9 +7,8 @@ import Header from '../Presentational/Header.js';
 
 function HeaderContainer(){
   const {dispatch} = _.GetHooks();
-  const homeData = GetState();
+  const {homeData} = GetState();
   const {getUserData, setHomeData} = SetDispatchers(dispatch);
-
   return <Header 
             homeData={homeData}
             getUserData={getUserData}
@@ -18,7 +17,14 @@ function HeaderContainer(){
 }
 
 function GetState(){
-  return useSelector(state => state.homeData);
+  // return useSelector(state => state.homeData);
+  return useSelector(state => ({
+    homeData : state.homeData  
+  }), 
+  (left, right) => {
+    if(_.compareObj(left.homeData, right.homeData)) return true;
+    return false;
+  });
 }
 
 function SetDispatchers(dispatch){
@@ -27,4 +33,4 @@ function SetDispatchers(dispatch){
 
   return {getUserData, setHomeData};
 }
-export default HeaderContainer;
+export default React.memo(HeaderContainer, () => true);

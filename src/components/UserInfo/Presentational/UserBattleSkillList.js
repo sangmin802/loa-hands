@@ -9,8 +9,8 @@ function BattleSkillList({
   return(
     <div className="userSkillWrap">
       <div className="userSkillPoint">
-        <span className="userUseSkill">{usePoint} / </span>
-        <span className="userGetSkill">{getPoint}</span>
+        <span className="userUseSkill rem09">사용 : {usePoint}</span>
+        <span className="userGetSkill rem09">획득 : {getPoint}</span>
       </div>
       <div className="userSkillListWrap">
         {

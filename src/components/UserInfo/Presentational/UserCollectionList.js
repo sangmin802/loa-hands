@@ -12,7 +12,7 @@ function UserCollectionList({data : {detail, getCount, title, totalCount}}){
       </div>
       <div className="userCollectionDetailWrap">
       {parsedDetail.map((arr, index) => {
-        const side = index === 0 ? 'Right' : 'Left';
+        const side = index === 0 ? 'Left' : 'Right';
         return <UserCollectionSideWrap 
                   key={`userCollectionSide${side}`}
                   side={side}

@@ -71,6 +71,7 @@ function Avatar({arr, avatarPart, pos}){
                 partImg={partImg}
                 detail={detail}
                 pos={pos}
+                type="AVATAR"
               />
             }
             <UserInfoEquipImg data={res}/>

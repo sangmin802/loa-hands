@@ -1,6 +1,6 @@
 import UserInfo from './models/userInfo.js';
 import HomeData from './models/homeData.js';
-import Factory from './factory.js';
+import _ from './Utility.js';
 import {PROXY} from './porxy.js';
 
 export default {
@@ -25,7 +25,7 @@ export default {
         }else{
           const 
             promiseAllArr = ['GetCollection'],
-            body = Factory.returnBody(data),
+            body = _.returnBody(data),
             script = body.getElementsByTagName('script'),
             expedition = body.getElementsByClassName('myinfo__character--wrapper2')[0],
             [,memberNo,,pcId,,worldNo] = script[10].textContent.split('\'');

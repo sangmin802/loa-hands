@@ -1,6 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import _ from 'lodash';
 
 export default {
   GetHooks(){
@@ -62,4 +63,19 @@ export default {
       return
     })
   },
+
+  // 문자열을 Element화 해서, Body부분만 반환
+  returnBody(data){
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const body = doc.getElementsByTagName('body')[0];
+    
+    return body;
+  },
+
+  // 객체 비교
+  compareObj(obj1, obj2){
+    // 동일하면 true 다르면 false
+    return _.isEqual(obj1, obj2);
+  }
 }

@@ -3,10 +3,9 @@ import React from 'react';
 export default {
   // 문자열을 Element화 해서, Body부분만 반환
   returnBody(data){
-    const
-      parser = new DOMParser(),
-      doc = parser.parseFromString(data, 'text/html'),
-      body = doc.getElementsByTagName('body')[0];
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const body = doc.getElementsByTagName('body')[0];
     
     return body;
   },

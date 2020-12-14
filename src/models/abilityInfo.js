@@ -25,9 +25,7 @@ export default class AbilityInfo{
     const equipKeyArr = Object.keys(equip);
     equipKeyArr.forEach((key) => {
       const num = Number(key.substr(key.length-3, key.length))
-      if(partsArr[num]){
-        this.equipInfo[partsArr[num]].detail = new EquipInfo(equip[key], num);
-      }
+      if(partsArr[num]) this.equipInfo[partsArr[num]].detail = new EquipInfo(equip[key], num);
     })
   }
 }

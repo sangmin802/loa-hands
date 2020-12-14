@@ -24,26 +24,31 @@ function UserItemHover({
     <div className={`listDetail hoverContent zIndex10 ${pos} listDetail${type}`}>
       <div className="listDetailTop">
         <div className="listDetailImg">
-          <img className="imgWidth" src={`//cdn-lostark.game.onstove.com${partImg}`} alt="partImg"/>
-          <img className={`equipMainImg absolute imgWidth gradient${iconGrade}`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={iconPath} />
+          <div className="listDetailImgs">
+            <img className="imgWidth" src={`//cdn-lostark.game.onstove.com${partImg}`} alt="partImg"/>
+            <img className={`equipMainImg absolute imgWidth gradient${iconGrade}`} src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={iconPath} />
+          </div>
         </div>
         <div className="listDetailMainInfo">
-          <div className={`listDetailName overflowDot color${iconGrade} rem11`}>
+          <div className={`listDetailName overflowDot color${iconGrade} rem1`}>
             {_.getOnlyText(NameTagBox0.value)}
           </div>
-          <div className={`listDetailGrade overflowDot color${iconGrade} rem1`}>
+          <div className={`listDetailGrade overflowDot color${iconGrade} rem09`}>
             {equipGrade}
           </div>
           <div className='listDetailTier overflowDot rem09'>
             {tier}
           </div>
-          <CreateQualityGraph 
-            qualityColor={qualityColor} 
-            qualityValue={qualityValue} 
-            equipGroupType={equipGroupType}
-          />
         </div>
       </div>
+      {
+        type==='EQUIP' &&
+        <CreateQualityGraph 
+          qualityColor={qualityColor} 
+          qualityValue={qualityValue} 
+          equipGroupType={equipGroupType}
+        />
+      }
       <div className="listDetailBottom">
         <ItemPartBox arr={_.getSameTypeObj(dataArray, "ItemPartBox")}/>
         {equipGroupType !== "Stone" &&
@@ -61,7 +66,6 @@ function UserItemHover({
             />
           })
         }
-
       </div>
     </div>
   )
@@ -75,11 +79,14 @@ function setQualityColor(qualityValue){
   return -2;
 }
 
-function CreateQualityGraph(qualityColor, qualityValue, equipGroupType){
+function CreateQualityGraph({qualityColor, qualityValue, equipGroupType}){
   if(equipGroupType==='Stone') return null;
+  if(typeof qualityValue !== 'number') return null;
   return (
-    <div className='listDetailQuality'>
-      <div className={`qualityValue gradient${qualityColor}`} style={{width : `${qualityValue}%`}}/>
+    <div className='listDetailQuality textCenter rem08'>
+      품질 {qualityValue}%
+      <div className={`qualityValue gradient${qualityColor}`} style={{width : `${qualityValue}%`}}>
+      </div>
     </div>
   )
 }
