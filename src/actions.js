@@ -51,18 +51,30 @@ export const changeUserInfoSubTab = (userInfoSubTab) => {
 }
 
 // Thunk Action creators
-export const getUserData_Thunk = (name, history) => (dispatch, getState) => {
+export const getUserData_Thunk = (name, history) => async (dispatch, getState) => {
   if(name.replace(/ /g,'')){
     dispatch(loadingToggle(true));
-    API.getUserData(name.replace(/ /g,''))
-    .then((data) => {
+    // async await 버전
+    try {
+      const data = await API.getUserData(name.replace(/ /g,''));
       dispatch(getUserData(data, false))
       history.replace(`/userInfo/${name}`)
-    })
-    .catch(() => {
+    } catch(err) {
+      alert(err.message);
       dispatch(loadingToggle(false));
       history.replace(`/`)
-    });
+    }
+
+    // Promise 버전
+    // API.getUserData(name.replace(/ /g,''))
+    // .then((data) => {
+    //   dispatch(getUserData(data, false))
+    //   history.replace(`/userInfo/${name}`)
+    // })
+    // .catch(() => {
+    //   dispatch(loadingToggle(false));
+    //   history.replace(`/`)
+    // });
   }
 }
 

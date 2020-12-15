@@ -1,7 +1,7 @@
 import AbilityInfo from "./abilityInfo";
 
 export default class UserInfo {
-  constructor(raw, name, expedition, _PA){
+  constructor(raw, name, expedition, userCollection){
     // 유저 기본정보 설정
     this.setUserBaseInfo(raw, name)
 
@@ -12,8 +12,8 @@ export default class UserInfo {
     this.setExpeditionUserInfo(raw, expedition)
 
     // 수집형 포인트
-    const [collection] = _PA;
-    this.setCollectionInfo(collection)
+    // const [collection] = _PA; // PromiseAll일 경우
+    this.setCollectionInfo(userCollection)
   }
 
   setUserBaseInfo(raw){
