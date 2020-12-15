@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from '../../../Utility.js';
 
 function UserInfoEquipImg({data}){
   const {partImg, detail} = data;
@@ -17,4 +18,7 @@ function UserInfoEquipImg({data}){
   return returnTag;
 }
 
-export default UserInfoEquipImg;
+export default React.memo(UserInfoEquipImg, (prev, next) => {
+  if(_.compareObj(prev, next)) return true;
+  return false;
+});

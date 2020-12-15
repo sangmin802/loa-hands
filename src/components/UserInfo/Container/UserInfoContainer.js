@@ -1,5 +1,5 @@
-import React from 'react';
-import {useSelector, shallowEqual} from 'react-redux';
+import React, { useCallback } from 'react';
+import {useSelector} from 'react-redux';
 import * as Actions from '../../../actions.js';
 import _ from '../../../Utility.js';
 
@@ -31,12 +31,15 @@ function GetState(){
     userData : state.userData,
     expeditionPop : state.expeditionPop,
     userInfoMainTab : state.userInfoMainTab,
-  }), shallowEqual)
+  }), (left, right) => {
+    if(_.compareObj(left, right)) return true;
+    return false;
+  })
 }
 
 function SetDispatchers(dispatch){
   const expeditionPopToggle = (bool) => {dispatch(Actions.expeditionPopToggle(bool));};
-  const changeUserInfoMainTab = (index) => {dispatch(Actions.changeUserInfoMainTab(index));};
+  const changeUserInfoMainTab = useCallback((index) => {dispatch(Actions.changeUserInfoMainTab(index));})
   const getUserData = (value, history) => {dispatch(Actions.getUserData_Thunk(value, history))};
 
   return {expeditionPopToggle, changeUserInfoMainTab, getUserData};

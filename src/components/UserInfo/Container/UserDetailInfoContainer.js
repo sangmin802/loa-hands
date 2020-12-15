@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import _ from '../../../Utility.js';
-import {useSelector, shallowEqual} from 'react-redux';
+import {useSelector} from 'react-redux';
 import * as Actions from '../../../actions.js';
 
 // 컴포넌트
@@ -24,11 +24,14 @@ function GetState(){
     userData : state.userData,
     userInfoSubTab : state.userInfoSubTab,
     userInfoMainTab : state.userInfoMainTab
-  }), shallowEqual);
+  }), (left, right) => {
+    if(_.compareObj(left, right)) return true;
+    return false;
+  });
 }
 
 function SetDispatcher(dispatch){
-  const changeUserInfoSubTab = (index) => {dispatch(Actions.changeUserInfoSubTab(index))};
+  const changeUserInfoSubTab = useCallback((index) => {dispatch(Actions.changeUserInfoSubTab(index))});
 
   return {changeUserInfoSubTab};
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from '../../../Utility.js';
 
 // 컴포넌트
 import CollectionImg from '../../@Shared/CollectionImg.js';
@@ -92,4 +93,7 @@ function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllL
   )
 }
 
-export default UserBasicInfo;
+export default React.memo(UserBasicInfo, (prev, next) => {
+  if(_.compareObj(prev, next)) return true;
+  return false;
+});

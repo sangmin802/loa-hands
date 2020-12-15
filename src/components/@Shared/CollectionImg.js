@@ -34,4 +34,4 @@ function CollectionImg({size, index}){
   )
 }
 
-export default CollectionImg;
+export default React.memo(CollectionImg, () => true);
