@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App.js';
+import App from './App.tsx';
 import {useSelector, shallowEqual} from 'react-redux';
 
 function AppContainer(){

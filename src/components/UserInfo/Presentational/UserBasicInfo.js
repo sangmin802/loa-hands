@@ -5,7 +5,6 @@ import _ from '../../../Utility.js';
 import CollectionImg from '../../@Shared/CollectionImg.js';
 
 function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, collectionMini, name}}){
-
   return (
     <div className="searchedUserInfo">
       <div className="userClass userInfoBox">

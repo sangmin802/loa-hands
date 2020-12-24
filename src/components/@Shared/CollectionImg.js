@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from '../../Utility.js';
 
 function CollectionImg({size, index}){
   let position = '720px';
@@ -34,4 +35,7 @@ function CollectionImg({size, index}){
   )
 }
 
-export default React.memo(CollectionImg, () => true);
+export default React.memo(CollectionImg, (prev, next) => {
+  if(_.compareObj(prev, next)) return true;
+  return false;
+});
