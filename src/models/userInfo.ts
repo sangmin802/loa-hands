@@ -1,5 +1,4 @@
 import AbilityInfo from './abilityInfo';
-import IUserInfo from './interfaces/IuserInfo'
 
 interface IExpeditionuserWrap {
   server : string, 
