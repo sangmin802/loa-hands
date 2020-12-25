@@ -5,7 +5,7 @@ import _ from '../../../Utility.js';
 function Header({
   homeData, 
   getUserData, 
-  setHomeData
+  setHomeData,
 }){
   let textInput = useRef(null);
   const {history} = _.GetHooks();

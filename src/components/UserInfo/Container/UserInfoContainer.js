@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions.js';
+import * as Actions from '../../../actions.ts';
 import _ from '../../../Utility.js';
 
 // 컴포넌트

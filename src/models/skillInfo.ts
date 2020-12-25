@@ -1,6 +1,7 @@
 interface ISkill {
   [key : string] : string | ISkill[]
 }
+
 export default class SkillInfo<T> {
   battleSkill : ISkill = {};
   lifeSkill : ISkill[] = [];

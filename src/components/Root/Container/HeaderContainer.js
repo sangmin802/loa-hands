@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions.js';
+import * as Actions from '../../../actions.ts';
 import _ from '../../../Utility.js';
 
 import Header from '../Presentational/Header.js';

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, shallowEqual} from 'react-redux';
-import * as Actions from '../../../actions.js';
+import * as Actions from '../../../actions.ts';
 import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../../../JSON.js';
 import _ from '../../../Utility.js';
 

@@ -1,4 +1,10 @@
-const initialStates = {
+import {ActionType} from './actions'
+
+interface IInitialStates {
+  [key : string] : number | boolean
+}
+
+const initialStates : IInitialStates = {
   isLoading : false,
   userData : null,
   homeData : null,
@@ -7,9 +13,11 @@ const initialStates = {
   userInfoSubTab : 0,
 }
 
-export default (state = initialStates, action) => {
-  const {type} = action;
-  switch(type){
+export default (
+  state : IInitialStates = initialStates, 
+  action : ActionType
+) => {
+  switch(action.type){
     case 'SET_HOME_DATA' : {
       return {
         ...state,

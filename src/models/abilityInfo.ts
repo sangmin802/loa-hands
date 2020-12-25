@@ -10,7 +10,7 @@ interface IEquipInfo {
 }
 
 interface IUnknownObj {
-  [key : string] : {}
+  [key : string] : IUnknownObj
 }
 
 export default class AbilityInfo {
