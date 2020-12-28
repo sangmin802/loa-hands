@@ -1,5 +1,5 @@
-import _ from '../Utility.js';
-import {calendarIsland} from '../JSON.js';
+import _ from '../Utility';
+import {calendarIsland} from '../JSON';
 
 interface ICalendar {
   [prop : string] : string | string[] | object

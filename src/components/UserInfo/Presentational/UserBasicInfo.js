@@ -1,8 +1,8 @@
 import React from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import CollectionImg from '../../@Shared/CollectionImg.js';
+import CollectionImg from '../../@Shared/CollectionImg';
 
 function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, collectionMini, name}}){
   return (

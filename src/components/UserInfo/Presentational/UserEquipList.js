@@ -1,8 +1,8 @@
 import React from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import UserItemHover from './UserItemHover.js';
+import UserItemHover from './UserItemHover';
 
 function UserEquipList({
   data,

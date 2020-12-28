@@ -1,8 +1,8 @@
 import React from 'react';
 
 // 컴포넌트
-import UserItemHover from './UserItemHover.js';
-import UserInfoEquipImg from './UserInfoEquipImg.js';
+import UserItemHover from './UserItemHover';
+import UserInfoEquipImg from './UserInfoEquipImg';
 
 function UserAvatarList({
   data

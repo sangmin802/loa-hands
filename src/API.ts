@@ -1,7 +1,7 @@
 import UserInfo from './models/userInfo';
 import HomeData from './models/homeData';
-import _ from './Utility.js';
-import {PROXY} from './porxy.js';
+import _ from './Utility';
+import {PROXY} from './porxy';
 
 export default {
   // Promise 버전

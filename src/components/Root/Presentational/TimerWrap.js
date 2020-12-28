@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import Timer from './Timer.js';
+import Timer from './Timer';
 
 function TimerWrap({data}){
   const setTime = useCallback((time) => {
@@ -25,7 +25,7 @@ function TimerWrap({data}){
     return is.position = [];
   })
 
-  // 가장 먼저 열리는 섬 순서대로 진열. 종료시, 맨 뒤로
+  // 가장 먼저 열리는 섬 순서대로 진열. 모든 시간 종료시, 맨 뒤로
   newData.sort((a, b) => {
     const 
       time_a = a.time[0],

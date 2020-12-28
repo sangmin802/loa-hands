@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {useSelector, shallowEqual} from 'react-redux';
 import * as Actions from '../../../actions.ts';
-import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../../../JSON.js';
-import _ from '../../../Utility.js';
+import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../../../JSON';
+import _ from '../../../Utility';
 
-import Event from '../Presentational/Event.js';
-import Home from '../Presentational/Home.js';
-import TimerWrap from '../Presentational/TimerWrap.js';
+import Event from '../Presentational/Event';
+import Home from '../Presentational/Home';
+import TimerWrap from '../Presentational/TimerWrap';
 
 
 function HomeContainer(){

@@ -1,6 +1,7 @@
 import React from 'react';
-import App from './App.tsx';
+import App from './App';
 import {useSelector, shallowEqual} from 'react-redux';
+import {RootState} from '../store'
 
 function AppContainer(){
   const {isLoading} = GetState();
@@ -11,7 +12,7 @@ function AppContainer(){
 }
 
 function GetState(){
-  return useSelector(state => ({
+  return useSelector((state : RootState) => ({
     isLoading : state.isLoading,
   }), shallowEqual);
 }

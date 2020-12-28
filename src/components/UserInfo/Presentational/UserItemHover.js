@@ -1,10 +1,10 @@
 import React from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import ItemPartBox from '../../@Shared/ItemPartBox.js';
-import IntentString from '../../@Shared/IntentString.js';
-import SingleTextBox from '../../@Shared/SingleTextBox.js';
+import ItemPartBox from '../../@Shared/ItemPartBox';
+import IntentString from '../../@Shared/IntentString';
+import SingleTextBox from '../../@Shared/SingleTextBox';
 
 function UserItemHover({
   partImg, 

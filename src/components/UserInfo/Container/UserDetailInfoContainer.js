@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 import {useSelector} from 'react-redux';
 import * as Actions from '../../../actions.ts';
 

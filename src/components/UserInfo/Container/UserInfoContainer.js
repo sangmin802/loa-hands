@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import {useSelector} from 'react-redux';
 import * as Actions from '../../../actions.ts';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import UserInfo from '../Presentational/UserInfo.js';
+import UserInfo from '../Presentational/UserInfo';
 
 
 function UserInfoContainer({match : {params : {name}}}){

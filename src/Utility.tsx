@@ -1,22 +1,23 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import _History from 'history'
 import _ from 'lodash';
 
 export default {
   GetHooks(){
-    const history = useHistory();
+    const history : _History.History = useHistory();
     const dispatch = useDispatch();
     return {history, dispatch};
   },
 
   // 태그가 포함된 문자열에서 태그를 제외한 문자열만 반환
   // BR태그가 있다면, div태그로 줄바꿈되도록 하고 {}를 통해 읽을수 있게 처리
-  getOnlyText(string){
-    const newStr = string.replace(/<BR>/gi, "enter");
-    const parsed = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
+  getOnlyText(string : string){
+    const newStr : string = string.replace(/<BR>/gi, "enter");
+    const parsed : string = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
     if(parsed.includes('enter')){
-      const split = parsed.split('enter');
+      const split : string[] = parsed.split('enter');
       return split.map((res, index) => {
         if(res!==""){
           return <div key={'enter'+index}>{res}</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 function UserInfoEquipImg({data}){
   const {partImg, detail} = data;

@@ -1,14 +1,14 @@
 import React from 'react';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import Tab from '../../@Shared/Tab.js';
-import UserCollectionList from './UserCollectionList.js';
-import UserEquipList from './UserEquipList.js';
-import UserAvatarList from './UserAvatarList.js';
-import UserBattleSkillList from './UserBattleSkillList.js';
-import UserLifeSkillList from './UserLifeSkillList.js';
-import CollectionImg from '../../@Shared/CollectionImg.js';
+import Tab from '../../@Shared/Tab';
+import UserCollectionList from './UserCollectionList';
+import UserEquipList from './UserEquipList';
+import UserAvatarList from './UserAvatarList';
+import UserBattleSkillList from './UserBattleSkillList';
+import UserLifeSkillList from './UserLifeSkillList';
+import CollectionImg from '../../@Shared/CollectionImg';
 
 
 function UserDetailInfo({

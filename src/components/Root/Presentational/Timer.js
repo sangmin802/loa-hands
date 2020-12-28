@@ -65,16 +65,16 @@ function TimerInterval(props, state, setState){
   useEffect(() => {
     // 만약, 카운트다운이 끝나서 상위 이벤트 실행, 재렌더링 되었을 때 이후의 가능한 시간이 없다면 실행되지 않음.
     if(props.time){
-      const 
-        [hour, min] = props.time.split(':'),
-        year = now.getFullYear(),
-        month = now.getMonth(),
-        date = now.getDate(),
-        closeTime = new Date(year, month, date, hour, min), // 종료 시간
-        startTime = new Date(year, month, date, hour, min-(waiting || 3)); // 시작 시간
-        startInterval(1, intervalTime.bind(null, closeTime, startTime, time), 1000)
+      const [hour, min] = props.time.split(':');
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      const date = now.getDate();
+      const closeTime = new Date(year, month, date, hour, min); // 종료 시간
+      const startTime = new Date(year, month, date, hour, min-(waiting || 3)); // 시작 시간
+
+      startInterval(1, intervalTime.bind(null, closeTime, startTime, time), 1000)
     }else{
-      // 만약, Wrap이 새롭게 랜더링 되고, 받아온 데이터에 시간이 없다면 NORMAL로 초기화
+      // 새롭게 받아온 시간이 없을 때, 오늘 더이상 열리지 않는 섬일 때 테두리, 색상 등 초기화
       setState({...state, targetState : 'NORMAL'});
     }
     return () => {
@@ -98,6 +98,7 @@ function TimerInterval(props, state, setState){
     if(gap === 0 || 0 > gap){
       targetState = 'OPEN';
       // 등장 유지시간 설정 (섬 등이 등장중이거나, 항해컨텐츠 알림 등장)
+      // 인터벌로 위에서 gap이 시작시간기준으로 다시 잡혀도, 어차피 -값이여서 여기서 gap이 종료시간기준으로 변경됨
       gap = _closeTime-new Date();
     }
     // 등장 유지시간 종료 (섬 등이 사라지거나, 항해컨텐츠 시작)
@@ -106,14 +107,14 @@ function TimerInterval(props, state, setState){
     }
 
     // 남는시간 설정
-    const 
-      _sec = 1000,
-      _min = _sec*60,
-      _hour = _min*60,
-      hour = Math.floor(gap / _hour),
-      min = Math.floor((gap % _hour) / _min),
-      sec = Math.floor((gap % _min) / _sec);
-      setState({...state, targetState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
+    const _sec = 1000;
+    const _min = _sec*60;
+    const _hour = _min*60;
+    const hour = Math.floor(gap / _hour);
+    const min = Math.floor((gap % _hour) / _min);
+    const sec = Math.floor((gap % _min) / _sec);
+    
+    setState({...state, targetState, timeOut : `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`})
   }
 }
 

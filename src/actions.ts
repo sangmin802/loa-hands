@@ -2,7 +2,6 @@ import API from './API';
 import HomeData from './models/homeData'
 import UserInfo from './models/userInfo'
 import _History from 'history';
-import {useDispatch} from 'react-redux'
 
 // Action types
 const LOADING_TOGGLE = 'LOADING_TOGGLE' as const;
@@ -77,7 +76,7 @@ export const getUserData_Thunk = (
   name : string, 
   history : _History.History
 ) => async (
-    dispatch : ReturnType<typeof useDispatch>
+    dispatch
   ) => {
   if(name.replace(/ /g,'')){
     dispatch(loadingToggle(true));
@@ -97,7 +96,7 @@ export const getUserData_Thunk = (
 export const setHomeData_Thunk = (
   history : _History.History
 ) => (
-    dispatch : ReturnType<typeof useDispatch>
+    dispatch
   ) => {
   dispatch(loadingToggle(true));
   API.getHomeData()

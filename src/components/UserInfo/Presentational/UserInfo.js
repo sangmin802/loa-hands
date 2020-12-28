@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../../css/UserInfo.css';
-import _ from '../../../Utility.js';
+import _ from '../../../Utility';
 
 // 컴포넌트
-import UserBasicInfo from './UserBasicInfo.js';
-import UserExpedition from './UserExpedition.js';
-import UserInfoEquipImg from './UserInfoEquipImg.js';
-import Tab from '../../@Shared/Tab.js';
-import UserDetailInfoContainer from '../Container/UserDetailInfoContainer.js';
+import UserBasicInfo from './UserBasicInfo';
+import UserExpedition from './UserExpedition';
+import UserInfoEquipImg from './UserInfoEquipImg';
+import Tab from '../../@Shared/Tab';
+import UserDetailInfoContainer from '../Container/UserDetailInfoContainer';
 
 function UserInfo({
   userData, 

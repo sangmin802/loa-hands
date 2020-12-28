@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../Utility.js';
+import _ from '../../Utility';
 
 function TripodSkillCustom({val, type}){
   if(!val) return null;

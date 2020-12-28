@@ -1,11 +1,12 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions.ts';
-import _ from '../../../Utility.js';
+import * as Actions from '../../../actions';
+import _ from '../../../Utility';
+import {RootState} from '../../../store';
 
-import Header from '../Presentational/Header.js';
+import Header from '../Presentational/Header';
 
-function HeaderContainer(){
+const HeaderContainer : React.FC = () => {
   const {dispatch} = _.GetHooks();
   const {homeData} = GetState();
   const {getUserData, setHomeData} = SetDispatchers(dispatch);
@@ -17,9 +18,8 @@ function HeaderContainer(){
 }
 
 function GetState(){
-  // return useSelector(state => state.homeData);
-  return useSelector(state => ({
-    homeData : state.homeData  
+  return useSelector((state : RootState) => ({
+    homeData : state.homeData
   }), 
   (left, right) => {
     if(_.compareObj(left.homeData, right.homeData)) return true;
@@ -33,4 +33,5 @@ function SetDispatchers(dispatch){
 
   return {getUserData, setHomeData};
 }
+
 export default React.memo(HeaderContainer, () => true);

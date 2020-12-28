@@ -3,10 +3,10 @@ import '../css/App.css';
 import { Route } from 'react-router-dom'
 
 // 컴포넌트
-import HeaderContainer from './Root/Container/HeaderContainer.js';
-import HomeContainer from './Root/Container/HomeContainer.js';
-import UserInfoContainer from './UserInfo/Container/UserInfoContainer.js';
-import LoadingSpinner from './@Shared/LoadingSpinner.js';
+import HeaderContainer from './Root/Container/HeaderContainer';
+import HomeContainer from './Root/Container/HomeContainer';
+import UserInfoContainer from './UserInfo/Container/UserInfoContainer';
+import LoadingSpinner from './@Shared/LoadingSpinner';
 
 function App({isLoading}){
   const isLoadingStyle1 = isLoading ? 'height100vh' : null;

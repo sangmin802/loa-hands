@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../Utility.js';
+import _ from '../../Utility';
 
 function CollectionImg({size, index}){
   let position = '720px';
