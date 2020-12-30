@@ -1,13 +1,23 @@
 import React from 'react';
 import _ from '../../../Utility';
 
-function UserExpedition({
+// 타입
+import {IOneParamMethod, ITwoParamMethod} from '../../../interface'
+import {IExpeditionUserWrap} from '../../../models/userInfo'
+
+interface IUserExpedition {
+  getUserData : ITwoParamMethod
+  expeditionPopToggle : IOneParamMethod
+  expeditionUserWrap : IExpeditionUserWrap[]
+  expeditionPop : boolean
+}
+
+const UserExpedition : React.FC<IUserExpedition> = ({
   getUserData,
-  expeditionUserWrap,
   expeditionPopToggle,
+  expeditionUserWrap,
   expeditionPop
-}){
-  const {history} = _.GetHooks();
+}) => {
   let displayPop = null;
   if(expeditionPop) displayPop = 'displayBlock';
 
@@ -25,14 +35,21 @@ function UserExpedition({
                   key={`userExpedition${index}`}
                   wrap={wrap}
                   getUserData={getUserData}
-                  history={history}
                />
       })}
     </div>    
   )
 }
 
-function ExpeditionServer({wrap, getUserData, history}){
+interface IExpeditionServer {
+  wrap : IExpeditionUserWrap
+  getUserData : ITwoParamMethod
+}
+
+const ExpeditionServer : React.FC<IExpeditionServer> = ({
+  wrap,
+  getUserData,
+}) => {
   return(
     <div className="userExpedition">
       <div className="userExpeditionServer rem13">
@@ -44,7 +61,6 @@ function ExpeditionServer({wrap, getUserData, history}){
                     key={`userExpeditionChar${charIndex}`}
                     getUserData={getUserData}
                     char={char}
-                    history={history}
                  />
         })}
       </div>
@@ -52,7 +68,17 @@ function ExpeditionServer({wrap, getUserData, history}){
   )
 }
 
-function ServerChar({getUserData, char, history}){
+interface IServerChar {
+  getUserData : ITwoParamMethod
+  char : {name : string, lv : string}
+}
+
+const ServerChar : React.FC<IServerChar> = ({
+  getUserData,
+  char
+}) => {
+  const {history} = _.GetHooks();
+
   return(
     <div className="userExpeditionChar rem09 overflowDot"
       onClick={() => {

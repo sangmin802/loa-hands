@@ -9,15 +9,27 @@ import UserInfoEquipImg from './UserInfoEquipImg';
 import Tab from '../../@Shared/Tab';
 import UserDetailInfoContainer from '../Container/UserDetailInfoContainer';
 
-function UserInfo({
+// 타입
+import UserData from '../../../models/userInfo'
+import {IOneParamMethod, ITwoParamMethod} from '../../../interface'
+
+interface Props {
+  userData : UserData
+  expeditionPop : boolean
+  userInfoMainTab : number 
+  getUserData : ITwoParamMethod
+  expeditionPopToggle : IOneParamMethod
+  changeUserInfoMainTab : IOneParamMethod
+}
+
+const UserInfo : React.FC<Props> = ({
   userData, 
   getUserData,
   expeditionPop, 
   expeditionPopToggle, 
   userInfoMainTab, 
   changeUserInfoMainTab
-}){
-
+}) => {
   const {abilityInfo : {equipInfo}, expeditionUserWrap, classEngName} = userData;
   const [equipArr, ] = _.divideEquipInfo(equipInfo);
   return(

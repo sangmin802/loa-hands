@@ -4,12 +4,21 @@ import _ from '../../../Utility';
 // 컴포넌트
 import CollectionImg from '../../@Shared/CollectionImg';
 
-function UserBasicInfo({userData : {Lv, className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, collectionMini, name}}){
+// 타입
+import UserData from '../../../models/userInfo' 
+
+interface Props {
+  userData : UserData
+}
+
+const UserBasicInfo : React.FC<Props> = ({userData}) => {
+  const {Lv, className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, server, title, collectionMini, name} = userData;
+
   return (
     <div className="searchedUserInfo">
       <div className="userClass userInfoBox">
         <div className="userClassEmb">
-          <img className="imgWidth" src={classSrc} alt={className} />
+          <img className="imgWidth" src={(classSrc as string)} alt={(className as string)} />
         </div>
         <div className="userClassName rem09">
           {className}

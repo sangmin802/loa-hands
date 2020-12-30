@@ -97,7 +97,6 @@ export const setHomeData_Thunk = (
 ) => (
     dispatch
   ) => {
-  console.log('여기왔음')
   dispatch(loadingToggle(true));
   API.getHomeData()
   .then((homeData : HomeData) => {

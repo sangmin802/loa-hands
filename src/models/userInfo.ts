@@ -1,6 +1,6 @@
 import AbilityInfo from './abilityInfo';
 
-interface IExpeditionuserWrap {
+export interface IExpeditionUserWrap {
   server : string, 
   charList : 
   {
@@ -25,10 +25,11 @@ interface ICollectionDetail {
 
 export default class UserInfo {
   // 구조
-  [key : string] : string | AbilityInfo | object
-  expeditionUserWrap : IExpeditionuserWrap[]
+  [key : string] : string | object
+  expeditionUserWrap : IExpeditionUserWrap[]
   collectionMini : ICollectionMini[]
   collectionDetail : ICollectionDetail[]
+  abilityInfo : AbilityInfo
   // 
 
   // 생성자

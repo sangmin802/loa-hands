@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import _ from '../../../Utility';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions.ts';
+import * as Actions from '../../../actions';
 
 // 컴포넌트
 import UserDetailInfo from '../Presentational/UserDetailInfo.js';

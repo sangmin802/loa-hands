@@ -1,13 +1,22 @@
 import React, { useCallback } from 'react';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions.ts';
+import * as Actions from '../../../actions';
 import _ from '../../../Utility';
+import {RouteComponentProps} from 'react-router';
 
 // 컴포넌트
 import UserInfo from '../Presentational/UserInfo';
 
+// 타입
+import {RootState} from '../../../store'
 
-function UserInfoContainer({match : {params : {name}}}){
+interface MatchParams {
+  name : string
+}
+
+const UserInfoContainer : React.FC<RouteComponentProps<MatchParams>> = ({
+  match : {params : {name}}
+}) => {
   const {history, dispatch} = _.GetHooks();
   const {userData, expeditionPop, userInfoMainTab} = GetState();
   const {expeditionPopToggle, changeUserInfoMainTab, getUserData} = SetDispatchers(dispatch)
@@ -27,7 +36,7 @@ function UserInfoContainer({match : {params : {name}}}){
 }
 
 function GetState(){
-  return useSelector(state => ({
+  return useSelector((state : RootState) => ({
     userData : state.userData,
     expeditionPop : state.expeditionPop,
     userInfoMainTab : state.userInfoMainTab,
@@ -38,8 +47,12 @@ function GetState(){
 }
 
 function SetDispatchers(dispatch){
-  const expeditionPopToggle = (bool) => {dispatch(Actions.expeditionPopToggle(bool));};
-  const changeUserInfoMainTab = useCallback((index) => {dispatch(Actions.changeUserInfoMainTab(index));})
+  const expeditionPopToggle = (bool) => {
+    dispatch(Actions.expeditionPopToggle(bool));
+  };
+  const changeUserInfoMainTab = useCallback((index) => {
+    dispatch(Actions.changeUserInfoMainTab(index));
+  }, [])
   const getUserData = (value, history) => {dispatch(Actions.getUserData_Thunk(value, history))};
 
   return {expeditionPopToggle, changeUserInfoMainTab, getUserData};

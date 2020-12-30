@@ -3,7 +3,10 @@ import HomeData from './models/homeData'
 import UserInfo from './models/userInfo'
 
 interface IInitialStates {
-  [key : string] : number | boolean | HomeData | UserInfo
+  expeditionPop : boolean,
+  userInfoMainTab : number,
+  userInfoSubTab : number,
+  isLoading : boolean,
   homeData : HomeData
   userData : UserInfo
 }
