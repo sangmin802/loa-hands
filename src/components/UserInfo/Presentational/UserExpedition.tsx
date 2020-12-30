@@ -2,12 +2,12 @@ import React from 'react';
 import _ from '../../../Utility';
 
 // 타입
-import {IOneParamMethod, ITwoParamMethod} from '../../../interface'
 import {IExpeditionUserWrap} from '../../../models/userInfo'
+import {IGetUserData, IExpeditionPopToggle} from '../Container/UserInfoContainer'
 
 interface IUserExpedition {
-  getUserData : ITwoParamMethod
-  expeditionPopToggle : IOneParamMethod
+  getUserData : IGetUserData
+  expeditionPopToggle : IExpeditionPopToggle
   expeditionUserWrap : IExpeditionUserWrap[]
   expeditionPop : boolean
 }
@@ -43,7 +43,7 @@ const UserExpedition : React.FC<IUserExpedition> = ({
 
 interface IExpeditionServer {
   wrap : IExpeditionUserWrap
-  getUserData : ITwoParamMethod
+  getUserData : IGetUserData
 }
 
 const ExpeditionServer : React.FC<IExpeditionServer> = ({
@@ -69,7 +69,7 @@ const ExpeditionServer : React.FC<IExpeditionServer> = ({
 }
 
 interface IServerChar {
-  getUserData : ITwoParamMethod
+  getUserData : IGetUserData
   char : {name : string, lv : string}
 }
 

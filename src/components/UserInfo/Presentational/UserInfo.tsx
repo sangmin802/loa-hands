@@ -11,15 +11,15 @@ import UserDetailInfoContainer from '../Container/UserDetailInfoContainer';
 
 // 타입
 import UserData from '../../../models/userInfo'
-import {IOneParamMethod, ITwoParamMethod} from '../../../interface'
+import {IGetUserData, IExpeditionPopToggle, IChangeUserInfoMainTab} from '../Container/UserInfoContainer'
 
 interface Props {
   userData : UserData
   expeditionPop : boolean
   userInfoMainTab : number 
-  getUserData : ITwoParamMethod
-  expeditionPopToggle : IOneParamMethod
-  changeUserInfoMainTab : IOneParamMethod
+  getUserData : IGetUserData
+  expeditionPopToggle : IExpeditionPopToggle
+  changeUserInfoMainTab : IChangeUserInfoMainTab
 }
 
 const UserInfo : React.FC<Props> = ({

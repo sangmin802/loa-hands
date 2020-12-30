@@ -14,6 +14,18 @@ interface MatchParams {
   name : string
 }
 
+export interface IExpeditionPopToggle {
+  (p1 : boolean) : void
+}
+
+export interface IChangeUserInfoMainTab {
+  (p1 : number) : void
+}
+
+export interface IGetUserData {
+  (p1 : string, p2 : Parameters<typeof Actions.getUserData_Thunk>[1]) : void
+}
+
 const UserInfoContainer : React.FC<RouteComponentProps<MatchParams>> = ({
   match : {params : {name}}
 }) => {
@@ -47,13 +59,15 @@ function GetState(){
 }
 
 function SetDispatchers(dispatch){
-  const expeditionPopToggle = (bool) => {
+  const expeditionPopToggle : IExpeditionPopToggle = (bool) => {
     dispatch(Actions.expeditionPopToggle(bool));
   };
-  const changeUserInfoMainTab = useCallback((index) => {
+  const changeUserInfoMainTab : IChangeUserInfoMainTab = useCallback((index) => {
     dispatch(Actions.changeUserInfoMainTab(index));
   }, [])
-  const getUserData = (value, history) => {dispatch(Actions.getUserData_Thunk(value, history))};
+  const getUserData : IGetUserData = (value, history) => {
+    dispatch(Actions.getUserData_Thunk(value, history))
+  };
 
   return {expeditionPopToggle, changeUserInfoMainTab, getUserData};
 }
