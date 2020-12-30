@@ -1,6 +1,12 @@
 import React from 'react';
 
-function Events({event}){
+interface Props {
+  event : {[key: string]: string}
+}
+
+const Event : React.FC<Props> = ({
+  event
+}) => {
   const {date, href, img, name} = event;
   return(
     <div className="event"
@@ -19,4 +25,4 @@ function Events({event}){
   )
 }
 
-export default Events;
+export default Event;

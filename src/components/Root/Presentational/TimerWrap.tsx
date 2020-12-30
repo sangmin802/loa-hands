@@ -1,26 +1,34 @@
 import React, {useCallback, useState} from 'react';
 import Timer from './Timer';
 
-function TimerWrap({data}){
+// 타입
+import {IJson} from '../../../interface';
+
+interface Props {
+  data : IJson[]
+  today : number
+}
+
+const TimerWrap : React.FC<Props> = ({
+  data,
+  today
+}) => {
   const setTime = useCallback((time) => {
     setState({...state, time})
   }, []);
   const [state, setState] = GetState();
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({...obj}));
-
   // 렌더링 시, 현재 시간 이후의 시간들만 유지
-  const validTimes = GetValidTimes(newData);
+  const validTimes = GetValidTimes<typeof newData>(newData);
 
   newData.forEach((is, index) => {
     is.time = validTimes[index];
-
     // 위치가 하나일경우
     if(typeof is.position === 'string') return;
-
     // 위치가 여러개인경우
     // 가능한 시간이 있다면 위치를 시간갯수만큼 반대에서부터 자르기
-    if(validTimes[index].length !== 0) return is.position = is.position.slice(-validTimes[index].length);
+    if(validTimes[index].length !== 0) return is.position = (is.position as string[]).slice(-validTimes[index].length);
     // 가능한 시간이 없다면 남은위치 없음
     return is.position = [];
   })
@@ -40,13 +48,13 @@ function TimerWrap({data}){
     }
     return 0;
   })
-
   if(newData.length === 0) return <div className="noTimerContent textCenter">다음에 만나요</div>;
-
+  
   return(
     <div className="timerWrap">
       {newData.map((data, index) => {
-        let {name, src, time : [first], position, endPosition, lv, endTime, waiting, contType} = data;
+        let {name, src, time, position, endPosition, lv, endTime, waiting, contType} = data;
+
         if(typeof position !== 'string'){
           position = position[0] || endPosition;
         }
@@ -54,7 +62,7 @@ function TimerWrap({data}){
                   setTime={setTime} 
                   name={name}  
                   src={src}
-                  time={first}
+                  time={time[0]}
                   endTime={endTime}
                   position={position}
                   lv={lv}
@@ -71,16 +79,15 @@ function GetState(){
   return useState({time : null});
 }
 
-function GetValidTimes(newData){
+function GetValidTimes<T extends IJson[]>(newData : T){
   const date = new Date();
   return newData
   .map(is => is.time)
   .map(group => {
-    return group.filter(time => {
-      const 
-        newTime = time.replace(':', ''),
-        min = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes(),
-        now = String(date.getHours())+String(min);
+    return (group as string[]).filter(time => {
+      const newTime = time.replace(':', '');
+      const min = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
+      const now = String(date.getHours())+String(min);
       if(Number(newTime) > Number(now)) return time;
       return null;
     })

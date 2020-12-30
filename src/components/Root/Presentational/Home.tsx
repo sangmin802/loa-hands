@@ -1,14 +1,28 @@
 import React from 'react';
+import HomeData from '../../../models/homeData';
 
-function Home({
+// 컴포넌트
+import Event from '../Presentational/Event';
+import TimerWrap from '../Presentational/TimerWrap';
+
+// 타입
+import {IJson} from '../../../interface';
+
+interface Props {
+  dailyIsland : IJson[]
+  fieldBoss : IJson[][]
+  chaosGate : IJson[][]
+  oceanCont : IJson[][]
+  homeData : HomeData
+}
+
+const Home : React.FC<Props> = ({
   homeData, 
-  Event, 
-  TimerWrap, 
   dailyIsland, 
   fieldBoss, 
   chaosGate, 
   oceanCont
-}){
+}) => {
 
   const today = new Date().getSeconds();
   const yoil = new Date().getDay();
@@ -28,16 +42,12 @@ function Home({
       <div className="dailyCalendar homeSection">
         <div className="homeSectionTitle rem1 textCenter">오늘의 캘린더섬</div>
         {
+          yoil===0 || yoil===6 ? 
           homeData.calendar.map((cal, index) => {
-            if(cal.length !== 0){
-              return(
-                <div className={`calender${index}`} key={`calender${index}`}>
-                  <TimerWrap data={cal} today={today} />
-                </div>
-              )
-            }
-            return null;
+            return <CalendarWrap cal={cal} index={index} today={today}/>
           })
+          : 
+          <CalendarWrap cal={homeData.calendar[1]} index={1} today={today}/>
         }
       </div>
       <div className="dailyIsland homeSection">
@@ -59,6 +69,28 @@ function Home({
           항해 관문의 유지시간은 1분 입니다.
         </div>
       </div>
+    </div>
+  )
+}
+
+interface ICalendarWrap {
+  index : number
+  today : number
+  cal : IJson[]
+}
+
+const CalendarWrap : React.FC<ICalendarWrap> = ({
+  index,
+  today,
+  cal,
+}) => {
+  const calendarTitle = index===0? '14:00' : '21:00';
+  return (
+    <div className={`calendar${index} calendar`} key={`calendar${index}`}>
+      <div className="calendarTitle textCenter">
+        {calendarTitle}
+      </div>
+      <TimerWrap data={cal} today={today} />
     </div>
   )
 }

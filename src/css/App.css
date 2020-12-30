@@ -130,6 +130,26 @@
   padding : .3rem;
   background : #222;
 }
+/* 캘린더섬 */
+.calendar0 {
+  margin-right : 10px;
+}
+.calendarTitle {
+  background : #222;
+  margin-bottom : 5px;
+  padding : .3rem;
+  border-radius : 3px;
+}
+.calendar .timerWrap {
+  display : flex;
+  justify-content : space-between;
+}
+.calendar .timer {
+  flex-grow : 1;
+}
+.calendar0 .timer:last-child, .calendar1 .timer:last-child {
+  margin-right : 0;
+}
 /* 시간제 */
 .timerWrap {
   display : flex;

@@ -15,7 +15,6 @@ const SUB_TAB = 'change_user_info/SUB_TAB' as const;
 // 따라서, 리듀서에서 각각의 액션을 조회했을 때, 지정해준 값들이 단순 문자열로 추론되어버림. 그것을 막기 위해 let과같은 것들도 const화 하기 위해 as const라는 기능이 생김
 
 // const도, 값이 특정한 리턴함수를 통해 나오는 경우라면 정해져있는것이 아니라 예상할 수 없어, let처럼 타입추론을 함
-
 // Action creators
 export const loadingToggle = (
     loadingPop : boolean
@@ -94,10 +93,11 @@ export const getUserData_Thunk = (
 }
 
 export const setHomeData_Thunk = (
-  history : _History.History
+  history? : _History.History
 ) => (
     dispatch
   ) => {
+  console.log('여기왔음')
   dispatch(loadingToggle(true));
   API.getHomeData()
   .then((homeData : HomeData) => {

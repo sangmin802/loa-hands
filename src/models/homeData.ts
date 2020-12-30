@@ -1,13 +1,12 @@
 import _ from '../Utility';
 import {calendarIsland} from '../JSON';
 
-interface ICalendar {
-  [prop : string] : string | string[] | object
-}
+// 타입
+import {IJson} from '../interface'
 
 export default class HomeData {
   events : {[key : string] : string}[]
-  calendar : ICalendar[][]
+  calendar : IJson[][]
 
   constructor(raw : string[]){
     const [calendar, events] = raw;

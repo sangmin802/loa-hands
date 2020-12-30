@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
 import {useSelector, shallowEqual} from 'react-redux';
-import * as Actions from '../../../actions.ts';
+import * as Actions from '../../../actions';
 import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../../../JSON';
+import { RootState } from '../../../store';
 import _ from '../../../Utility';
 
-import Event from '../Presentational/Event';
 import Home from '../Presentational/Home';
-import TimerWrap from '../Presentational/TimerWrap';
 
-
-function HomeContainer(){
+const HomeContainer : React.FC = () => {
   const {dispatch} = _.GetHooks();
   const {homeData} = GetState();
   // 자정일 때, homeData 새롭게 받아와서 Home 다시 렌더링
@@ -23,8 +21,6 @@ function HomeContainer(){
 
   return <Home
             homeData={homeData}
-            Event={Event}
-            TimerWrap={TimerWrap}
             dailyIsland={dailyIsland}
             fieldBoss={fieldBoss}
             chaosGate={chaosGate}
@@ -33,7 +29,7 @@ function HomeContainer(){
 }
 
 function GetState(){
-  return useSelector(state => ({
+  return useSelector((state : RootState) => ({
     homeData : state.homeData,
   }), shallowEqual);
 }
