@@ -1,7 +1,24 @@
 import React from 'react';
 import _ from '../../Utility';
 
-function IntentString({arr}){
+interface IIntentString {
+  arr : {
+    value : {
+      key : {
+        topStr : string
+        contentStr : {
+          key : {
+            contentStr : string
+          }
+        }
+      }
+    }
+  }[]
+}
+
+const IntentString : React.FC<IIntentString> = ({
+  arr
+}) => {
   const onlyValue = arr.map(intentString => {
     const {value} = intentString;
     return Object.values(value);

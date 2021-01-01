@@ -12,15 +12,16 @@ interface ICollectionMini {
   name : string, 
   size : string
 }
-interface ICollectionDetail {
+export interface ICollectionInfo {
+  no : string, 
+  name : string, 
+  isGet : boolean
+}
+export interface ICollectionDetail {
   title : string, 
   getCount : string, 
   totalCount : string,
-  detail : {
-    no : string, 
-    name : string, 
-    isGet : boolean
-  }[]
+  detail : ICollectionInfo[]
 }
 
 export default class UserInfo {

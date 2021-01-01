@@ -1,7 +1,16 @@
 import React from 'react';
 
-function UserCollectionList({data : {detail, getCount, title, totalCount}}){
+// 타입
+import {ICollectionDetail, ICollectionInfo} from '../../../models/userInfo'
 
+const UserCollectionList : React.FC<{data : ICollectionDetail}> = ({
+  data : {
+    detail, 
+    getCount, 
+    title, 
+    totalCount
+  }
+}) => {
   const parsedDetail = ParseDetail(detail)
 
   return(
@@ -11,7 +20,7 @@ function UserCollectionList({data : {detail, getCount, title, totalCount}}){
         {getCount} / {totalCount}
       </div>
       <div className="userCollectionDetailWrap">
-      {parsedDetail.map((arr, index) => {
+      {parsedDetail.map((arr : ICollectionInfo[], index) => {
         const side = index === 0 ? 'Left' : 'Right';
         return <UserCollectionSideWrap 
                   key={`userCollectionSide${side}`}
@@ -36,7 +45,17 @@ function ParseDetail(detail){
   }, [[],[]]);
 }
 
-function UserCollectionSideWrap({side, index, arr}){
+interface IUserCollectionSideWrap {
+  side : string
+  index : number
+  arr : ICollectionInfo[]
+}
+
+const UserCollectionSideWrap : React.FC<IUserCollectionSideWrap> = ({
+  side, 
+  index, 
+  arr
+}) => {
   return(
     <div className={`userCollectionSide userCollection${side}`}>
       <div className="userCollectionIsGet textCenter">
@@ -52,7 +71,9 @@ function UserCollectionSideWrap({side, index, arr}){
   )
 }
 
-function UserCollection({col}){
+const UserCollection : React.FC<{col : ICollectionInfo}> = ({
+  col
+}) => {
   return (
     <div className="userCollection">
       <div className="userCollectionNo">{col.no}.</div>

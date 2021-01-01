@@ -4,9 +4,16 @@ import React from 'react';
 import UserItemHover from './UserItemHover';
 import UserInfoEquipImg from './UserInfoEquipImg';
 
-function UserAvatarList({
+// 타입
+import {IAv} from '../../../models/abilityInfo'
+
+interface IUserAvatarList {
+  data : IAv[]
+}
+
+const UserAvatarList : React.FC<IUserAvatarList> = ({
   data
-}){
+}) => {
   const avatarName = ['Weapon', 'Inst', 'Head', 'Face', 'Cloth', 'Pants'];
   const avatarArr = divdeAvatar(data);
   return(
@@ -34,7 +41,7 @@ function UserAvatarList({
   )
 }
 
-function divdeAvatar(data){
+function divdeAvatar(data : IAv[]) : IAv[][] {
   return data.reduce((prev, cur) => {
     let num = null;
     if(cur.avatarPart.includes("weapon")){
@@ -55,7 +62,17 @@ function divdeAvatar(data){
   }, [[],[],[],[],[],[]]);
 }
 
-function Avatar({arr, avatarPart, pos}){
+interface IAvatar {
+  arr : IAv[]
+  avatarPart : string
+  pos? : string
+}
+
+const Avatar : React.FC<IAvatar> = ({
+  arr, 
+  avatarPart, 
+  pos
+}) => {
   let flex = 'normal';
   if(avatarPart === 'Face') flex = 'column';
   
@@ -70,8 +87,8 @@ function Avatar({arr, avatarPart, pos}){
               <UserItemHover 
                 partImg={partImg}
                 detail={detail}
-                pos={pos}
                 type="AVATAR"
+                pos={pos}
               />
             }
             <UserInfoEquipImg data={res}/>

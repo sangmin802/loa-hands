@@ -1,7 +1,15 @@
 import React from 'react';
 import _ from '../../Utility';
 
-function CollectionImg({size, index}){
+interface ICollectionImg {
+  size : string | number
+  index : number
+}
+
+const CollectionImg : React.FC<ICollectionImg> = ({
+  size, 
+  index
+}) => {
   let position = '720px';
   switch(index){
     case 0 : 

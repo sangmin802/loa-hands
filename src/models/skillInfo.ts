@@ -1,11 +1,54 @@
-interface ISkill {
-  [key : string] : string | ISkill[]
+export interface IRune {
+  runeGrade : string
+  runeImg : string
+  runeInfo : {
+    value : {
+      Element_001 : string
+    }
+  }
 }
 
-export default class SkillInfo<T> {
-  battleSkill : ISkill = {};
-  lifeSkill : ISkill[] = [];
-  constructor(skill : T, raw : Element){
+export interface IBSkillTripod {
+  value : {
+    key : {
+      name : string
+      desc : string
+      tier : string
+      slotData : {
+        iconPath : string
+      }
+    }
+  }
+}
+
+export interface IBSkillDetail {
+  rune : IRune
+  skillImg : string
+  skillLv : string
+  skillName : string
+  skillTripod : IBSkillTripod
+  skillType : string
+}
+
+export interface IBSkill {
+  getPoint : number
+  usePoint : number
+  skillDetail : IBSkillDetail[]
+}
+
+export interface ILSkill {
+  name : string
+  lv : string
+}
+
+export default class SkillInfo {
+  battleSkill : IBSkill = {
+    getPoint : null,
+    usePoint : null,
+    skillDetail : null
+  };
+  lifeSkill : ILSkill[] = null;
+  constructor(skill : object, raw : Element){
     const batteSkill = raw.getElementsByClassName('profile-skill-battle')[1];
     const lifeSkill = raw.getElementsByClassName('profile-skill-life')[0];
 

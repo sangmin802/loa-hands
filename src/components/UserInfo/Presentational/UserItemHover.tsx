@@ -6,12 +6,22 @@ import ItemPartBox from '../../@Shared/ItemPartBox';
 import IntentString from '../../@Shared/IntentString';
 import SingleTextBox from '../../@Shared/SingleTextBox';
 
-function UserItemHover({
+// 타입
+import EquipInfo from '../../../models/equipInfo'
+
+interface IUserItemHover {
+  partImg : string
+  detail : EquipInfo
+  type : string
+  pos? : string
+}
+
+const UserItemHover : React.FC<IUserItemHover> = ({
   partImg, 
   detail, 
-  pos, 
-  type
-}){
+  type,
+  pos
+}) => {
   if(!detail) return null;
 
   const {ItemTitle0, NameTagBox0, equipGroupType} = detail;
@@ -71,7 +81,7 @@ function UserItemHover({
   )
 }
 
-function setQualityColor(qualityValue){
+function setQualityColor(qualityValue : number){
   if(qualityValue >= 0 && qualityValue < 10) return -1
   if(qualityValue >= 10 && qualityValue < 70) return 1;
   if(qualityValue >= 70 && qualityValue < 90) return 2;
@@ -79,7 +89,17 @@ function setQualityColor(qualityValue){
   return -2;
 }
 
-function CreateQualityGraph({qualityColor, qualityValue, equipGroupType}){
+interface ICreateQualityGraph {
+  qualityColor : number
+  qualityValue : string | number
+  equipGroupType : string
+}
+
+const CreateQualityGraph : React.FC<ICreateQualityGraph> = ({
+  qualityColor, 
+  qualityValue, 
+  equipGroupType
+}) => {
   if(equipGroupType==='Stone') return null;
   if(typeof qualityValue !== 'number') return null;
   return (
@@ -91,13 +111,35 @@ function CreateQualityGraph({qualityColor, qualityValue, equipGroupType}){
   )
 }
 
-function TripodContents({equipTripod, equipGroupType}){
+interface IGem {
+  // Gem 컴포넌트에서 필요한 속성
+  name : string
+  desc : string
+  slotData : {
+    iconGrade : number
+    iconPath : string
+  }
+  iconGrade : number
+}
+
+
+interface ITripodContents {
+  equipTripod : {
+    value : IGem
+  }
+  equipGroupType : string
+}
+
+const TripodContents : React.FC<ITripodContents> = ({
+  equipTripod, 
+  equipGroupType
+}) => {
   if(!equipTripod) return null;
   const tripodValues = Object.values(equipTripod.value);
   return (
     <>
       {
-        tripodValues.map((res, index) => {
+        tripodValues.map((res : IGem, index) => {
           if(equipGroupType==='Acc') return <Gem key={`gemTripod${res.name}${index}`} data={res} />
         })
       }
@@ -105,7 +147,9 @@ function TripodContents({equipTripod, equipGroupType}){
   ) 
 }
 
-function Gem({data}){
+const Gem : React.FC<{data : IGem}> = ({
+  data
+}) => {
   const {desc} = data;
   const bool = desc !== '보석 장착 필요';
   return (

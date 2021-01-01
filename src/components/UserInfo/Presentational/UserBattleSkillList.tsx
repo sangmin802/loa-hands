@@ -1,9 +1,16 @@
 import React from 'react';
 import _ from '../../../Utility';
 
-function BattleSkillList({
+// 타입
+import {IBSkill, IBSkillDetail, IRune, IBSkillTripod} from '../../../models/skillInfo'
+
+interface IBattlsSkillList {
+  data : IBSkill
+}
+
+const BattleSkillList : React.FC<IBattlsSkillList> = ({
   data
-}){
+}) => {
   const {getPoint, usePoint, skillDetail} = data;
 
   return(
@@ -26,7 +33,9 @@ function BattleSkillList({
   )
 }
 
-function BattleSkill({skill}){
+const BattleSkill : React.FC<{skill : IBSkillDetail}> = ({
+  skill
+}) => {
   const {rune, skillImg, skillLv, skillName, skillTripod, skillType} = skill;
   const skillNameLv = skillLv === '각성기' ? skillLv : 'Lv'+skillLv;
 
@@ -47,7 +56,7 @@ function BattleSkill({skill}){
           </div>
         </div>
         <Rune rune={rune}/>
-        <Skill skillTripod={skillTripod}/>
+        <UserSkill skillTripod={skillTripod}/>
       </div>
       <div className="userSkillImg">
         <img src={skillImg} className="imgWidth" alt={skillName}/>
@@ -65,26 +74,32 @@ function BattleSkill({skill}){
   )
 }
 
-function Rune({rune}){
+
+
+const Rune : React.FC<{rune : IRune}> = ({
+  rune
+}) => {
   if(!rune) return null;
-  let {runeGrade, runeImg, runeInfo} = rune;
-  runeGrade = _.getOnlyText(runeGrade);
-  runeInfo = _.getOnlyText(runeInfo.value.Element_001)
+  const {runeGrade, runeImg, runeInfo} = rune;
+  const _runeGrade = _.getOnlyText(runeGrade);
+  const _runeInfo = _.getOnlyText(runeInfo.value.Element_001)
 
   return (
     <div className="skillRuneContent">
       <div className="runeImg">
-        <img className="imgWidth" src={runeImg} alt={runeInfo}/>
+        <img className="imgWidth" src={runeImg} alt={(_runeInfo as string)}/>
       </div>
       <div className="runeMainInfo">
-        <div className="runeGrade rem09">{runeGrade}</div>
-        <div className="runeInfo rem08">{runeInfo}</div>
+        <div className="runeGrade rem09">{_runeGrade}</div>
+        <div className="runeInfo rem08">{_runeInfo}</div>
       </div>
     </div>
   )
 }
 
-function Skill({skillTripod}){
+const UserSkill : React.FC<{skillTripod : IBSkillTripod}> = ({
+  skillTripod
+}) => {
   if(!skillTripod) return null;
   const tripodValues = Object.values(skillTripod.value);
   return (

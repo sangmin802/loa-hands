@@ -1,7 +1,12 @@
 import React from 'react';
 import _ from '../../../Utility';
 
-function UserInfoEquipImg({data}){
+// 타입
+import {IAv, IEquip} from '../../../models/abilityInfo';
+
+const UserInfoEquipImg : React.FC<{data : IAv | IEquip}> = ({
+  data
+}) => {
   const {partImg, detail} = data;
   let returnTag = 
     <div className="EquipImg">

@@ -20,8 +20,6 @@ const Header : React.FC<Props> = ({
   const {history} = _.GetHooks();
   const userOnSubmit = (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 디스트럭쳐링할 때, 해당 타입에 없는 값이라나오는건 어떻게 해결해야하나
-    // let {target : {searchedUser : {value}}} = e;
     const value = e.target[0].value;
     getUserData<typeof history>(value, history)
     textInput.current.value = null;

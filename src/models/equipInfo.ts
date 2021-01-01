@@ -1,5 +1,15 @@
 export default class EquipInfo {
-  [prop : string] : object | string
+  ItemTitle0? : {
+    value : {
+      slotData : {
+        iconPath : string
+        iconGrade : number
+      }
+    }
+  }
+  NameTagBox0? : {
+    value : string
+  }
   equipGroupType : string
 
   constructor(data : object, num : number){

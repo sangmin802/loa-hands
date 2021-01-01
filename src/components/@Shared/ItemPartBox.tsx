@@ -1,7 +1,18 @@
 import React from 'react';
 import _ from '../../Utility';
 
-function ItemPartBox({arr}){
+interface IItemPartBox {
+  arr : {
+    value : {
+      Element_000 : string
+      Element_001 : string
+    }
+  }[]
+}
+
+const ItemPartBox : React.FC<IItemPartBox> = ({
+  arr
+}) => {
   return (
     <div className="itemPartBoxWrap">
       {

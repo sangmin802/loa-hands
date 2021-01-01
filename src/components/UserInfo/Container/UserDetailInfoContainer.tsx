@@ -4,9 +4,16 @@ import {useSelector} from 'react-redux';
 import * as Actions from '../../../actions';
 
 // 컴포넌트
-import UserDetailInfo from '../Presentational/UserDetailInfo.js';
+import UserDetailInfo from '../Presentational/UserDetailInfo';
 
-function UserDetailInfoContainer(){
+// 타입
+import { RootState } from '../../../store'
+
+export interface IChangeUserInfoSubTab {
+  (p1 : number) : void
+}
+
+const UserDetailInfoContainer : React.FC = () => {
   const {dispatch} = _.GetHooks();
   const {userData, userInfoSubTab, userInfoMainTab} = GetState();
   const {changeUserInfoSubTab} = SetDispatcher(dispatch)
@@ -20,7 +27,7 @@ function UserDetailInfoContainer(){
 }
 
 function GetState(){
-  return useSelector(state => ({
+  return useSelector((state : RootState) => ({
     userData : state.userData,
     userInfoSubTab : state.userInfoSubTab,
     userInfoMainTab : state.userInfoMainTab
@@ -31,7 +38,9 @@ function GetState(){
 }
 
 function SetDispatcher(dispatch){
-  const changeUserInfoSubTab = useCallback((index) => {dispatch(Actions.changeUserInfoSubTab(index))});
+  const changeUserInfoSubTab : IChangeUserInfoSubTab = useCallback((index) => {
+    dispatch(Actions.changeUserInfoSubTab(index))
+  }, []);
 
   return {changeUserInfoSubTab};
 }

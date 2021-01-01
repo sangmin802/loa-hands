@@ -1,6 +1,11 @@
 import React from 'react';
 
-function LifeSkillList({data}){
+// 타입
+import {ILSkill} from '../../../models/skillInfo'
+
+const LifeSkillList : React.FC<{data : ILSkill[]}> = ({
+  data
+}) => {
   return(
     <div className="userLifeSkillWrap">
       {data.map((skill, index) => {
@@ -13,7 +18,9 @@ function LifeSkillList({data}){
   )
 }
 
-function LifeSkill({skill}){
+const LifeSkill : React.FC<{skill : ILSkill}> = ({
+  skill
+}) => {
   return(
     <div className="lifeSkillList">
       <div className="lifeSkillLv">{skill.lv}</div>

@@ -1,12 +1,22 @@
 import React from 'react';
 import _ from '../../Utility';
 
-function Tab({
+// 타입
+import {IChangeUserInfoMainTab} from '../UserInfo/Container/UserInfoContainer'
+
+interface ITab {
+  index : number
+  tab : number
+  tabDispatcher : IChangeUserInfoMainTab
+  tabName : string | JSX.Element
+}
+
+const Tab : React.FC<ITab> = ({
   index, 
   tab, 
   tabDispatcher, 
   tabName
-}){
+}) => {
   let target = null;
   if(index===tab) target = "tabTarget"
   return (

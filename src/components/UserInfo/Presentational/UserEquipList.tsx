@@ -4,11 +4,18 @@ import _ from '../../../Utility';
 // 컴포넌트
 import UserItemHover from './UserItemHover';
 
-function UserEquipList({
-  data,
-}){
-  const {partImg, detail} = data;
+// 타입
+import EquipInfo from '../../../models/equipInfo';
+import {IEquip} from '../../../models/abilityInfo';
 
+interface IUserEquipList {
+  data : IEquip
+}
+
+const UserEquipList : React.FC<IUserEquipList> = ({
+  data,
+}) => {
+  const {partImg, detail} = data;
   return(
     <div className="equipList hoverTarget">
       <UserItemHover 
@@ -27,12 +34,22 @@ function UserEquipList({
   )
 };
 
-function EquipImg({partImg, detail}){
+interface IEquipImg {
+  partImg : string
+  detail : EquipInfo
+}
+
+const EquipImg : React.FC<IEquipImg> = ({
+  partImg,
+  detail
+}) => {
   if(!detail) return (
     <div className="equipListImg">
       <img className="imgWidth" src={`//cdn-lostark.game.onstove.com${partImg}`} alt="partImg"/>
     </div>
   )
+  // 디스트럭쳐링을 하고자 할 때, 해당 값의 타입에 디스트럭쳐링 구조는 가지고있는게 나을 듯 함.
+  // 생각해보면 애초에 디스트럭처링을 한다는것 자체가, 나는 해당 속성을 가지고있다는것을 알고있고, 설상 없다하더라도 nullable로 `?`를 붙여주면 그만
   const {ItemTitle0 : {value : {slotData : {iconPath, iconGrade}}}} = detail;
   return (
     <div className="equipListImg">
@@ -42,7 +59,13 @@ function EquipImg({partImg, detail}){
   )
 };
 
-function EquipContent({detail}){
+interface IEquipContent {
+  detail : EquipInfo
+}
+
+const EquipContent : React.FC<IEquipContent> = ({
+  detail
+}) => {
   if(!detail) return <div className="equipListContent"></div>;
   const {NameTagBox0, ItemTitle0} = detail;
   const itemName = _.getOnlyText(NameTagBox0.value);

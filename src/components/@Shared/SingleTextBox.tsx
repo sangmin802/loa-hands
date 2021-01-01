@@ -1,7 +1,15 @@
 import React from 'react';
 import _ from '../../Utility';
 
-function SingleTextBox({arr}){
+interface ISingleTextBox {
+  arr : {
+    value : string
+  }[]
+}
+
+const SingleTextBox : React.FC<ISingleTextBox> = ({
+  arr
+}) => {
   return (
     <div className="singleTextWrap">
       {

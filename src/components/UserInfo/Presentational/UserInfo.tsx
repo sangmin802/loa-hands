@@ -10,7 +10,8 @@ import Tab from '../../@Shared/Tab';
 import UserDetailInfoContainer from '../Container/UserDetailInfoContainer';
 
 // 타입
-import UserData from '../../../models/userInfo'
+import UserData from '../../../models/userInfo';
+import {IAv, IEquip} from '../../../models/abilityInfo';
 import {IGetUserData, IExpeditionPopToggle, IChangeUserInfoMainTab} from '../Container/UserInfoContainer'
 
 interface Props {
@@ -31,7 +32,7 @@ const UserInfo : React.FC<Props> = ({
   changeUserInfoMainTab
 }) => {
   const {abilityInfo : {equipInfo}, expeditionUserWrap, classEngName} = userData;
-  const [equipArr, ] = _.divideEquipInfo(equipInfo);
+  const [equipArr, ] : (IEquip[]|IAv[])[]  = _.divideEquipInfo(equipInfo);
   return(
     <div className="userInfo">
       <div className="userInfoTopCetnerWrap">
