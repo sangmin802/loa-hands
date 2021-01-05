@@ -1,5 +1,5 @@
 .userInfo {
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
 }
 .userInfoTopCetnerWrap {
   background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b=');
@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding : 1rem;
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
 }
 /* userInfoTop */
 .userInfoTop {
@@ -18,15 +18,15 @@
   float : right;
   background : #222;
   padding : .3rem;
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
   cursor : pointer;
-  border : 1px solid #777;
+  border : var(--contBox-border);
 }
 .userInfoBox {
   background : #222;
   padding : .5rem;
-  border-radius : 5px;
-  border : 1px solid #777;
+  border-radius : var(--contBox-border-radius);
+  border : var(--contBox-border);
 }
 .userClass {
   width : fit-content;
@@ -82,7 +82,7 @@
   background : #222;
   padding : 1.5rem;
   max-height : 600px;
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
   overflow-y : scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -109,7 +109,7 @@
   width : 50%;
   margin-bottom : .5rem;
   padding : .5rem;
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
   cursor : pointer;
 }
 .userExpeditionChar:hover {
@@ -189,7 +189,7 @@
   flex-grow : 1;
 }
 .tabTarget {
-  color : white;
+  color : var(--white);
 }
 .userInfoBottomMainTabContent {
   background : #222;
@@ -203,7 +203,7 @@
   margin-bottom : .5rem;
   padding : .3rem;
   background : #333;
-  border-radius : 3px;
+  border-radius : var(--contBox-border-radius);
 }
 .equipList:last-child {
   margin-bottom : 0;
@@ -226,7 +226,7 @@
 /* 아바타리스트 */
 .avatarList {
   background : #333;
-  border-radius : 3px;
+  border-radius : var(--contBox-border-radius);
   padding : .3rem;
   padding-top : 0;
   display : flex;
@@ -277,9 +277,6 @@
 .listDetail::-webkit-scrollbar {
   display: none;
 }
-.listDetail * {
-  color : white;
-}
 .listDetailTop {
   display : flex;
   justify-content : space-between;
@@ -306,7 +303,7 @@
   height : 15px;
   line-height : 12px;
   margin-top : .5rem;
-  border : 1px solid #eaeaea;
+  border : var(--contBox-border);
 }
 .listDetailQuality .qualityValue {
   position : absolute;
@@ -351,8 +348,8 @@
   align-items : center;
 }
 .runeImg, .skillTripodImg {
-  border : 1px solid #999;
-  border-radius : 3px;
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
   width : 10%;
   margin-right : .3rem;
 }
@@ -381,7 +378,7 @@
   margin-top : .5rem;
   background : #333;
   padding : .3rem;
-  border-radius : 3px;
+  border-radius : var(--contBox-border-radius);
 }
 .userSkillImg {
   width : 12%;

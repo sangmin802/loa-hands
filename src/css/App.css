@@ -13,7 +13,7 @@
   min-width : 310px;
   margin : 0 auto;
   background : #333;
-  border-radius : 5px;
+  border-radius : var(--contBox-border-radius);
   padding : .5rem;
 }
 
@@ -120,8 +120,8 @@
 }
 .event {
   width : 49%;
-  border : 1px solid #999;
-  border-radius : 3px;
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
   overflow : hidden;
   margin-bottom : 2%;
   cursor : pointer;
@@ -138,7 +138,7 @@
   background : #222;
   margin-bottom : 5px;
   padding : .3rem;
-  border-radius : 3px;
+  border-radius : var(--contBox-border-radius);
 }
 .calendar .timerWrap {
   display : flex;
@@ -160,8 +160,8 @@
   width : calc((100% - 4%) / 3 - 0.01px);
   margin-right : 2%;
   margin-bottom : 2%;
-  border : 1px solid #999;
-  border-radius : 3px;
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
   overflow : hidden;
   position : relative;
 }
@@ -194,10 +194,9 @@
   position : absolute;
   bottom : 0;
   right : 0;
-  color : white;
   background : rgba(0,0,0,.5);
   padding : .1rem;
-  border-radius : 3px;
+  border-radius : var(--contBox-border-radius);
 }
 .timerTime {
   width : 70%;
