@@ -16,7 +16,6 @@ const HomeContainer : React.FC = () => {
   // 홈데이터 처음 생성
   if(!homeData){
     dispatch(Actions.setHomeData_Thunk());
-    return null;
   };
 
   return <Home

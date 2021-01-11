@@ -6,9 +6,7 @@ import {RootState} from '../store'
 function AppContainer(){
   const {isLoading} = GetState();
 
-  return <App 
-            isLoading={isLoading}
-         />
+  return <App isLoading={isLoading}/>
 }
 
 function GetState(){

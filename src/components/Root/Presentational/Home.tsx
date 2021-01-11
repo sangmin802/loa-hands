@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeData from '../../../models/homeData';
+import styled from 'styled-components';
 
 // 컴포넌트
 import Event from '../Presentational/Event';
@@ -16,6 +17,30 @@ interface Props {
   homeData : HomeData
 }
 
+const BlankWrap = styled.div`
+  display : flex;
+  flex-wrap : wrap;
+  justify-content : space-between;
+`
+
+const Blank = styled.div`
+  width : 49%;
+  border-radius : 3px;
+  margin-bottom : 2%;
+  overflow : hidden;
+  box-sizing : border-box;
+`
+
+const BlankTop = styled.div`
+  padding-bottom : 50%;
+  background : #444;
+`
+
+const BlankBottom = styled.div`
+  padding-bottom : 15%;
+  background : #222;
+`
+
 const Home : React.FC<Props> = ({
   homeData, 
   dailyIsland, 
@@ -24,9 +49,23 @@ const Home : React.FC<Props> = ({
   oceanCont
 }) => {
 
+  if(!homeData) {
+    return (
+      <BlankWrap>
+        {dailyIsland.map((res, index) => {
+          return (
+            <Blank key={index}>
+              <BlankTop />
+              <BlankBottom />
+            </Blank>
+          )
+        })}
+      </BlankWrap>
+    )
+  }
+
   const today = new Date().getSeconds();
   const yoil = new Date().getDay();
-  
   return(
     <div className="home">
       <div className="events homeSection">
