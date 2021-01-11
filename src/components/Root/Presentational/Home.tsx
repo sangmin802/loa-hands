@@ -23,10 +23,18 @@ const BlankWrap = styled.div`
   justify-content : space-between;
 `
 
+const BlankHeader = styled.div`
+  border-radius : 3px;
+  background : #222;
+  padding-bottom : 6%;
+  background : #222;
+`
+
 const Blank = styled.div`
   width : 49%;
   border-radius : 3px;
   margin-bottom : 2%;
+  margin-top : 2%;
   overflow : hidden;
   box-sizing : border-box;
 `
@@ -51,16 +59,19 @@ const Home : React.FC<Props> = ({
 
   if(!homeData) {
     return (
-      <BlankWrap>
-        {dailyIsland.map((res, index) => {
-          return (
-            <Blank key={index}>
-              <BlankTop />
-              <BlankBottom />
-            </Blank>
-          )
-        })}
-      </BlankWrap>
+      <>
+        <BlankHeader />
+        <BlankWrap>
+          {dailyIsland.map((res, index) => {
+            return (
+              <Blank key={index}>
+                <BlankTop />
+                <BlankBottom />
+              </Blank>
+            )
+          })}
+        </BlankWrap>
+      </>
     )
   }
 

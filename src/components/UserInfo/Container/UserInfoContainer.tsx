@@ -36,7 +36,6 @@ const UserInfoContainer : React.FC<RouteComponentProps<MatchParams>> = ({
 
   if(!userData){
     dispatch(Actions.getUserData_Thunk(name, history));
-    return null;
   }
   return <UserInfo 
             userData={userData}
