@@ -6,8 +6,6 @@ import { Provider } from 'react-redux'
 import {store} from './store';
 import AppContainer from './components/AppContainer';
 
-// test
-
 ReactDOM.render(
   <Provider store = { store }>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
