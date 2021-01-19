@@ -47,6 +47,7 @@ export const fieldBoss = [
     {id : 12, name : '아우리온', lv : 960, position : '대항해-격류의 섬', src : 'img/boss/boss_07.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 15, name : '천둥날개', lv : 1460, position : '베른 남부-칸다리아 영지', src : 'img/boss/boss_14.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
   ],
   [
     {id : 3, name : '에라스모', lv : 355, position : '대항해-에라스모의 섬', src : 'img/boss/boss_04.png', time : ['06:03', '14:03', '20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
@@ -61,6 +62,7 @@ export const fieldBoss = [
     {id : 10, name : '강림하신 호박신', lv : 885, position : '대항해-오르비스', src : 'img/boss/boss_05.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 12, name : '아우리온', lv : 960, position : '대항해-격류의 섬', src : 'img/boss/boss_07.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 15, name : '천둥날개', lv : 1460, position : '베른 남부-칸다리아 영지', src : 'img/boss/boss_14.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
   ],
   [
     {id : 1, name : '시그나투스', lv : 310, position : '아르데타인-갈라진 땅', src : 'img/boss/boss_06.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
@@ -72,6 +74,7 @@ export const fieldBoss = [
     {id : 11, name : '티파니', lv : 915, position : '욘-무쇠망치 작업장', src : 'img/boss/boss_10.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
     {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
+    {id : 15, name : '천둥날개', lv : 1460, position : '베른 남부-칸다리아 영지', src : 'img/boss/boss_14.png',time : ['02:03'], endTime : '02:03', contType : 'FIELD_BOSS'},
   ],
   [
     {id : 2, name : '타르실라', lv : 340, position : '슈샤이어-머무른 시간의 호수', src : 'img/boss/boss_02.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
@@ -86,6 +89,7 @@ export const fieldBoss = [
     {id : 12, name : '아우리온', lv : 960, position : '대항해-격류의 섬', src : 'img/boss/boss_07.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 13, name : '엔켈라두스', lv : 1050, position : '페이튼-붉은 달의 흔적', src : 'img/boss/boss_11.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
     {id : 14, name : '모아케', lv : 1415, position : '파푸니카-티키타카 군락지', src : 'img/boss/boss_13.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
+    {id : 15, name : '천둥날개', lv : 1460, position : '베른 남부-칸다리아 영지', src : 'img/boss/boss_14.png',time : ['20:03'], endTime : '20:03', contType : 'FIELD_BOSS'},
   ]
 ]
 
@@ -97,6 +101,7 @@ export const chaosGate = [
   {name : '일렁이는 질병군단', src : '/img/chaos/chaos_01.png', time : ['22:03'], endTime : '22:03', lv : 802, position : '욘-미완의 정원', contType : 'CHAOS_GATE'},
   {name : '일렁이는 어둠군단', src : '/img/chaos/chaos_04.png', time : ['22:03'], endTime : '22:03', lv : 915, position : '페이튼-울부짖는 늪지대', contType : 'CHAOS_GATE'},
   {name : '일렁이는 광기군단', src : '/img/chaos/chaos_02.png', time : ['22:03'], endTime : '22:03', lv : 1302, position : '파푸니카-별모래 해변', contType : 'CHAOS_GATE'},
+  {name : '일렁이는 ??군단', src : '/img/chaos/chaos_05.png', time : ['22:03'], endTime : '22:03', lv : 1415, position : '베른 남부-칸다리아 영지', contType : 'CHAOS_GATE'},
  ],
  [],
  [
@@ -105,6 +110,7 @@ export const chaosGate = [
   {name : '일렁이는 질병군단', src : '/img/chaos/chaos_01.png', time : ['20:03'], endTime : '20:03', lv : 802, position : '욘-미완의 정원', contType : 'CHAOS_GATE'},
   {name : '일렁이는 어둠군단', src : '/img/chaos/chaos_04.png', time : ['20:03'], endTime : '20:03', lv : 915, position : '페이튼-울부짖는 늪지대', contType : 'CHAOS_GATE'},
   {name : '일렁이는 광기군단', src : '/img/chaos/chaos_02.png', time : ['20:03'], endTime : '20:03', lv : 1302, position : '파푸니카-별모래 해변', contType : 'CHAOS_GATE'},   
+  {name : '일렁이는 ??군단', src : '/img/chaos/chaos_05.png', time : ['20:03'], endTime : '20:03', lv : 1415, position : '베른 남부-칸다리아 영지', contType : 'CHAOS_GATE'},   
  ],
  [],[],
  [
@@ -113,6 +119,7 @@ export const chaosGate = [
   {name : '일렁이는 질병군단', src : '/img/chaos/chaos_01.png', time : ['20:03'], endTime : '20:03', lv : 802, position : '욘-미완의 정원', contType : 'CHAOS_GATE'},
   {name : '일렁이는 어둠군단', src : '/img/chaos/chaos_04.png', time : ['20:03'], endTime : '20:03', lv : 915, position : '페이튼-울부짖는 늪지대', contType : 'CHAOS_GATE'},
   {name : '일렁이는 광기군단', src : '/img/chaos/chaos_02.png', time : ['20:03'], endTime : '20:03', lv : 1302, position : '파푸니카-별모래 해변', contType : 'CHAOS_GATE'},   
+  {name : '일렁이는 ??군단', src : '/img/chaos/chaos_05.png', time : ['20:03'], endTime : '20:03', lv : 1415, position : '베른 남부-칸다리아 영지', contType : 'CHAOS_GATE'},   
  ],
  [
   {name : '일렁이는 어둠군단', src : '/img/chaos/chaos_04.png', time : ['22:03'], endTime : '22:03', lv : 302, position : '베른 북부-발란카르 산맥', contType : 'CHAOS_GATE'},
@@ -120,6 +127,7 @@ export const chaosGate = [
   {name : '일렁이는 질병군단', src : '/img/chaos/chaos_01.png', time : ['22:03'], endTime : '22:03', lv : 802, position : '욘-미완의 정원', contType : 'CHAOS_GATE'},
   {name : '일렁이는 어둠군단', src : '/img/chaos/chaos_04.png', time : ['22:03'], endTime : '22:03', lv : 915, position : '페이튼-울부짖는 늪지대', contType : 'CHAOS_GATE'},
   {name : '일렁이는 광기군단', src : '/img/chaos/chaos_02.png', time : ['22:03'], endTime : '22:03', lv : 1302, position : '파푸니카-별모래 해변', contType : 'CHAOS_GATE'},   
+  {name : '일렁이는 ??군단', src : '/img/chaos/chaos_05.png', time : ['22:03'], endTime : '22:03', lv : 1415, position : '베른 남부-칸다리아 영지', contType : 'CHAOS_GATE'},   
  ]
 ]
 
