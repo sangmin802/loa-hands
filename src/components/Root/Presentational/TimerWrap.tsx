@@ -48,7 +48,7 @@ const TimerWrap : React.FC<Props> = ({
     }
     return 0;
   })
-  if(newData.length === 0) return <div className="noTimerContent textCenter">다음에 만나요</div>;
+  if(newData.length === 0) return <div className="noTimerContent textCenter rem08">다음에 만나요</div>;
   
   return(
     <div className="timerWrap">

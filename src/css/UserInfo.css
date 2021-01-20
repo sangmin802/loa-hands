@@ -16,14 +16,14 @@
 }
 .showExpeditionWrap {
   float : right;
-  background : #222;
+  background : var(--bgDeep);
   padding : .3rem;
   border-radius : var(--contBox-border-radius);
   cursor : pointer;
   border : var(--contBox-border);
 }
 .userInfoBox {
-  background : #222;
+  background : var(--bgDeep);
   padding : .5rem;
   border-radius : var(--contBox-border-radius);
   border : var(--contBox-border);
@@ -79,7 +79,7 @@
   width : 85%;
   top : 0;
   right : 0;
-  background : #222;
+  background : var(--bgDeep);
   padding : 1.5rem;
   max-height : 600px;
   border-radius : var(--contBox-border-radius);
@@ -113,7 +113,7 @@
   cursor : pointer;
 }
 .userExpeditionChar:hover {
-  background : #333;
+  background : var(--bgLow);
 }
 .userInfoCollection {
   display : flex;
@@ -162,7 +162,7 @@
   margin-top : 2rem;
 }
 .userInfoBottomMainTabWrap {
-  background : #222;
+  background : var(--bgDeep);
   display : flex;
   padding : .5rem;
   width : fit-content;
@@ -177,7 +177,7 @@
   margin-right : 0;
 }
 .userInfoBottomSubTabWrap {
-  background : #222;
+  background : var(--bgDeep);
   display : flex;
   margin-bottom : .5rem;
   border-radius : 5px 5px 0 0;
@@ -192,7 +192,7 @@
   color : var(--white);
 }
 .userInfoBottomMainTabContent {
-  background : #222;
+  background : var(--bgDeep);
   padding : .5rem;
 }
 /* 장비리스트 */
@@ -202,7 +202,7 @@
   align-items : center;
   margin-bottom : .5rem;
   padding : .3rem;
-  background : #333;
+  background : var(--bgLow);
   border-radius : var(--contBox-border-radius);
 }
 .equipList:last-child {
@@ -225,7 +225,7 @@
 
 /* 아바타리스트 */
 .avatarList {
-  background : #333;
+  background : var(--bgLow);
   border-radius : var(--contBox-border-radius);
   padding : .3rem;
   padding-top : 0;
@@ -376,14 +376,14 @@
   position : relative;
   align-items : center;
   margin-top : .5rem;
-  background : #333;
+  background : var(--bgLow);
   padding : .3rem;
   border-radius : var(--contBox-border-radius);
 }
 .userSkillImg {
   width : 12%;
   margin-right : .5rem;
-  background : #222;
+  background : var(--bgDeep);
 }
 .userSkillImg img {
   transform : scale(.9);

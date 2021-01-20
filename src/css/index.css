@@ -4,13 +4,15 @@
   --contBox-border-radius : 3px;
   --contBox-border : 1px solid #999;
   --white : #f0f4f5;
+  --bgDeep : #111;
+  --bgLow : #222;
 }
 
 * {margin : 0; padding : 0; box-sizing : border-box; text-decoration: none; color : var(--white); font-family: 'Noto Sans KR', sans-serif;}
 
 
 body {
-  background : #222;
+  background : var(--bgDeep);
   overflow-y : scroll;
 }
 

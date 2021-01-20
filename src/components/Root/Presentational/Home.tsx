@@ -144,7 +144,7 @@ const CalendarWrap : React.FC<ICalendarWrap> = ({
         cal.length!==0 ?
         <TimerWrap data={cal} today={today} />
         :
-        <div className="noTimerContent textCenter">다음에 만나요</div>
+        <div className="noTimerContent textCenter rem08">다음에 만나요</div>
       }
     </div>
   )

@@ -12,7 +12,7 @@
   max-width : 600px;
   min-width : 310px;
   margin : 0 auto;
-  background : #333;
+  background : var(--bgLow);
   border-radius : var(--contBox-border-radius);
   padding : .5rem;
 }
@@ -105,7 +105,7 @@
 }
 .homeSectionTitle {
   margin-bottom : 10px;
-  background : #222;
+  background : var(--bgDeep);
   padding : .3rem;
   border-radius : 3px 3px 0 0;
 }
@@ -128,14 +128,14 @@
 }
 .eventContent {
   padding : .3rem;
-  background : #222;
+  background : var(--bgDeep);
 }
 /* 캘린더섬 */
 .calendar0 {
   margin-right : 10px;
 }
 .calendarTitle {
-  background : #222;
+  background : var(--bgDeep);
   margin-bottom : 5px;
   padding : .3rem;
   border-radius : var(--contBox-border-radius);
@@ -177,7 +177,7 @@
   background : rgba(0,0,0,.5);
 }
 .timerName {
-  background : #222;
+  background : var(--bgDeep);
   padding : .1rem;
 }
 .timerContent {
