@@ -2,6 +2,7 @@ import API from './API';
 import HomeData from './models/homeData'
 import UserInfo from './models/userInfo'
 import _History from 'history';
+import {put, takeLatest, call, all, takeEvery, select, take} from 'redux-saga/effects'
 
 // Action types
 const LOADING_TOGGLE = 'LOADING_TOGGLE' as const;
@@ -105,7 +106,43 @@ export const setHomeData_Thunk = (
   })
 }
 
+const GET_USER_DATA_SAGA = 'GET_USER_DATA_SAGA' as const;
+export const getUserData_Saga_Async = (
+  name, 
+  history
+) => ({type: GET_USER_DATA_SAGA, name, history})
+
+export function* getUserData_Saga(action){
+  const name = action.name.replace(/ /g,'');
+  const history = action.history;
+  if(name){
+    yield put(loadingToggle(true));
+    try {
+      // const store = yield select(state => state);
+      const data = yield call(API.getUserData, name);
+      yield put(getUserData(data, false))
+      history.replace(`/userInfo/${name}`)
+    } catch(err) {
+      alert(err.message);
+      yield put(loadingToggle(false));
+      history.replace(`/`)
+    }
+  }
+}
+
+export function* watchSaga() {
+  yield takeLatest(GET_USER_DATA_SAGA, getUserData_Saga); // 가장 마지막으로 디스패치된 액션만을 처리
+}
+
+export function* rootSaga() {
+  yield all([watchSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
+}
+
+
+// 타입
+
 export type ActionType = // 각각의 Action들이 반환하는 값들의 타입을 묶음
+  | {type : 'TAKE_LATEST_TEST_CALLER', val : number}
   | ReturnType<typeof loadingToggle>
   | ReturnType<typeof getUserData>
   | ReturnType<typeof setHomeData>

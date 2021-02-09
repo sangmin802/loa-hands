@@ -67,6 +67,7 @@ function SetDispatchers(dispatch){
   }, [])
   const getUserData : IGetUserData = (value, history) => {
     dispatch(Actions.getUserData_Thunk(value, history))
+    // dispatch(Actions.getUserData_Saga(value, history))
   };
 
   return {expeditionPopToggle, changeUserInfoMainTab, getUserData};

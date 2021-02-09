@@ -28,7 +28,7 @@ function GetState(){
 }
 
 function SetDispatchers(dispatch){
-  const getUserData = (value, history) => {dispatch(Actions.getUserData_Thunk(value, history))};
+  const getUserData = (value, history) => {dispatch(Actions.getUserData_Saga_Async(value, history))};
   const setHomeData = (history) => {dispatch(Actions.setHomeData_Thunk(history))};
 
   return {getUserData, setHomeData};
