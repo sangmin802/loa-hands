@@ -1,6 +1,6 @@
-import API from './API';
-import HomeData from './models/homeData'
-import UserInfo from './models/userInfo'
+import API from '../../API';
+import HomeData from '../../models/homeData'
+import UserInfo from '../../models/userInfo'
 import _History from 'history';
 import {put, takeLatest, call, all, takeEvery, select, take} from 'redux-saga/effects'
 

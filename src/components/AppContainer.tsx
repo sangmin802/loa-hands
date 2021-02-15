@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import {useSelector, shallowEqual} from 'react-redux';
-import {RootState} from '../store'
+import {RootState} from '../store/model/store'
 
 function AppContainer(){
   const {isLoading} = GetState();

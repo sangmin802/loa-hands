@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useSelector, shallowEqual} from 'react-redux';
-import * as Actions from '../../../actions';
+import * as Actions from '../../../store/controller/actions';
 import {dailyIsland, fieldBoss, chaosGate, oceanCont} from '../../../JSON';
-import { RootState } from '../../../store';
+import { RootState } from '../../../store/model/store';
 import _ from '../../../Utility';
 
 import Home from '../Presentational/Home';

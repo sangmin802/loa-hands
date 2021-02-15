@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions';
+import * as Actions from '../../../store/controller/actions';
 import _ from '../../../Utility';
 import {RouteComponentProps} from 'react-router';
 
@@ -8,7 +8,7 @@ import {RouteComponentProps} from 'react-router';
 import UserInfo from '../Presentational/UserInfo';
 
 // 타입
-import {RootState} from '../../../store'
+import {RootState} from '../../../store/model/store'
 
 interface MatchParams {
   name : string

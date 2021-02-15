@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import _ from '../../../Utility';
 import {useSelector} from 'react-redux';
-import * as Actions from '../../../actions';
+import * as Actions from '../../../store/controller/actions';
 
 // 컴포넌트
 import UserDetailInfo from '../Presentational/UserDetailInfo';
 
 // 타입
-import { RootState } from '../../../store'
+import { RootState } from '../../../store/model/store'
 
 export interface IChangeUserInfoSubTab {
   (p1 : number) : void

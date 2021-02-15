@@ -1,6 +1,6 @@
-import {ActionType} from './actions'
-import HomeData from './models/homeData'
-import UserInfo from './models/userInfo'
+import {ActionType} from 'store/controller/actions'
+import HomeData from 'models/homeData'
+import UserInfo from 'models/userInfo'
 
 interface IInitialStates {
   expeditionPop : boolean,
