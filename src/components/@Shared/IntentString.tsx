@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../Utility';
+import _ from '../../utility';
 
 interface IIntentString {
   arr : {

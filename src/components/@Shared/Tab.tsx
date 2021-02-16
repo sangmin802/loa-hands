@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../Utility';
+import _ from '../../utility';
 
 // 타입
 import {IChangeUserInfoMainTab} from '../UserInfo/Container/UserInfoContainer'

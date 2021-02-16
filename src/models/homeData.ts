@@ -1,8 +1,8 @@
-import _ from '../Utility';
+import _ from '../utility';
 import {calendarIsland} from '../JSON';
 
 // 타입
-import {IJson} from '../interface'
+import {IJson} from '../types/home'
 
 export default class HomeData {
   events : {[key : string] : string}[]

@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from '../../../Utility';
+import _ from '../../../utility';
 
 // 컴포넌트
 import ItemPartBox from '../../@Shared/ItemPartBox';

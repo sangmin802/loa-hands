@@ -1,0 +1,32 @@
+import React from 'react';
+import { Selector } from 'store/controller/selector';
+import {dailyIsland, fieldBoss, chaosGate, oceanCont} from 'JSON';
+import DateOver from 'hooks/dateOver'
+
+// 컴포넌트
+import EventSection from 'components/home-event/index';
+import TimerSection from 'components/home-timerSection/index'
+import HomeBlank from 'components/home-blank/index'
+import CalendarSection from 'components/home-calendar/index';
+
+const Home = () => {
+  const {homeData} = Selector(['homeData'])
+  DateOver(homeData);
+  if(!homeData) return <HomeBlank data={dailyIsland}/>;
+
+  const today = new Date().getSeconds();
+  const yoil = new Date().getDay();
+
+  return(
+    <div className="home">
+      <EventSection events={homeData.events}/>
+      <CalendarSection calendar={homeData.calendar} today={today} yoil={yoil}/>
+      <TimerSection data={dailyIsland} today={today} text="오늘의 모험섬"/>
+      <TimerSection data={fieldBoss[yoil]} today={today} text="오늘의 필드보스"/>
+      <TimerSection data={chaosGate[yoil]} today={today} text="오늘의 카오스 게이트"/>
+      <TimerSection data={oceanCont[yoil]} today={today} text="오늘의 항해"/>
+    </div>
+  )
+}
+
+export default Home;

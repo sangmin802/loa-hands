@@ -4,13 +4,13 @@ import './css/index.css';
 import {BrowserRouter} from 'react-router-dom';
 import { Provider } from 'react-redux'
 import {store} from './store/model/store';
-import AppContainer from './components/AppContainer';
+import App from 'layout/App';
 
 ReactDOM.render(
   <Provider store = { store }>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* <React.StrictMode> */}
-        <AppContainer />
+        <App />
       {/* </React.StrictMode> */}
     </BrowserRouter>
   </Provider>,

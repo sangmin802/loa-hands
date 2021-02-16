@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../css/UserInfo.css';
-import _ from '../../../Utility';
+import _ from '../../../utility';
 import styled from 'styled-components';
 
 // 컴포넌트

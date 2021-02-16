@@ -1,6 +1,6 @@
 import UserInfo from './models/userInfo';
 import HomeData from './models/homeData';
-import _ from './Utility';
+import _ from './utility';
 import {PROXY} from './porxy';
 
 export default {
