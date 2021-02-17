@@ -1,12 +1,8 @@
 import React from 'react';
-import _ from '../../utility';
+import _ from 'utility';
+import './index.css';
 
-interface ICollectionImg {
-  size : string | number
-  index : number
-}
-
-const CollectionImg : React.FC<ICollectionImg> = ({
+const Index = ({
   size, 
   index
 }) => {
@@ -43,7 +39,7 @@ const CollectionImg : React.FC<ICollectionImg> = ({
   )
 }
 
-export default React.memo(CollectionImg, (prev, next) => {
+export default React.memo(Index, (prev, next) => {
   if(_.compareObj(prev, next)) return true;
   return false;
 });

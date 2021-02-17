@@ -3,6 +3,8 @@ import React from 'react';
 import {IJson} from 'types/home';
 import TimerWrap from 'components/home-timerSection/timerWrap/index'
 
+import './index.css';
+
 interface ICalendarWrap {
   index : number
   today : number

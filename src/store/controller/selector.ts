@@ -1,9 +1,15 @@
-import {useSelector, shallowEqual} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {RootState} from 'store/model/store'
+import _ from 'utility';
+
+
+const shallow = (left, right) => {
+  if(_.compareObj(left, right)) return true;
+  return false;
+}
 
 export const Selector = (
-  arr : string[], 
-  shallow : (T : any, U : any) => boolean = shallowEqual
+  arr : string[]
 ) => {
   return useSelector((state : RootState) => {
     let obj = {};
@@ -12,3 +18,5 @@ export const Selector = (
     return obj;
   }, shallow);
 };
+
+

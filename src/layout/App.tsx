@@ -1,13 +1,13 @@
 import React from 'react';
 import '../css/App.css';
 import { Route } from 'react-router-dom'
-import { Selector } from 'store/controller/selector'
+import {Selector} from 'store/controller/selector'
 
 // 컴포넌트
 import Header from 'components/header/index';
 import Home from 'pages/Home';
-import UserInfoContainer from '../components/UserInfo/Container/UserInfoContainer';
-import LoadingSpinner from '../components/@Shared/LoadingSpinner';
+import UserInfo from 'pages/UserInfo';
+import LoadingSpinner from 'components/loading-spinner/index';
 
 function App(){
   const {isLoading} = Selector(['isLoading']);
@@ -21,7 +21,7 @@ function App(){
         <Header />
         <div className="AppWrap">
           <Route exact path="/" component={Home}/>
-          <Route path="/userInfo/:name" component={UserInfoContainer}/>
+          <Route path="/userInfo/:name" component={UserInfo}/>
         </div>
       </div>
     </div>

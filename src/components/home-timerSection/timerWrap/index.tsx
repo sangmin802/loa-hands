@@ -1,8 +1,11 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import Timer from '../timer/index';
+import {RerenderTime} from 'hooks/timerWrap'
+
+import './index.css';
 
 // 타입
-import {IJson} from '../../../types/home';
+import {IJson} from 'types/home';
 
 interface Props {
   data : IJson[]
@@ -12,10 +15,9 @@ interface Props {
 const Index : React.FC<Props> = ({
   data,
 }) => {
-  const setTime = useCallback((time) => {
-    setState({...state, time})
-  }, []);
-  const [state, setState] = GetState();
+  const [setTime] = RerenderTime();
+
+  
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({...obj}));
   // 렌더링 시, 현재 시간 이후의 시간들만 유지
@@ -47,6 +49,7 @@ const Index : React.FC<Props> = ({
     }
     return 0;
   })
+
   if(newData.length === 0) return <div className="noTimerContent textCenter rem08">다음에 만나요</div>;
   
   return(
@@ -72,10 +75,6 @@ const Index : React.FC<Props> = ({
       })}
     </div>
   )
-}
-
-function GetState(){
-  return useState({time : null});
 }
 
 function GetValidTimes<T extends IJson[]>(newData : T){

@@ -1,5 +1,6 @@
 import React from 'react';
 import Event from './event/index';
+import './index.css';
 
 const Index = ({events}) => {
   return(

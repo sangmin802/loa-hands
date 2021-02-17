@@ -2,10 +2,10 @@
 
 :root {
   --contBox-border-radius : 3px;
-  --contBox-border : 1px solid #999;
+  --contBox-border : 1.5px solid #f0f4f5;
   --white : #f0f4f5;
-  --bgDeep : #111;
-  --bgLow : #222;
+  --bgDeep : #000000;
+  --bgLow : #1f222a;
 }
 
 * {margin : 0; padding : 0; box-sizing : border-box; text-decoration: none; color : var(--white); font-family: 'Noto Sans KR', sans-serif;}

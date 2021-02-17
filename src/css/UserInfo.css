@@ -1,165 +1,18 @@
 .userInfo {
   border-radius : var(--contBox-border-radius);
 }
-.userInfoTopCetnerWrap {
-  background: url('//cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/bg/bg_profile_equipment.png?532ac3d83cbb2a28de08e2567cb4859b=');
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding : 1rem;
-  border-radius : var(--contBox-border-radius);
-}
 /* userInfoTop */
 .userInfoTop {
   position : relative;
   width : 100%;
-}
-.showExpeditionWrap {
-  float : right;
   background : var(--bgDeep);
-  padding : .3rem;
   border-radius : var(--contBox-border-radius);
-  cursor : pointer;
-  border : var(--contBox-border);
-}
-.userInfoBox {
-  background : var(--bgDeep);
-  padding : .5rem;
-  border-radius : var(--contBox-border-radius);
-  border : var(--contBox-border);
-}
-.userClass {
-  width : fit-content;
-  display : flex;
-  align-items : center;
-  margin-bottom : .3rem;
-}
-.userNameNLvNServer, .userItemLv, .userExtraInfo {
-  display : flex;
-  width : 100%;
-  align-items : center;
-  margin-bottom : .3rem;
-}
-.userExtraInfo {
-  flex-wrap : wrap;
-}
-.userClassEmb {
-  width : 41px;
-  margin-right : .3rem;
-}
-.userLvNname {
-  margin-right : .3rem;
-  max-width : 60%;
-}
-.curUserItemLv {
-  margin-right : .3rem;
-}
-.userExtraInfo > div {
-  display : flex;
-  margin-right : .3rem;
-  width : fit-content;
-  overflow : hidden;
-}
-.userExtraInfo > div:nth-child(2n) {
-  margin-right : 0;
-}
-.userInfoBox {
-  text-align : center;
-}
-.userInfoTitle {
-  margin-bottom : .3rem;
-}
-.userExtraInfo .userInfoTitle {
-  margin-bottom : 0;
-  margin-right : .7rem;
-}
-.searchedUserExpedition {
-  position : absolute;
-  display : none;
-  width : 85%;
-  top : 0;
-  right : 0;
-  background : var(--bgDeep);
-  padding : 1.5rem;
-  max-height : 600px;
-  border-radius : var(--contBox-border-radius);
-  overflow-y : scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-.searchedUserExpedition::-webkit-scrollbar {
-  display: none;
-}
-.searchedUserExpeditionClose {
-  float : right;
-  cursor : pointer;
-}
-.userExpedition {
-  margin-bottom : 1rem;
-}
-.userExpeditionServer {
-  font-weight : bold;
-  margin-bottom : 1rem;
-}
-.userExpeditionCharWrap {
-  display : flex;
-  flex-wrap : wrap;
-}
-.userExpeditionChar {
-  width : 50%;
-  margin-bottom : .5rem;
-  padding : .5rem;
-  border-radius : var(--contBox-border-radius);
-  cursor : pointer;
-}
-.userExpeditionChar:hover {
-  background : var(--bgLow);
-}
-.userInfoCollection {
-  display : flex;
-}
-.collectionMini {
-  display : flex;
-  flex-grow : 1;
-}
-.collectionMiniBg {
-  width : 20px;
-  height : 24px;
-  background : url('https://github.com/sangmin802/loa-hands/blob/master/public/img/all.png?raw=true');
-  background-size: 1250px 1209px;
-  margin-right : .3rem;
-}
-.collectionMiniSize {
-  line-height : 24px;
-}
-/* userInfoCenter */
-.userInfoCenter {
-  display : flex;
-  align-items : center;
-  margin-top : 2rem;
-}
-.userClassImg {
-  width : 70%;
-  height : fit-content;
-  margin : 0 auto;
-}
-.userClassImg img {
-  display : block;
-  width : 100%;
-}
-.equipImgWrap {
-  width : 10%;
-  min-width : 34px;
-}
-.equipImgWrap .EquipImg {
-  width : 100%;
-  position : relative;
-  margin-bottom : .5rem;
+  padding : 1rem .5rem 1rem;
 }
 
 /* userInfoBottom */
 .userInfoBottom {
-  margin-top : 2rem;
+  margin-top : 1rem;
 }
 .userInfoBottomMainTabWrap {
   background : var(--bgDeep);
@@ -213,6 +66,8 @@
   width : 12%;
   min-width : 40px;
   margin-right : .5rem;
+  border : var(--contBox-border);
+  border-radius : 3px;
 }
 .equipListContent {
   display : flex;
@@ -246,6 +101,8 @@
   width : 50%;
   margin-top : .3rem;
   position : relative;
+  border : var(--contBox-border);
+  border-radius : 3px;
 }
 .avatarWrap .listDetail {
   width : 600%;
@@ -384,6 +241,8 @@
   width : 12%;
   margin-right : .5rem;
   background : var(--bgDeep);
+  border : var(--contBox-border);
+  border-radius : 3px;
 }
 .userSkillImg img {
   transform : scale(.9);

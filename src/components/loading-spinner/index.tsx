@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../css/App.css';
+import './index.css';
 
-const LoadingSpinner : React.FC<{isLoadingStyle : string}> = ({
+const Index = ({
   isLoadingStyle
 }) => {
   return (
@@ -11,4 +11,4 @@ const LoadingSpinner : React.FC<{isLoadingStyle : string}> = ({
   )
 }
 
-export default LoadingSpinner;
+export default Index;

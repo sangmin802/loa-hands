@@ -12,10 +12,7 @@ const Index = () => {
   let textInput = useRef(null);
   const {getUserData, setHomeData} = Header();
   const history = History();
-  const {homeData} = Selector(['homeData'], (left, right) => {
-    if(_.compareObj(left.homeData, right.homeData)) return true;
-    return false;
-  })
+  const {homeData} = Selector(['homeData']);
 
   const userOnSubmit = (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

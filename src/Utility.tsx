@@ -78,5 +78,12 @@ export default {
   compareObj(obj1, obj2){
     // 동일하면 true 다르면 false
     return _.isEqual(obj1, obj2);
+  },
+
+  addZero(num){
+    if(num < 10){
+      return '0'+num;
+    }
+    return num;
   }
 }

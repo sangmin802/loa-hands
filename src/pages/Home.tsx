@@ -1,5 +1,5 @@
 import React from 'react';
-import { Selector } from 'store/controller/selector';
+import {Selector} from 'store/controller/selector'
 import {dailyIsland, fieldBoss, chaosGate, oceanCont} from 'JSON';
 import DateOver from 'hooks/dateOver'
 

@@ -9,9 +9,9 @@ const BlankWrap = styled.div`
 
 const BlankHeader = styled.div`
   border-radius : 3px;
-  background : #222;
+  background : #000000;
   padding-bottom : 6%;
-  background : #222;
+  background : #000000;
 `
 
 const Blank = styled.div`
@@ -25,12 +25,12 @@ const Blank = styled.div`
 
 const BlankTop = styled.div`
   padding-bottom : 50%;
-  background : #444;
+  background : #666;
 `
 
 const BlankBottom = styled.div`
   padding-bottom : 15%;
-  background : #222;
+  background : #000000;
 `
 
 const homeBlank = ({data}) => {
