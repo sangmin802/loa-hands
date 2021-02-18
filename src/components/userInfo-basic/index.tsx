@@ -115,7 +115,7 @@ const Index = () => {
         </div>
       </UserInfoBox>
       <div className="userInfoCollection">
-        <UserCollection data={collectionMini}/>
+        {UserCollection(collectionMini)}
       </div>
     </div>
   )

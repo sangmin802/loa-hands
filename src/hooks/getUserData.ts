@@ -8,7 +8,5 @@ export const GetUserData = (userData, name) => {
   const history = History();
   useEffect(() => {
     if(!userData) dispatch(Actions.getUserData_Thunk(name, history));
-
-    
   }, [])
 }

@@ -14,40 +14,7 @@
 .userInfoBottom {
   margin-top : 1rem;
 }
-.userInfoBottomMainTabWrap {
-  background : var(--bgDeep);
-  display : flex;
-  padding : .5rem;
-  width : fit-content;
-  border-radius : 5px 5px 0 0;
-}
-.userInfoBottomMainTab {
-  margin-right : 2rem;
-  color : #666;
-  cursor : pointer;
-}
-.userInfoBottomMainTab:last-child {
-  margin-right : 0;
-}
-.userInfoBottomSubTabWrap {
-  background : var(--bgDeep);
-  display : flex;
-  margin-bottom : .5rem;
-  border-radius : 5px 5px 0 0;
-}
-.userInfoBottomSubTab {
-  margin-right : .5rem;
-  color : #666;
-  cursor : pointer;
-  flex-grow : 1;
-}
-.tabTarget {
-  color : var(--white);
-}
-.userInfoBottomMainTabContent {
-  background : var(--bgDeep);
-  padding : .5rem;
-}
+
 /* 장비리스트 */
 .equipList {
   position : relative;

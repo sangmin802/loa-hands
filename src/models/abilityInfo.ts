@@ -5,6 +5,7 @@ import {partsArr, partsImg} from '../JSON.js'
 export interface IEquip {
   partImg : string
   detail? : EquipInfo
+  equipGroupType? : string
 }
 export interface IAv extends IEquip {
   avatarPart : string
@@ -23,7 +24,14 @@ export default class AbilityInfo {
   skillInfo : SkillInfo
   constructor(script0 : Element, raw : Element){
     partsArr.forEach((part : string, index : number) => {
-      this.equipInfo[part] = {partImg : partsImg[index]};
+      let equipGroupType = null;
+      if(index <= 22) equipGroupType = "InnerAv";
+      if(index <= 18) equipGroupType = "OuterAv";
+      if(index === 11) equipGroupType = "Stone";
+      if(index <= 10) equipGroupType = "Acc";
+      if(index <= 5) equipGroupType = "Equip";
+  
+      this.equipInfo[part] = {partImg : partsImg[index], equipGroupType};
     })
 
     if(script0.childNodes[0].textContent.length!==1){
@@ -40,7 +48,11 @@ export default class AbilityInfo {
     const equipKeyArr = Object.keys(equip);
     equipKeyArr.forEach((key : string) => {
       const num = Number(key.substr(key.length-3, key.length))
-      if(partsArr[num]) this.equipInfo[partsArr[num]].detail = new EquipInfo(equip[key], num);
+      if(partsArr[num]){
+        const target = this.equipInfo[partsArr[num]];
+
+        target.detail = new EquipInfo(equip[key]);
+      }
     })
   }
 }

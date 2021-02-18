@@ -10,15 +10,10 @@ export default class EquipInfo {
   NameTagBox0? : {
     value : string
   }
-  equipGroupType : string
+  innerValid0? : string
 
-  constructor(data : object, num : number){
+  constructor(data){
     let sameDivideCount : number = 0;
-    
-    if(num < 6) this.equipGroupType = 'Equip';
-    if(5 < num && num < 11) this.equipGroupType = "Acc";
-    if(num === 11) this.equipGroupType = "Stone";
-
     Object.values(data)
     .map((val : object) => {
       if(!val['type']) return {...val, type : 'innerValid'};
