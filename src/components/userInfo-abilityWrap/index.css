@@ -1,0 +1,62 @@
+.listDetailQuality {
+  position : relative;
+  width : 100%;
+  height : 15px;
+  line-height : 12px;
+  margin-top : .5rem;
+  border : var(--contBox-border);
+}
+.listDetailQuality .qualityValue {
+  position : absolute;
+  top : 0;
+  left : 0;
+  height : 100%;
+  z-index : -1;
+}
+.itemPartBoxWrap, .singleTextWrap, .intentStringWrap {
+  margin : .5rem 0;
+}
+.itemPartBox, .singleText, .intentString {
+  margin-top : .5rem;
+}
+.itemPartBoxTitle {
+  font-weight : bold;
+  margin-bottom : .15rem;
+}
+.tripodSkillCustom {
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+  margin-top : .5rem;
+}
+.GemImg {
+  width : 10%;
+  height : fit-content;
+}
+.GemInfo {
+  display : flex;
+  width : 86%;
+  flex-direction : column;
+  justify-content : center;
+}
+.GemStat, .GemName {
+  width : 100%;
+}
+
+.skillRuneContent, .skillTripod {
+  display : flex;
+  margin-top : 1rem;
+  align-items : center;
+}
+.runeImg, .skillTripodImg {
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
+  width : 10%;
+  margin-right : .3rem;
+}
+.runeMainInfo, .skillTripodContent {
+  width : 80%;
+}
+.runeMainInfo div {
+  width : 100%;
+}

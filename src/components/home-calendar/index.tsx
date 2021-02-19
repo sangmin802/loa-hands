@@ -16,7 +16,7 @@ const Index = ({
       {
         yoil===0 || yoil===6 ? 
         calendar.map((cal, index) => {
-          return <CalendarWrap cal={cal} index={index} today={today}/>
+          return <CalendarWrap key={`calendar${index}`} cal={cal} index={index} today={today}/>
         })
         : 
         <CalendarWrap cal={calendar[1]} index={1} today={today}/>

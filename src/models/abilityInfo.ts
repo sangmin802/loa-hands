@@ -25,8 +25,8 @@ export default class AbilityInfo {
   constructor(script0 : Element, raw : Element){
     partsArr.forEach((part : string, index : number) => {
       let equipGroupType = null;
-      if(index <= 22) equipGroupType = "InnerAv";
-      if(index <= 18) equipGroupType = "OuterAv";
+      if(index <= 22) equipGroupType = "OuterAv";
+      if(index <= 18) equipGroupType = "InnerAv";
       if(index === 11) equipGroupType = "Stone";
       if(index <= 10) equipGroupType = "Acc";
       if(index <= 5) equipGroupType = "Equip";

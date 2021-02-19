@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import {Selector} from 'store/controller/selector'
 
 // 컴포넌트
-import Header from 'components/header/index';
+import Header from 'components/home-header/index';
 import Home from 'pages/Home';
 import UserInfo from 'pages/UserInfo';
 import LoadingSpinner from 'components/loading-spinner/index';

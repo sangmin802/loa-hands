@@ -1,9 +1,10 @@
 import React from 'react';
 import {Selector} from 'store/controller/selector';
 import _ from 'utility';
-import DoubleColumnList from 'components/userInfo-doubleColumnWrap/index';
+import './index.css'
 
-import CreateQualityGraph from 'components/userInfo-qualityGraph/index';
+import DoubleColumnList from 'components/shared-doubleColumnWrap/index';
+import Ability from './ability/index';
 
 const Index = () => {
   const {userData} = Selector(['userData']);
@@ -12,12 +13,15 @@ const Index = () => {
 
   const [equip, acc] = arrayReducer(equipArr, 'Equip');
   const [inner, outer] = arrayReducer(avaterArr, 'InnerAv');
+
   return (
     <div className="abilityWrap">
-      <DoubleColumnList left={equip} right={acc} leftTitle="장비" rightTitle="악세서리" type="EQUIP">
-        <CreateQualityGraph />
+      <DoubleColumnList left={equip} right={acc} leftTitle="장비" rightTitle="악세서리" >
+        <Ability />
       </DoubleColumnList>
-      <DoubleColumnList left={inner} right={outer} leftTitle="아바타 슬롯" rightTitle="덧입기 슬롯" type="AVATAR" />
+      <DoubleColumnList left={inner} right={outer} leftTitle="아바타 슬롯" rightTitle="덧입기 슬롯" >
+        <Ability />
+      </DoubleColumnList>
     </div>
   )
 };
@@ -32,6 +36,5 @@ function arrayReducer(arr, type){
     return prev;
   }, [[],[]])
 }
-
 
 export default React.memo(Index, () => true);

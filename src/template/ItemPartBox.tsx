@@ -3,9 +3,10 @@ import _ from 'utility';
 
 const ItemPartBox = ({
   data
-}) => {
+} : {
+  data?
+}) => {  
   if(!data) return null;
-  
   const arr = _.getSameTypeObj(Object.values(data), "ItemPartBox")
   return (
     <div className="itemPartBoxWrap">

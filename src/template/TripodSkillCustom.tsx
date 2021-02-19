@@ -4,6 +4,9 @@ import _ from 'utility';
 export default ({
   data,
   children
+} : {
+  data?
+  children
 }) => {
   if(!data) return null;
   const arr =  _.getSameTypeObj(Object.values(data), "TripodSkillCustom");

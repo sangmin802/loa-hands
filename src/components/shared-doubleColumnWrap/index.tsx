@@ -1,33 +1,26 @@
 import React from 'react';
-import ColumnList from 'components/userInfo-columnList/index';
 import './index.css';
 
 export default ({
-  left, right, leftTitle, rightTitle, type, children
+  left, right, leftTitle, rightTitle, children
 } : {
-  left, right, leftTitle, rightTitle, type, children?
+  left, right, leftTitle, rightTitle, children?
 }) => {
   return (
     <div className="doubleColumnWrap">
       <div className="columnLeft">
         <div className="columnTitle rem09 textCenter">{leftTitle}</div>
         <div className="columnContent">
-          {left.map((res, index) => {
-            return (
-              <ColumnList key={`columnLeft${index}`} data={res}>
-                {children}
-              </ColumnList>
-            )
+          {left.map((res) => {
+            return {...children, props : {...children.props, data : res}}
           })}
         </div>
       </div>
       <div className="columnRight">
         <div className="columnTitle rem09 textCenter">{rightTitle}</div>
         <div className="columnContent">
-          {right.map((res, index) => {
-            return (
-              <ColumnList key={`columnRight${index}`} data={res}/>
-            )
+          {right.map((res) => {
+            return {...children, props : {...children.props, data : res}}
           })}
         </div>
       </div>

@@ -3,6 +3,8 @@ import _ from 'utility';
 
 const IntentString = ({
   data
+} : {
+  data?
 }) => {
   if(!data) return null;
   const arr = _.getSameTypeObj(Object.values(data), "IntentStringGroup")
