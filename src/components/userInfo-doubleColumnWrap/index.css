@@ -1,0 +1,12 @@
+.doubleColumnWrap {
+  display : flex;
+}
+.doubleColumnWrap > div {
+  width : 49.5%;
+}
+.columnLeft {
+  margin-right : 1%;
+}
+.columnTitle {
+  margin-bottom : 1rem;
+}

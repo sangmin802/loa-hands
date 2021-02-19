@@ -14,78 +14,22 @@
 .userInfoBottom {
   margin-top : 1rem;
 }
-
+.contentWrap {
+  background : var(--bgDeep);
+  padding : .5rem;
+  border-radius : 0 0 5px 5px;
+}
 /* 장비리스트 */
-.equipList {
-  position : relative;
-  display : flex;
-  align-items : center;
-  margin-bottom : .5rem;
-  padding : .3rem;
-  background : var(--bgLow);
-  border-radius : var(--contBox-border-radius);
-}
-.equipList:last-child {
-  margin-bottom : 0;
-}
-.equipListImg {
-  position : relative;
-  width : 12%;
-  min-width : 40px;
-  margin-right : .5rem;
-  border : var(--contBox-border);
-  border-radius : 3px;
-}
-.equipListContent {
-  display : flex;
-  flex-direction : column;
-  justify-content : center;
-}
-.equipListContent * {
-  color : rgba(222,222,222);
-}
-
-/* 아바타리스트 */
-.avatarList {
-  background : var(--bgLow);
-  border-radius : var(--contBox-border-radius);
-  padding : .3rem;
-  padding-top : 0;
-  display : flex;
-  justify-content : space-between;
-}
-.avatarListLeft, .avatarListRight {
-  width : 25%;
-}
-.avatarPartWrap {
-  display : flex;
-}
-.flexcolumn {
-  flex-direction : column;
-  align-items : flex-end;
-}
-.avatarWrap {
-  width : 50%;
-  margin-top : .3rem;
-  position : relative;
-  border : var(--contBox-border);
-  border-radius : 3px;
-}
-.avatarWrap .listDetail {
-  width : 600%;
-  left : 20%;
-}
-.avatarWrap .PosChange {
-  left : -520%;
-}
 
 /* 아이템 상세보기 */
 .listDetail {
   padding : .5rem;
-  position : absolute;
-  width : 80%;
-  bottom : 20%;
-  left : 5%;
+  position : fixed;
+  width : 30%;
+  min-width : 300px;
+  top : 50%;
+  left : 50%;
+  transform : translate(-50%, -50%);
   background : black;
   display : none;
   background : rgba(0,0,0,0.85);
@@ -93,10 +37,8 @@
   overflow-y: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-.listDetailEQUIP {
-  width : 320px;
-  max-width : 85%;
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
 }
 .listDetail::-webkit-scrollbar {
   display: none;
@@ -153,7 +95,7 @@
   margin-top : .5rem;
 }
 .GemImg {
-  width : 12%;
+  width : 10%;
   height : fit-content;
 }
 .GemInfo {

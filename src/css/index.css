@@ -57,12 +57,18 @@ body {
 .gradient3 { background : linear-gradient(135deg, #261331, #480d5d); }
 .gradient4 { background : linear-gradient(135deg, #362003, #9e5f04); }
 .gradient5 { background : linear-gradient(135deg, #341a09, #a24006); }
-.color0, .color0 * { color : #a19f9f !important; font-weight: bold; }
-.color1, .color1 * { color : #4e8d01 !important; font-weight: bold; }
-.color2, .color2 * { color : #0063aa !important; font-weight: bold; }
-.color3, .color3 * { color : #700099 !important; font-weight: bold; }
-.color4, .color4 * { color : #ff9500 !important; font-weight: bold; }
-.color5, .color5 * { color : #ff5e00 !important; font-weight: bold; }
+.color0, .color0 * { color : #a19f9f !important;}
+.color0bold, .color0bold * { color : #a19f9f !important;  font-weight: bold;}
+.color1, .color1 * { color : #4e8d01 !important;}
+.color1bold, .color1bold * { color : #4e8d01 !important;  font-weight: bold;}
+.color2, .color2 * { color : #0063aa !important;}
+.color2bold, .color2bold * { color : #0063aa !important;  font-weight: bold;}
+.color3, .color3 * { color : #700099 !important;}
+.color3bold, .color3bold * { color : #700099 !important;  font-weight: bold;}
+.color4, .color4 * { color : #ff9500 !important;}
+.color4bold, .color4bold * { color : #ff9500 !important;  font-weight: bold;}
+.color5, .color5 * { color : #ff5e00 !important;}
+.color5bold, .color5bold * { color : #ff5e00 !important;  font-weight: bold;}
 .overflowDot {
   text-overflow: ellipsis;
   overflow: hidden; 

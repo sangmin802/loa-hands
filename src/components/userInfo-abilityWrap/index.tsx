@@ -1,16 +1,9 @@
-// function SetContent(userData : UserData, mainTab : number, subTab : number){
-//   const {abilityInfo : {equipInfo, skillInfo}, collectionDetail} = userData;
-//   const [equipArr, avaterArr] = _.divideEquipInfo(equipInfo);
-  
-//   if(mainTab === 0 && subTab === 0) return [...equipArr].map((equip : IEquip, index) => (<UserEquipList data={equip} key={`userEquipList${index}`} />))
-//   if(mainTab === 0 && subTab === 1) return <UserAvatarList data={avaterArr} />;
-//   if(mainTab === 1 && subTab === 0) return skillInfo ? <UserBattleSkillList data = {skillInfo.battleSkill}/> : <div className="noBattleSkillInfo">설정된 스킬이 없습니다.</div>
-//   if(mainTab === 1 && subTab === 1) return skillInfo ? <UserLifeSkillList data = {skillInfo.lifeSkill} /> : <div className="noBattleSkillInfo">생활스킬이 활성화되지 않았습니다.</div>
-//   if(mainTab === 2) return <UserCollectionList data={collectionDetail[subTab]}/>
-// }
 import React from 'react';
 import {Selector} from 'store/controller/selector';
 import _ from 'utility';
+import DoubleColumnList from 'components/userInfo-doubleColumnWrap/index';
+
+import CreateQualityGraph from 'components/userInfo-qualityGraph/index';
 
 const Index = () => {
   const {userData} = Selector(['userData']);
@@ -19,13 +12,13 @@ const Index = () => {
 
   const [equip, acc] = arrayReducer(equipArr, 'Equip');
   const [inner, outer] = arrayReducer(avaterArr, 'InnerAv');
-
-  console.log(equip, acc, inner, outer)
-
   return (
-    <>
-
-    </>
+    <div className="abilityWrap">
+      <DoubleColumnList left={equip} right={acc} leftTitle="장비" rightTitle="악세서리" type="EQUIP">
+        <CreateQualityGraph />
+      </DoubleColumnList>
+      <DoubleColumnList left={inner} right={outer} leftTitle="아바타 슬롯" rightTitle="덧입기 슬롯" type="AVATAR" />
+    </div>
   )
 };
 
@@ -39,5 +32,6 @@ function arrayReducer(arr, type){
     return prev;
   }, [[],[]])
 }
+
 
 export default React.memo(Index, () => true);

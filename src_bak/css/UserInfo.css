@@ -196,7 +196,7 @@
   padding : .5rem;
 }
 /* 장비리스트 */
-.equipList {
+.columnList {
   position : relative;
   display : flex;
   align-items : center;
@@ -205,21 +205,21 @@
   background : var(--bgLow);
   border-radius : var(--contBox-border-radius);
 }
-.equipList:last-child {
+.columnList:last-child {
   margin-bottom : 0;
 }
-.equipListImg {
+.columnListImg {
   position : relative;
   width : 12%;
   min-width : 40px;
   margin-right : .5rem;
 }
-.equipListContent {
+.columnListContent {
   display : flex;
   flex-direction : column;
   justify-content : center;
 }
-.equipListContent * {
+.columnListContent * {
   color : rgba(222,222,222);
 }
 

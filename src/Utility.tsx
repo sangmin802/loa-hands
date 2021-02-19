@@ -85,5 +85,24 @@ export default {
       return '0'+num;
     }
     return num;
+  },
+
+  arrayReducer(arr, type){
+    return arr.reduce((prev, cur) => {
+      if(cur.equipGroupType === type){
+        prev[0].push(cur);
+      }else{
+        prev[1].push(cur);
+      }
+      return prev;
+    }, [[],[]])
+  },
+
+  setQualityColor(qualityValue : number){
+    if(qualityValue >= 0 && qualityValue < 10) return -1
+    if(qualityValue >= 10 && qualityValue < 70) return 1;
+    if(qualityValue >= 70 && qualityValue < 90) return 2;
+    if(qualityValue >= 90) return 3;
+    return -2;
   }
 }

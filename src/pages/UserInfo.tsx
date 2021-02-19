@@ -26,7 +26,6 @@ const UserInfo = ({
 
   if(!userData) return <UserInfoBlank />
   
-
   return(
     <div className="userInfo">
       <div className="userInfoTop">
@@ -36,11 +35,11 @@ const UserInfo = ({
       </div>
       <div className="userInfoBottom">
         <TabWrap arr={['능력치', '스킬', '수집형포인트']} tabClass="main"/>
-        <TabWrap arr={['장비', '아바타']} tabClass="sub"/>
+        <TabWrap arr={['착용 아이템', '착용 아바타']} tabClass="sub"/>
         <TabWrap arr={['전투스킬', '생활스킬']} tabClass="sub"/>
         <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub" />
 
-        <div className="contentWrap">    
+        <div className="contentWrap">
           <AbilityWrap />
         </div>
       </div>

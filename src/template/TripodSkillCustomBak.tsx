@@ -1,46 +1,18 @@
 import React from 'react';
-import _ from '../../Utility';
+import _ from 'utility';
 
-interface ITriEquip {
-  desc : string
-  iconGrade? : string
-  iconPath? : string
-  name? : string
-}
-interface ITriSKill {
-  name : string
-  desc : string
-  tier : string
-  slotData : {
-    iconPath : string
-  }
-}
-
-interface ITripodSkillCustom {
-  val : {
-    value : {
-      key : ITriEquip | ITriSKill
-    }
-  }
-  type : string
-}
-
-const TripodSkillCustom : React.FC<ITripodSkillCustom> = ({
+const TripodSkillCustom = ({
   val,
   type
 }) => {
   if(!val) return null;
   const onlyValues = Object.values(val.value);
-  // const onlyValues = arr.map(tripod => {
-  //   const {value} = tripod;
-  //   return Object.values(val);
-  // });
   return(
     <>
       {
         onlyValues.map((tri, index) => {
-          if(type === 'equip') return <Equip key={`tripodCustom${type}${index}`} tri={tri as ITriEquip}/>;
-          if(type === 'skill') return <Skill key={`tripodCustom${type}${index}`} tri={tri as ITriSKill}/>;
+          if(type === 'equip') return <Equip key={`tripodCustom${type}${index}`} tri={tri}/>;
+          if(type === 'skill') return <Skill key={`tripodCustom${type}${index}`} tri={tri}/>;
         })
       }
     </>
@@ -49,14 +21,13 @@ const TripodSkillCustom : React.FC<ITripodSkillCustom> = ({
 
 export default TripodSkillCustom;
 
-const Equip : React.FC<{tri : ITriEquip}> = ({
-  tri : {
+const Equip = ({tri}) => {
+  const {
     desc,
     iconGrade,
     iconPath,
     name,
-  }
-}) => {
+  } = tri;
   const bool = desc !== '보석 장착 필요';
   return (
     <div className="tripodSkillCustom">
@@ -85,20 +56,20 @@ const Equip : React.FC<{tri : ITriEquip}> = ({
   )
 }
 
-const Skill : React.FC<{tri : ITriSKill}> = ({
-  tri : {
+const Skill = ({
+  tri
+}) => {
+  const {
     name, 
     desc, 
     tier, 
     slotData : {
       iconPath
     }
-  }
-}) => {
+  } = tri;
   if(name === '') return null;
   return (
     <div className="skillTripod">
-      askdfaiohaowiefnasldf
       <div className="skillTripodImg">
         <img className="imgWidth" src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={name} />
       </div>
