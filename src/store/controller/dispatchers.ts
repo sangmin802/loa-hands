@@ -26,10 +26,13 @@ export const UserInfo = () => {
   const changeUserInfoMainTab = useCallback((index) => {
     dispatch(Actions.changeUserInfoMainTab(index));
   }, [])
+  const changeUserInfoSubTab = useCallback((index) => {
+    dispatch(Actions.changeUserInfoSubTab(index))
+  }, []);
   const getUserData = useCallback((value, history) => {
     dispatch(Actions.getUserData_Thunk(value, history))
     // dispatch(Actions.getUserData_Saga(value, history))
   }, []);
 
-  return {expeditionPopToggle, changeUserInfoMainTab, getUserData};
+  return {expeditionPopToggle, changeUserInfoMainTab, changeUserInfoSubTab, getUserData};
 }

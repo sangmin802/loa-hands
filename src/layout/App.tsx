@@ -7,7 +7,7 @@ import {Selector} from 'store/controller/selector'
 import Header from 'components/home-header/index';
 import Home from 'pages/Home';
 import UserInfo from 'pages/UserInfo';
-import LoadingSpinner from 'components/loading-spinner/index';
+import LoadingSpinner from 'components/_loading-spinner/index';
 
 function App(){
   const {isLoading} = Selector(['isLoading']);

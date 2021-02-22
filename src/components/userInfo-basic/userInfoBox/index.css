@@ -1,4 +1,5 @@
 .userInfoBox {
+  width : 100%;
   display : flex;
   padding : .15rem;
   text-align : center;

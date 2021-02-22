@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'utility';
+import './index.css';
 
 const Index = ({
   backSrc, 
@@ -19,22 +20,22 @@ const Index = ({
   children?
 }) => {
   return(
-    <div className={`listDetail hoverContent zIndex10`}>
-      <div className="listDetailTop">
-        <div className="listDetailImg">
-          <div className="listDetailImgs">
+    <div className={`hoverDetail hoverContent zIndex10`}>
+      <div className="hoverDetailTop">
+        <div className="hoverDetailImg">
+          <div className="hoverDetailImgs">
             {backSrc && <img className="imgWidth" src={backSrc} alt="partImg"/>}
             {src && <img className={`equipMainImg absolute imgWidth gradient${grade}`} src={src} alt={src} />}
           </div>
         </div>
-        <div className="listDetailMainInfo">
-          <div className={`listDetailName overflowDot color${grade}bold rem1`}>
+        <div className="hoverDetailMainInfo">
+          <div className={`overflowDot color${grade}bold rem1`}>
             {hoverTextA}
           </div>
-          <div className={`listDetailGrade overflowDot color${grade}bold rem09`}>
+          <div className={`overflowDot color${grade}bold rem09`}>
             {hoverTextB}
           </div>
-          <div className='listDetailTier overflowDot rem09'>
+          <div className='overflowDot rem09'>
             {hoverTextC}
           </div>
         </div>

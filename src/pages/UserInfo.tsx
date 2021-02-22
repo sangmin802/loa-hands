@@ -10,7 +10,7 @@ import {UserInfoTab} from 'hooks/userInfoTab';
 import UserExpeditionPop from 'components/userInfo-expeditionPop/index';
 import UserBasicInfo from 'components/userInfo-basic/index';
 import UserExpeditionChars from 'components/userInfo-expeditionChars/index';
-import TabWrap from 'components/userInfo-tabWrap/index';
+import TabWrap from 'components/userInfo-tab/index';
 import UserCollection from 'components/userInfo-collectionNav/index';
 import AbilityWrap from 'components/userInfo-abilityWrap/index';
 
@@ -38,9 +38,22 @@ const UserInfo = ({
         <TabWrap arr={['착용 아이템', '착용 아바타']} tabClass="sub"/>
         <TabWrap arr={['전투스킬', '생활스킬']} tabClass="sub"/>
         <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub" />
-
-        <div className="contentWrap">
+        <div className="tabContentWrap">
           <AbilityWrap />
+          <div className="displayNone">
+            <div className="displayNone">전투스킬</div>
+            <div className="displayNone">생활스킬</div>
+          </div>
+          <div className="displayNone">
+            <div className="displayNone">섬의마음</div>
+            <div className="displayNone">오르페우스의 별</div>
+            <div className="displayNone">거인의 심장</div>
+            <div className="displayNone">미술품</div>
+            <div className="displayNone">모코코</div>
+            <div className="displayNone">모험물</div>
+            <div className="displayNone">증표</div>
+            <div className="displayNone">생활</div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,12 +2,12 @@ import React from 'react';
 import './index.css';
 
 export default ({
-  left, right, leftTitle, rightTitle, children
+  left, right, leftTitle, rightTitle, children, style
 } : {
-  left, right, leftTitle, rightTitle, children?
+  left, right, leftTitle?, rightTitle?, children?, style?
 }) => {
   return (
-    <div className="doubleColumnWrap">
+    <div className={`${style} doubleColumnWrap`}>
       <div className="columnLeft">
         <div className="columnTitle rem09 textCenter">{leftTitle}</div>
         <div className="columnContent">

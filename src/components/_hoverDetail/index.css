@@ -1,0 +1,41 @@
+.hoverDetail {
+  padding : .5rem;
+  position : fixed;
+  width : 20%;
+  min-width : 300px;
+  top : 50%;
+  left : 50%;
+  transform : translate(-50%, -50%);
+  background : black;
+  display : none;
+  background : rgba(0,0,0,0.85);
+  max-height : 600px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border : var(--contBox-border);
+  border-radius : var(--contBox-border-radius);
+}
+.hoverDetail::-webkit-scrollbar {
+  display: none;
+}
+.hoverDetailTop {
+  display : flex;
+  justify-content : space-between;
+}
+.hoverDetailImg {
+  width : 20%;
+  display : flex;
+  align-items : center;
+}
+.hoverDetailImgs {
+  position : relative;
+  width : 100%;
+}
+.hoverDetailMainInfo {
+  width : 78%;
+  overflow : hidden;
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+}

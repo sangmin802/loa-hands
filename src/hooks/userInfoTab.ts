@@ -3,54 +3,76 @@ import {useEffect} from 'react';
 export const UserInfoTab = (userData) => {
   useEffect(() => {
     if(userData){
+      document.querySelector('.mainTabWrap').classList.remove('displayNone')
       const mainTabs = document.querySelector('.mainTabWrap').children;
-      const subTabWrap = document.querySelectorAll('.subTabWrap');      
+      const subTabWraps = document.querySelectorAll('.subTabWrap');
+      const contentWraps = document.querySelector('.tabContentWrap').children;
 
-      // 첫번째 메인탭 활성화
-      mainTabs[0].classList.add('white');
-      // 첫번째 서브탭 탭 블럭, 첫번째 서브탭, 이벤트 활성화
-      targetSubTabWrap(0, subTabWrap);
+      // 메인탭 변경시
+      const mainTabTrigger = (mainTabIndex) => {
+        // 메인탭 선택
+        removeStyle(mainTabs, 'white');
+        mainTabs[mainTabIndex].classList.add('white');
+
+        // 서브탭묶음 선택
+        addStyle(subTabWraps, 'displayNone');
+        subTabWraps[mainTabIndex].classList.remove('displayNone');
+
+        // 첫 서브탭 선택
+        removeStyle(subTabWraps[mainTabIndex].children, 'white');
+        subTabWraps[mainTabIndex].children[0].classList.add('white');
+
+        // 컨텐츠 묶음 선택
+        addStyle(contentWraps, 'displayNone');
+        contentWraps[mainTabIndex].classList.remove('displayNone');
 
 
-      [...mainTabs].forEach((res, index) => {
-        res.addEventListener('click', () => {
-          targetTab(res, mainTabs);
-          targetSubTabWrap(index, subTabWrap);
+        // 첫 컨텐츠 선택
+        addStyle(contentWraps[mainTabIndex].children, 'displayNone');
+        contentWraps[mainTabIndex].children[0].classList.remove('displayNone');
+
+        // 서브탭 이벤트 부여
+        [...subTabWraps[mainTabIndex].children].forEach((subTab, subTabIndex) => {
+          subTab.addEventListener('click', () => {
+            subTabTrigger(mainTabIndex, subTabIndex);
+          })
         })
-      });
+      }
+      
+      const subTabTrigger = (mainTabIndex, subTabIndex) => {
+        const selectedSubTabWrap = subTabWraps[mainTabIndex].children;
+        const selectedContentWrap = contentWraps[mainTabIndex].children;
+
+        // 선택한 서브탭 활성화
+        removeStyle(selectedSubTabWrap, 'white');
+        selectedSubTabWrap[subTabIndex].classList.add('white');
+
+        // 선택한 컨텐츠 활성화
+        addStyle(selectedContentWrap, 'displayNone');
+        selectedContentWrap[subTabIndex].classList.remove('displayNone');
+      }
+
+
+      //  첫번째 메인 탭 활성화
+      mainTabTrigger(0);
+      //  첫번째 컨텐츠, 첫번째 서브탭 활성화
+      subTabTrigger(0, 0);
+      
+
+
+      [...mainTabs].forEach((mainTab, i) => {
+        mainTab.addEventListener('click', () => {
+          mainTabTrigger(i)
+        })
+      })
     }
   }, [userData])
+}
 
-  function targetTab(node, arr){
-    resetTab(arr)
-    node.classList.add('white')
-  }
+function addStyle(arr, style){
+  [...arr].forEach(el => el.classList.add(style));
+}
 
-  function resetTab(arr){
-    [...arr].forEach(res => res.classList.remove('white'));
-  }
-
-  function targetSubTabWrap(index, arr){
-    // 모든 서브탭블럭 비활성화
-    [...arr].forEach(res => res.classList.remove('display')); 
-    
-    // 선택된 서브탭블럭
-    const subTabWrap = arr[index];
-    // 선택된 서브탭블럭의 탭들
-    const subTabs = [...subTabWrap.children];
-    // 선택된 서브탭블럭 활성화
-    subTabWrap.classList.add('display');
-
-    // 이전에 선택된 다른 서브탭들 비활성화
-    resetTab(subTabs);
-    // 선택된 서브탭블럭의 첫번째 탭 활성화
-    subTabs[0].classList.add('white');
-    
-    // 선택된 서브탭블럭의 탭들에게 이벤트 부여
-    subTabs.forEach((res) => {
-      res.addEventListener('click', () => {
-        targetTab(res, subTabs);
-      })
-    })
-  }
+function removeStyle(arr, style){
+  [...arr].forEach(el => el.classList.remove(style));
 }

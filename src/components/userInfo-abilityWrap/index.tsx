@@ -3,7 +3,7 @@ import {Selector} from 'store/controller/selector';
 import _ from 'utility';
 import './index.css'
 
-import DoubleColumnList from 'components/shared-doubleColumnWrap/index';
+import DoubleColumnList from 'components/_doubleColumnWrap/index';
 import Ability from './ability/index';
 
 const Index = () => {

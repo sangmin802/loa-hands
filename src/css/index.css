@@ -16,11 +16,14 @@ body {
   overflow-y : scroll;
 }
 
-.displayNone {
+body .displayNone {
   display : none;
 }
-.displayBlock {
-  display : block !important;
+body .displayBlock {
+  display : block;
+}
+body .displayFlex {
+  display : flex;
 }
 .absolute {
   position : absolute;
