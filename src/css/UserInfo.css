@@ -26,49 +26,7 @@
 
 
 /* 스킬 */
-.userSkillPoint {
-  padding : .5rem 0;
-  text-align : center;
-}
-.userUseSkill:first-child {
-  margin-right : 1rem;
-}
-.userSkillListWrap {
-  padding-top : 0;
-}
-.userSkillList {
-  display : flex;
-  position : relative;
-  align-items : center;
-  margin-top : .5rem;
-  background : var(--bgLow);
-  padding : .3rem;
-  border-radius : var(--contBox-border-radius);
-}
-.userSkillImg {
-  width : 12%;
-  margin-right : .5rem;
-  background : var(--bgDeep);
-  border : var(--contBox-border);
-  border-radius : 3px;
-}
-.userSkillImg img {
-  transform : scale(.9);
-}
-.userSkillNameLv {
-  display : flex;
-}
-.userSkillNameLv > div:last-child {
-  margin-left : .3rem;
-}
 
-.userLifeSkillWrap {
-  display : flex;
-}
-.lifeSkillList {
-  flex-grow : 1;
-  text-align : center;
-}
 
 /* 수집품 */
 .userCollectionTitle {

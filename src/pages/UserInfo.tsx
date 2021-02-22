@@ -13,6 +13,7 @@ import UserExpeditionChars from 'components/userInfo-expeditionChars/index';
 import TabWrap from 'components/userInfo-tab/index';
 import UserCollection from 'components/userInfo-collectionNav/index';
 import AbilityWrap from 'components/userInfo-abilityWrap/index';
+import SkillWrap from 'components/userInfo-skillWrap/index';
 
 // React.FC<RouteComponentProps<MatchParams>>
 
@@ -40,10 +41,7 @@ const UserInfo = ({
         <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub" />
         <div className="tabContentWrap">
           <AbilityWrap />
-          <div className="displayNone">
-            <div className="displayNone">전투스킬</div>
-            <div className="displayNone">생활스킬</div>
-          </div>
+          <SkillWrap />
           <div className="displayNone">
             <div className="displayNone">섬의마음</div>
             <div className="displayNone">오르페우스의 별</div>

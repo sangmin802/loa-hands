@@ -25,12 +25,15 @@ export default ({data} : {data?}) => {
 function AccGems({data} : {data?}){
   const {desc} = data;
   const bool = desc !== '보석 장착 필요';
+  const cn = bool ? 'yesGems' : 'noGems'
   return (
-    <ImgTextWrap 
-      backSrc={bool ? `//cdn-lostark.game.onstove.com/${data.slotData.iconPath}` : null}
-      grade={bool ? data.slotData.iconGrade : null}
-      textA={bool ? _.getOnlyText(data.name) : desc}
-      textB={bool ? desc : null}
-    />
+    <div className={`${cn}`}>
+      <ImgTextWrap 
+        backSrc={bool ? `//cdn-lostark.game.onstove.com/${data.slotData.iconPath}` : null}
+        grade={bool ? data.slotData.iconGrade : null}
+        textA={bool ? _.getOnlyText(data.name) : desc}
+        textB={bool ? desc : null}
+      />
+    </div>
   )
 }

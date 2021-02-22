@@ -4,20 +4,26 @@ import _ from 'utility';
 import './index.css'
 
 import DoubleColumnList from 'components/_doubleColumnWrap/index';
+import BattleSkill from './battleSkill/index';
 
 const Index = () => {
   const {userData} = Selector(['userData']);
-  const {abilityInfo : {skillInfo : {battleSkill, lifeSkill}}} = userData;
+  const battleSkill = userData.abilityInfo?.skillInfo?.battleSkill ?? null;
+  const lifeSkill = userData.abilityInfo?.skillInfo?.lifeSkill ?? null;
 
-  const [bLeft, bRight] = arrayReducer(battleSkill.skillDetail);
-  const [lLeft, lRight] = arrayReducer(lifeSkill);
-
+  const [bLeft, bRight] = battleSkill ? arrayReducer(battleSkill.skillDetail) : [null, null];
+  // const [lLeft, lRight] = arrayReducer(lifeSkill);
   return (
-    <div className="abilityWrap displayNone">
-      <DoubleColumnList left={bLeft} right={bRight} leftTitle={`사용 : ${battleSkill.usePoint}`} rightTitle={`획득 : ${battleSkill.getPoint}`} style="displayNone">
-      </DoubleColumnList>
-      <DoubleColumnList left={lLeft} right={lRight} style="displayNone">
-      </DoubleColumnList>
+    <div className="skillWrap displayNone">
+      {battleSkill &&
+        <DoubleColumnList left={bLeft} right={bRight} leftTitle={`사용 : ${battleSkill.usePoint}`} rightTitle={`획득 : ${battleSkill.getPoint}`} style="displayNone">
+          <BattleSkill />
+        </DoubleColumnList>
+      }
+      {!battleSkill && <div>지정된 전투스킬이 존재하지 않습니다.</div>}
+      <div>지정된 생활스킬이 존재하지 않습니다.</div>
+      {/* <DoubleColumnList left={lLeft} right={lRight} style="displayNone">
+      </DoubleColumnList> */}
     </div>
   )
 };

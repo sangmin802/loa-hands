@@ -1,0 +1,60 @@
+.userSkillPoint {
+  padding : .5rem 0;
+  text-align : center;
+}
+.userUseSkill:first-child {
+  margin-right : 1rem;
+}
+.userSkillListWrap {
+  padding-top : 0;
+}
+.userSkillList {
+  display : flex;
+  position : relative;
+  align-items : center;
+  margin-top : .5rem;
+  background : var(--bgLow);
+  padding : .3rem;
+  border-radius : var(--contBox-border-radius);
+}
+.userSkillImg {
+  width : 12%;
+  margin-right : .5rem;
+  background : var(--bgDeep);
+  border : var(--contBox-border);
+  border-radius : 3px;
+}
+.userSkillImg img {
+  transform : scale(.9);
+}
+.userSkillNameLv {
+  display : flex;
+}
+.userSkillNameLv > div:last-child {
+  margin-left : .3rem;
+}
+
+.userLifeSkillWrap {
+  display : flex;
+}
+.lifeSkillList {
+  flex-grow : 1;
+  text-align : center;
+}
+
+/* imgTextList 컴포넌트 스타일 덮어씌우기 */
+.batteSkillRune .imgTextList {
+  margin-top : .5rem;
+}
+.tripod-ImgTextWrap .imgTextList {
+  margin-top : .5rem;
+}
+.tripod-ImgTextWrap .imgTextContent > div:first-child {
+  font-size : .9rem;
+}
+.tripod-ImgTextWrap .imgTextContent > div:last-child {
+  font-size : .7rem;
+  text-overflow: initial;
+  overflow: initial; 
+  white-space: initial;
+}
