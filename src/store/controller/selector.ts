@@ -14,7 +14,6 @@ export const Selector = (
   return useSelector((state : RootState) => {
     let obj = {};
     arr.forEach(res => obj[res] = state[res])
-
     return obj;
   }, shallow);
 };
