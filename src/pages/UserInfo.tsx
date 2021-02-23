@@ -26,7 +26,7 @@ const Index = ({
   UserInfoTab(userData);
 
   if(!userData) return <UserInfoBlank />
-  console.log('탭기능 수정??')
+  
   return(
     <div className="userInfo">
       <div className="userInfoTop">
