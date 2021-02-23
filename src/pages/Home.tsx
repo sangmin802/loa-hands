@@ -9,7 +9,7 @@ import TimerSection from 'components/home-timerSection/index'
 import HomeBlank from 'components/home-blank/index'
 import CalendarSection from 'components/home-calendar/index';
 
-const Home = () => {
+const Index = () => {
   const {homeData} = Selector(['homeData'])
   DateOver(homeData);
   if(!homeData) return <HomeBlank data={dailyIsland}/>;
@@ -29,4 +29,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Index;

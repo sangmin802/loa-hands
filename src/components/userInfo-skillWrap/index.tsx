@@ -14,15 +14,15 @@ const Index = () => {
   const [bLeft, bRight] = battleSkill ? arrayReducer(battleSkill.skillDetail) : [null, null];
   // const [lLeft, lRight] = arrayReducer(lifeSkill);
   return (
-    <div className="skillWrap displayNone">
+    <div className="skillWrap">
       {battleSkill &&
-        <DoubleColumnList left={bLeft} right={bRight} leftTitle={`사용 : ${battleSkill.usePoint}`} rightTitle={`획득 : ${battleSkill.getPoint}`} style="displayNone">
+        <DoubleColumnList left={bLeft} right={bRight} leftTitle={`사용 : ${battleSkill.usePoint}`} rightTitle={`획득 : ${battleSkill.getPoint}`}>
           <BattleSkill />
         </DoubleColumnList>
       }
       {!battleSkill && <div>지정된 전투스킬이 존재하지 않습니다.</div>}
       <div>지정된 생활스킬이 존재하지 않습니다.</div>
-      {/* <DoubleColumnList left={lLeft} right={lRight} style="displayNone">
+      {/* <DoubleColumnList left={lLeft} right={lRight}>
       </DoubleColumnList> */}
     </div>
   )

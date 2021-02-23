@@ -10,14 +10,14 @@ import {UserInfoTab} from 'hooks/userInfoTab';
 import UserExpeditionPop from 'components/userInfo-expeditionPop/index';
 import UserBasicInfo from 'components/userInfo-basic/index';
 import UserExpeditionChars from 'components/userInfo-expeditionChars/index';
-import TabWrap from 'components/userInfo-tab/index';
+import TabWrap from 'components/_tabWrap/index';
 import UserCollection from 'components/userInfo-collectionNav/index';
 import AbilityWrap from 'components/userInfo-abilityWrap/index';
 import SkillWrap from 'components/userInfo-skillWrap/index';
 
 // React.FC<RouteComponentProps<MatchParams>>
 
-const UserInfo = ({
+const Index = ({
   match : {params : {name}}
 }) => {
   const {userData} = Selector(['userData']);
@@ -38,7 +38,7 @@ const UserInfo = ({
         <TabWrap arr={['능력치', '스킬', '수집형포인트']} tabClass="main"/>
         <TabWrap arr={['착용 아이템', '착용 아바타']} tabClass="sub"/>
         <TabWrap arr={['전투스킬', '생활스킬']} tabClass="sub"/>
-        <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub" />
+        <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub"/>
         <div className="tabContentWrap">
           <AbilityWrap />
           <SkillWrap />
@@ -58,4 +58,4 @@ const UserInfo = ({
   )
 }
 
-export default React.memo(UserInfo, () => true);
+export default React.memo(Index, () => true);
