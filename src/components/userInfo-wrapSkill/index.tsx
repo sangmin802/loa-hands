@@ -13,7 +13,7 @@ const Index = () => {
   const lifeSkill = userData.abilityInfo?.skillInfo?.lifeSkill ?? null;
 
   const [bLeft, bRight] = battleSkill ? arrayReducer(battleSkill.skillDetail) : [null, null];
-  const [lLeft, lRight] = arrayReducer(lifeSkill);
+  const [lLeft, lRight] = lifeSkill ? arrayReducer(lifeSkill) : [null, null];
   return (
     <div className="skillWrap">
       {battleSkill &&

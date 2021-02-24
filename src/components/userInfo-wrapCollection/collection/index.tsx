@@ -4,20 +4,16 @@ import ColumnList from 'components/_columnList/index';
 import ImgTextWrap from 'components/_imgTextWrap/index';
 
 export default ({
-  data,
-  index
+  data, 
 } : {
   data?,
-  index?
 }) => {
-  console.log(data)
-
+  const {no, name} = data;
   return (
     <ColumnList>
       <ImgTextWrap 
-        src={`img/lifeskill/1.PNG`}
-        textA={data.Lv}
-        textB={data.name}
+        textA={`#${no}`}
+        textB={name}
       />
     </ColumnList>
   )

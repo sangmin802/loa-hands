@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateQualityGraph from 'components/userInfo-abilityWrap/qualityGraph/index';
+import CreateQualityGraph from 'components/userInfo-wrapAbility/qualityGraph/index';
 import ItemPartBox from 'template/ItemPartBox';
 import SingleTextBox from 'template/SingleTextBox';
 import TripodSkillCustom from 'template/TripodSkillCustom';
