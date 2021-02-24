@@ -5,6 +5,7 @@ import './index.css'
 
 import DoubleColumnList from 'components/_doubleColumnWrap/index';
 import BattleSkill from './battleSkill/index';
+import LifeSkill from './lifeSkill/index';
 
 const Index = () => {
   const {userData} = Selector(['userData']);
@@ -12,7 +13,7 @@ const Index = () => {
   const lifeSkill = userData.abilityInfo?.skillInfo?.lifeSkill ?? null;
 
   const [bLeft, bRight] = battleSkill ? arrayReducer(battleSkill.skillDetail) : [null, null];
-  // const [lLeft, lRight] = arrayReducer(lifeSkill);
+  const [lLeft, lRight] = arrayReducer(lifeSkill);
   return (
     <div className="skillWrap">
       {battleSkill &&
@@ -21,9 +22,12 @@ const Index = () => {
         </DoubleColumnList>
       }
       {!battleSkill && <div>지정된 전투스킬이 존재하지 않습니다.</div>}
-      <div>지정된 생활스킬이 존재하지 않습니다.</div>
-      {/* <DoubleColumnList left={lLeft} right={lRight}>
-      </DoubleColumnList> */}
+      {battleSkill &&
+        <DoubleColumnList left={lLeft} right={lRight}>
+          <LifeSkill />
+        </DoubleColumnList>
+      }
+      {!lifeSkill && <div>지정된 생활스킬이 존재하지 않습니다.</div>}
     </div>
   )
 };

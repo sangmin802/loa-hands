@@ -20,7 +20,7 @@ export default ({
   const textA = detail ? equipTextA(_.multipleValues(detail.ItemTitle0.value)) : null;
   const textB = detail ? _.getOnlyText(detail.NameTagBox0.value) : null;
   const backSrc= `//cdn-lostark.game.onstove.com${partImg}`;
-
+  
   return (
     <ColumnList>
       {detail &&      
@@ -30,7 +30,7 @@ export default ({
           grade={grade}
           hoverTextA={hoverTextA}
           hoverTextB={hoverTextB}
-          hoverTextC={hoverTextC}
+          hoverTextC={hoverTextC === -1 ? null : hoverTextC}
         >
           <AbilityDetail data={data}/>
         </HoverDetail>
@@ -49,7 +49,7 @@ export default ({
 function equipTextA(arr){
   const [first,,third] = arr;
   let desc = third;
-  if(third === '장착중') desc = `${first}`;
+  if(third === '장착중' || third === -1) desc = `${first}`;
   if(third === '') desc = `아이템 티어 0`;
 
   return desc;

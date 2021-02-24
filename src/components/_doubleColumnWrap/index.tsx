@@ -11,16 +11,16 @@ export default ({
       <div className="columnLeft">
         <div className="columnTitle rem09 textCenter">{leftTitle}</div>
         <div className="columnContent">
-          {left.map((res) => {
-            return {...children, props : {...children.props, data : res}}
+          {left.map((res, index) => {
+            return {...children, props : {...children.props, data : res, index, side:"left"}}
           })}
         </div>
       </div>
       <div className="columnRight">
         <div className="columnTitle rem09 textCenter">{rightTitle}</div>
         <div className="columnContent">
-          {right.map((res) => {
-            return {...children, props : {...children.props, data : res}}
+          {right.map((res, index) => {
+            return {...children, props : {...children.props, data : res, index, side:"right"}}
           })}
         </div>
       </div>

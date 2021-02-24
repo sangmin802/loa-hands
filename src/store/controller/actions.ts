@@ -142,7 +142,7 @@ export function* rootSaga() {
 // 타입
 
 export type ActionType = // 각각의 Action들이 반환하는 값들의 타입을 묶음
-  | {type : 'TAKE_LATEST_TEST_CALLER', val : number}
+  // | {type : 'TAKE_LATEST_TEST_CALLER', val : number}
   | ReturnType<typeof loadingToggle>
   | ReturnType<typeof getUserData>
   | ReturnType<typeof setHomeData>
