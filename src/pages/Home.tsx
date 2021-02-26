@@ -1,6 +1,6 @@
 import React from 'react';
 import {Selector} from 'store/controller/selector'
-import {dailyIsland, fieldBoss, chaosGate, oceanCont} from 'JSON';
+import {dailyIsland, fieldBoss, chaosGate, oceanCont} from 'json/JSON';
 import DateOver from 'hooks/dateOver'
 
 // 컴포넌트

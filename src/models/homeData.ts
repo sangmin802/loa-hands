@@ -1,5 +1,5 @@
 import _ from '../utility';
-import {calendarIsland} from '../JSON';
+import {calendarIsland} from '../json/JSON';
 
 // 타입
 import {IJson} from '../types/home'

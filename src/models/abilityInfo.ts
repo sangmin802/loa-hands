@@ -1,6 +1,6 @@
 import EquipInfo from './equipInfo';
 import SkillInfo from './skillInfo';
-import {partsArr, partsImg} from '../JSON.js'
+import {partsArr, partsImg} from '../json/JSON.js'
 
 export interface IEquip {
   partImg : string

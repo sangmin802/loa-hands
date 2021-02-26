@@ -21,7 +21,7 @@ export default ({
   const textB = data ? `${skillName}` : null;
 
   return (
-    <ColumnList>
+    <>
       <HoverDetail
         backSrc={backSrc}
         hoverTextA={hoverTextA}
@@ -35,6 +35,6 @@ export default ({
         textA={textA}
         textB={textB}
       />
-    </ColumnList>
+    </>
   )
 }

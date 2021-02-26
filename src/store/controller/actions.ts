@@ -1,4 +1,4 @@
-import API from '../../API';
+import API from '../../api/API';
 import HomeData from '../../models/homeData'
 import UserInfo from '../../models/userInfo'
 import _History from 'history';

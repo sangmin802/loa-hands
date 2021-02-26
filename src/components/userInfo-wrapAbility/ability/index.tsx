@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'utility';
-import ColumnList from 'components/_columnList/index';
 import AbilityDetail from '../abilityDetail/index';
 import ImgTextWrap from 'components/_imgTextWrap/index';
 import HoverDetail from 'components/_hoverDetail/index';
@@ -22,7 +21,7 @@ export default ({
   const backSrc= `//cdn-lostark.game.onstove.com${partImg}`;
   
   return (
-    <ColumnList>
+    <>
       {detail &&      
         <HoverDetail
           backSrc={backSrc}
@@ -42,7 +41,7 @@ export default ({
         textA={textA}
         textB={textB}
       />
-    </ColumnList>
+    </>
   )
 }
 

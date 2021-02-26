@@ -2,10 +2,7 @@ import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import * as Actions from './actions'
 
-export const Dispatch = () => {
-  const dispatch = useDispatch();
-  return dispatch
-};
+export const Dispatch = () => useDispatch();
 
 export const Header = () => {
   const dispatch = Dispatch();

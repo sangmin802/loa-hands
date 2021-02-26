@@ -13,12 +13,10 @@ export default ({
   side?
 }) => {
   return (
-    <ColumnList>
       <ImgTextWrap 
         backSrc={`https://github.com/sangmin802/loa-hands/blob/master/public/img/lifeskill/${side}${index}.PNG?raw=true`}
         textA={data.lv}
         textB={data.name}
       />
-    </ColumnList>
   )
 }
