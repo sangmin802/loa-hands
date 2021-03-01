@@ -23,6 +23,6 @@
     "jsx": "react"
   },
   "include": [
-    "src"
-, "store/controller/actions.ts", "store/model/store.ts", "selector.ts"  ]
+    "src", "store/controller/actions.ts", "store/model/store.ts", "selector.ts"
+  ]
 }
