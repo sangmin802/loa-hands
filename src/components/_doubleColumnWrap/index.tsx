@@ -14,7 +14,7 @@ export default ({
         <div className="columnContent">
           {left.map((res, index) => {
             return (
-              <ColumnList>
+              <ColumnList key={`columnListLeft${index}`}>
                 {{...children, props : {...children.props, data : res, index, side:"left"}}}
               </ColumnList>
             )
@@ -27,7 +27,7 @@ export default ({
         <div className="columnContent">
           {right.map((res, index) => {
             return (
-              <ColumnList>
+              <ColumnList key={`columnListRight${index}`}>
                 {{...children, props : {...children.props, data : res, index, side:"right"}}}
               </ColumnList>
             )

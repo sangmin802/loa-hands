@@ -1,5 +1,6 @@
 import EquipInfo from './equipInfo';
 import SkillInfo from './skillInfo';
+import Characteristic from './characteristic';
 import {partsArr, partsImg} from '../json/JSON.js'
 
 export interface IEquip {
@@ -22,6 +23,7 @@ interface IProfileObj {
 export default class AbilityInfo {
   equipInfo : IEquipInfo = {};
   skillInfo : SkillInfo
+  characteristic
   constructor(script0 : Element, raw : Element){
     partsArr.forEach((part : string, index : number) => {
       let equipGroupType = null;
@@ -41,6 +43,10 @@ export default class AbilityInfo {
 
       // 스킬설정    
       this.skillInfo = new SkillInfo(profileObj.Skill, raw)
+
+      // 특성설정(각인, 특성)
+      const characteristic = raw.querySelector('.profile-char');
+      this.characteristic = new Characteristic(characteristic)
     }
   }
 
