@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 porxy.js
+API.ts
+/models
 
 # testing
 /coverage
