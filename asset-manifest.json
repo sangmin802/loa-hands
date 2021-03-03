@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/loa-hands/static/css/main.abddb2b3.chunk.css",
-    "main.js": "/loa-hands/static/js/main.3f1c4a87.chunk.js",
-    "main.js.map": "/loa-hands/static/js/main.3f1c4a87.chunk.js.map",
+    "main.css": "/loa-hands/static/css/main.2ddd7cd8.chunk.css",
+    "main.js": "/loa-hands/static/js/main.61a020eb.chunk.js",
+    "main.js.map": "/loa-hands/static/js/main.61a020eb.chunk.js.map",
     "runtime-main.js": "/loa-hands/static/js/runtime-main.02ec9361.js",
     "runtime-main.js.map": "/loa-hands/static/js/runtime-main.02ec9361.js.map",
-    "static/js/2.6cc44c4a.chunk.js": "/loa-hands/static/js/2.6cc44c4a.chunk.js",
-    "static/js/2.6cc44c4a.chunk.js.map": "/loa-hands/static/js/2.6cc44c4a.chunk.js.map",
+    "static/js/2.bad0df1c.chunk.js": "/loa-hands/static/js/2.bad0df1c.chunk.js",
+    "static/js/2.bad0df1c.chunk.js.map": "/loa-hands/static/js/2.bad0df1c.chunk.js.map",
     "index.html": "/loa-hands/index.html",
-    "precache-manifest.8fb8026b80561c76c316369cc85b44ad.js": "/loa-hands/precache-manifest.8fb8026b80561c76c316369cc85b44ad.js",
+    "precache-manifest.1ee75b5b0480a6a816b61b3e513317fb.js": "/loa-hands/precache-manifest.1ee75b5b0480a6a816b61b3e513317fb.js",
     "service-worker.js": "/loa-hands/service-worker.js",
-    "static/css/main.abddb2b3.chunk.css.map": "/loa-hands/static/css/main.abddb2b3.chunk.css.map",
-    "static/js/2.6cc44c4a.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.6cc44c4a.chunk.js.LICENSE.txt"
+    "static/css/main.2ddd7cd8.chunk.css.map": "/loa-hands/static/css/main.2ddd7cd8.chunk.css.map",
+    "static/js/2.bad0df1c.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.bad0df1c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.02ec9361.js",
-    "static/js/2.6cc44c4a.chunk.js",
-    "static/css/main.abddb2b3.chunk.css",
-    "static/js/main.3f1c4a87.chunk.js"
+    "static/js/2.bad0df1c.chunk.js",
+    "static/css/main.2ddd7cd8.chunk.css",
+    "static/js/main.61a020eb.chunk.js"
   ]
 }
