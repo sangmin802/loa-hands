@@ -38,8 +38,7 @@ export default ({
         backSrc={backSrc}
         src={src}
         grade={grade}
-        textA={textA}
-        textB={textB}
+        text={[textA, textB]}
       />
     </>
   )

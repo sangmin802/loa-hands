@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import ColumnList from 'components/_columnList/index';
+import ColumnWrap from 'components/_columnWrap/index';
 
 export default ({
   left, right, leftTitle, rightTitle, children
@@ -9,31 +9,12 @@ export default ({
 }) => {
   return (
     <div className='doubleColumnWrap'>
-      <div className="columnLeft">
-        <div className="columnTitle rem09 textCenter">{leftTitle}</div>
-        <div className="columnContent">
-          {left.map((res, index) => {
-            return (
-              <ColumnList key={`columnListLeft${index}`}>
-                {{...children, props : {...children.props, data : res, index, side:"left"}}}
-              </ColumnList>
-            )
-            
-          })}
-        </div>
-      </div>
-      <div className="columnRight">
-        <div className="columnTitle rem09 textCenter">{rightTitle}</div>
-        <div className="columnContent">
-          {right.map((res, index) => {
-            return (
-              <ColumnList key={`columnListRight${index}`}>
-                {{...children, props : {...children.props, data : res, index, side:"right"}}}
-              </ColumnList>
-            )
-          })}
-        </div>
-      </div>
+      <ColumnWrap title={leftTitle} arr={left} side="left">
+        {children}
+      </ColumnWrap>
+      <ColumnWrap title={rightTitle} arr={right} side="right">
+        {children}
+      </ColumnWrap>
     </div>
   )
 }

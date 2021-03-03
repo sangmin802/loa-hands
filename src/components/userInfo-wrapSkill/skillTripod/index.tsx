@@ -19,26 +19,10 @@ export default ({
             >
               <ImgTextWrap 
                 backSrc={`//cdn-lostark.game.onstove.com/${iconPath}`} 
-                textA={`${_.getOnlyText(tier)} ${_.getOnlyText(name)}`} 
-                textB={_.getOnlyText(desc)}
+                text={[`${_.getOnlyText(tier)} ${_.getOnlyText(name)}`, _.getOnlyText(desc)]}
               />
             </div>
           ) 
-          // return (
-          //   <div className="skillTripod" key={`skillTripod${name}${index}`}>
-          //     <div className="skillTripodImg">
-          //       <img className="imgWidth" src={`//cdn-lostark.game.onstove.com/${iconPath}`} alt={name} />
-          //     </div>
-          //     <div className="skillTripodContent">
-          //       <div className="skillTripodNameLv rem09">
-          //         {_.getOnlyText(tier)} {_.getOnlyText(name)}
-          //       </div>
-          //       <div className="skillTripodDesc rem07">
-          //         {_.getOnlyText(desc)}
-          //       </div>
-          //     </div>
-          //   </div>
-          // )
         })
       }
     </>

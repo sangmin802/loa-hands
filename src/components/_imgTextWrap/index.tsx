@@ -3,32 +3,23 @@ import _ from 'utility';
 import './index.css'
 
 // 컴포넌트
-import ListImg from './img/index';
-import ListContent from './content/index';
+import ImgWrap from '../_imgWrap/index';
+import TextWrap from '../_textWrap/index';
 
 export default ({
-  backSrc,
-  src,
-  grade,
-  textA,
-  textB,
+  backSrc, src, grade, text
 } : {
-  backSrc?,
-  src?,
-  grade?,
-  textA?,
-  textB?,
+  backSrc?, src?, grade?, text
 }) => {
   return(
-    <div className="imgTextList">
-      <ListImg 
+    <div className="imgTextWrap">
+      <ImgWrap 
         backSrc={backSrc}
         src={src}
         grade={grade}
       />
-      <ListContent 
-        textA={textA}
-        textB={textB}
+      <TextWrap 
+        text={text}
         grade={grade}
       />
     </div>

@@ -104,6 +104,10 @@ export const setHomeData_Thunk = (
     dispatch(setHomeData(homeData, false))
     if(history) history.replace(`/`);
   })
+  .catch(data => {
+    alert(data);
+    dispatch(loadingToggle(false));
+  })
 }
 
 const GET_USER_DATA_SAGA = 'GET_USER_DATA_SAGA' as const;

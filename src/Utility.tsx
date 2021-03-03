@@ -14,7 +14,7 @@ export default {
   // 태그가 포함된 문자열에서 태그를 제외한 문자열만 반환
   // BR태그가 있다면, div태그로 줄바꿈되도록 하고 {}를 통해 읽을수 있게 처리
   getOnlyText(string : string){
-    const newStr : string = string.replace(/<BR>/gi, "enter");
+    const newStr : string = string.replace(/<BR>$/gi, '').replace(/<BR>/gi, "enter");
     const parsed : string = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
     if(parsed.includes('enter')){
       const split : string[] = parsed.split('enter');

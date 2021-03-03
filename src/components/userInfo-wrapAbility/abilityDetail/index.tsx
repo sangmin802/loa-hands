@@ -10,7 +10,7 @@ export default ({data} : {data?}) => {
   return (
     <>
       <CreateQualityGraph data={data} />
-      <div className="listDetailBottom">
+      <div className="hoverDetailBottom">
         <ItemPartBox data={data.detail}/>
         <SingleTextBox data={data.detail}/>
         <TripodSkillCustom data={data.detail}>
@@ -25,15 +25,16 @@ export default ({data} : {data?}) => {
 function AccGems({data} : {data?}){
   const {desc} = data;
   const bool = desc !== '보석 장착 필요';
-  const cn = bool ? 'yesGems' : 'noGems'
+  const cn = bool ? 'yesGems' : 'noGems';
   return (
-    <div className={`${cn}`}>
-      <ImgTextWrap 
-        backSrc={bool ? `//cdn-lostark.game.onstove.com/${data.slotData.iconPath}` : null}
-        grade={bool ? data.slotData.iconGrade : null}
-        textA={bool ? _.getOnlyText(data.name) : desc}
-        textB={bool ? desc : null}
-      />
+    <div className={`${cn} gemInfo`}>
+      {bool &&
+        <ImgTextWrap 
+          backSrc={`//cdn-lostark.game.onstove.com/${data.slotData.iconPath}`}
+          grade={data.slotData.iconGrade}
+          text={[_.getOnlyText(data.name), _.getOnlyText(desc)]}
+        />
+      }
     </div>
   )
 }

@@ -1,20 +1,20 @@
-.collectionWrap .imgTextImg {
+.collectionWrap .imgWrap {
   display : none;
 }
-.collectionWrap .imgTextContent {
+.collectionWrap .textWrap {
   flex-direction : row;
   align-items : center;
   width : 100%;
   justify-content : left;
 }
-.collectionWrap .imgTextContent > div:first-child {
+.collectionWrap .textWrap > div:first-child {
   margin-right : .5rem;
   font-size : .9rem;
 }
 
-.collectionWrap .columnRight .imgTextContent > div:last-child {
+.collectionWrap .columnright .textWrap > div:last-child {
   color : #ff5e00;
 }
-.collectionWrap .columnLeft .imgTextContent > div:last-child {
+.collectionWrap .columnleft .textWrap > div:last-child {
   color : #cff0a7;
 }

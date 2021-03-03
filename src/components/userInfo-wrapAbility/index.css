@@ -1,4 +1,4 @@
-.listDetailQuality {
+.hoverDetailQuality {
   position : relative;
   width : 100%;
   height : 15px;
@@ -6,7 +6,7 @@
   margin-top : .5rem;
   border : var(--contBox-border);
 }
-.listDetailQuality .qualityValue {
+.hoverDetailQuality .qualityValue {
   position : absolute;
   top : 0;
   left : 0;
@@ -29,22 +29,17 @@
   align-items : center;
   margin-top : .5rem;
 }
-.GemImg {
+.gemInfo {
+  margin-top : .5rem;
+}
+.gemInfo .imgWrap {
   width : 10%;
+  margin-right : .5rem;
   height : fit-content;
 }
-.GemInfo {
+.gemInfo .textWrap {
   display : flex;
   width : 86%;
   flex-direction : column;
   justify-content : center;
-}
-.GemStat, .GemName {
-  width : 100%;
-}
-.yesGems {
-  margin-top : .5rem;
-}
-.noGems .imgTextList .imgTextImg {
-  border : 0;
 }

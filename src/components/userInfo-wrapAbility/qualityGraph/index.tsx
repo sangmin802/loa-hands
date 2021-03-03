@@ -15,7 +15,7 @@ export default ({
   if(typeof qualityValue !== 'number') return null;
 
   return (
-    <div className='listDetailQuality textCenter rem08'>
+    <div className='hoverDetailQuality textCenter rem08'>
       품질 {qualityValue}%
       <div className={`qualityValue gradient${qualityColor}`} style={{width : `${qualityValue}%`}}>
       </div>

@@ -1,26 +1,8 @@
-.imgTextList {
+.imgTextWrap {
   display : flex;
   align-items : center;
   margin-bottom : .3rem;
 }
-.imgTextList:last-child {
+.imgTextWrap:last-child {
   margin-bottom : 0;
-}
-.imgTextImg {
-  position : relative;
-  width : 12%;
-  min-width : 40px;
-  margin-right : .5rem;
-  border : var(--contBox-border);
-  border-radius : 3px;
-}
-.imgTextContent {
-  display : flex;
-  width : calc(88% - 1.1rem -0.1px);
-  min-width : calc(100% - 1.1rem - 40.1px);
-  flex-direction : column;
-  justify-content : center;
-}
-.imgTextContent * {
-  color : rgba(222,222,222);
 }

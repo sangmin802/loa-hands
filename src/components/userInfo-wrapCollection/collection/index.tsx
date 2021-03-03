@@ -9,9 +9,6 @@ export default ({
 }) => {
   const {no, name} = data;
   return (
-      <ImgTextWrap 
-        textA={`#${no}`}
-        textB={name}
-      />
+      <ImgTextWrap text={[`#${no}`, name]}/>
   )
 }

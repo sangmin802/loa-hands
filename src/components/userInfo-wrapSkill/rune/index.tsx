@@ -17,5 +17,5 @@ export default ({
   if(_runeGrade.includes('전설')) gradeColor = 4;
   if(_runeGrade.includes('유물')) gradeColor = 5;
 
-  return <ImgTextWrap backSrc={runeImg} textA={_runeGrade} textB={_runeInfo} grade={gradeColor}/>
+  return <ImgTextWrap backSrc={runeImg} text={[_runeGrade, _runeInfo]} grade={gradeColor}/>
 }

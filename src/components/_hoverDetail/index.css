@@ -23,19 +23,22 @@
   display : flex;
   justify-content : space-between;
 }
-.hoverDetailImg {
-  width : 20%;
+.hoverDetailTop .imgTextWrap {
   display : flex;
-  align-items : center;
-}
-.hoverDetailImgs {
-  position : relative;
   width : 100%;
 }
-.hoverDetailMainInfo {
-  width : 78%;
-  overflow : hidden;
-  display : flex;
-  flex-direction : column;
-  justify-content : center;
+.hoverDetailTop .imgWrap {
+  width : 20%;
+  min-width : 60px;
+  margin-right : .5rem;
+}
+.hoverDetailTop .textWrap {
+  width : calc(80% - .5rem - .1px);
+  min-width : calc(100% - .5rem - 60.1px);
+}
+.hoverDetailTop .textWrap > div {
+  font-size : .8rem;
+}
+.hoverDetailTop .textWrap > div:nth-child(1) {
+  font-size : 1.05rem;
 }
