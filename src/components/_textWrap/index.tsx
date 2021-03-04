@@ -10,10 +10,7 @@ export default ({
   return(
     <div className="textWrap">
       {text.map((res, index) => {
-        return <div 
-            key={`text${index}`} 
-            className={`rem0${9-index} overflowDot ${index === 0 ? `color${grade}` : ''}`}
-          >{res}</div>
+        return <div key={`text${index}`} className={`overflowDot ${index === 0 ? `color${grade}` : ''}`}>{res}</div>
       })}
     </div>
   )

@@ -9,7 +9,7 @@
   background : black;
   display : none;
   background : rgba(0,0,0,0.85);
-  max-height : 600px;
+  max-height : 400px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -37,8 +37,21 @@
   min-width : calc(100% - .5rem - 60.1px);
 }
 .hoverDetailTop .textWrap > div {
-  font-size : .8rem;
+  font-size : .7rem;
 }
-.hoverDetailTop .textWrap > div:nth-child(1) {
+.hoverDetailTop .textWrap > div:last-child {
   font-size : 1.05rem;
+}
+
+.hoverDetailBottom > div {
+  margin-top : .7rem;
+}
+.hoverDetailBottom > div * {
+  font-size : .9rem;
+}
+
+
+/* 템플릿 */
+.itemPartBoxes > div, .indentStrings > div {
+  margin-top : .5rem;
 }

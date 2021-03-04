@@ -12,10 +12,10 @@ import UserBasicInfo from 'components/userInfo-basic/index';
 import UserExpeditionChars from 'components/userInfo-expeditionChars/index';
 import TabWrap from 'components/_tabWrap/index';
 import UserCollection from 'components/userInfo-collectionNav/index';
-import WrapAbility from 'components/userInfo-wrapAbility/index';
-import WrapSkill from 'components/userInfo-wrapSkill/index';
-import WrapCollection from 'components/userInfo-wrapCollection/index';
-
+// import WrapAbility from 'components/userInfo-wrapAbility/index';
+// import WrapSkill from 'components/userInfo-wrapSkill/index';
+// import WrapCollection from 'components/userInfo-wrapCollection/index';
+import DoubleColumnWrap from 'components/_doubleColumnWrap/index';
 // React.FC<RouteComponentProps<MatchParams>>
 
 const Index = ({
@@ -25,9 +25,10 @@ const Index = ({
 
   GetUserData(userData, name);
   UserInfoTab(userData);
-
   if(!userData) return <UserInfoBlank />
   
+  // console.log(userData)
+  const [av, equip] = _.arrayReducer(Object.values(userData.abilityInfo.equipInfo), 'Av')
   return(
     <div className="userInfo">
       <div className="userInfoTop">
@@ -41,9 +42,19 @@ const Index = ({
         <TabWrap arr={['전투스킬', '생활스킬']} tabClass="sub"/>
         <TabWrap arr={UserCollection(userData.collectionMini)} tabClass="sub"/>
         <div className="tabContentWrap">
-          <WrapAbility />
+          <div className="abilityWrap">
+            <DoubleColumnWrap 
+              data={equip}
+              type="Equip"
+            />
+            <DoubleColumnWrap 
+              data={av}
+              type="Inner"
+            />
+          </div>
+          {/* <WrapAbility />
           <WrapSkill />
-          <WrapCollection />
+          <WrapCollection /> */}
         </div>
       </div>
     </div>

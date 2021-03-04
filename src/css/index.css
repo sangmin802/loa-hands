@@ -80,7 +80,9 @@ body .displayFlex {
 .hoverTarget:hover .hoverContent {
   display : block;
 }
-
+.contentBoxBorder {
+  border : var(--contBox-border);
+}
 
 @media all and (min-width:768px) {
   html { font-size : 16px;}

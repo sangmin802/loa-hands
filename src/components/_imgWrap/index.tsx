@@ -9,8 +9,8 @@ export default ({
   
   return (
     <div className="imgWrap">
-      {backSrc && <img className={`imgWidth  gradient${grade}`} src={backSrc} alt="partImg"/>}
-      {src && <img className={`equipMainImg absolute imgWidth gradient${grade}`} src={src} alt={src} />}
+      {backSrc && <img className={`imgWidth contentBoxBorder gradient${grade}`} src={`//cdn-lostark.game.onstove.com/${backSrc}`} alt="partImg"/>}
+      {src && <img className={`equipMainImg absolute imgWidth gradient${grade}`} src={`//cdn-lostark.game.onstove.com/${src}`} alt={src} />}
     </div>
   )
 };

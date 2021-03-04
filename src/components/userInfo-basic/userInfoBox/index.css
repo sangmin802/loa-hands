@@ -6,7 +6,7 @@
 }
 .userInfoBox > div {
   width : fit-content;
-  max-width : 45%;
+  max-width : 48%;
   align-items : center;
   display : flex;
 }
