@@ -6,10 +6,9 @@ import ItemPartBox from 'template/ItemPartBox';
 import IndentString from 'template/IndentString';
 import TripodSkillCustom from 'template/TripodSkillCustom';
 
-const Index = ({data}) => {
+const Index = ({data, children} : {data, children?}) => {
   const {backSrc, detail} = data;
   const {src, grade, title, subTitle, itemPartBox, indentStringGroup, tripodSkillCustom} = detail;
-  
   return(
     <div className='hoverDetail hoverContent zIndex10'>
       <div className="hoverDetailTop">
@@ -20,6 +19,7 @@ const Index = ({data}) => {
           text={[...subTitle, title]}
         />
       </div>
+      {children && {...children, props : {...children.props, data}}}
       <div className="hoverDetailBottom">
         {itemPartBox && <ItemPartBox data={itemPartBox} />}
         {indentStringGroup && <IndentString data={indentStringGroup}/>}

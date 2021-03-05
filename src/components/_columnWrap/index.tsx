@@ -2,7 +2,9 @@ import React from 'react';
 import ColumnList from 'components/_columnList/index';
 
 const ColumnWrap = ({
-  title, arr, side
+  title, arr, side, children
+} : {
+  title, arr, side, children?
 }) => {
   return (
     <div className={`column${side}`}>
@@ -10,9 +12,9 @@ const ColumnWrap = ({
       <div className="columnContent">
         {arr.map((res, index) => {
           return (
-            <ColumnList key={`columnList${side}${index}`}
-              data={res}
-            />
+            <ColumnList key={`columnList${side}${index}`} data={res}>
+              {children}
+            </ColumnList>
           )
         })}
       </div>
