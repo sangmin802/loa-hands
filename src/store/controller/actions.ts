@@ -86,6 +86,7 @@ export const getUserData_Thunk = (
       dispatch(getUserData(data, false))
       history.replace(`/userInfo/${name}`)
     } catch(err) {
+      console.log(err)
       alert(err.message);
       dispatch(loadingToggle(false));
       history.replace(`/`)
@@ -127,6 +128,7 @@ export function* getUserData_Saga(action){
       yield put(getUserData(data, false))
       history.replace(`/userInfo/${name}`)
     } catch(err) {
+      console.log(err)
       alert(err.message);
       yield put(loadingToggle(false));
       history.replace(`/`)

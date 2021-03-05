@@ -4,13 +4,15 @@ import HoverDetail from 'components/_hoverDetail/index';
 
 import './index.css'
 
-export default ({data}) => {
+export default ({data, children} : {data, children?}) => {
   // 자식은 hoverDetail
   const {backSrc, detail} = data;
   return (
     <div className="columnList hoverTarget">
       {detail?.hover &&
-        <HoverDetail data={data}/>
+        <HoverDetail data={data}>
+          {children}
+        </HoverDetail>
       }
       <ImgTextWrap
         backSrc={backSrc}

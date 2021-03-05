@@ -12,11 +12,10 @@ import UserBasicInfo from 'components/userInfo-basic/index';
 import UserExpeditionChars from 'components/userInfo-expeditionChars/index';
 import TabWrap from 'components/_tabWrap/index';
 import UserCollection from 'components/userInfo-collectionNav/index';
-// import WrapAbility from 'components/userInfo-wrapAbility/index';
-// import WrapSkill from 'components/userInfo-wrapSkill/index';
-// import WrapCollection from 'components/userInfo-wrapCollection/index';
 import DoubleColumnWrap from 'components/_doubleColumnWrap/index';
-// React.FC<RouteComponentProps<MatchParams>>
+
+import Quality from 'template/quality';
+import Rune from 'template/rune';
 
 const Index = ({
   match : {params : {name}}
@@ -27,7 +26,6 @@ const Index = ({
   UserInfoTab(userData);
   if(!userData) return <UserInfoBlank />
   
-  console.log(userData)
   const {abilityInfo, collectionInfo, skillInfo} = userData;
 
   // 어빌리티 관련
@@ -37,6 +35,8 @@ const Index = ({
   // 스킬 관련
   const {battleSkill, lifeSkill} = skillInfo;
 
+  // 수집품 관련
+  const {collectionDetail} = collectionInfo;
 
   return(
     <div className="userInfo">
@@ -52,16 +52,20 @@ const Index = ({
         <TabWrap arr={UserCollection(collectionInfo.collectionMini)} tabClass="sub"/>
         <div className="tabContentWrap">
           <div className="abilityWrap tabContent1">
-            <DoubleColumnWrap data={equip} type="Equip"/>
+            <DoubleColumnWrap data={equip} type="Equip">
+              <Quality />
+            </DoubleColumnWrap>
             <DoubleColumnWrap data={av} type="Inner"/>
           </div>
           <div className="skillWrap tabContent1">
-            <DoubleColumnWrap data={battleSkill.skills} lt={`사용 : ${battleSkill.usePoint}`} rt={`획득 : ${battleSkill.getPoint}`} type="Left" />
+            <DoubleColumnWrap data={battleSkill.skills} lt={`사용 : ${battleSkill.usePoint}`} rt={`획득 : ${battleSkill.getPoint}`} type="Left">
+              <Rune />
+            </DoubleColumnWrap>
             <DoubleColumnWrap data={lifeSkill} type="Left" />
           </div>
-          {/* <WrapAbility />
-          <WrapSkill />
-          <WrapCollection /> */}
+          <div className="collectionWrap">
+            {collectionDetail.map((res, index) => <DoubleColumnWrap key={index} data={res.collection} type="True" lt={res.title} rt={`획득 : ${res.getCount} 미획득 : ${res.totalCount}`}/>)}
+          </div>
         </div>
       </div>
     </div>
