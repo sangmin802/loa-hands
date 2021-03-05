@@ -13,15 +13,14 @@ export default {
 
   // 태그가 포함된 문자열에서 태그를 제외한 문자열만 반환
   // BR태그가 있다면, div태그로 줄바꿈되도록 하고 {}를 통해 읽을수 있게 처리
-  getOnlyText(string : string){
-    const newStr : string = string.replace(/<BR>$/gi, '').replace(/<BR>/gi, "enter");
-    const parsed : string = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
+  getOnlyText(string){
+    if(!string) return;
+    const newStr = string.replace(/<BR>$/gi, '').replace(/<BR>/gi, "enter");
+    const parsed = new DOMParser().parseFromString(newStr, "text/html").body.textContent;
     if(parsed.includes('enter')){
-      const split : string[] = parsed.split('enter');
-      return split.map((res, index) => {
-        if(res!==""){
-          return <div key={'enter'+index}>{res}</div>
-        }
+      const split = parsed.split('enter');
+      return split.map(res => {
+        if(res!=="") return res;
         return null;
       })
     }else{
@@ -89,7 +88,7 @@ export default {
 
   arrayReducer(arr, type){
     return arr.reduce((prev, cur) => {
-      if(cur.equipGroupType === type){
+      if(cur.type.includes(type)){
         prev[0].push(cur);
       }else{
         prev[1].push(cur);
@@ -98,7 +97,7 @@ export default {
     }, [[],[]])
   },
 
-  setQualityColor(qualityValue : number){
+  setQualityColor(qualityValue){
     if(qualityValue >= 0 && qualityValue < 10) return -1
     if(qualityValue >= 10 && qualityValue < 70) return 1;
     if(qualityValue >= 70 && qualityValue < 90) return 2;

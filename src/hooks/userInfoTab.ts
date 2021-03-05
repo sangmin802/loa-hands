@@ -1,3 +1,7 @@
+// export const UserInfoTab = (userData) => {
+//   return null;
+// }
+
 import {useEffect} from 'react';
 
 export const UserInfoTab = (userData) => {

@@ -1,6 +1,5 @@
 .imgWrap {
   position : relative;
-  border : var(--contBox-border);
   border-radius : 3px;
   width: 12%;
   min-width: 40px;

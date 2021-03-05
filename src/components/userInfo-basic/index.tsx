@@ -8,23 +8,11 @@ import UserInfoBox from './userInfoBox/index';
 import UserCollection from 'components/userInfo-collectionNav/index'
 
 const Index = () => {
-  const { userData : {
-    Lv, 
-    className, 
-    classSrc, 
-    curBigLv, 
-    curSamllLv, 
-    expeditionLv, 
-    garden, 
-    guild, 
-    pvp, 
-    reachBigLv, 
-    reachSamllLv, 
-    server, 
-    title, 
-    collectionMini, 
-    name
-  }} = Selector(['userData']);
+  const {userData : {basicInfo, expeditionInfo, collectionInfo}} = Selector(['userData']);
+
+  const {className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, title} = basicInfo;
+  const {name, server, Lv} = expeditionInfo;
+  const {collectionMini} = collectionInfo;
 
   return (
     <div className="searchedUserInfo">

@@ -19,38 +19,15 @@
   padding : .5rem;
   border-radius : 0 0 5px 5px;
 }
-/* 장비리스트 */
 
-/* 아이템 상세보기 */
-
-
-
-/* 스킬 */
-
-
-/* 수집품 */
-.userCollectionTitle {
-  margin-top : 1rem;
-}
-.userCollectionDetailWrap {
-  display : flex;
-  margin-top : 1rem;
-}
-.userCollectionDetailWrap > div {
-  width : 50%;
-}
-.userCollectionSide {
-  padding : .5rem;
-}
-.userCollectionIsGet {
-  margin-bottom : .6rem;
-}
-.userCollectionRight .userCollectionName {
-  color : rgba(255,100,0);
-}
-.userCollection {
-  display : flex;
-}
-.userCollectionNo {
-  margin-right : .3rem;
+/* 어빌리티 */
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div {font-size : .7rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div:last-child {font-size : .9rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div {font-size : .7rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div:last-child {font-size : .9rem;}
+.skillWrap .hoverDetailBottom .tripodSkillCustoms .textWrap > div:last-child {
+  overflow : initial;
+  text-overflow : initial;
+  white-space : initial;
+  font-size : .8rem;
 }

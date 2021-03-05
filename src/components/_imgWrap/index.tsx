@@ -9,7 +9,7 @@ export default ({
   
   return (
     <div className="imgWrap">
-      {backSrc && <img className={`imgWidth  gradient${grade}`} src={backSrc} alt="partImg"/>}
+      {backSrc && <img className={`imgWidth contentBoxBorder gradient${grade}`} src={backSrc} alt="partImg"/>}
       {src && <img className={`equipMainImg absolute imgWidth gradient${grade}`} src={src} alt={src} />}
     </div>
   )
