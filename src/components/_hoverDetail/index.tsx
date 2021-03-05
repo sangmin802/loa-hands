@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'utility';
 import './index.css';
 import ImgTextWrap from 'components/_imgTextWrap/index';
-import TextWrap from 'components/_textWrap/index';
 import ItemPartBox from 'template/ItemPartBox';
 import IndentString from 'template/IndentString';
 import TripodSkillCustom from 'template/TripodSkillCustom';
