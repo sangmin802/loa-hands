@@ -33,6 +33,8 @@
   font-size : .8rem;
 }
 
+/* 생활 */
+.collectionWrap .columnList{min-height : initial;}
 .collectionWrap .columnList .imgWrap {display : none;}
 .collectionWrap .columnList .imgWrap {min-width : 0;}
 .collectionWrap .columnList .textWrap {
