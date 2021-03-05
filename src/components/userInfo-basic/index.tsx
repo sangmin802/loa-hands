@@ -1,107 +1,42 @@
 import React from 'react';
 import _ from 'utility';
+import './index.css';
 import {Selector} from 'store/controller/selector';
-import './index.css'
 
 // 컴포넌트
-import UserInfoBox from './userInfoBox/index';
+import ImgTextWrap from 'components/_imgTextWrap'
+import TextWrap from 'components/_textWrap';
 import UserCollection from 'components/userInfo-collectionNav/index'
 
 const Index = () => {
   const {userData : {basicInfo, expeditionInfo, collectionInfo}} = Selector(['userData']);
 
-  const {className, classSrc, curBigLv, curSamllLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, title} = basicInfo;
+  const {className, classSrc, curBigLv, curSmallLv, expeditionLv, garden, guild, pvp, reachBigLv, reachSamllLv, title} = basicInfo;
   const {name, server, Lv} = expeditionInfo;
   const {collectionMini} = collectionInfo;
 
   return (
     <div className="searchedUserInfo">
-      <UserInfoBox>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            클래스
-          </div>
-          <div className="userInfoValue rem09" style={{
-            'display' : 'flex',
-            'alignItems' : 'center'
-          }}>
-            <img className="imgWidth userInfoImg" src={(classSrc as string)} alt={(className as string)} />
-            <span className="rem09 overflowDot">{className}</span>
-          </div>
-        </div>
-      </UserInfoBox>
-      <UserInfoBox>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            이름
-          </div>
-          <div className="userInfoValue rem09">
-            {Lv} {name}
-          </div>
-        </div>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            원정대 레벨
-          </div>
-          <div className="userInfoValue rem09">
-          {server} <small>Lv {expeditionLv}</small>
-          </div>
-        </div>
-      </UserInfoBox>
-      <UserInfoBox>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            현재 아이템 레벨
-          </div>
-          <div className="userInfoValue rem09">
-            {curBigLv} <small>{curSamllLv}</small>
-          </div>
-        </div>
-        <div className="reachUserItemLv">
-          <div className="userInfoTitle rem09">
-            달성 아이템 레벨
-          </div>
-          <div className="userInfoValue rem09">
-            {reachBigLv} <small>{reachSamllLv}</small>
-          </div>
-        </div>
-      </UserInfoBox>
-      <UserInfoBox>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            영지
-          </div>
-          <div className="userInfoValue rem09 overflowDot">
-            {garden}
-          </div>
-        </div>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            PVP
-          </div>
-          <div className="userInfoValue rem09">
-            {pvp}
-          </div>
-        </div>
-      </UserInfoBox>
-      <UserInfoBox>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            칭호
-          </div>
-          <div className="userInfoValue rem09 overflowDot">
-            {title}
-          </div>
-        </div>
-        <div className="">
-          <div className="userInfoTitle rem09">
-            길드
-          </div>
-          <div className="userInfoValue rem09 overflowDot">
-            {guild}
-          </div>
-        </div>
-      </UserInfoBox>
+      <div className="basicInfo">
+        <TextWrap text={['클래스']}/>
+        <ImgTextWrap backSrc={classSrc} text={[className]}/>
+      </div>
+      <div className="basicInfo">
+        <TextWrap text={['이름', `${Lv} ${name}`]}/>
+        <TextWrap text={['원정대 레벨', server, `Lv ${expeditionLv}`]}/>
+      </div>
+      <div className="basicInfo">
+        <TextWrap text={['현재 아이템 레벨', curBigLv, curSmallLv]}/>
+        <TextWrap text={['달성 아이템 레벨', reachBigLv, reachSamllLv]}/>
+      </div>
+      <div className="basicInfo">
+        <TextWrap text={['영지', garden]}/>
+        <TextWrap text={['PVP', pvp]}/>
+      </div>
+      <div className="basicInfo">
+        <TextWrap text={['칭호', title]}/>
+        <TextWrap text={['길드', guild]}/>
+      </div>
       <div className="userInfoCollection">
         {UserCollection(collectionMini)}
       </div>

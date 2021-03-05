@@ -37,7 +37,12 @@ const B_UserCollection = styled.div`
 `
 
 const B_UserEquipWrap = styled.div`
+  width : 100%;
+  display : flex;
   justify-content : space-between;
+`
+const B_UserEquipColumn = styled.div`
+  width : calc((100% - .5rem) / 2 - .1px);
 `
 
 const B_UserEquip = styled.div`
@@ -57,7 +62,12 @@ const Index = () => {
         {[1,2,3,4,5,6,7,8].map((i, index) => <B_UserCollection num={i} key={index+'B_collection'}/>)}
       </B_UserCollectoinWrap>
       <B_UserEquipWrap>
-        {[1,2,3,4,5,6,7,8,9,10,11,12].map((i, index) => <B_UserEquip key={index+'B_userEquip'}/>)}
+        <B_UserEquipColumn>
+          {[1,2,3,4,5,6].map((i, index) => <B_UserEquip key={index+'B_userEquip'}/>)}
+        </B_UserEquipColumn>
+        <B_UserEquipColumn>
+          {[1,2,3,4,5,6].map((i, index) => <B_UserEquip key={index+'B_userEquip'}/>)}
+        </B_UserEquipColumn>
       </B_UserEquipWrap>
     </B_UserInfoWrap>
   )

@@ -1,7 +1,7 @@
 .textWrap {
   display : flex;
-  width : calc(88% - .5rem -0.1px);
-  min-width : calc(100% - .5rem - 40.1px);
+  /* width : calc(88% - .5rem -0.1px);
+  min-width : calc(100% - .5rem - 40.1px); */
   flex-direction : column;
   justify-content : center;
 }

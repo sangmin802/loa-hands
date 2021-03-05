@@ -1,5 +1,6 @@
 .columnList {
   position : relative;
+  min-height : 52px;
   margin-bottom : .5rem;
   padding : .3rem;
   background : var(--bgLow);

@@ -6,7 +6,7 @@ import DateOver from 'hooks/dateOver'
 // 컴포넌트
 import EventSection from 'components/home-event/index';
 import TimerSection from 'components/home-timerSection/index'
-import HomeBlank from 'components/home-blank/index'
+import HomeBlank from 'template/homeBlank'
 import CalendarSection from 'components/home-calendar/index';
 
 const Index = () => {

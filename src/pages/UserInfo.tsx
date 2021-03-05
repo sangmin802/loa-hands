@@ -2,7 +2,7 @@ import React from 'react';
 import 'css/UserInfo.css';
 import _ from 'utility';
 
-import UserInfoBlank from 'components/userInfo-blank/index';
+import UserInfoBlank from 'template/userInfoBlank';
 import {Selector} from 'store/controller/selector';
 import {GetUserData} from 'hooks/getUserData';
 import {UserInfoTab} from 'hooks/userInfoTab';
