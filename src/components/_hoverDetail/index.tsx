@@ -2,6 +2,12 @@ import React from 'react';
 import _ from 'utility';
 import './index.css';
 import ImgTextWrap from 'components/_imgTextWrap/index';
+<<<<<<< HEAD
+=======
+import ItemPartBox from 'template/ItemPartBox';
+import IndentString from 'template/IndentString';
+import TripodSkillCustom from 'template/TripodSkillCustom';
+>>>>>>> 6995301 (21-03-05/12:30)
 
 const Index = ({
   backSrc, src, grade,hoverTextA,hoverTextB,hoverTextC,children,
