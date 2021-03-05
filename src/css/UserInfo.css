@@ -21,5 +21,13 @@
 }
 
 /* 어빌리티 */
-.abilityWrap .columnList > div:nth-child(2) .textWrap > div {font-size : .7rem;}
-.abilityWrap .columnList > div:nth-child(2) .textWrap > div:last-child {font-size : .9rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div {font-size : .7rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div:last-child {font-size : .9rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div {font-size : .7rem;}
+.tabContent1 .columnList > div:nth-child(2) .textWrap > div:last-child {font-size : .9rem;}
+.skillWrap .hoverDetailBottom .tripodSkillCustoms .textWrap > div:last-child {
+  overflow : initial;
+  text-overflow : initial;
+  white-space : initial;
+  font-size : .8rem;
+}

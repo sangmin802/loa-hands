@@ -22,9 +22,9 @@ const Index = ({data}) => {
         />
       </div>
       <div className="hoverDetailBottom">
-        <ItemPartBox data={itemPartBox} />
-        <IndentString data={indentStringGroup}/>
-        <TripodSkillCustom data={tripodSkillCustom} />
+        {itemPartBox && <ItemPartBox data={itemPartBox} />}
+        {indentStringGroup && <IndentString data={indentStringGroup}/>}
+        {tripodSkillCustom && <TripodSkillCustom data={tripodSkillCustom} />}
       </div>
     </div>
   )

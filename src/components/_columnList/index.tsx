@@ -7,7 +7,6 @@ import './index.css'
 export default ({data}) => {
   // 자식은 hoverDetail
   const {backSrc, detail} = data;
-
   return (
     <div className="columnList hoverTarget">
       {detail?.hover &&
