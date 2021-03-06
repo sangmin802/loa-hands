@@ -6,7 +6,6 @@ export default ({
 } : {
   text,grade?
 }) => {
-  
   return(
     <div className="textWrap">
       {text.map((res, index) => {

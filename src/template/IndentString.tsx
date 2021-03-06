@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'utility';
-import TextWrap from 'components/_textWrap/index';
 
 const IntentString = ({
   data
@@ -9,19 +8,18 @@ const IntentString = ({
 }) => {
   return (
     <div className="indentStrings">
-      {data.map(({title, desc, option}, index) => {
-        const grade = option.active ? '' : 0;
-        const bool = typeof desc[0] === 'string';
-        return(
-          <div key={index} className={`color${grade}`}>
-            <div>{title}</div>
-            {bool && <TextWrap text={desc} />}
-            {!bool && desc[0].map((txt, index2) => <div key={index2}>{txt}</div>)}
+      {data.map(({title : {val, active}, desc}, index) => {
+        return (
+          <div key={index} className="indentString">
+            <div className={`color${active}`}>{val}</div>
+            <div>
+              {desc.map(({val, active}, index) => (<div key={index} className={`color${active}`}>{val}</div>))}
+            </div>
           </div>
-        ) 
+        )
       })}
     </div>
   )
 }
 
-export default IntentString;
+export default React.memo(IntentString, (left, right) => _.compareObj(left, right));

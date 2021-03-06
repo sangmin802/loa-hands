@@ -9,6 +9,7 @@ import TripodSkillCustom from 'template/TripodSkillCustom';
 const Index = ({data, children} : {data, children?}) => {
   const {backSrc, detail} = data;
   const {src, grade, title, subTitle, itemPartBox, indentStringGroup, tripodSkillCustom} = detail;
+  
   return(
     <div className='hoverDetail hoverContent zIndex10'>
       <div className="hoverDetailTop">
