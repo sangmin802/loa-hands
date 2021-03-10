@@ -1,7 +1,6 @@
 import React from "react";
 import "../css/App.css";
 import { Route } from "react-router-dom";
-import { Selector } from "store/controller/selector";
 import LoadingToggleHooks from "hooks/loadingToggleHooks";
 
 // 컴포넌트

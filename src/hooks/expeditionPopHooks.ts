@@ -1,6 +1,5 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { expeditionPopToggle } from "store/ducks/toggleSlicer";
 import { RootState } from "store/index";
 import _ from "utility";

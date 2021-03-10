@@ -1,7 +1,5 @@
 import React from "react";
 import _ from "utility";
-import { Selector } from "store/controller/selector";
-import { UserInfo } from "store/controller/dispatchers";
 import "./index.css";
 
 import ExpeditionServer from "./server/index";
@@ -15,8 +13,6 @@ const UserExpedition = ({
   const {
     expeditionInfo: { expeditionUserWrap },
   } = userData;
-  // const {userData : {expeditionInfo : {expeditionUserWrap}}, expeditionPop} = Selector(['userData', 'expeditionPop', 'userInfoMainTab'])
-  // const {expeditionPopToggle, getUserData} = UserInfo();
 
   const displayPop = expeditionPop ? "displayBlock" : null;
 

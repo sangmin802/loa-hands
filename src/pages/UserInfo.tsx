@@ -3,8 +3,6 @@ import "css/UserInfo.css";
 import _ from "utility";
 
 import UserInfoBlank from "template/userInfoBlank";
-import { Selector } from "store/controller/selector";
-import { GetUserData } from "hooks/getUserData";
 import { UserInfoTab } from "hooks/userInfoTab";
 
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
@@ -24,9 +22,6 @@ const Index = ({
     params: { name },
   },
 }) => {
-  // const { userData } = Selector(["userData"]);
-
-  // GetUserData(userData, name);
   const { userData, setUserData } = UserDataHooks();
   const { expeditionPop, setExpeditionPop } = ExpeditionPopHooks();
 

@@ -1,14 +1,8 @@
 import React, { useCallback, useRef } from "react";
 import "./index.css";
-import History from "hooks/history";
 import _ from "utility";
 import HomeDataHooks from "hooks/homeDataHooks";
 import UserDataHooks from "hooks/userDataHooks";
-
-import { Header } from "store/controller/dispatchers";
-import { Selector } from "store/controller/selector";
-
-// 타입
 
 const Index = () => {
   let textInput = useRef(null);

@@ -1,7 +1,6 @@
 import React from "react";
 import _ from "utility";
 import "./index.css";
-import { Selector } from "store/controller/selector";
 
 // 컴포넌트
 import ImgTextWrap from "components/_imgTextWrap";
@@ -9,8 +8,6 @@ import TextWrap from "components/_textWrap";
 import UserCollection from "components/userInfo-collectionNav/index";
 
 const Index = ({ userData }) => {
-  // const {userData : {basicInfo, expeditionInfo, collectionInfo}} = Selector(['userData']);
-
   const { basicInfo, expeditionInfo, collectionInfo } = userData;
   const {
     className,
