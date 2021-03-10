@@ -1,22 +1,19 @@
-import React from 'react';
-import History from 'hooks/history';
-import './index.css';
+import React, { useCallback } from "react";
+import "./index.css";
 
-const Index = ({
-  getUserData,
-  char
-}) => {
-  const history = History();
+const Index = ({ setUserData, char }) => {
+  const setUserDataEvent = useCallback(() => {
+    setUserData(char.name);
+  }, [char.name]);
 
-  return(
-    <div className="userExpeditionChar rem09 overflowDot"
-      onClick={() => {
-        getUserData(char.name, history)
-      }}
+  return (
+    <div
+      className="userExpeditionChar rem09 overflowDot"
+      onClick={setUserDataEvent}
     >
       {char.lv} {char.name}
     </div>
-  )
-}
+  );
+};
 
 export default Index;

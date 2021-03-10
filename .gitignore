@@ -12,7 +12,8 @@ models/
 /coverage
 
 # production
-/build
+/build 
+# build 이그노어 지우면 public path 된다는 말도 있음
 
 # misc
 .DS_Store

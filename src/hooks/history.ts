@@ -1,7 +1,7 @@
-import {useHistory} from 'react-router-dom';
-import _History from 'history'
+import { useHistory } from "react-router-dom";
+import _History from "history";
 
-function History(){
+function History() {
   const history = useHistory();
   return history;
 }
