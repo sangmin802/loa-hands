@@ -18,7 +18,7 @@ const UserDataHooks = () => {
     name => {
       dispatch(getUserData_Saga_Async(name, history));
     },
-    [history]
+    [history, dispatch]
   );
 
   return { userData, setUserData };

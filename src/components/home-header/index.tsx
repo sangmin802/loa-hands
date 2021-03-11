@@ -1,14 +1,11 @@
 import React, { useCallback, useRef } from "react";
 import "./index.css";
-import _ from "utility";
 import HomeDataHooks from "hooks/homeDataHooks";
 import UserDataHooks from "hooks/userDataHooks";
 
 const Index = () => {
   let textInput = useRef(null);
-  // const {getUserData, setHomeData} = Header();
-  // const history = History();
-  // const {homeData} = Selector(['homeData']);
+
   const { homeData, setHomeData } = HomeDataHooks();
   const { setUserData } = UserDataHooks();
 
@@ -21,7 +18,7 @@ const Index = () => {
 
   const goHome = useCallback(() => {
     setHomeData(homeData);
-  }, [homeData]);
+  }, [homeData, setHomeData]);
 
   return (
     <div className="header">

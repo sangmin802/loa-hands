@@ -13,7 +13,7 @@ const LoadingToggleHooks = () => {
 
   const setisLoading = useCallback(() => {
     dispatch(loadingToggle());
-  }, []);
+  }, [dispatch]);
 
   return { isLoading, setisLoading };
 };

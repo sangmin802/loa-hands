@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
-import "css/UserInfo.css";
+import "style/UserInfo.css";
 import _ from "utility";
-
 import UserInfoBlank from "template/userInfoBlank";
 import { UserInfoTab } from "hooks/userInfoTab";
-
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";
 import TabWrap from "components/_tabWrap/index";
 import UserCollection from "components/userInfo-collectionNav/index";
-import DoubleColumnWrap from "components/_doubleColumnWrap/index";
-
-import Quality from "template/quality";
-import Rune from "template/rune";
 import UserDataHooks from "hooks/userDataHooks";
 import ExpeditionPopHooks from "hooks/expeditionPopHooks";
+import AbilityWrap from "components/userInfo-abilityWrap/index";
+import SkillWrap from "components/userInfo-skillWrap/index";
+import CollectionWrap from "components/userInfo-collectionWrap/index";
 
 const Index = ({
   match: {
@@ -35,18 +32,6 @@ const Index = ({
     return <UserInfoBlank />;
   }
 
-  const { abilityInfo, collectionInfo, skillInfo } = userData;
-
-  // 어빌리티 관련
-  const { equipInfo } = abilityInfo;
-  const [av, equip] = _.arrayReducer(Object.values(equipInfo), "Av");
-
-  // 스킬 관련
-  const { battleSkill, lifeSkill } = skillInfo;
-
-  // 수집품 관련
-  const { collectionDetail } = collectionInfo;
-
   return (
     <div className="userInfo">
       <div className="userInfoTop">
@@ -64,38 +49,13 @@ const Index = ({
         <TabWrap arr={["착용 아이템", "착용 아바타"]} tabClass="sub" />
         <TabWrap arr={["전투스킬", "생활스킬"]} tabClass="sub" />
         <TabWrap
-          arr={UserCollection(collectionInfo.collectionMini)}
+          arr={UserCollection(userData.collectionInfo.collectionMini)}
           tabClass="sub"
         />
         <div className="tabContentWrap">
-          <div className="abilityWrap tabContent1">
-            <DoubleColumnWrap data={equip} type="Equip">
-              <Quality />
-            </DoubleColumnWrap>
-            <DoubleColumnWrap data={av} type="Inner" />
-          </div>
-          <div className="skillWrap tabContent1">
-            <DoubleColumnWrap
-              data={battleSkill.skills}
-              lt={`사용 : ${battleSkill.usePoint}`}
-              rt={`획득 : ${battleSkill.getPoint}`}
-              type="Left"
-            >
-              <Rune />
-            </DoubleColumnWrap>
-            <DoubleColumnWrap data={lifeSkill} type="Left" />
-          </div>
-          <div className="collectionWrap">
-            {collectionDetail.map((res, index) => (
-              <DoubleColumnWrap
-                key={index}
-                data={res.collection}
-                type="True"
-                lt={res.title}
-                rt={`획득 : ${res.getCount} 미획득 : ${res.totalCount}`}
-              />
-            ))}
-          </div>
+          <AbilityWrap abilityInfo={userData.abilityInfo} />
+          <SkillWrap skillInfo={userData.skillInfo} />
+          <CollectionWrap collectionInfo={userData.collectionInfo} />
         </div>
       </div>
     </div>

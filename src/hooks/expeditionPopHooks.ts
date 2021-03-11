@@ -13,7 +13,7 @@ const ExpeditionPopHooks = () => {
 
   const setExpeditionPop = useCallback(() => {
     dispatch(expeditionPopToggle());
-  }, []);
+  }, [dispatch]);
 
   return { expeditionPop, setExpeditionPop };
 };

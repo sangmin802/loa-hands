@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/App.css";
+import "style/App.css";
 import { Route } from "react-router-dom";
 import LoadingToggleHooks from "hooks/loadingToggleHooks";
 

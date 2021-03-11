@@ -13,9 +13,10 @@ const Index = () => {
   const { homeData, setHomeData } = HomeDataHooks();
 
   DateOverHook(setHomeData);
+
   useEffect(() => {
     if (!homeData) setHomeData();
-  }, []);
+  }, [homeData, setHomeData]);
 
   if (!homeData) {
     return <HomeBlank data={dailyIsland} />;
