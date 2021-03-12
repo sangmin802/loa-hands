@@ -1,13 +1,13 @@
 import React, { useCallback, useRef } from "react";
 import "./index.css";
-import HomeDataHooks from "hooks/homeDataHooks";
-import UserDataHooks from "hooks/userDataHooks";
+import HomeDataHook from "hooks/homeDataHook";
+import UserDataHook from "hooks/userDataHook";
 
 const Index = () => {
   let textInput = useRef(null);
 
-  const { homeData, setHomeData } = HomeDataHooks();
-  const { setUserData } = UserDataHooks();
+  const { homeData, setHomeData } = HomeDataHook();
+  const { setUserData } = UserDataHook();
 
   const userOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

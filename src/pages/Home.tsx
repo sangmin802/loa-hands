@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { dailyIsland, fieldBoss, chaosGate, oceanCont } from "json/JSON";
 import DateOverHook from "hooks/dateOverHook";
-import HomeDataHooks from "hooks/homeDataHooks";
+import HomeDataHook from "hooks/homeDataHook";
 
 // 컴포넌트
 import EventSection from "components/home-event/index";
@@ -10,7 +10,7 @@ import HomeBlank from "template/homeBlank";
 import CalendarSection from "components/home-calendar/index";
 
 const Index = () => {
-  const { homeData, setHomeData } = HomeDataHooks();
+  const { homeData, setHomeData } = HomeDataHook();
 
   DateOverHook(setHomeData);
 
