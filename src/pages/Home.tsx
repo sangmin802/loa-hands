@@ -26,10 +26,6 @@ const Index = () => {
       {!homeData && <HomeBlank data={dailyIsland} />}
       {homeData && (
         <div className="home">
-          <img
-            src={`${process.env.PUBLIC_URL}/img/boss/boss_00.png`}
-            alt="test"
-          />
           <EventSection events={homeData.events} />
           <CalendarSection
             calendar={homeData.calendar}

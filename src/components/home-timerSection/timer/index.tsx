@@ -55,7 +55,7 @@ const Index: React.FC<Props> = props => {
         <div className="timerImg">
           <img
             className="imgWidth"
-            src={`https://github.com/sangmin802/loa-hands/blob/master/public/${src}?raw=true`}
+            src={`${process.env.PUBLIC_URL}${src}`}
             alt={name as string}
           />
           <div className="timerLv rem07">{lv}</div>
