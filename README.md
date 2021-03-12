@@ -1,5 +1,10 @@
 # Loa-Hands
 
+## ⚒ 21-03-12/15:00
+
+- 특성·각인 탭 추가
+- 훅들 `dependency` 모두 처리
+
 ## ⚒ 21-03-10/18:29
 
 - `Redux reducer` 기능별로 분리. `Redux Toolkit` 사용.

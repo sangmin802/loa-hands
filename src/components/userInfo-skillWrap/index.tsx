@@ -6,7 +6,6 @@ import Rune from "template/rune";
 
 const Index = ({ skillInfo }) => {
   const { battleSkill, lifeSkill } = skillInfo;
-
   return (
     <div className="skillWrap tabContent1">
       <DoubleColumnWrap

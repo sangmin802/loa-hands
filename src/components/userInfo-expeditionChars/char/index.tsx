@@ -4,7 +4,7 @@ import "./index.css";
 const Index = ({ setUserData, char }) => {
   const setUserDataEvent = useCallback(() => {
     setUserData(char.name);
-  }, [char.name]);
+  }, [char.name, setUserData]);
 
   return (
     <div

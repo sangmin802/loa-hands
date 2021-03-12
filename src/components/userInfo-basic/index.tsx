@@ -33,7 +33,7 @@ const Index = ({ userData }) => {
       </div>
       <div className="basicInfo">
         <TextWrap text={["이름", `${Lv} ${name}`]} />
-        <TextWrap text={["원정대 레벨", server, `Lv ${expeditionLv}`]} />
+        <TextWrap text={["원정대 레벨", `${server} Lv ${expeditionLv}`]} />
       </div>
       <div className="basicInfo">
         <TextWrap text={["현재 아이템 레벨", curBigLv, curSmallLv]} />

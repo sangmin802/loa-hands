@@ -1,27 +1,34 @@
-.mainTabWrap, .subTabWrap {
-  background : var(--bgDeep);
-  padding : .5rem;
-  display : flex;
-  width : fit-content;
-  border-radius : 5px 5px 0 0;
+.mainTabWrap,
+.subTabWrap {
+  background: var(--bgDeep);
+  padding: 0.5rem;
+  display: flex;
+  width: fit-content;
+  border-radius: 5px 5px 0 0;
 }
 .mainTabWrap .tab {
-  margin-right : 2rem;
+  margin-right: 2rem;
 }
 .subTabWrap {
-  border-radius : 0;
-  width : 100%;
-  border-radius : 0 5px 0 0;
+  border-radius: 0;
+  width: 100%;
+  border-radius: 0 5px 0 0;
 }
 .tab {
-  flex-grow : 1;
-  color : #666;
-  cursor : pointer;
+  width: fit-content;
+  margin-right: 1rem;
+  color: #666;
+  cursor: pointer;
+}
+.userInfoBottom > .subTabWrap:nth-of-type(4) .tab {
+  flex-grow: 1;
+  margin-right: 0;
 }
 .tab * {
-  color : #666;
+  color: #666;
 }
 
-.white, .white * {
-  color : white;
+.white,
+.white * {
+  color: white;
 }

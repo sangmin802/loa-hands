@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import LoadingToggleHooks from "hooks/loadingToggleHooks";
 
 // 컴포넌트
-import Header from "components/home-header/index";
+import Header from "components/_header/index";
 import Home from "pages/Home";
 import UserInfo from "pages/UserInfo";
 import LoadingSpinner from "components/_loading-spinner/index";
