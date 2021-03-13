@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
+import _ from "utility";
 
-const Index = ({ tabName }) => {
-  return <div className={`tab textCenter`}>{tabName}</div>;
+const Index = ({ tabName, setTab, selected, index }) => {
+  const tabClickEvent = useCallback(() => {
+    setTab({ tab: index });
+  }, [index, setTab]);
+
+  return (
+    <div
+      className={`tab textCenter ${selected ? "white" : ""}`}
+      onClick={tabClickEvent}
+    >
+      {tabName}
+    </div>
+  );
 };
 
-export default Index;
+export default React.memo(Index, (left, right) => _.compareObj(left, right));

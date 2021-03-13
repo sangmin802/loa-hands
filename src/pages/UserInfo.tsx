@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "style/UserInfo.css";
 import UserInfoBlank from "template/userInfoBlank";
-import { UserInfoTab } from "hooks/userInfoTab";
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";
@@ -18,8 +17,6 @@ const Index = ({
 }) => {
   const { userData, setUserData } = UserDataHook();
   const { expeditionPop, setExpeditionPop } = ExpeditionPopHook();
-
-  UserInfoTab(userData);
 
   useEffect(() => {
     if (!userData) setUserData(name);

@@ -1,28 +1,15 @@
-.mainTabWrap,
-.subTabWrap {
+.tabWrap {
   background: var(--bgDeep);
   padding: 0.5rem;
   display: flex;
   width: fit-content;
   border-radius: 5px 5px 0 0;
 }
-.mainTabWrap .tab {
-  margin-right: 2rem;
-}
-.subTabWrap {
-  border-radius: 0;
-  width: 100%;
-  border-radius: 0 5px 0 0;
-}
 .tab {
   width: fit-content;
   margin-right: 1rem;
   color: #666;
   cursor: pointer;
-}
-.subTabWraps > .subTabWrap:nth-of-type(3) .tab {
-  flex-grow: 1;
-  margin-right: 0;
 }
 .tab * {
   color: #666;
