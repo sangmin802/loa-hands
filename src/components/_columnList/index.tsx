@@ -9,7 +9,7 @@ export default ({ data, children }: { data; children? }) => {
   const { setDialog } = Dialoghook();
 
   const callDialog = useCallback(() => {
-    if (detail.hover) {
+    if (detail?.hover) {
       const dialog = <Detail data={data}>{children}</Detail>;
       setDialog(dialog);
     }
