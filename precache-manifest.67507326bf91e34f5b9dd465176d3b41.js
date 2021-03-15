@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "58de8e576cdd0b52135bca8f997f90bc",
+    "revision": "37c8cdf4dc5f2cdde6773dcdce6ba1c8",
     "url": "/loa-hands/index.html"
   },
   {
-    "revision": "55fb13824e0b240c4473",
+    "revision": "d3ab5c3aa47a19a1f3e0",
     "url": "/loa-hands/static/css/main.401cf3e1.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/loa-hands/static/js/2.1af6ca00.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "55fb13824e0b240c4473",
-    "url": "/loa-hands/static/js/main.df00adef.chunk.js"
+    "revision": "d3ab5c3aa47a19a1f3e0",
+    "url": "/loa-hands/static/js/main.35265a77.chunk.js"
   },
   {
     "revision": "b895c641323837b7fd48",
