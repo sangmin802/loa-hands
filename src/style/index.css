@@ -49,9 +49,6 @@ body .displayFlex {
 .textCenter {
   text-align: center;
 }
-.dialogOpen {
-  overflow-y: hidden;
-}
 .height100vh {
   height: 100vh;
   overflow: hidden;
