@@ -1,17 +1,19 @@
-import React from 'react';
-import _ from 'utility';
+import React from "react";
+import _ from "utility";
 
-export default ({data} : {data?}) => {
-  const {quality} = data.detail;
+export default ({ data }: { data? }) => {
+  const { quality } = data.detail;
 
-  if(quality === -1) return null;
+  if (quality === -1) return null;
 
-  const qualityColor = _.setQualityColor(quality);  
+  const qualityColor = _.setQualityColor(quality);
   return (
-    <div className='hoverDetailQuality textCenter rem08'>
+    <div className="detailQuality textCenter rem08">
       품질 {quality}%
-      <div className={`qualityValue gradient${qualityColor}`} style={{width : `${quality}%`}}>
-      </div>
+      <div
+        className={`qualityValue gradient${qualityColor}`}
+        style={{ width: `${quality}%` }}
+      ></div>
     </div>
-  )
-}
+  );
+};
