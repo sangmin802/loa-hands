@@ -7,7 +7,7 @@ import "./index.css";
 const Index = ({ tabClass, arr, isActive, selectedTab, setTab }) => {
   const memoIsActive = React.useMemo(() => isActive, [isActive]);
   return (
-    <div
+    <nav
       className={`${tabClass}TabWrap tabWrap ${
         memoIsActive ? "" : "displayNone"
       }`}
@@ -25,7 +25,7 @@ const Index = ({ tabClass, arr, isActive, selectedTab, setTab }) => {
           />
         );
       })}
-    </div>
+    </nav>
   );
 };
 

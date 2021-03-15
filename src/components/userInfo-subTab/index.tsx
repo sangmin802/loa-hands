@@ -17,7 +17,7 @@ const Index = ({ data }) => {
   const memoTab = React.useMemo(() => mainTab, [mainTab]);
 
   return (
-    <div className="subTabWraps">
+    <nav className="subTabWraps">
       {subTabWrapArray.map((arr, index) => {
         const isActive = memoTab === index;
         return (
@@ -31,7 +31,7 @@ const Index = ({ data }) => {
           />
         );
       })}
-    </div>
+    </nav>
   );
 };
 

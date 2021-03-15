@@ -25,7 +25,7 @@ const Index = () => {
     <>
       {!homeData && <HomeBlank data={dailyIsland} />}
       {homeData && (
-        <div className="home">
+        <section className="home">
           <EventSection events={homeData.events} />
           <CalendarSection
             calendar={homeData.calendar}
@@ -48,7 +48,7 @@ const Index = () => {
             today={today}
             text="오늘의 항해"
           />
-        </div>
+        </section>
       )}
     </>
   );

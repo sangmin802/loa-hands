@@ -2,9 +2,9 @@ import React from "react";
 import _ from "utility";
 import "./index.css";
 import ImgTextWrap from "components/_imgTextWrap/index";
-import ItemPartBox from "template/ItemPartBox";
-import IndentString from "template/IndentString";
-import TripodSkillCustom from "template/TripodSkillCustom";
+import ItemPartBox from "template/itemPartBox";
+import IndentString from "template/indentString";
+import TripodSkillCustom from "template/tripodSkillCustom";
 
 const Index = ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;
@@ -19,8 +19,8 @@ const Index = ({ data, children }: { data; children? }) => {
   } = detail;
 
   return (
-    <div className="hoverDetail hoverContent zIndex10">
-      <div className="hoverDetailTop">
+    <div className="detail zIndex10">
+      <div className="detailTop">
         <ImgTextWrap
           backSrc={backSrc}
           src={src}
@@ -29,7 +29,7 @@ const Index = ({ data, children }: { data; children? }) => {
         />
       </div>
       {children && { ...children, props: { ...children.props, data } }}
-      <div className="hoverDetailBottom">
+      <div className="detailBottom">
         {itemPartBox && <ItemPartBox data={itemPartBox} />}
         {indentStringGroup && <IndentString data={indentStringGroup} />}
         {tripodSkillCustom && <TripodSkillCustom data={tripodSkillCustom} />}

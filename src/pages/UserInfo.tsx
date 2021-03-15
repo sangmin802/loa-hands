@@ -26,8 +26,8 @@ const Index = ({
     <>
       {!userData && <UserInfoBlank />}
       {userData && (
-        <div className="userInfo">
-          <div className="userInfoTop">
+        <section className="userInfo">
+          <section className="userInfoTop">
             <UserExpeditionPop expeditionPopToggle={setExpeditionPop} />
             <UserExpeditionChars
               userData={userData}
@@ -36,13 +36,13 @@ const Index = ({
               setExpeditionPop={setExpeditionPop}
             />
             <UserBasicInfo userData={userData} />
-          </div>
-          <div className="userInfoBottom">
+          </section>
+          <section className="userInfoBottom">
             <MainTab />
             <SubTab data={userData} />
             <TabContent data={userData} />
-          </div>
-        </div>
+          </section>
+        </section>
       )}
     </>
   );

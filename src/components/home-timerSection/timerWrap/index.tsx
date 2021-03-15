@@ -1,24 +1,15 @@
 import React from "react";
 import Timer from "../timer/index";
 import { RerenderTime } from "hooks/timerWrap";
-
 import "./index.css";
 
-// 타입
-import { IJson } from "types/home";
-
-interface Props {
-  data: IJson[];
-  today?: number;
-}
-
-const Index: React.FC<Props> = ({ data }) => {
+const Index = ({ data, today = null }) => {
   const { setTime } = RerenderTime();
 
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({ ...obj }));
   // 렌더링 시, 현재 시간 이후의 시간들만 유지
-  const validTimes = GetValidTimes<typeof newData>(newData);
+  const validTimes = GetValidTimes(newData);
 
   newData.forEach((is, index) => {
     is.time = validTimes[index];
@@ -89,7 +80,7 @@ const Index: React.FC<Props> = ({ data }) => {
   );
 };
 
-function GetValidTimes<T extends IJson[]>(newData: T) {
+function GetValidTimes(newData) {
   const date = new Date();
   return newData
     .map(is => is.time)

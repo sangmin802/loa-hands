@@ -1,17 +1,9 @@
 import React from "react";
 import _ from "utility";
 import { CalcTimer } from "hooks/timer";
-
-// 타입
-import { IJson } from "types/home";
-
 import "./index.css";
 
-interface Props extends IJson {
-  setTime(p1: string): void;
-}
-
-const Index: React.FC<Props> = props => {
+const Index = props => {
   const { state } = CalcTimer(props);
 
   let { timeOut, targetState } = state;

@@ -1,29 +1,17 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
+import ImgTextWrap from "components/_imgTextWrap/index";
 
-interface Props {
-  event : {[key: string]: string}
-}
-
-const Index : React.FC<Props> = ({
-  event
-}) => {
-  const {date, href, img, name} = event;
-  return(
-    <div className="event"
-      onClick={() => {
-        window.open(`https://lostark.game.onstove.com/${href}`);
-      }}
-    >
-      <div className="eventImg">
-        <img className="imgWidth" src={img} alt={name} />
-      </div>
-      <div className="eventContent">
-        <div className="eventName rem09 textCenter overflowDot">{name}</div>
-        <div className="eventDate rem08 textCenter overflowDot">{date}</div>
-      </div>
+const Index = ({ event }) => {
+  const { date, href, img, name } = event;
+  const goHref = React.useCallback(() => {
+    window.open(`https://lostark.game.onstove.com/${href}`);
+  }, [href]);
+  return (
+    <div className="event" onClick={goHref}>
+      <ImgTextWrap backSrc={img} text={[name, date]} />
     </div>
-  )
-}
+  );
+};
 
 export default Index;

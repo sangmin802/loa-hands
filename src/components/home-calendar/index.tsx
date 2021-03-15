@@ -11,7 +11,7 @@ const Index = ({
   today: number;
 }) => {
   return (
-    <div className="homeSection">
+    <section className="homeSection">
       <div className="homeSectionTitle rem1 textCenter">오늘의 캘린더섬</div>
       {yoil === 0 || yoil === 6 ? (
         calendar.map((cal, index) => {
@@ -27,7 +27,7 @@ const Index = ({
       ) : (
         <CalendarWrap cal={calendar[1]} index={1} today={today} />
       )}
-    </div>
+    </section>
   );
 };
 

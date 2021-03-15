@@ -1,14 +1,13 @@
-import React from 'react';
-import TimerWrap from './timerWrap/index'
+import React from "react";
+import TimerWrap from "./timerWrap/index";
 
-const Index = ({text, data, today}) => {
-
+const Index = ({ text, data, today }) => {
   return (
-    <div className="homeSection">
+    <section className="homeSection">
       <div className="homeSectionTitle rem1 textCenter">{text}</div>
       <TimerWrap data={data} today={today} />
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default Index;

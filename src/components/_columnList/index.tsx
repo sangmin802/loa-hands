@@ -1,19 +1,23 @@
-import React from 'react';
-import ImgTextWrap from 'components/_imgTextWrap/index';
-import HoverDetail from 'components/_hoverDetail/index';
+import React, { useCallback } from "react";
+import ImgTextWrap from "components/_imgTextWrap/index";
+import Detail from "components/_detail/index";
+import Dialoghook from "hooks/dialogHook";
+import "./index.css";
 
-import './index.css'
+export default ({ data, children }: { data; children? }) => {
+  const { backSrc, detail } = data;
+  const { setDialog } = Dialoghook();
 
-export default ({data, children} : {data, children?}) => {
-  // 자식은 hoverDetail
-  const {backSrc, detail} = data;
+  const callDialog = useCallback(() => {
+    if (detail.hover) {
+      const dialog = <Detail data={data}>{children}</Detail>;
+      setDialog(dialog);
+    }
+    return;
+  }, [detail, setDialog, data, children]);
+
   return (
-    <div className="columnList hoverTarget">
-      {detail?.hover &&
-        <HoverDetail data={data}>
-          {children}
-        </HoverDetail>
-      }
+    <div className="columnList" onClick={callDialog}>
       <ImgTextWrap
         backSrc={backSrc}
         grade={detail?.grade}
@@ -21,6 +25,5 @@ export default ({data, children} : {data, children?}) => {
         text={detail ? [...detail.subTitle, detail.title] : []}
       />
     </div>
-
-  )
+  );
 };

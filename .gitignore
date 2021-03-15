@@ -7,6 +7,7 @@
 porxy.js
 API.ts
 models/
+backup.js
 
 # testing
 /coverage

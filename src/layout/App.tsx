@@ -8,6 +8,7 @@ import Header from "components/_header/index";
 import Home from "pages/Home";
 import UserInfo from "pages/UserInfo";
 import LoadingSpinner from "components/_loading-spinner/index";
+import Dialog from "components/_dialog/index";
 
 function App() {
   const { isLoading } = LoadingToggleHooks();
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className={`App ${isLoadingStyle1}`}>
       <LoadingSpinner isLoadingStyle={isLoadingStyle2} />
+      <Dialog />
       <div className="innerApp">
         <Header />
         <div className="AppWrap">
