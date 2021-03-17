@@ -17,7 +17,10 @@ export default ({ data, children }: { data; children? }) => {
   }, [detail, setDialog, data, children]);
 
   return (
-    <div className="columnList" onClick={callDialog}>
+    <div
+      className={`columnList ${detail?.hover ? "pointer" : ""}`}
+      onClick={callDialog}
+    >
       <ImgTextWrap
         backSrc={backSrc}
         grade={detail?.grade}

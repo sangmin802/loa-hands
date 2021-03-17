@@ -1,22 +1,3 @@
-.detail {
-  padding: 0.5rem;
-  position: fixed;
-  width: 30%;
-  min-width: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.85);
-  max-height: 400px;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  border: var(--contBox-border);
-  border-radius: var(--contBox-border-radius);
-}
-.detail::-webkit-scrollbar {
-  display: none;
-}
 .detailTop {
   display: flex;
   justify-content: space-between;

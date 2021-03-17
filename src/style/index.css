@@ -35,6 +35,9 @@ body .displayBlock {
 body .displayFlex {
   display: flex;
 }
+.pointer {
+  cursor: pointer;
+}
 .absolute {
   position: absolute;
 }
