@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 
 export default ({ data }: { data? }) => {
   const { quality } = data.detail;

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import _ from "utility";
+import _ from "utility/utility";
 
 const Index = ({ tabName, setTab, selected, index }) => {
   const tabClickEvent = useCallback(() => {

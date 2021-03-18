@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import "./index.css";
 import ImgTextWrap from "components/_imgTextWrap/index";
 import ItemPartBox from "template/itemPartBox";

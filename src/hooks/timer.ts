@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import _ from "utility";
+import _ from "utility/utility";
 
 export const CalcTimer = props => {
   const [state, setState] = useState({ timeOut: null, targetState: "NORMAL" });

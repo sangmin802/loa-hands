@@ -19,14 +19,3 @@
   border-radius: var(--contBox-border-radius);
   padding: 0.5rem;
 }
-
-/* home section 공통 */
-.homeSection {
-  margin-bottom: 20px;
-}
-.homeSectionTitle {
-  margin-bottom: 10px;
-  background: var(--bgDeep);
-  padding: 0.3rem;
-  border-radius: 3px 3px 0 0;
-}

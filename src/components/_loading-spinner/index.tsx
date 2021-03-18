@@ -1,14 +1,25 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
-const Index = ({
-  isLoadingStyle
-}) => {
+const Index = ({ style = "" }) => {
   return (
-    <div className={isLoadingStyle}>
-      <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div className={`spinnerWrap ${style}`}>
+      <div className="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Index;

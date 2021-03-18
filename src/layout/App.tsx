@@ -12,11 +12,12 @@ import Dialog from "components/_dialog/index";
 
 function App() {
   const { isLoading } = LoadingToggleHooks();
-  const isLoadingStyle1 = isLoading ? "height100vh" : null;
-  const isLoadingStyle2 = isLoading ? "loadingBg zIndex99" : "displayNone";
+
   return (
-    <div className={`App ${isLoadingStyle1}`}>
-      <LoadingSpinner isLoadingStyle={isLoadingStyle2} />
+    <div className={`App ${isLoading ? "height100vh" : ""}`}>
+      <LoadingSpinner
+        style={isLoading ? "loadingBg zIndex99" : "displayNone"}
+      />
       <Dialog />
       <div className="innerApp">
         <Header />

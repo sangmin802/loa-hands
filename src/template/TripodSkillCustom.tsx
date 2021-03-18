@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import ImgTextWrap from "components/_imgTextWrap/index";
 
 const Index = ({ data }) => {

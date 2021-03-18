@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import TabHook from "hooks/tabHook";
 import TabWrap from "components/_tabWrap/index";
 import "./index.css";

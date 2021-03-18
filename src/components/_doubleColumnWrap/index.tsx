@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import ColumnWrap from "components/_columnWrap/index";
-import _ from "utility";
+import _ from "utility/utility";
 
 const Index = ({ data, type, lt = null, rt = null, children = null }) => {
   const [left, right] = _.arrayReducer(data, type);

@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import TextWrap from "components/_textWrap/index";
 
 const ItemPartBox = ({ data }) => {

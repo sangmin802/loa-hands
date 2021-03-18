@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import AbilityWrap from "components/userInfo-abilityWrap/index";
 import SkillWrap from "components/userInfo-skillWrap/index";
 import CollectionWrap from "components/userInfo-collectionWrap/index";

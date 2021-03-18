@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { getHomeData_Saga_Async } from "store/ducks/ajaxSlicer";
 import { RootState } from "store/index";
-import _ from "utility";
+import _ from "utility/utility";
 
 const HomeDataHooks = () => {
   const dispatch = useDispatch();

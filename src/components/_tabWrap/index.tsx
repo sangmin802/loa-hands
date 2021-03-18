@@ -1,6 +1,6 @@
 import React from "react";
 import Tab from "./tab/index";
-import _ from "utility";
+import _ from "utility/utility";
 
 import "./index.css";
 

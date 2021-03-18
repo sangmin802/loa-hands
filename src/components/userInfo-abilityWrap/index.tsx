@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility";
+import _ from "utility/utility";
 import "./index.css";
 import DoubleColumnWrap from "components/_doubleColumnWrap/index";
 import Quality from "template/quality";

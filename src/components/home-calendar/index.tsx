@@ -1,33 +1,31 @@
 import React from "react";
 import CalendarWrap from "./calendar/index";
+import LoadingSpinner from "components/_loading-spinner/index";
+import Section from "components/_section/index";
 
-const Index = ({
-  calendar,
-  yoil,
-  today,
-}: {
-  calendar;
-  yoil: number;
-  today: number;
-}) => {
+const Index = ({ calendar = null, yoil, today }) => {
   return (
-    <section className="homeSection">
-      <div className="homeSectionTitle rem1 textCenter">오늘의 캘린더섬</div>
-      {yoil === 0 || yoil === 6 ? (
-        calendar.map((cal, index) => {
-          return (
-            <CalendarWrap
-              key={`calendar${index}`}
-              cal={cal}
-              index={index}
-              today={today}
-            />
-          );
-        })
-      ) : (
-        <CalendarWrap cal={calendar[1]} index={1} today={today} />
+    <Section title="오늘의 캘린더섬">
+      {!calendar && <LoadingSpinner />}
+      {calendar && (
+        <>
+          {yoil === 0 || yoil === 6 ? (
+            calendar.map((cal, index) => {
+              return (
+                <CalendarWrap
+                  key={`calendar${index}`}
+                  cal={cal}
+                  index={index}
+                  today={today}
+                />
+              );
+            })
+          ) : (
+            <CalendarWrap cal={calendar[1]} index={1} today={today} />
+          )}
+        </>
       )}
-    </section>
+    </Section>
   );
 };
 

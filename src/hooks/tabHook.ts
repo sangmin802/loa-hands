@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMainTab, setSubTab } from "store/ducks/tabSlicer";
 import { RootState } from "store/index";
-import _ from "utility";
+import _ from "utility/utility";
 
 const TabHook = type => {
   const dispatch = useDispatch();
