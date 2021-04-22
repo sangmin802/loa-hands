@@ -1,12 +1,12 @@
 import React from "react";
 import _ from "utility/utility";
-import TabHook from "hooks/tabHook";
+import { useTab } from "hooks/useTab";
 import TabWrap from "components/_tabWrap/index";
 import "./index.css";
 
 const Index = () => {
   const mainTabs = ["능력치", "스킬", "수집형포인트"];
-  const { tab, setTab } = TabHook("main");
+  const { tab, setTab } = useTab("main");
 
   return (
     <TabWrap

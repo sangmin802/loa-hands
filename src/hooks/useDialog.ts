@@ -4,7 +4,7 @@ import { dialogToggle } from "store/ducks/toggleSlicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 
-const DialogHook = () => {
+export function useDialog() {
   const dispatch = useDispatch();
   const dialog = useSelector(
     (state: RootState) => state.toggleReducer.dialog,
@@ -19,6 +19,4 @@ const DialogHook = () => {
   );
 
   return { dialog, setDialog };
-};
-
-export default DialogHook;
+}

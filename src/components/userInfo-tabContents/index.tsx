@@ -3,11 +3,11 @@ import _ from "utility/utility";
 import AbilityWrap from "components/userInfo-abilityWrap/index";
 import SkillWrap from "components/userInfo-skillWrap/index";
 import CollectionWrap from "components/userInfo-collectionWrap/index";
-import TabHook from "hooks/tabHook";
+import { useTab } from "hooks/useTab";
 
 const Index = ({ data }) => {
-  const { tab: mainTab } = TabHook("main");
-  const { tab: subTab } = TabHook("sub");
+  const { tab: mainTab } = useTab("main");
+  const { tab: subTab } = useTab("sub");
   const contentsArr = [
     <AbilityWrap abilityInfo={data.abilityInfo} sub={subTab} />,
     <SkillWrap skillInfo={data.skillInfo} sub={subTab} />,

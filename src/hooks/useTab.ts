@@ -4,7 +4,7 @@ import { setMainTab, setSubTab } from "store/ducks/tabSlicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 
-const TabHook = type => {
+export function useTab(type) {
   const dispatch = useDispatch();
 
   const tab = useSelector(
@@ -21,6 +21,4 @@ const TabHook = type => {
   );
 
   return { tab, setTab };
-};
-
-export default TabHook;
+}

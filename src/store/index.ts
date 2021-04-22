@@ -14,9 +14,9 @@ const rootReducer = combineReducers({
   tabReducer,
 });
 export function* rootSaga() {
-  yield all([homeDataSaga(), userDataSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
+  yield all([homeDataSaga(), userDataSaga()]); // saga 실행
 }
 export const store = createStore(rootReducer, applyMiddleware(sagaMiddelware));
 sagaMiddelware.run(rootSaga);
 
-export type RootState = ReturnType<typeof rootReducer>; // 앞으로 useSelector로 상태에 접근할 때 사용할 타입
+export type RootState = ReturnType<typeof rootReducer>; // state 타입

@@ -4,7 +4,7 @@ import { expeditionPopToggle } from "store/ducks/toggleSlicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 
-const ExpeditionPopHooks = () => {
+export function useExpedition() {
   const dispatch = useDispatch();
   const expeditionPop = useSelector(
     (state: RootState) => state.toggleReducer.expeditionPop,
@@ -16,6 +16,4 @@ const ExpeditionPopHooks = () => {
   }, [dispatch]);
 
   return { expeditionPop, setExpeditionPop };
-};
-
-export default ExpeditionPopHooks;
+}

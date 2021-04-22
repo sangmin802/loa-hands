@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import ImgTextWrap from "components/_imgTextWrap/index";
 import Detail from "components/_detail/index";
-import Dialoghook from "hooks/dialogHook";
+import { useDialog } from "hooks/useDialog";
 import "./index.css";
 
 export default ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;
-  const { setDialog } = Dialoghook();
+  const { setDialog } = useDialog();
 
   const callDialog = useCallback(() => {
     if (detail?.hover) {

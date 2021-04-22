@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-export const RerenderTime = () => {
+export function useTimerWrap() {
   const [state, setState] = useState({ time: null });
 
   const setTime = useCallback(
@@ -11,4 +11,4 @@ export const RerenderTime = () => {
   );
 
   return { setTime };
-};
+}

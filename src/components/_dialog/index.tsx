@@ -1,15 +1,33 @@
-import React, { useCallback } from "react";
-import DialogHook from "hooks/dialogHook";
-import DialogOpen from "hooks/dialogOpen";
+import React, { useCallback, useEffect } from "react";
+import { useDialog } from "hooks/useDialog";
 import "./index.css";
 
 const Index = () => {
-  const { dialog, setDialog } = DialogHook();
+  const { dialog, setDialog } = useDialog();
   const closeDialog = useCallback(() => {
     setDialog(null);
   }, [setDialog]);
 
-  DialogOpen(dialog);
+  useEffect(() => {
+    // body에 overflow-y hidden 주는방식은 ios에서 적용 안됨
+    const body = document.querySelector("body");
+    const top = window.pageYOffset;
+    if (dialog) {
+      const style = `
+        position: fixed;
+        top: -${top}px;
+        left: 0px;
+        right: 0px;
+      `;
+      body.setAttribute("style", style);
+    }
+    return () => {
+      if (dialog) {
+        body.setAttribute("style", "");
+        window.scrollTo(0, top);
+      }
+    };
+  }, [dialog]);
 
   return (
     <>

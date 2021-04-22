@@ -1,10 +1,10 @@
 import React from "react";
 import _ from "utility/utility";
-import { CalcTimer } from "hooks/timer";
+import { useTimer } from "hooks/useTimer";
 import "./index.css";
 
 const Index = props => {
-  const { state } = CalcTimer(props);
+  const { state } = useTimer(props);
 
   let { timeOut, targetState } = state;
   let { name, src, time, lv, position, endTime, contType, waiting } = props;

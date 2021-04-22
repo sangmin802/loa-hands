@@ -4,8 +4,8 @@ import UserInfoBlank from "template/userInfoBlank";
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";
-import UserDataHook from "hooks/userDataHook";
-import ExpeditionPopHook from "hooks/expeditionPopHook";
+import { useUser } from "hooks/useUser";
+import { useExpedition } from "hooks/useExpedition";
 import SubTab from "components/userInfo-subTab/index";
 import MainTab from "components/userInfo-mainTab/index";
 import TabContent from "components/userInfo-tabContents/index";
@@ -15,8 +15,8 @@ const Index = ({
     params: { name },
   },
 }) => {
-  const { userData, setUserData } = UserDataHook();
-  const { expeditionPop, setExpeditionPop } = ExpeditionPopHook();
+  const { userData, setUserData } = useUser();
+  const { expeditionPop, setExpeditionPop } = useExpedition();
 
   useEffect(() => {
     if (!userData) setUserData(name);

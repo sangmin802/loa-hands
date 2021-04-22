@@ -1,10 +1,10 @@
 import React from "react";
 import Timer from "../timer/index";
-import { RerenderTime } from "hooks/timerWrap";
+import { useTimerWrap } from "hooks/useTimerWrap";
 import "./index.css";
 
 const Index = ({ data, today = null }) => {
-  const { setTime } = RerenderTime();
+  const { setTime } = useTimerWrap();
 
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({ ...obj }));

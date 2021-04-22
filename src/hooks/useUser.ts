@@ -5,7 +5,7 @@ import { getUserData_Saga_Async } from "store/ducks/ajaxSlicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 
-const UserDataHooks = () => {
+export function useUser() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -22,6 +22,4 @@ const UserDataHooks = () => {
   );
 
   return { userData, setUserData };
-};
-
-export default UserDataHooks;
+}

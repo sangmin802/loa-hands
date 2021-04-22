@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import _ from "utility/utility";
 
-export const CalcTimer = props => {
+export function useTimer(props) {
   const [state, setState] = useState({ timeOut: null, targetState: "NORMAL" });
 
   useEffect(() => {
@@ -71,4 +71,4 @@ export const CalcTimer = props => {
   }, [props]);
 
   return { state, setState };
-};
+}

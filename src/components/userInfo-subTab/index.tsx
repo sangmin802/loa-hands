@@ -1,13 +1,13 @@
 import React from "react";
 import _ from "utility/utility";
-import TabHook from "hooks/tabHook";
+import { useTab } from "hooks/useTab";
 import TabWrap from "components/_tabWrap/index";
 import UserCollection from "components/userInfo-collectionNav/index";
 import "./index.css";
 
 const Index = ({ data }) => {
-  const { tab: subTab, setTab } = TabHook("sub");
-  const { tab: mainTab } = TabHook("main");
+  const { tab: subTab, setTab } = useTab("sub");
+  const { tab: mainTab } = useTab("main");
   const subTabWrapArray = [
     ["착용 아이템", "착용 아바타", "특성·각인"],
     ["전투스킬", "생활스킬"],
