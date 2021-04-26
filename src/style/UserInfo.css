@@ -20,9 +20,9 @@
   border-radius: 0 0 5px 5px;
 }
 
-.tabContent1 .columnList > .imgTextWrap .textWrap > div {
+.nav-content-container .columnList > .imgTextWrap .textWrap > div {
   font-size: 0.7rem;
 }
-.tabContent1 .columnList > .imgTextWrap .textWrap > div:last-child {
+.nav-content-container .columnList > .imgTextWrap .textWrap > div:last-child {
   font-size: 0.9rem;
 }
