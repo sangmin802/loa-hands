@@ -31,8 +31,4 @@ const Index = ({ abilityInfo, sub, isTarget = null }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => {
-  if (left.sub !== right.sub) return false;
-  if (left.isTarget === right.isTarget) return true;
-  return false;
-});
+export default React.memo(Index, (left, right) => _.compareObj(left, right));

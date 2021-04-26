@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "utility/utility";
 import "./index.css";
 import DoubleColumnWrap from "components/_doubleColumnWrap/index";
 import Rune from "template/rune";
@@ -31,8 +32,4 @@ const Index = ({ skillInfo, sub, isTarget = null }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => {
-  if (left.sub !== right.sub) return false;
-  if (left.isTarget === right.isTarget) return true;
-  return false;
-});
+export default React.memo(Index, (left, right) => _.compareObj(left, right));

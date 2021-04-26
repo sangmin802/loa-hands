@@ -5,7 +5,6 @@ import _ from "utility/utility";
 
 const Index = ({ data, type, lt = null, rt = null, children = null }) => {
   const [left, right] = _.arrayReducer(data, type);
-
   return (
     <div className="doubleColumnWrap">
       <ColumnWrap title={lt} arr={left} side="left">
