@@ -1,24 +1,17 @@
 import React, { Children } from "react";
-import _ from "utility/utility";
 import styled from "styled-components";
+import _ from "utility/utility";
+import "./index.css";
 
-const NavContent = ({ sub = null, isShow = null, children, type }) => {
+const NavContent = ({ children, selected, cn }) => {
   return (
-    <IsShowContainer
-      className={`${type} nav-content-container`}
-      isShow={isShow}
-    >
-      {Children.map(children, (res, index) => {
-        return (
-          <IsShowContainer
-            isShow={sub === index}
-            key={`subContentWrap${index}`}
-          >
-            {res}
-          </IsShowContainer>
-        );
-      })}
-    </IsShowContainer>
+    <article className={cn}>
+      {Children.map(children, (component, index) => (
+        <IsShowContainer isShow={selected === index}>
+          {component}
+        </IsShowContainer>
+      ))}
+    </article>
   );
 };
 

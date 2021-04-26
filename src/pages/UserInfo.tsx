@@ -8,8 +8,13 @@ import TabWrap from "components/_tabWrap/index";
 import { useUser } from "hooks/useUser";
 import { useExpedition } from "hooks/useExpedition";
 import { useTab } from "hooks/useTab";
-import NavContentContainer from "components/userInfo-navContentContainer/index";
 import UserCollection from "components/userInfo-collectionNav/index";
+import NavContent from "components/userInfo-navContent/index";
+import DoubleColumnWrap from "components/_doubleColumnWrap/index";
+import Quality from "template/quality";
+import Rune from "template/rune";
+import CharacteristicWrap from "components/userInfo-characteristic/index";
+import _ from "utility/utility";
 
 const Index = ({
   match: {
@@ -32,6 +37,12 @@ const Index = ({
     UserCollection(userData.collectionInfo.collectionMini),
   ];
   const mainTabs = ["능력치", "스킬", "수집형포인트"];
+
+  const { equipInfo, characteristicInfo } = userData.abilityInfo;
+  const { battleSkill, lifeSkill } = userData.skillInfo;
+  const { collectionDetail } = userData.collectionInfo;
+  const [av, equip] = _.arrayReducer(Object.values(equipInfo), "Av");
+  const { battle, basic, engrave } = characteristicInfo;
 
   return (
     <>
@@ -64,7 +75,46 @@ const Index = ({
               tabClass="sub"
             />
           ))}
-          <NavContentContainer data={userData} />
+          <NavContent selected={mainTab} cn="tabContentWrap">
+            <NavContent
+              selected={subTab}
+              cn="ability-container nav-content-container"
+            >
+              <DoubleColumnWrap data={equip} type="Equip">
+                <Quality />
+              </DoubleColumnWrap>
+              <DoubleColumnWrap data={av} type="Inner" />
+              <CharacteristicWrap data={[basic, battle, engrave]} />
+            </NavContent>
+            <NavContent
+              selected={subTab}
+              cn="skill-container nav-content-container"
+            >
+              <DoubleColumnWrap
+                data={battleSkill.skills}
+                lt={`사용 : ${battleSkill.usePoint}`}
+                rt={`획득 : ${battleSkill.getPoint}`}
+                type="Left"
+              >
+                <Rune />
+              </DoubleColumnWrap>
+              <DoubleColumnWrap data={lifeSkill} type="Left" />
+            </NavContent>
+            <NavContent
+              selected={subTab}
+              cn="collection-container nav-content-container"
+            >
+              {collectionDetail.map((res, index) => (
+                <DoubleColumnWrap
+                  key={index}
+                  data={res.collection}
+                  type="True"
+                  lt={res.title}
+                  rt={`획득 : ${res.getCount} 미획득 : ${res.totalCount}`}
+                />
+              ))}
+            </NavContent>
+          </NavContent>
         </section>
       </section>
     </>
