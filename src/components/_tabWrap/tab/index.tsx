@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import styled from "styled-components";
 import _ from "utility/utility";
 
 const Index = ({ tabName, setTab, selected, index }) => {
@@ -7,13 +8,21 @@ const Index = ({ tabName, setTab, selected, index }) => {
   }, [index, setTab]);
 
   return (
-    <div
-      className={`tab textCenter ${selected ? "white" : ""}`}
+    <IsSelectedContainer
+      className={`tab textCenter`}
+      isSelected={selected}
       onClick={tabClickEvent}
     >
       {tabName}
-    </div>
+    </IsSelectedContainer>
   );
 };
+
+const IsSelectedContainer = styled.nav<{ isSelected: boolean }>`
+  color: ${({ isSelected }) => (isSelected ? "white" : "")};
+  * {
+    color: ${({ isSelected }) => (isSelected ? "white" : "")};
+  }
+`;
 
 export default React.memo(Index, (left, right) => _.compareObj(left, right));
