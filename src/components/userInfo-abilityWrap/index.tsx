@@ -18,7 +18,7 @@ const Index = ({ abilityInfo, sub, isTarget = null }) => {
   ];
 
   return (
-    <div className="abilityWrap tabContent1">
+    <div className={`abilityWrap tabContent1 ${isTarget ? "" : "displayNone"}`}>
       {contentsArr.map((res, index) => (
         <div
           className={`${sub === index ? "" : "displayNone"}`}
@@ -32,6 +32,7 @@ const Index = ({ abilityInfo, sub, isTarget = null }) => {
 };
 
 export default React.memo(Index, (left, right) => {
-  if (!right.isTarget) return true;
+  if (left.sub !== right.sub) return false;
+  if (left.isTarget === right.isTarget) return true;
   return false;
 });

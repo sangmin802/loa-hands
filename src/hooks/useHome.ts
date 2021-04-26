@@ -8,6 +8,7 @@ import _ from "utility/utility";
 export function useHome() {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const homeData = useSelector(
     (state: RootState) => state.ajaxReducer.homeData,
     (left, right) => _.compareObj(left, right)

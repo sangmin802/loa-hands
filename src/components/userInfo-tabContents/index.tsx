@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import _ from "utility/utility";
 import AbilityWrap from "components/userInfo-abilityWrap/index";
 import SkillWrap from "components/userInfo-skillWrap/index";
@@ -16,14 +16,9 @@ const Index = ({ data }) => {
 
   return (
     <div className="tabContentWrap">
-      {contentsArr.map((res, index) => (
-        <div
-          className={`${mainTab === index ? "" : "displayNone"}`}
-          key={`mainContentWrap${index}`}
-        >
-          {{ ...res, props: { ...res.props, isTarget: mainTab === index } }}
-        </div>
-      ))}
+      {contentsArr.map((res, index) =>
+        cloneElement(res, { isTarget: mainTab === index, key: index })
+      )}
     </div>
   );
 };
