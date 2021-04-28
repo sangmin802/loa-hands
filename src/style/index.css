@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-
 :root {
   --contBox-border-radius: 3px;
   --contBox-border: 1px solid #f0f4f5;
@@ -7,14 +5,19 @@
   --bgDeep: #000000;
   --bgLow: #1f222a;
 }
-
+@font-face {
+  font-family: "MaplestoryLight";
+  src: url("./fonts/Maplestory\ Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   color: var(--white);
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "MaplestoryLight", sans-serif;
 }
 
 body {
