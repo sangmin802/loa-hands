@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import "style/UserInfo.css";
-import UserInfoBlank from "template/userInfoBlank";
+import "style/userInfo.css";
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";
@@ -29,7 +28,7 @@ const Index = ({
   useEffect(() => {
     if (!userData) setUserData(name);
   }, [name, setUserData, userData]);
-  if (!userData) return <UserInfoBlank />;
+  if (!userData) return null;
 
   const subTabs = [
     ["착용 아이템", "착용 아바타", "특성·각인"],

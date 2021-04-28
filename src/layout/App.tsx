@@ -1,12 +1,12 @@
 import React from "react";
-import "style/App.css";
+import "style/app.css";
 import { Route } from "react-router-dom";
 import { useLoadingToggle } from "hooks/useLoadingToggle";
 import { useHome } from "hooks/useHome";
 import { useUser } from "hooks/useUser";
 import Header from "components/_header/index";
-import Home from "pages/Home";
-import UserInfo from "pages/UserInfo";
+import Home from "pages/home";
+import UserInfo from "pages/userInfo";
 import LoadingSpinner from "components/_loading-spinner/index";
 import Dialog from "components/_dialog/index";
 
