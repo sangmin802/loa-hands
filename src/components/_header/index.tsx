@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from "react";
+import _ from "utility/utility";
 import "./index.css";
 
 const Header = ({ setHomeData, setUserData }) => {
@@ -26,4 +27,4 @@ const Header = ({ setHomeData, setUserData }) => {
   );
 };
 
-export default React.memo(Header, () => true);
+export default React.memo(Header, (left, right) => _.compareObj(left, right));
