@@ -1,3 +1,5 @@
+@import "../../style/variables.scss";
+
 .detailTop {
   display: flex;
   justify-content: space-between;
@@ -45,8 +47,8 @@
   height: 15px;
   line-height: 12px;
   margin-top: 0.5rem;
-  border: var(--contBox-border);
-  border-radius: var(--contBox-border-radius);
+  border: $contBox-border;
+  border-radius: $contBox-border-radius;
 }
 .detailQuality .qualityValue {
   position: absolute;

@@ -1,0 +1,13 @@
+@import "../../style/variables.scss";
+
+.columnList {
+  position: relative;
+  min-height: 52px;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+  background: $bgLow;
+  border-radius: $contBox-border-radius;
+}
+.columnList:last-child {
+  margin-bottom: 0;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "style/userInfo.css";
+import "style/userInfo.scss";
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";

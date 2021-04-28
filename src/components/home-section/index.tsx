@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
-import "./index.css";
+import "./index.scss";
 
 const HomeSection = ({ children, title }) => {
   return (

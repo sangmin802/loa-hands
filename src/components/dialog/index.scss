@@ -1,3 +1,5 @@
+@import "../../style/variables.scss";
+
 .dialogBack {
   width: 100%;
   height: 100%;
@@ -18,8 +20,8 @@
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border: var(--contBox-border);
-  border-radius: var(--contBox-border-radius);
+  border: $contBox-border;
+  border-radius: $contBox-border-radius;
   z-index: 3;
 }
 .dialogContent::-webkit-scrollbar {

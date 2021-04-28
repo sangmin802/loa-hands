@@ -1,3 +1,5 @@
+@import "../../style/variables.scss";
+
 /* header */
 .header {
   width: 100%;
@@ -31,20 +33,20 @@ input[type="text"] {
   width: 80%;
   background: none;
   border: 0;
-  border-bottom: var(--contBox-border);
+  border-bottom: $contBox-border;
   padding: 0.3rem;
 }
 input:focus {
   outline: none;
   background: none;
   border: 0;
-  border-bottom: var(--contBox-border);
+  border-bottom: $contBox-border;
 }
 input[type="submit"] {
   width: 20%;
   background: none;
   border: 0;
-  border: var(--contBox-border);
+  border: $contBox-border;
   font-weight: bold;
   border-radius: 3px 3px 3px 0;
   padding: 0.3rem;

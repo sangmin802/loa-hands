@@ -2,7 +2,7 @@ import React from "react";
 import Event from "./event/index";
 import LoadingSpinner from "components/loading-spinner/index";
 import HomeSection from "components/home-section/index";
-import "./index.css";
+import "./index.scss";
 
 const Index = ({ events }) => {
   return (

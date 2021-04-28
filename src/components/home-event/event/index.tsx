@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container";
 

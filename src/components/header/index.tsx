@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import _ from "utility/utility";
-import "./index.css";
+import "./index.scss";
 
 const Header = ({ setHomeData, setUserData }) => {
   const textInput = useRef(null);

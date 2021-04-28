@@ -3,7 +3,7 @@ import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container/index";
 import Detail from "components/detail/index";
 import { useDialog } from "hooks/useDialog";
-import "./index.css";
+import "./index.scss";
 
 const ColumnList = ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;

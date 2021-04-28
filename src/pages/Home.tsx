@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { dailyIsland, fieldBoss, chaosGate, oceanCont } from "json/JSON";
 import { useDateOver } from "hooks/useDateOver";
 import { useHome } from "hooks/useHome";
-import "style/home.css";
+import "style/home.scss";
 
 // 컴포넌트
 import EventSection from "components/home-event/index";

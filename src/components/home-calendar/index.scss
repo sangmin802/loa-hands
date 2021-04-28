@@ -1,12 +1,14 @@
+@import "../../style/variables.scss";
+
 .calendar0 {
   margin-bottom: 10px;
 }
 .calendarTitle {
-  background: var(--bgDeep);
+  background: $bgDeep;
   font-size: 0.9rem;
   margin-bottom: 5px;
   padding: 0.3rem;
-  border-radius: var(--contBox-border-radius);
+  border-radius: $contBox-border-radius;
 }
 .calendar .timerWrap {
   display: flex;

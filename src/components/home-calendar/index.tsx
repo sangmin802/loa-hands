@@ -2,6 +2,7 @@ import React from "react";
 import CalendarWrap from "./calendar/index";
 import LoadingSpinner from "components/loading-spinner/index";
 import HomeSection from "components/home-section/index";
+import "./index.scss";
 
 const Index = ({ calendar = null, yoil, today }) => {
   return (

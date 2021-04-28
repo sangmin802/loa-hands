@@ -1,7 +1,6 @@
 import React from "react";
 import Timer from "../timer/index";
 import { useTimerWrap } from "hooks/useTimerWrap";
-import "./index.css";
 
 const Index = ({ data, today = null }) => {
   const { setTime } = useTimerWrap();

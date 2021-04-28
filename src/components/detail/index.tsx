@@ -1,6 +1,6 @@
 import React, { cloneElement } from "react";
 import _ from "utility/utility";
-import "./index.css";
+import "./index.scss";
 import Thumbnail from "components/thumbnail/index";
 import ItemPartBox from "template/itemPartBox";
 import IndentString from "template/indentString";

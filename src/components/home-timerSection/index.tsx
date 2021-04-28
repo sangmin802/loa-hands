@@ -1,6 +1,7 @@
 import React from "react";
 import TimerWrap from "./timerWrap/index";
 import HomeSection from "components/home-section/index";
+import "./index.scss";
 
 const Index = ({ text, data, today }) => {
   return (

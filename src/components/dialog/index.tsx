@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useDialog } from "hooks/useDialog";
-import "./index.css";
+import "./index.scss";
 
 const Dialog = () => {
   const { dialog, setDialog } = useDialog();
