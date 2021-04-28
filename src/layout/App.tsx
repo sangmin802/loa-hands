@@ -4,11 +4,11 @@ import { Route } from "react-router-dom";
 import { useLoadingToggle } from "hooks/useLoadingToggle";
 import { useHome } from "hooks/useHome";
 import { useUser } from "hooks/useUser";
-import Header from "components/_header/index";
+import Header from "components/header/index";
 import Home from "pages/home";
 import UserInfo from "pages/userInfo";
-import LoadingSpinner from "components/_loading-spinner/index";
-import Dialog from "components/_dialog/index";
+import LoadingSpinner from "components/loading-spinner/index";
+import Dialog from "components/dialog/index";
 
 function App() {
   const { isLoading } = useLoadingToggle();

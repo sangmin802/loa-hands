@@ -1,5 +1,5 @@
 import React from "react";
-import TextWrap from "components/_textWrap/index";
+import TextContainer from "components/text-container/index";
 
 const Index = ({ content }) => {
   return (
@@ -7,7 +7,7 @@ const Index = ({ content }) => {
       {content.map(({ title, desc }) => {
         return (
           <div className="characteristic" key={title[0]}>
-            <TextWrap text={title} />
+            <TextContainer text={title} />
             <div>{desc}</div>
           </div>
         );

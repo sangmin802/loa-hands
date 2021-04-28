@@ -1,6 +1,7 @@
 import React from "react";
 
-import ImgTextWrap from "components/_imgTextWrap/index";
+import Thumbnail from "components/thumbnail/index";
+import TextContainer from "components/text-container/index";
 
 export default ({ data }: { data? }) => {
   const rune = data.detail.rune;
@@ -18,11 +19,9 @@ export default ({ data }: { data? }) => {
 
   return (
     <div className="rune">
-      <ImgTextWrap
-        backSrc={runeImg}
-        text={[runeGrade, runeInfo]}
-        grade={gradeColor}
-      />
+      <Thumbnail backSrc={runeImg} grade={gradeColor}>
+        <TextContainer text={[runeGrade, runeInfo]} grade={gradeColor} />
+      </Thumbnail>
     </div>
   );
 };

@@ -3,13 +3,13 @@ import "style/userInfo.css";
 import UserExpeditionPop from "components/userInfo-expeditionPop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionChars/index";
-import TabWrap from "components/_tabWrap/index";
+import Navigation from "components/navigation/index";
 import { useUser } from "hooks/useUser";
 import { useExpedition } from "hooks/useExpedition";
 import { useTab } from "hooks/useTab";
 import UserCollection from "components/userInfo-collectionNav/index";
 import NavContent from "components/userInfo-navContent/index";
-import DoubleColumnWrap from "components/_doubleColumnWrap/index";
+import DoubleColumnWrap from "components/double-column-list-container/index";
 import Quality from "template/quality";
 import Rune from "template/rune";
 import CharacteristicWrap from "components/userInfo-characteristic/index";
@@ -57,7 +57,7 @@ const Index = ({
           <UserBasicInfo userData={userData} />
         </section>
         <section className="userInfoBottom">
-          <TabWrap
+          <Navigation
             arr={mainTabs}
             isShow={true}
             selectedTab={mainTab}
@@ -65,7 +65,7 @@ const Index = ({
             tabClass="main"
           />
           {subTabs.map((tab, index) => (
-            <TabWrap
+            <Navigation
               arr={tab}
               key={tab}
               isShow={mainTab === index}

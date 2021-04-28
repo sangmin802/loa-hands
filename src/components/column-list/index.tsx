@@ -1,10 +1,11 @@
 import React, { useCallback } from "react";
-import ImgTextWrap from "components/_imgTextWrap/index";
-import Detail from "components/_detail/index";
+import Thumbnail from "components/thumbnail/index";
+import TextContainer from "components/text-container/index";
+import Detail from "components/detail/index";
 import { useDialog } from "hooks/useDialog";
 import "./index.css";
 
-export default ({ data, children }: { data; children? }) => {
+const ColumnList = ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;
   const { setDialog } = useDialog();
 
@@ -15,18 +16,19 @@ export default ({ data, children }: { data; children? }) => {
     }
     return;
   }, [detail, setDialog, data, children]);
-
   return (
     <div
       className={`columnList ${detail?.hover ? "pointer" : ""}`}
       onClick={callDialog}
     >
-      <ImgTextWrap
-        backSrc={backSrc}
-        grade={detail?.grade}
-        src={detail?.src}
-        text={detail ? [...detail.subTitle, detail.title] : []}
-      />
+      <Thumbnail backSrc={backSrc} grade={detail?.grade} src={detail?.src}>
+        <TextContainer
+          text={detail ? [...detail.subTitle, detail.title] : []}
+          grade={detail?.grade}
+        />
+      </Thumbnail>
     </div>
   );
 };
+
+export default ColumnList;

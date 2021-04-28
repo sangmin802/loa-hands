@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-const Index = ({ style = "" }) => {
+const LoadingSpinner = ({ style = "" }) => {
   return (
     <div className={`spinnerWrap ${style}`}>
       <div className="lds-spinner">
@@ -22,4 +22,4 @@ const Index = ({ style = "" }) => {
   );
 };
 
-export default Index;
+export default LoadingSpinner;

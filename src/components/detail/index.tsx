@@ -1,12 +1,13 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import _ from "utility/utility";
 import "./index.css";
-import ImgTextWrap from "components/_imgTextWrap/index";
+import Thumbnail from "components/thumbnail/index";
 import ItemPartBox from "template/itemPartBox";
 import IndentString from "template/indentString";
 import TripodSkillCustom from "template/tripodSkillCustom";
+import TextContainer from "components/text-container/index";
 
-const Index = ({ data, children }: { data; children? }) => {
+const Detail = ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;
   const {
     src,
@@ -19,16 +20,14 @@ const Index = ({ data, children }: { data; children? }) => {
   } = detail;
 
   return (
-    <div className="detail zIndex10">
+    <div className="detail zDetail10">
       <div className="detailTop">
-        <ImgTextWrap
-          backSrc={backSrc}
-          src={src}
-          grade={grade}
-          text={[...subTitle, title]}
-        />
+        <Thumbnail backSrc={backSrc} src={src} grade={grade}>
+          <TextContainer text={[...subTitle, title]} grade={grade} />
+        </Thumbnail>
       </div>
-      {children && { ...children, props: { ...children.props, data } }}
+      {/* {children && { ...children, props: { ...children.props, data } }} */}
+      {children && cloneElement(children, { data })}
       <div className="detailBottom">
         {itemPartBox && <ItemPartBox data={itemPartBox} />}
         {indentStringGroup && <IndentString data={indentStringGroup} />}
@@ -38,4 +37,4 @@ const Index = ({ data, children }: { data; children? }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => _.compareObj(left, right));
+export default React.memo(Detail, (left, right) => _.compareObj(left, right));

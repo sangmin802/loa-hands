@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { useDialog } from "hooks/useDialog";
 import "./index.css";
 
-const Index = () => {
+const Dialog = () => {
   const { dialog, setDialog } = useDialog();
   const closeDialog = useCallback(() => {
     setDialog(null);
@@ -41,4 +41,4 @@ const Index = () => {
   );
 };
 
-export default React.memo(Index, () => true);
+export default React.memo(Dialog, () => true);

@@ -1,11 +1,11 @@
 import React from "react";
 import CalendarWrap from "./calendar/index";
-import LoadingSpinner from "components/_loading-spinner/index";
-import Section from "components/_section/index";
+import LoadingSpinner from "components/loading-spinner/index";
+import HomeSection from "components/home-section/index";
 
 const Index = ({ calendar = null, yoil, today }) => {
   return (
-    <Section title="오늘의 캘린더섬">
+    <HomeSection title="오늘의 캘린더섬">
       {!calendar && <LoadingSpinner />}
       {calendar && (
         <>
@@ -25,7 +25,7 @@ const Index = ({ calendar = null, yoil, today }) => {
           )}
         </>
       )}
-    </Section>
+    </HomeSection>
   );
 };
 

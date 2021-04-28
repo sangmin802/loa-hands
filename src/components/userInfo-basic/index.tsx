@@ -3,8 +3,8 @@ import _ from "utility/utility";
 import "./index.css";
 
 // 컴포넌트
-import ImgTextWrap from "components/_imgTextWrap";
-import TextWrap from "components/_textWrap";
+import Thumbnail from "components/thumbnail";
+import TextContainer from "components/text-container";
 import UserCollection from "components/userInfo-collectionNav/index";
 
 const Index = ({ userData }) => {
@@ -28,24 +28,26 @@ const Index = ({ userData }) => {
   return (
     <div className="searchedUserInfo">
       <div className="basicInfo">
-        <TextWrap text={["클래스"]} />
-        <ImgTextWrap backSrc={classSrc} text={[className]} />
+        <TextContainer text={["클래스"]} />
+        <Thumbnail backSrc={classSrc}>
+          <TextContainer text={[className]} />
+        </Thumbnail>
       </div>
       <div className="basicInfo">
-        <TextWrap text={["이름", `${Lv} ${name}`]} />
-        <TextWrap text={["원정대 레벨", `${server} Lv ${expeditionLv}`]} />
+        <TextContainer text={["이름", `${Lv} ${name}`]} />
+        <TextContainer text={["원정대 레벨", `${server} Lv ${expeditionLv}`]} />
       </div>
       <div className="basicInfo">
-        <TextWrap text={["현재 아이템 레벨", curBigLv, curSmallLv]} />
-        <TextWrap text={["달성 아이템 레벨", reachBigLv, reachSamllLv]} />
+        <TextContainer text={["현재 아이템 레벨", curBigLv, curSmallLv]} />
+        <TextContainer text={["달성 아이템 레벨", reachBigLv, reachSamllLv]} />
       </div>
       <div className="basicInfo">
-        <TextWrap text={["영지", garden]} />
-        <TextWrap text={["PVP", pvp]} />
+        <TextContainer text={["영지", garden]} />
+        <TextContainer text={["PVP", pvp]} />
       </div>
       <div className="basicInfo">
-        <TextWrap text={["칭호", title]} />
-        <TextWrap text={["길드", guild]} />
+        <TextContainer text={["칭호", title]} />
+        <TextContainer text={["길드", guild]} />
       </div>
       <div className="userInfoCollection">{UserCollection(collectionMini)}</div>
     </div>

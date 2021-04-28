@@ -2,7 +2,7 @@ import React from "react";
 import _ from "utility/utility";
 import "./index.css";
 
-const Index = ({ children, title }) => {
+const HomeSection = ({ children, title }) => {
   return (
     <section className="section">
       <div className="sectionTitle rem1 textCenter">{title}</div>
@@ -11,4 +11,6 @@ const Index = ({ children, title }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => _.compareObj(left, right));
+export default React.memo(HomeSection, (left, right) =>
+  _.compareObj(left, right)
+);

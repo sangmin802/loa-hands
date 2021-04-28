@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
-import ImgTextWrap from "components/_imgTextWrap/index";
+import Thumbnail from "components/thumbnail/index";
+import TextContainer from "components/text-container";
 
 const Index = ({ event }) => {
   const { date, href, img, name } = event;
@@ -9,7 +10,9 @@ const Index = ({ event }) => {
   }, [href]);
   return (
     <div className="event" onClick={goHref}>
-      <ImgTextWrap backSrc={img} text={[name, date]} />
+      <Thumbnail backSrc={img}>
+        <TextContainer text={[name, date]} />
+      </Thumbnail>
     </div>
   );
 };

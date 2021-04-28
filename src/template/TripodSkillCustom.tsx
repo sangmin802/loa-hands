@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "utility/utility";
-import ImgTextWrap from "components/_imgTextWrap/index";
+import Thumbnail from "components/thumbnail/index";
+import TextContainer from "components/text-container/index";
 
 const Index = ({ data }) => {
   return (
@@ -8,12 +9,9 @@ const Index = ({ data }) => {
       {data.map((ts, index) => {
         const { name = null, desc = null, grade = null, src = null } = ts;
         return (
-          <ImgTextWrap
-            key={`ts${index}`}
-            backSrc={src}
-            text={[name, desc]}
-            grade={grade}
-          />
+          <Thumbnail key={`ts${index}`} backSrc={src} grade={grade}>
+            <TextContainer text={[name, desc]} grade={grade} />
+          </Thumbnail>
         );
       })}
     </div>

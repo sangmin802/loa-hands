@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
-import TextWrap from "components/_textWrap/index";
+import TextContainer from "components/text-container/index";
 
 const ItemPartBox = ({ data }) => {
   return (
@@ -10,7 +10,7 @@ const ItemPartBox = ({ data }) => {
         return (
           <div key={index}>
             <div className="rem09">{title}</div>
-            <TextWrap text={text} />
+            <TextContainer text={text} />
           </div>
         );
       })}

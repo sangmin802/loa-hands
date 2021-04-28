@@ -1,10 +1,16 @@
-import React from 'react';
-import ColumnList from 'components/_columnList/index';
+import React from "react";
+import ColumnList from "components/column-list/index";
 
-const ColumnWrap = ({
-  title, arr, side, children
-} : {
-  title, arr, side, children?
+const ColumnListContainer = ({
+  title,
+  arr,
+  side,
+  children,
+}: {
+  title;
+  arr;
+  side;
+  children?;
 }) => {
   return (
     <div className={`column${side}`}>
@@ -15,11 +21,11 @@ const ColumnWrap = ({
             <ColumnList key={`columnList${side}${index}`} data={res}>
               {children}
             </ColumnList>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ColumnWrap;
+export default ColumnListContainer;
