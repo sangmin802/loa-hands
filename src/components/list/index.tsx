@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container/index";
 import Detail from "components/detail/index";
-import { useDialog } from "hooks/useDialog";
+import { useDialog } from "hooks/use-dialog";
 import "./index.scss";
 
 const ColumnList = ({ data, children }: { data; children? }) => {

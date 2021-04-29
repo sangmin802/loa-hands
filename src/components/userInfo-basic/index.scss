@@ -1,0 +1,47 @@
+@import "../../style/variables.scss";
+
+.basicInfo {
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.basicInfo * {
+  font-size: 0.9rem;
+}
+.basicInfo .textWrap {
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: calc((100% - 0.5rem) / 2 - 0.1px);
+}
+.basicInfo .textWrap > div:first-child {
+  margin-right: 0.3rem;
+  border-radius: $contBox-border-radius;
+  border: $contBox-border;
+  background: $bgLow;
+  padding: 0.3rem 0.5rem;
+  overflow: initial;
+}
+
+/* 클래스만 */
+.basicInfo:first-child > div:last-child .imgWrap {
+  border: $contBox-border;
+  border-radius: 50%;
+}
+.basicInfo:first-child > div:last-child .imgWrap img {
+  border: 0;
+}
+.basicInfo:first-child > div:first-child {
+  width: fit-content;
+}
+.basicInfo:first-child > .imgTextWrap .textWrap div {
+  border: 0;
+  background: initial;
+  padding: 0;
+}
+
+/* 컬렉션 */
+.userInfoCollection {
+  display: flex;
+  margin-top: 15px;
+}

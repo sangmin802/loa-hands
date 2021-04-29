@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
-import { useTimer } from "hooks/useTimer";
+import { useTimer } from "hooks/use-timer";
 
 const Index = props => {
   const { state } = useTimer(props);

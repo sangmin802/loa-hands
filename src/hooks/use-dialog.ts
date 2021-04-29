@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { dialogToggle } from "store/ducks/toggleSlicer";
+import { dialogToggle } from "store/ducks/toggle-slicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 

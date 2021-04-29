@@ -1,4 +1,4 @@
-export const partsArr = [
+export const PARTS_ARR = [
   "000_weapon",
   "001_head",
   "002_shoulder",
@@ -24,7 +24,7 @@ export const partsArr = [
   "022_av_in_pants",
 ];
 
-export const partsImg = [
+export const PARTS_IMAGE = [
   "/2018/obt/assets/images/common/game/bg_equipment_slot1.png?847938d1e0f475ca73717df97334937d",
   "/2018/obt/assets/images/common/game/bg_equipment_slot2.png?050db99e03db1afa7f32f00f53010a0a",
   "/2018/obt/assets/images/common/game/bg_equipment_slot3.png?ad02ff0c0c7f0f750d7254629f61f433",
@@ -52,7 +52,7 @@ export const partsImg = [
 
 // 섬 닫히는 시간을 기준으로 작성
 // 처음에는 -3분을 하여 섬 열리는 시간으로 카운트다운 하다가, 그 차이가 0이나 0보다 작을 때, 현제 JSON시간으로 다시 계산하여 3분뒤에 닫히는 카운트다운 진행
-export const dailyIsland = [
+export const DAILY_ISLAND = [
   {
     name: "환각의섬",
     src: "/img/island/island_00.png",
@@ -177,7 +177,7 @@ export const dailyIsland = [
 ];
 
 // 캘린더섬 리스트
-export const calendarIsland = [
+export const CALENDAR_ISLAND = [
   {
     name: "기회의 섬",
     src: "/img/calendar/calendar_00.jpg",
@@ -265,7 +265,7 @@ export const calendarIsland = [
 ];
 
 // 필드보스 일월화수목금토
-export const fieldBoss = [
+export const FIELD_BOSS = [
   [
     {
       id: 2,
@@ -721,7 +721,7 @@ export const fieldBoss = [
 ];
 
 // 질병 광기 몽환 어둠
-export const chaosGate = [
+export const CHAOS_GATE = [
   [
     {
       name: "일렁이는 몽환군단",
@@ -952,7 +952,7 @@ export const chaosGate = [
 ];
 
 // 항해
-export const oceanCont = [
+export const OCEAN_ACT = [
   [
     {
       name: "기에나",

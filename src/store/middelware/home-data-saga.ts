@@ -1,14 +1,14 @@
 import { put, takeLatest, call } from "redux-saga/effects";
-import { expeditionPopToggle } from "../ducks/toggleSlicer";
-import { resetTab } from "../ducks/tabSlicer";
-import API from "api/API";
-import { GET_HOME_DATA_SAGA, getHomeData } from "../ducks/ajaxSlicer";
+import { expeditionPopToggle } from "../ducks/toggle-slicer";
+import { resetNav } from "../ducks/nav-slicer";
+import Api from "api/api";
+import { GET_HOME_DATA_SAGA, getHomeData } from "../ducks/ajax-slicer";
 
 export function* getHomeData_Saga() {
   try {
-    const homeData = yield call(API.getHomeData);
+    const homeData = yield call(Api.getHomeData);
     yield put(expeditionPopToggle());
-    yield put(resetTab());
+    yield put(resetNav());
     yield put(getHomeData({ homeData }));
   } catch (err) {
     alert(err);

@@ -1,7 +1,7 @@
 import React from "react";
-import ColumnList from "components/column-list/index";
+import List from "components/list/index";
 
-const ColumnListContainer = ({
+const ListContainer = ({
   title,
   arr,
   side,
@@ -18,9 +18,9 @@ const ColumnListContainer = ({
       <div className="columnContent">
         {arr.map((res, index) => {
           return (
-            <ColumnList key={`columnList${side}${index}`} data={res}>
+            <List key={`columnList${side}${index}`} data={res}>
               {children}
-            </ColumnList>
+            </List>
           );
         })}
       </div>
@@ -28,4 +28,4 @@ const ColumnListContainer = ({
   );
 };
 
-export default ColumnListContainer;
+export default ListContainer;

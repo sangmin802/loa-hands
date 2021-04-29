@@ -1,28 +1,30 @@
-.tabWrap {
-  background: var(--bgDeep);
+@import "../../style/variables.scss";
+
+.nav-container {
+  background: $bgDeep;
   padding: 0.5rem;
   display: flex;
   width: fit-content;
   border-radius: 5px 5px 0 0;
 }
-.tab {
+.nav {
   width: fit-content;
   margin-right: 1rem;
   color: #666;
   cursor: pointer;
 }
-.tab * {
+.nav * {
   color: #666;
 }
-.mainTabWrap .tab {
+.main-nav-container .nav {
   margin-right: 2rem;
 }
-.subTabWrap {
+.sub-nav-container {
   border-radius: 0;
   width: 100%;
   border-radius: 0 5px 0 0;
 }
-.subTabWrap:nth-of-type(4) .tab {
+.sub-nav-container:nth-of-type(4) .nav {
   flex-grow: 1;
   margin-right: 0;
 }

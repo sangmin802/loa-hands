@@ -1,17 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
-import { ajaxReducer } from "./ducks/ajaxSlicer";
-import { toggleReducer } from "./ducks/toggleSlicer";
-import { tabReducer } from "./ducks/tabSlicer";
-import { homeDataSaga } from "./middelware/homeDataSaga";
-import { userDataSaga } from "./middelware/userDataSaga";
+import { ajaxReducer } from "./ducks/ajax-slicer";
+import { toggleReducer } from "./ducks/toggle-slicer";
+import { navReducer } from "./ducks/nav-slicer";
+import { homeDataSaga } from "./middelware/home-data-saga";
+import { userDataSaga } from "./middelware/user-data-saga";
 import { all } from "redux-saga/effects";
 
 const sagaMiddelware = createSagaMiddleware();
 const rootReducer = combineReducers({
   ajaxReducer,
   toggleReducer,
-  tabReducer,
+  navReducer,
 });
 export function* rootSaga() {
   yield all([homeDataSaga(), userDataSaga()]); // saga 실행

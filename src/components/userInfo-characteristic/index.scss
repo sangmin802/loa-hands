@@ -1,0 +1,32 @@
+@import "../../style/variables.scss";
+
+.characteristics {
+  margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .characteristic {
+    margin-bottom: 0.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    > .textWrap {
+      flex-direction: row;
+      width: fit-content;
+      margin-bottom: 0.5rem;
+      > div {
+        background-color: $bgLow;
+        border-radius: $contBox-border-radius;
+        padding: 0.1rem 0.3rem;
+        margin : {
+          right: 0.3rem;
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+  li {
+    list-style: none;
+    display: inline;
+  }
+}

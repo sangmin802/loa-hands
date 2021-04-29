@@ -1,11 +1,9 @@
 import React from "react";
 import _ from "utility/utility";
-import "./index.css";
-
-// 컴포넌트
+import "./index.scss";
 import Thumbnail from "components/thumbnail";
 import TextContainer from "components/text-container";
-import UserCollection from "components/userInfo-collectionNav/index";
+import UserCollection from "components/userInfo-collection-nav/index";
 
 const Index = ({ userData }) => {
   const { basicInfo, expeditionInfo, collectionInfo } = userData;

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { getHomeData_Saga_Async } from "store/ducks/ajaxSlicer";
+import { getHomeData_Saga_Async } from "store/ducks/ajax-slicer";
 import { RootState } from "store/index";
 import _ from "utility/utility";
 
@@ -15,9 +15,9 @@ export function useHome() {
   );
 
   const setHomeData = useCallback(() => {
-    if (homeData) return history.replace("/");
+    history.replace("/");
     dispatch(getHomeData_Saga_Async(history));
-  }, [dispatch, history, homeData]);
+  }, [dispatch, history]);
 
   return { homeData, setHomeData };
 }
