@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "utility/utility";
 import Chararteristic from "./characteristic/index";
-import "./index.css";
+import "./index.scss";
 
 const Index = ({ data }) => {
   return (
