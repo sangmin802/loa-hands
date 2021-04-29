@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
+import "./index.scss";
 import TextContainer from "components/text-container/index";
 
 const ItemPartBox = ({ data }) => {

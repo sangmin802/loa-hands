@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./index.scss";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container/index";
 

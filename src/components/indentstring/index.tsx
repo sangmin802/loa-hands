@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
+import "./index.scss";
 
 const IntentString = ({ data }: { data? }) => {
   return (
