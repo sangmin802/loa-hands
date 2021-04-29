@@ -17,9 +17,14 @@ const Header = ({ setHomeData, setUserData }) => {
   return (
     <div className="header">
       <div className="innerHeader">
-        <div className="logo" onClick={setHomeData}></div>
+        <div className="logo" onClick={setHomeData} />
         <form onSubmit={onSubmitHandler} className="searchForm">
-          <input type="text" name="searchedUser" ref={textInput} />
+          <input
+            type="text"
+            name="searchedUser"
+            ref={textInput}
+            autoComplete="off"
+          />
           <input type="submit" className="rem1" value="검색" />
         </form>
       </div>
