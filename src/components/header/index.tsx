@@ -17,7 +17,13 @@ const Header = ({ setHomeData, setUserData }) => {
   return (
     <div className="header">
       <div className="innerHeader">
-        <div className="logo" onClick={setHomeData} />
+        <div
+          className="logo"
+          style={{
+            backgroundImage: `url('${process.env.PUBLIC_URL}/img/all.png')`,
+          }}
+          onClick={setHomeData}
+        />
         <form onSubmit={onSubmitHandler} className="searchForm">
           <input
             type="text"
