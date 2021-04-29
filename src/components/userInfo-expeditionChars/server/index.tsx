@@ -1,6 +1,5 @@
 import React from "react";
 import ServerChar from "../char/index";
-import "./index.css";
 
 const Index = ({ wrap, setUserData }) => {
   return (

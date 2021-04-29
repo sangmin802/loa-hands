@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import "./index.css";
 
 const Index = ({ setUserData, char }) => {
   const setUserDataEvent = useCallback(() => {
