@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "style/userInfo.scss";
-import UserExpeditionPop from "components/userInfo-expeditionpop/index";
 import UserBasicInfo from "components/userInfo-basic/index";
 import UserExpeditionChars from "components/userInfo-expeditionchars/index";
 import Nav from "components/nav/index";
@@ -47,7 +46,9 @@ const Index = ({
     <>
       <section className="userInfo">
         <section className="userInfoTop">
-          <UserExpeditionPop expeditionPopToggle={setExpeditionPop} />
+          <div className="showExpeditionWrap" onClick={setExpeditionPop}>
+            원정대 캐릭터 보기
+          </div>
           <UserExpeditionChars
             userData={userData}
             setUserData={setUserData}

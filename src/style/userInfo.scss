@@ -11,27 +11,40 @@
   background: $bgDeep;
   border-radius: $contBox-border-radius;
   padding: 1rem 0.5rem 1rem;
+  .showExpeditionWrap {
+    float: right;
+    background: $bgLow;
+    padding: 0.3rem;
+    border-radius: $contBox-border-radius;
+    cursor: pointer;
+    border: $contBox-border;
+  }
 }
 
 /* userInfoBottom */
 .userInfoBottom {
   margin-top: 1rem;
-}
-.tabContentWrap {
-  background: $bgDeep;
-  padding: 0.5rem;
-  border-radius: 0 0 5px 5px;
-}
-
-.nav-content-container .columnList > .imgTextWrap .textWrap > div {
-  font-size: 0.7rem;
-}
-.nav-content-container .columnList > .imgTextWrap .textWrap > div:last-child {
-  font-size: 0.9rem;
-}
-
-/* equipImage */
-.equipMainImg {
-  top: 0;
-  transform: scale(0.9);
+  .tabContentWrap {
+    background: $bgDeep;
+    padding: 0.5rem;
+    border-radius: 0 0 5px 5px;
+  }
+  .nav-content-container {
+    .columnList {
+      > .imgTextWrap {
+        .textWrap {
+          div {
+            font-size: 0.7rem;
+            &:last-child {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .equipMainImg {
+    top: 0;
+    transform: scale(0.9);
+  }
 }
