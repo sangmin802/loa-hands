@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/loa-hands/static/css/main.862c0abd.chunk.css",
-    "main.js": "/loa-hands/static/js/main.297ec648.chunk.js",
-    "main.js.map": "/loa-hands/static/js/main.297ec648.chunk.js.map",
+    "main.css": "/loa-hands/static/css/main.9294a183.chunk.css",
+    "main.js": "/loa-hands/static/js/main.463db09a.chunk.js",
+    "main.js.map": "/loa-hands/static/js/main.463db09a.chunk.js.map",
     "runtime-main.js": "/loa-hands/static/js/runtime-main.02ec9361.js",
     "runtime-main.js.map": "/loa-hands/static/js/runtime-main.02ec9361.js.map",
-    "static/js/2.9ec9be40.chunk.js": "/loa-hands/static/js/2.9ec9be40.chunk.js",
-    "static/js/2.9ec9be40.chunk.js.map": "/loa-hands/static/js/2.9ec9be40.chunk.js.map",
+    "static/js/2.4cfcc4b2.chunk.js": "/loa-hands/static/js/2.4cfcc4b2.chunk.js",
+    "static/js/2.4cfcc4b2.chunk.js.map": "/loa-hands/static/js/2.4cfcc4b2.chunk.js.map",
     "index.html": "/loa-hands/index.html",
-    "precache-manifest.4e7318f81aad4a555219cca9829c4560.js": "/loa-hands/precache-manifest.4e7318f81aad4a555219cca9829c4560.js",
+    "precache-manifest.53d36497328ecbb20dfd1d914ad2fd3a.js": "/loa-hands/precache-manifest.53d36497328ecbb20dfd1d914ad2fd3a.js",
     "service-worker.js": "/loa-hands/service-worker.js",
-    "static/css/main.862c0abd.chunk.css.map": "/loa-hands/static/css/main.862c0abd.chunk.css.map",
-    "static/js/2.9ec9be40.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.9ec9be40.chunk.js.LICENSE.txt"
+    "static/css/main.9294a183.chunk.css.map": "/loa-hands/static/css/main.9294a183.chunk.css.map",
+    "static/js/2.4cfcc4b2.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.4cfcc4b2.chunk.js.LICENSE.txt",
+    "static/media/global.scss": "/loa-hands/static/media/Maplestory Light.fb932d04.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.02ec9361.js",
-    "static/js/2.9ec9be40.chunk.js",
-    "static/css/main.862c0abd.chunk.css",
-    "static/js/main.297ec648.chunk.js"
+    "static/js/2.4cfcc4b2.chunk.js",
+    "static/css/main.9294a183.chunk.css",
+    "static/js/main.463db09a.chunk.js"
   ]
 }
