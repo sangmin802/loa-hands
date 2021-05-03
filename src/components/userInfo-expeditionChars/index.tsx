@@ -1,7 +1,6 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
-
 import ExpeditionServer from "./server/index";
 
 const UserExpedition = ({
@@ -35,5 +34,5 @@ const UserExpedition = ({
 };
 
 export default React.memo(UserExpedition, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

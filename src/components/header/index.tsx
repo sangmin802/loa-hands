@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 
 const Header = ({ setHomeData, setUserData }) => {
@@ -38,4 +38,4 @@ const Header = ({ setHomeData, setUserData }) => {
   );
 };
 
-export default React.memo(Header, (left, right) => _.compareObj(left, right));
+export default React.memo(Header, (left, right) => Lodash.isEqual(left, right));

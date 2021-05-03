@@ -1,5 +1,5 @@
 import React, { Children } from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.css";
 
 const NavContent = ({ children, selected, cn }) => {
@@ -15,5 +15,5 @@ const NavContent = ({ children, selected, cn }) => {
 };
 
 export default React.memo(NavContent, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

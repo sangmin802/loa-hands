@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import { addZero } from "utility/utility";
 import { useTimer } from "hooks/use-timer";
 
 const Index = props => {
@@ -64,9 +64,7 @@ const Index = props => {
 function minusMin(time, waiting) {
   if (time.includes(":")) {
     const [hour, min] = time.split(":");
-    return `${_.addZero(Number(hour))}:${_.addZero(
-      Number(min) - (waiting || 3)
-    )}`;
+    return `${addZero(Number(hour))}:${addZero(Number(min) - (waiting || 3))}`;
   }
   return time;
 }

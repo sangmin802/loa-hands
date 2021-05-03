@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 
 const IntentString = ({ data }: { data? }) => {
@@ -24,5 +24,5 @@ const IntentString = ({ data }: { data? }) => {
 };
 
 export default React.memo(IntentString, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

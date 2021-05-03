@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 
 const HomeSection = ({ children, title, cn = "" }) => {
@@ -12,5 +12,5 @@ const HomeSection = ({ children, title, cn = "" }) => {
 };
 
 export default React.memo(HomeSection, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

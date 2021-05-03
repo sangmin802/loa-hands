@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 import Thumbnail from "components/thumbnail";
 import TextContainer from "components/text-container";
@@ -52,4 +52,4 @@ const Index = ({ userData }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => _.compareObj(left, right));
+export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));

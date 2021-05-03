@@ -1,7 +1,8 @@
 import React from "react";
 import "./index.css";
 import ListContainer from "components/list-container/index";
-import _ from "utility/utility";
+import Lodash from "lodash";
+import { arrayReducer } from "utility/utility";
 
 const DoubleListContainer = ({
   data,
@@ -10,7 +11,7 @@ const DoubleListContainer = ({
   rt = null,
   children = null,
 }) => {
-  const [left, right] = _.arrayReducer(data, type);
+  const [left, right] = arrayReducer(data, type);
   return (
     <div className="doubleColumnWrap">
       <ListContainer title={lt} arr={left} side="left">
@@ -24,5 +25,5 @@ const DoubleListContainer = ({
 };
 
 export default React.memo(DoubleListContainer, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

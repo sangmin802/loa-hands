@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-export default ({ text, grade }: { text; grade? }) => {
+const TextContainer = ({ text, grade }: { text; grade? }) => {
   return (
     <div className="textWrap">
       {text.map((res, index) => {
@@ -19,3 +19,5 @@ export default ({ text, grade }: { text; grade? }) => {
     </div>
   );
 };
+
+export default TextContainer;

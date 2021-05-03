@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import Chararteristic from "./characteristic/index";
 import "./index.scss";
 
@@ -18,4 +18,4 @@ const Index = ({ data }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => _.compareObj(left, right));
+export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));

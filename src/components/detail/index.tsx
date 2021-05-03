@@ -1,5 +1,5 @@
 import React, { cloneElement } from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 import Thumbnail from "components/thumbnail/index";
 import ItemPartBox from "components/itempartbox/index";
@@ -36,4 +36,4 @@ const Detail = ({ data, children }: { data; children? }) => {
   );
 };
 
-export default React.memo(Detail, (left, right) => _.compareObj(left, right));
+export default React.memo(Detail, (left, right) => Lodash.isEqual(left, right));

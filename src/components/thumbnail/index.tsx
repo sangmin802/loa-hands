@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.css";
 import Image from "../image/index";
 
@@ -23,5 +23,5 @@ const Thumbnail = ({
 };
 
 export default React.memo(Thumbnail, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );

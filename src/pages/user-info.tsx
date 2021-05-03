@@ -12,7 +12,7 @@ import DoubleListContainer from "components/double-list-container/index";
 import Quality from "components/quality/index";
 import Rune from "components/rune/index";
 import CharacteristicWrap from "components/userInfo-characteristic/index";
-import _ from "utility/utility";
+import { arrayReducer } from "utility/utility";
 
 const Index = ({
   match: {
@@ -39,7 +39,7 @@ const Index = ({
   const { equipInfo, characteristicInfo } = userData.abilityInfo;
   const { battleSkill, lifeSkill } = userData.skillInfo;
   const { collectionDetail } = userData.collectionInfo;
-  const [av, equip] = _.arrayReducer(Object.values(equipInfo), "Av");
+  const [av, equip] = arrayReducer(Object.values(equipInfo), "Av");
   const { battle, basic, engrave } = characteristicInfo;
 
   return (

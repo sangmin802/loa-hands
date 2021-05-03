@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import _ from "utility/utility";
+import { addZero } from "utility/utility";
 
 export function useTimer(props) {
   const [state, setState] = useState({ timeOut: null, targetState: "NORMAL" });
@@ -56,7 +56,7 @@ export function useTimer(props) {
 
         setState({
           targetState,
-          timeOut: `${_.addZero(hour)}:${_.addZero(min)}:${_.addZero(sec)}`,
+          timeOut: `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`,
         });
       };
 

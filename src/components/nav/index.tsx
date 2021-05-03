@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import _ from "utility/utility";
+import Lodash from "lodash";
 import "./index.scss";
 
 const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
@@ -41,5 +41,5 @@ const Item = ({ NavName, setNav, selected, index }) => {
 };
 
 export default React.memo(Navigation, (left, right) =>
-  _.compareObj(left, right)
+  Lodash.isEqual(left, right)
 );
