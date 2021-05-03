@@ -7,7 +7,7 @@ import { useUser } from "hooks/use-user";
 import { useExpedition } from "hooks/use-expedition";
 import { useNav } from "hooks/use-nav";
 import UserCollection from "components/userInfo-collection-nav/index";
-import NavContent from "components/userInfo-navcontent/index";
+import NavContent from "components/nav-content/index";
 import DoubleListContainer from "components/double-list-container/index";
 import Quality from "components/quality/index";
 import Rune from "components/rune/index";
