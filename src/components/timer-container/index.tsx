@@ -1,6 +1,7 @@
 import React from "react";
-import Timer from "../timer/index";
+import Timer from "./timer/index";
 import { useNewTime } from "hooks/use-newtime";
+import "./index.scss";
 
 const Index = ({ data, today = null }) => {
   const { setTime } = useNewTime();
@@ -26,16 +27,11 @@ const Index = ({ data, today = null }) => {
 
   // 가장 먼저 열리는 섬 순서대로 진열. 모든 시간 종료시, 맨 뒤로
   newData.sort((a, b) => {
-    const time_a = a.time[0],
-      time_b = b.time[0];
-    if (!time_b) {
-      return -1;
-    }
-    if (time_a > time_b) {
-      return 1;
-    } else if (time_a < time_b) {
-      return -1;
-    }
+    const time_a = a.time[0];
+    const time_b = b.time[0];
+    if (!time_b) return -1;
+    if (time_a > time_b) return 1;
+    if (time_a < time_b) return -1;
     return 0;
   });
 
@@ -45,7 +41,7 @@ const Index = ({ data, today = null }) => {
   return (
     <div className="timerWrap">
       {newData.map((data, index) => {
-        let {
+        const {
           name,
           src,
           time,
@@ -56,9 +52,9 @@ const Index = ({ data, today = null }) => {
           waiting,
           contType,
         } = data;
-
+        let _position = position;
         if (typeof position !== "string") {
-          position = position[0] || endPosition;
+          _position = position[0] || endPosition;
         }
         return (
           <Timer
@@ -67,7 +63,7 @@ const Index = ({ data, today = null }) => {
             src={src}
             time={time[0]}
             endTime={endTime}
-            position={position}
+            position={_position}
             lv={lv}
             contType={contType}
             waiting={waiting}

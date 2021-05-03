@@ -1,8 +1,9 @@
 import React from "react";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container";
+import "./index.scss";
 
-const Index = ({ event }) => {
+const Event = ({ event }) => {
   const { date, href, img, name } = event;
   const goHref = React.useCallback(() => {
     window.open(`https://lostark.game.onstove.com/${href}`);
@@ -16,4 +17,4 @@ const Index = ({ event }) => {
   );
 };
 
-export default Index;
+export default Event;

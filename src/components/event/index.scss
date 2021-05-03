@@ -1,0 +1,35 @@
+@import "../../style/variables.scss";
+
+.event {
+  width: 49%;
+  border: $contBox-border;
+  border-radius: $contBox-border-radius;
+  overflow: hidden;
+  margin-bottom: 2%;
+  cursor: pointer;
+  .imgTextWrap {
+    flex-direction: column;
+    background: $bgDeep;
+    .imgWrap {
+      width: 100%;
+      margin-right: 0;
+      * {
+        border: 0;
+        border-radius: 0;
+      }
+    }
+    .textWrap {
+      padding: 0.3rem;
+      * {
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      > &:last-child {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  &:nth-child(2n-1) {
+    margin-right: 2%;
+  }
+}
