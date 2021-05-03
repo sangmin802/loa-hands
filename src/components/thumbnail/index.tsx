@@ -1,8 +1,6 @@
 import React from "react";
 import _ from "utility/utility";
 import "./index.css";
-
-// 컴포넌트
 import Image from "../image/index";
 
 const Thumbnail = ({

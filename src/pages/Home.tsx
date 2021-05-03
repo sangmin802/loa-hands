@@ -29,12 +29,22 @@ const Index = () => {
       </SectionContainer>
       <SectionContainer title="오늘의 캘린더섬" cn="calendar-container">
         {!homeData?.calendar && <LoadingSpinner />}
-        <SectionContainer title="14:00">
-          <TimerContainer data={homeData?.calendar[0] ?? []} today={today} />
-        </SectionContainer>
-        <SectionContainer title="21:00">
-          <TimerContainer data={homeData?.calendar[1] ?? []} today={today} />
-        </SectionContainer>
+        {homeData?.calendar && (
+          <>
+            <SectionContainer title="14:00">
+              <TimerContainer
+                data={homeData?.calendar[0] ?? []}
+                today={today}
+              />
+            </SectionContainer>
+            <SectionContainer title="21:00">
+              <TimerContainer
+                data={homeData?.calendar[1] ?? []}
+                today={today}
+              />
+            </SectionContainer>
+          </>
+        )}
       </SectionContainer>
       <SectionContainer title="오늘의 모험섬">
         <TimerContainer data={DAILY_ISLAND} today={today} />
