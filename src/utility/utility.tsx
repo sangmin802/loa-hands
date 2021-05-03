@@ -55,12 +55,4 @@ export default {
       [[], []]
     );
   },
-
-  setQualityColor(qualityValue) {
-    if (qualityValue >= 0 && qualityValue < 10) return -1;
-    if (qualityValue >= 10 && qualityValue < 70) return 1;
-    if (qualityValue >= 70 && qualityValue < 90) return 2;
-    if (qualityValue >= 90) return 3;
-    return -2;
-  },
 };
