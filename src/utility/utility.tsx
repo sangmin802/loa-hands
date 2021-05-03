@@ -6,8 +6,7 @@ export default {
   getOnlyText(string) {
     if (!string) return;
     const newStr = string.replace(/<BR>$/gi, "").replace(/<BR>/gi, "enter");
-    const parsed = new DOMParser().parseFromString(newStr, "text/html").body
-      .textContent;
+    const parsed = this.parseFromString(newStr).body.textContent;
     if (parsed.includes("enter")) {
       const split = parsed.split("enter");
       return split.map(res => {
@@ -21,11 +20,13 @@ export default {
 
   // 문자열을 Element화 해서, Body부분만 반환
   returnBody(data) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, "text/html");
-    const body = doc.getElementsByTagName("body")[0];
-
+    const body = this.parseFromString(data).getElementsByTagName("body")[0];
     return body;
+  },
+
+  parseFromString(string) {
+    const parser = new DOMParser();
+    return parser.parseFromString(string, "text/html");
   },
 
   // 객체 비교
