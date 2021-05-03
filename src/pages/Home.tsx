@@ -24,11 +24,7 @@ const Index = () => {
   return (
     <section className="home">
       <EventSection events={homeData?.events} />
-      <CalendarSection
-        calendar={homeData?.calendar}
-        today={today}
-        yoil={yoil}
-      />
+      <CalendarSection calendar={homeData?.calendar} today={today} />
       <TimerSection data={DAILY_ISLAND} today={today} text="오늘의 모험섬" />
       <TimerSection
         data={FIELD_BOSS[yoil]}
