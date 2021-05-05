@@ -1,4 +1,4 @@
-<p style="text-align : center">
+<p align="center">
   <img src="https://github.com/sangmin802/loa-hands/blob/master/public/img/markdown.gif?raw=true" alt="readme-loahands" />
 </p>
 
