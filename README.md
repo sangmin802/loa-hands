@@ -1,6 +1,6 @@
 # Loa-Hands - 로스트아크 유저 검색 앱
 
-<img style="display : inline-block; margin : 0 auto;" src="https://github.com/sangmin802/loa-hands/blob/master/public/img/markdown.gif?raw=true" alt="readme-loahands">
+![loa-hands gif](https://github.com/sangmin802/loa-hands/blob/master/public/img/markdown.gif?raw=true "Loa-Hands")
 
 ## 설명
 
