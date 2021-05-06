@@ -12,8 +12,10 @@
     width: 12%;
     min-width: 40px;
     margin-right: 0.5rem;
-    border-radius: $contBox-border-radius;
-    border: $contBox-border;
+    img {
+      border-radius: $contBox-border-radius;
+      border: $contBox-border;
+    }
   }
   &:last-child {
     margin-bottom: 0;
