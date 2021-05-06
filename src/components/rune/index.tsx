@@ -2,6 +2,7 @@ import React from "react";
 import "./index.scss";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container/index";
+import Image from "components/image/index";
 
 export default ({ data }: { data? }) => {
   const rune = data.detail.rune;
@@ -19,7 +20,8 @@ export default ({ data }: { data? }) => {
 
   return (
     <div className="rune">
-      <Thumbnail backSrc={runeImg} grade={gradeColor}>
+      <Thumbnail>
+        <Image args={{ src: runeImg, className: `gradient${gradeColor}` }} />
         <TextContainer text={[runeGrade, runeInfo]} grade={gradeColor} />
       </Thumbnail>
     </div>

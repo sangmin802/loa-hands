@@ -3,6 +3,7 @@ import Lodash from "lodash";
 import "./index.scss";
 import Thumbnail from "components/thumbnail";
 import TextContainer from "components/text-container";
+import Image from "components/image/index";
 import UserCollection from "components/userInfo-collection-nav/index";
 
 const Index = ({ userData }) => {
@@ -27,7 +28,8 @@ const Index = ({ userData }) => {
     <div className="searchedUserInfo">
       <div className="basicInfo">
         <TextContainer text={["클래스"]} />
-        <Thumbnail backSrc={classSrc}>
+        <Thumbnail>
+          <Image args={{ src: classSrc }} />
           <TextContainer text={[className]} />
         </Thumbnail>
       </div>

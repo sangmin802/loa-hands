@@ -1,6 +1,5 @@
 import React, { Children } from "react";
 import Lodash from "lodash";
-import "./index.css";
 
 const NavContent = ({ children, selected, cn }) => {
   return (

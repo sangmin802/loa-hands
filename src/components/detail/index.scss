@@ -3,34 +3,37 @@
 .detailTop {
   display: flex;
   justify-content: space-between;
+  .thumbnail {
+    display: flex;
+    width: 100%;
+  }
+  .img-container {
+    width: 20%;
+    min-width: 60px;
+    margin-right: 0.5rem;
+  }
+  .text-container {
+    width: calc(80% - 0.5rem - 0.1px);
+    min-width: calc(100% - 0.5rem - 60.1px);
+    > div {
+      font-size: 0.7rem;
+      &:last-child {
+        font-size: 1.05rem;
+      }
+    }
+  }
 }
-.detailTop .imgTextWrap {
-  display: flex;
-  width: 100%;
-}
-.detailTop .imgWrap {
-  width: 20%;
-  min-width: 60px;
-  margin-right: 0.5rem;
-}
-.detailTop .textWrap {
-  width: calc(80% - 0.5rem - 0.1px);
-  min-width: calc(100% - 0.5rem - 60.1px);
-}
-.detailTop .textWrap > div {
-  font-size: 0.7rem;
-}
-.detailTop .textWrap > div:last-child {
-  font-size: 1.05rem;
-}
-
-.detailBottom > div {
-  margin-top: 0.7rem;
-}
-.detailBottom > div * {
-  font-size: 0.8rem;
-}
-.detailBottom .textWrap * {
-  overflow: initial;
-  white-space: initial;
+.detailBottom {
+  > div {
+    margin-top: 0.7rem;
+    * {
+      font-size: 0.8rem;
+    }
+  }
+  .text-container {
+    * {
+      overflow: initial;
+      white-space: initial;
+    }
+  }
 }

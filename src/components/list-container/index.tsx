@@ -13,7 +13,7 @@ const ListContainer = ({
   children?;
 }) => {
   return (
-    <div className={`column${side}`}>
+    <div className={`column-${side}`}>
       <div className="columnTitle rem09 textCenter">{title}</div>
       <div className="columnContent">
         {arr.map((res, index) => {

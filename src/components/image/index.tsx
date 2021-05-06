@@ -1,24 +1,9 @@
-import React from "react";
-import "./index.css";
+import React, { createElement } from "react";
+import "./index.scss";
 
-const Image = ({ backSrc, src, grade }: { backSrc?; src?; grade? }) => {
+const Image = ({ args }: { args }) => {
   return (
-    <div className="imgWrap">
-      {backSrc && (
-        <img
-          className={`imgWidth contentBoxBorder gradient${grade}`}
-          src={backSrc}
-          alt="partImg"
-        />
-      )}
-      {src && (
-        <img
-          className={`equipMainImg absolute imgWidth gradient${grade}`}
-          src={src}
-          alt={src}
-        />
-      )}
-    </div>
+    <div className="img-container">{createElement("img", { ...args })}</div>
   );
 };
 

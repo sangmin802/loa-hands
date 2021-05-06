@@ -1,9 +1,9 @@
 import React from "react";
-import "./index.css";
+import "./index.scss";
 
 const TextContainer = ({ text, grade }: { text; grade? }) => {
   return (
-    <div className="textWrap">
+    <div className="text-container">
       {text.map((res, index) => {
         return (
           <div

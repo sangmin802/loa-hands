@@ -7,10 +7,10 @@
   overflow: hidden;
   margin-bottom: 2%;
   cursor: pointer;
-  .imgTextWrap {
+  .thumbnail {
     flex-direction: column;
     background: $bgDeep;
-    .imgWrap {
+    .img-container {
       width: 100%;
       margin-right: 0;
       * {
@@ -18,7 +18,7 @@
         border-radius: 0;
       }
     }
-    .textWrap {
+    .text-container {
       padding: 0.3rem;
       * {
         text-align: center;

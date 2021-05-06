@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import Thumbnail from "components/thumbnail/index";
 import TextContainer from "components/text-container/index";
 import Detail from "components/detail/index";
+import Image from "components/image/index";
 import { useDialog } from "hooks/use-dialog";
 import "./index.scss";
 
@@ -21,7 +22,13 @@ const ColumnList = ({ data, children }: { data; children? }) => {
       className={`columnList ${detail?.hover ? "pointer" : ""}`}
       onClick={callDialog}
     >
-      <Thumbnail backSrc={backSrc} grade={detail?.grade} src={detail?.src}>
+      <Thumbnail>
+        <Image
+          args={{
+            className: `gradient${detail?.grade}`,
+            src: detail?.src ?? backSrc,
+          }}
+        />
         <TextContainer
           text={detail ? [...detail.subTitle, detail.title] : []}
           grade={detail?.grade}

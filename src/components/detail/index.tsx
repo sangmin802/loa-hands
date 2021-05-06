@@ -6,6 +6,7 @@ import ItemPartBox from "components/itempartbox/index";
 import IndentString from "components/indentstring/index";
 import TripodSkillCustom from "components/tripodskillcustom/index";
 import TextContainer from "components/text-container/index";
+import Image from "components/image/index";
 
 const Detail = ({ data, children }: { data; children? }) => {
   const { backSrc, detail } = data;
@@ -22,7 +23,14 @@ const Detail = ({ data, children }: { data; children? }) => {
   return (
     <div className="detail zDetail10">
       <div className="detailTop">
-        <Thumbnail backSrc={backSrc} src={src} grade={grade}>
+        <Thumbnail>
+          <Image
+            args={{
+              className: `gradient${grade ?? ""}`,
+              style: { backgroundImage: backSrc ?? "" },
+              src: src ?? backSrc,
+            }}
+          />
           <TextContainer text={[...subTitle, title]} grade={grade} />
         </Thumbnail>
       </div>

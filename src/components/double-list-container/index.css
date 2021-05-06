@@ -1,12 +1,12 @@
 .doubleColumnWrap {
-  display : flex;
+  display: flex;
 }
 .doubleColumnWrap > div {
-  width : calc((100% - .5rem -0.1px) / 2);
+  width: calc((100% - 0.5rem -0.1px) / 2);
 }
-.columnleft {
-  margin-right : .5rem;
+.column-left {
+  margin-right: 0.5rem;
 }
 .columnTitle {
-  margin-bottom : 1rem;
+  margin-bottom: 1rem;
 }

@@ -1,0 +1,10 @@
+@import "../../style/variables.scss";
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  * {
+    color: $white;
+  }
+}
