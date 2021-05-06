@@ -4,10 +4,9 @@ import "./index.scss";
 import Thumbnail from "components/thumbnail";
 import TextContainer from "components/text-container";
 import Image from "components/image/index";
-import UserCollection from "components/userInfo-collection-nav/index";
 
-const Index = ({ userData }) => {
-  const { basicInfo, expeditionInfo, collectionInfo } = userData;
+const Index = ({ userData, collection }) => {
+  const { basicInfo, expeditionInfo } = userData;
   const {
     className,
     classSrc,
@@ -22,7 +21,6 @@ const Index = ({ userData }) => {
     title,
   } = basicInfo;
   const { name, server, Lv } = expeditionInfo;
-  const { collectionMini } = collectionInfo;
 
   return (
     <div className="searchedUserInfo">
@@ -49,7 +47,7 @@ const Index = ({ userData }) => {
         <TextContainer text={["칭호", title]} />
         <TextContainer text={["길드", guild]} />
       </div>
-      <div className="userInfoCollection">{UserCollection(collectionMini)}</div>
+      <div className="userInfoCollection">{collection}</div>
     </div>
   );
 };

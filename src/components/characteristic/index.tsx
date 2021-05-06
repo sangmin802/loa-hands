@@ -1,16 +1,16 @@
 import React from "react";
 import Lodash from "lodash";
-import Chararteristic from "./characteristic/index";
+import Item from "./item/index";
 import "./index.scss";
 
-const Index = ({ data }) => {
+const Chararteristic = ({ data }) => {
   return (
-    <div className="characteristicWrap">
+    <div className="characteristic-container">
       {data.map(({ title, content }) => {
         return (
           <div className="characteristics" key={title}>
             <div className="title textCenter">{title}</div>
-            <Chararteristic content={content} />
+            <Item content={content} />
           </div>
         );
       })}
@@ -18,4 +18,6 @@ const Index = ({ data }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(Chararteristic, (left, right) =>
+  Lodash.isEqual(left, right)
+);

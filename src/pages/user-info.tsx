@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import "style/userInfo.scss";
-import UserBasicInfo from "components/userInfo-basic/index";
-import UserExpeditionChars from "components/userInfo-expeditionchars/index";
+import Basic from "components/basic-info/index";
+import Expedition from "components/expedition/index";
 import Nav from "components/nav/index";
 import { useUser } from "hooks/use-user";
 import { useExpedition } from "hooks/use-expedition";
 import { useNav } from "hooks/use-nav";
-import UserCollection from "components/userInfo-collection-nav/index";
+import Collection from "components/collection/index";
 import NavContent from "components/nav-content/index";
 import DoubleListContainer from "components/double-list-container/index";
 import Quality from "components/quality/index";
 import Rune from "components/rune/index";
-import CharacteristicWrap from "components/userInfo-characteristic/index";
+import Characteristic from "components/characteristic/index";
 import { arrayReducer } from "utility/utility";
 
 const Index = ({
@@ -23,6 +23,17 @@ const Index = ({
   const { expeditionPop, setExpeditionPop } = useExpedition();
   const { nav: subNav, setNav: setSubNav } = useNav("sub");
   const { nav: mainNav, setNav: setMainNav } = useNav("main");
+  const collectionNav = useMemo(
+    () =>
+      userData?.collectionInfo.collectionMini.map((col, index) => (
+        <Collection
+          key={`collectionMini${index}`}
+          index={index}
+          size={col.size}
+        />
+      )),
+    [userData]
+  );
 
   useEffect(() => {
     if (!userData) setUserData(name);
@@ -32,7 +43,7 @@ const Index = ({
   const subNavs = [
     ["착용 아이템", "착용 아바타", "특성·각인"],
     ["전투스킬", "생활스킬"],
-    UserCollection(userData.collectionInfo.collectionMini),
+    collectionNav,
   ];
   const mainNavs = ["능력치", "스킬", "수집형포인트"];
 
@@ -49,13 +60,13 @@ const Index = ({
           <div className="showExpeditionWrap" onClick={setExpeditionPop}>
             원정대 캐릭터 보기
           </div>
-          <UserExpeditionChars
+          <Expedition
             userData={userData}
             setUserData={setUserData}
             expeditionPop={expeditionPop}
             setExpeditionPop={setExpeditionPop}
           />
-          <UserBasicInfo userData={userData} />
+          <Basic userData={userData} collection={collectionNav} />
         </section>
         <section className="userInfoBottom">
           <Nav
@@ -84,7 +95,7 @@ const Index = ({
                 <Quality />
               </DoubleListContainer>
               <DoubleListContainer data={av} type="Inner" />
-              <CharacteristicWrap data={[basic, battle, engrave]} />
+              <Characteristic data={[basic, battle, engrave]} />
             </NavContent>
             <NavContent
               selected={subNav}
