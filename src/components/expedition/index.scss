@@ -27,6 +27,7 @@
   .userExpeditionServer {
     font-weight: bold;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
   }
   .userExpeditionCharWrap {
     display: flex;
@@ -38,6 +39,7 @@
     padding: 0.5rem;
     border-radius: $contBox-border-radius;
     cursor: pointer;
+    font-size: 0.9rem;
   }
   .userExpeditionChar:hover {
     background: $bgLow;

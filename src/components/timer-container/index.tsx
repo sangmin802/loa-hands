@@ -36,7 +36,7 @@ const Index = ({ data, today = null }) => {
   });
 
   if (newData.length === 0)
-    return <div className="noTimerContent textCenter rem08">다음에 만나요</div>;
+    return <div className="no-timer textCenter">다음에 만나요</div>;
 
   return (
     <div className="timerWrap">

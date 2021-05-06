@@ -6,10 +6,7 @@ const Index = ({ setUserData, char }) => {
   }, [char.name, setUserData]);
 
   return (
-    <div
-      className="userExpeditionChar rem09 overflowDot"
-      onClick={setUserDataEvent}
-    >
+    <div className="userExpeditionChar overflowDot" onClick={setUserDataEvent}>
       {char.lv} {char.name}
     </div>
   );

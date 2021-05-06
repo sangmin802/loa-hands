@@ -14,10 +14,10 @@ export default ({ data }: { data? }) => {
   if (quality === 100) qualityColor = 4;
 
   return (
-    <div className="detailQuality textCenter rem08">
+    <div className="detail-quality textCenter">
       품질 {quality}%
       <div
-        className={`qualityValue gradient${qualityColor}`}
+        className={`quality-value gradient${qualityColor}`}
         style={{ width: `${quality}%` }}
       ></div>
     </div>

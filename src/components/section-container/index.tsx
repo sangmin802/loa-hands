@@ -5,7 +5,7 @@ import "./index.scss";
 const HomeSection = ({ children, title, cn = "" }) => {
   return (
     <section className={`section ${cn}`}>
-      <div className="sectionTitle rem1 textCenter">{title}</div>
+      <div className="sectionTitle textCenter">{title}</div>
       <div className="sectionContent">{children}</div>
     </section>
   );

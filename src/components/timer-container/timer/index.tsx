@@ -40,23 +40,19 @@ const Index = props => {
 
   return (
     <div className="timer" style={{ borderColor: borderColor }}>
-      <div style={{ display: endTimeBg }} className="endTimeBg"></div>
-      <div className="timerName rem09 textCenter overflowDot">{name}</div>
-      <div className="timerContent">
-        <div className="timerImg">
-          <img
-            className="imgWidth"
-            src={`${process.env.PUBLIC_URL}${src}`}
-            alt={name as string}
-          />
-          <div className="timerLv rem07">{lv}</div>
+      <div style={{ display: endTimeBg }} className="end-time-bg"></div>
+      <div className="name textCenter overflowDot">{name}</div>
+      <div className="content">
+        <div className="timer-img">
+          <img src={`${process.env.PUBLIC_URL}${src}`} alt={name as string} />
+          <div className="lv">{lv}</div>
         </div>
-        <div className="timerTime">
-          <div className="startTime rem08">{minusMin(time, waiting)}</div>
-          <div className="timeOut rem08">{timeOut}</div>
+        <div className="time">
+          <div className="start">{minusMin(time, waiting)}</div>
+          <div className="time-out">{timeOut}</div>
         </div>
       </div>
-      <div className="timerName rem09 textCenter overflowDot">{position}</div>
+      <div className="name textCenter overflowDot">{position}</div>
     </div>
   );
 };

@@ -1,5 +1,8 @@
-.itemPartBoxes {
+.item-part-box {
   > div {
     margin-top: 0.5rem;
+  }
+  .title {
+    font-size: 0.9rem;
   }
 }

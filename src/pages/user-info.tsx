@@ -3,15 +3,15 @@ import "style/userInfo.scss";
 import Basic from "components/basic-info/index";
 import Expedition from "components/expedition/index";
 import Nav from "components/nav/index";
-import { useUser } from "hooks/use-user";
-import { useExpedition } from "hooks/use-expedition";
-import { useNav } from "hooks/use-nav";
 import Collection from "components/collection/index";
 import NavContent from "components/nav-content/index";
 import DoubleListContainer from "components/double-list-container/index";
 import Quality from "components/quality/index";
 import Rune from "components/rune/index";
 import Characteristic from "components/characteristic/index";
+import { useUser } from "hooks/use-user";
+import { useExpedition } from "hooks/use-expedition";
+import { useNav } from "hooks/use-nav";
 import { arrayReducer } from "utility/utility";
 
 const Index = ({

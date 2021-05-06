@@ -31,7 +31,7 @@ const Header = ({ setHomeData, setUserData }) => {
             ref={textInput}
             autoComplete="off"
           />
-          <input type="submit" className="rem1" value="검색" />
+          <input type="submit" value="검색" />
         </form>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import List from "components/list/index";
+import "./index.scss";
 
 const ListContainer = ({
   title,
@@ -13,8 +14,8 @@ const ListContainer = ({
   children?;
 }) => {
   return (
-    <div className={`column-${side}`}>
-      <div className="columnTitle rem09 textCenter">{title}</div>
+    <div className={`list-${side} list-container`}>
+      <div className="title textCenter">{title}</div>
       <div className="columnContent">
         {arr.map((res, index) => {
           return (
