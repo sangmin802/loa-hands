@@ -1,19 +1,18 @@
 import React from "react";
 import Lodash from "lodash";
+import DangerousHTML from "components/dangerous-html/index";
 import "./index.scss";
 
 const IntentString = ({ data }: { data? }) => {
   return (
     <div className="indentStrings">
-      {data.map(({ title: { val, active }, desc }, index) => {
+      {data.map(({ title: { val }, desc }, index) => {
         return (
           <div key={index} className="indentString">
-            <div className={`color${active}`}>{val}</div>
+            <DangerousHTML html={val} />
             <div>
-              {desc.map(({ val, active }, index) => (
-                <div key={index} className={`color${active}`}>
-                  {val}
-                </div>
+              {desc.map(({ val }, index) => (
+                <DangerousHTML key={index} html={val} />
               ))}
             </div>
           </div>

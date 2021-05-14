@@ -1,8 +1,9 @@
 import React from "react";
 import Lodash from "lodash";
 import Thumbnail from "components/thumbnail/index";
-import TextContainer from "components/text-container/index";
+import DangerousHTML from "components/dangerous-html/index";
 import Image from "components/image/index";
+import "./index.scss";
 
 const Index = ({ data }) => {
   return (
@@ -12,7 +13,10 @@ const Index = ({ data }) => {
         return (
           <Thumbnail key={`ts${index}`}>
             <Image args={{ src, className: `gradient${grade}` }} />
-            <TextContainer text={[name, desc]} grade={grade} />
+            <div className="desc">
+              <DangerousHTML html={name} />
+              <DangerousHTML html={desc} />
+            </div>
           </Thumbnail>
         );
       })}
