@@ -30,6 +30,15 @@
       font-size: 0.8rem;
     }
   }
+  .desc {
+    > div {
+      font-size: 0.8rem;
+      &:first-child {
+        font-size: 0.95rem;
+      }
+    }
+  }
+
   .text-container {
     * {
       overflow: initial;
