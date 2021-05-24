@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/loa-hands/static/css/main.d189e8e9.chunk.css",
+    "main.css": "/loa-hands/static/css/main.80d9d1d6.chunk.css",
     "main.js": "/loa-hands/static/js/main.5f5299cb.chunk.js",
     "main.js.map": "/loa-hands/static/js/main.5f5299cb.chunk.js.map",
     "runtime-main.js": "/loa-hands/static/js/runtime-main.02ec9361.js",
@@ -8,16 +8,16 @@
     "static/js/2.72c630d7.chunk.js": "/loa-hands/static/js/2.72c630d7.chunk.js",
     "static/js/2.72c630d7.chunk.js.map": "/loa-hands/static/js/2.72c630d7.chunk.js.map",
     "index.html": "/loa-hands/index.html",
-    "precache-manifest.dbd5dd2d044ecb6402696d9d6a8149e9.js": "/loa-hands/precache-manifest.dbd5dd2d044ecb6402696d9d6a8149e9.js",
+    "precache-manifest.94e5d6bc5cbfe1214b5cf267f6d1f1ae.js": "/loa-hands/precache-manifest.94e5d6bc5cbfe1214b5cf267f6d1f1ae.js",
     "service-worker.js": "/loa-hands/service-worker.js",
-    "static/css/main.d189e8e9.chunk.css.map": "/loa-hands/static/css/main.d189e8e9.chunk.css.map",
+    "static/css/main.80d9d1d6.chunk.css.map": "/loa-hands/static/css/main.80d9d1d6.chunk.css.map",
     "static/js/2.72c630d7.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.72c630d7.chunk.js.LICENSE.txt",
-    "static/media/global.scss": "/loa-hands/static/media/Maplestory Light.fb932d04.ttf"
+    "static/media/global.scss": "/loa-hands/static/media/BMJUA_ttf.7dbe95a7.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.02ec9361.js",
     "static/js/2.72c630d7.chunk.js",
-    "static/css/main.d189e8e9.chunk.css",
+    "static/css/main.80d9d1d6.chunk.css",
     "static/js/main.5f5299cb.chunk.js"
   ]
 }

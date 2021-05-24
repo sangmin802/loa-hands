@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "85c21329396b3cee378037359f90e4e8",
+    "revision": "cf4fc623ded8b5edd7d322785d14534f",
     "url": "/loa-hands/index.html"
   },
   {
-    "revision": "8e78743644ec1609506d",
-    "url": "/loa-hands/static/css/main.d189e8e9.chunk.css"
+    "revision": "caa07f9656bfe550254b",
+    "url": "/loa-hands/static/css/main.80d9d1d6.chunk.css"
   },
   {
     "revision": "ecb0c3c07fbb61bc0a21",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/loa-hands/static/js/2.72c630d7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8e78743644ec1609506d",
+    "revision": "caa07f9656bfe550254b",
     "url": "/loa-hands/static/js/main.5f5299cb.chunk.js"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/loa-hands/static/js/runtime-main.02ec9361.js"
   },
   {
-    "revision": "fb932d042f385927ba59e9a690538709",
-    "url": "/loa-hands/static/media/Maplestory Light.fb932d04.ttf"
+    "revision": "7dbe95a75200471524c4e5bc7a279708",
+    "url": "/loa-hands/static/media/BMJUA_ttf.7dbe95a7.ttf"
   }
 ]);
