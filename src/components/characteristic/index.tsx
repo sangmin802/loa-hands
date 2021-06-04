@@ -1,6 +1,7 @@
 import React from "react";
 import Lodash from "lodash";
-import Item from "./item/index";
+import TextContainer from "components/text-container/index";
+import DangerousHTML from "components/dangerous-html/index";
 import "./index.scss";
 
 const Chararteristic = ({ data }) => {
@@ -15,6 +16,19 @@ const Chararteristic = ({ data }) => {
         );
       })}
     </div>
+  );
+};
+
+const Item = ({ content }) => {
+  return (
+    <>
+      {content.map(({ title, desc }) => (
+        <div className="characteristic" key={title[0]}>
+          <TextContainer text={title} />
+          <DangerousHTML html={desc} />
+        </div>
+      ))}
+    </>
   );
 };
 
