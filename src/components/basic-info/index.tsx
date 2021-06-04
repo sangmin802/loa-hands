@@ -17,39 +17,41 @@ const Index = ({ userData, collection }) => {
     guild,
     pvp,
     reachBigLv,
-    reachSamllLv,
+    reachSmallLv,
     title,
   } = basicInfo;
   const { name, server, Lv } = expeditionInfo;
 
   return (
-    <div className="searchedUserInfo">
-      <div className="basicInfo">
+    <div className="searched-user-info">
+      <div className="basic-info">
         <TextContainer text={["클래스"]} />
         <Thumbnail>
           <Image args={{ src: classSrc }} />
           <TextContainer text={[className]} />
         </Thumbnail>
       </div>
-      <div className="basicInfo">
+      <div className="basic-info">
         <TextContainer text={["이름", `${Lv} ${name}`]} />
         <TextContainer text={["원정대 레벨", `${server} Lv ${expeditionLv}`]} />
       </div>
-      <div className="basicInfo">
+      <div className="basic-info">
         <TextContainer text={["현재 아이템 레벨", curBigLv, curSmallLv]} />
-        <TextContainer text={["달성 아이템 레벨", reachBigLv, reachSamllLv]} />
+        <TextContainer text={["달성 아이템 레벨", reachBigLv, reachSmallLv]} />
       </div>
-      <div className="basicInfo">
+      <div className="basic-info">
         <TextContainer text={["영지", garden]} />
         <TextContainer text={["PVP", pvp]} />
       </div>
-      <div className="basicInfo">
+      <div className="basic-info">
         <TextContainer text={["칭호", title]} />
         <TextContainer text={["길드", guild]} />
       </div>
-      <div className="userInfoCollection">{collection}</div>
+      <div className="user-info-collection">{collection}</div>
     </div>
   );
 };
 
-export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(basicInfo, (left, right) =>
+  Lodash.isEqual(left, right)
+);
