@@ -5,7 +5,7 @@ import Thumbnail from "components/thumbnail";
 import TextContainer from "components/text-container";
 import Image from "components/image/index";
 
-const Index = ({ userData, collection }) => {
+const basicInfo = ({ userData, collection }) => {
   const { basicInfo, expeditionInfo } = userData;
   const {
     className,
