@@ -3,7 +3,9 @@ import "./index.scss";
 
 const Image = ({ args }: { args }) => {
   return (
-    <div className="img-container">{createElement("img", { ...args })}</div>
+    <div className="img-container">
+      {createElement("img", { ...args, alt: args.src })}
+    </div>
   );
 };
 
