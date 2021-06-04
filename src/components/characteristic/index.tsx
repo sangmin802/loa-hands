@@ -9,7 +9,7 @@ const Chararteristic = ({ data }) => {
       {data.map(({ title, content }) => {
         return (
           <div className="characteristics" key={title}>
-            <div className="title textCenter">{title}</div>
+            <div className="title text-center">{title}</div>
             <Item content={content} />
           </div>
         );
