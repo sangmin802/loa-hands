@@ -2,7 +2,7 @@ import React from "react";
 import Lodash from "lodash";
 import "./index.css";
 
-const Index = ({ size, index }) => {
+const Collection = ({ size, index }) => {
   let position = "720px";
   switch (index) {
     case 0:
@@ -33,14 +33,16 @@ const Index = ({ size, index }) => {
   }
 
   return (
-    <div className="collectionMini">
+    <div className="collection-mini">
       <div
-        className="collectionMiniBg"
+        className="collection-mini-bg"
         style={{ backgroundPosition: ` ${position} 50px` }}
       ></div>
-      <div className="collectionMiniSize">{size}</div>
+      <div className="collection-mini-size">{size}</div>
     </div>
   );
 };
 
-export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(Collection, (left, right) =>
+  Lodash.isEqual(left, right)
+);
