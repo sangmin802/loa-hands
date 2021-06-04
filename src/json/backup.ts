@@ -1,15 +1,14 @@
-//  혹시나 막힐 경우를 대비하여 남겨둠
 export const User = {
   basicInfo: {
-    expeditionLv: "221",
+    expeditionLv: "229",
     title: "-",
-    curBigLv: "1,402",
-    curSmallLv: ".50",
-    reachBigLv: "1,402",
-    reachSamllLv: ".50",
+    curBigLv: "1,430",
+    curSmallLv: ".00",
+    reachBigLv: "1,430",
+    reachSmallLv: ".00",
     guild: "지칠때쉬러와",
-    pvp: "8단",
-    garden: "Lv.65 동산",
+    pvp: "초단",
+    garden: "Lv.70 동산",
     className: "바드",
     classSrc:
       "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/bard_m.png",
@@ -17,18 +16,19 @@ export const User = {
   },
   expeditionInfo: {
     name: "모여요꿈동산",
-    Lv: "Lv.57",
+    Lv: "Lv.59",
     server: "@아브렐슈드",
     expeditionUserWrap: [
       {
         server: "@아브렐슈드",
         charList: [
-          { name: "이태원돈까스", lv: "Lv.54" },
-          { name: "카드케챱체리", lv: "Lv.54" },
-          { name: "군인시절", lv: "Lv.55" },
-          { name: "워로드는뒤로점프", lv: "Lv.56" },
-          { name: "퐁메라니안", lv: "Lv.54" },
-          { name: "모여요꿈동산", lv: "Lv.57" },
+          { name: "백어택시너지있어요", lv: "Lv.54" },
+          { name: "이태원돈까스", lv: "Lv.56" },
+          { name: "카드케챱체리", lv: "Lv.56" },
+          { name: "군인시절", lv: "Lv.57" },
+          { name: "워로드는뒤로점프", lv: "Lv.58" },
+          { name: "퐁메라니안", lv: "Lv.57" },
+          { name: "모여요꿈동산", lv: "Lv.59" },
         ],
       },
     ],
@@ -44,52 +44,91 @@ export const User = {
           title: "+17 선택의 리아네 하프",
           subTitle: ["전설 리아네 하프", "아이템 레벨 1445 (티어 3)"],
           quality: 100,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_121.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_121.png",
           grade: 4,
           itemPartBox: [
-            { title: "기본 효과", desc: "무기 공격력 +24241" },
-            { title: "추가 효과", desc: "추가 피해 +15.00%" },
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "무기 공격력 +24241",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "추가 피해 +15.00%",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "선택 <FONT COLOR='#FFD200'>Lv.1</FONT>",
+            },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
-                { val: "[바드] [사운드 홀릭] 사운드 집중 Lv +2", active: null },
                 {
-                  val: "[바드] [윈드 오브 뮤직] 빠른 준비 Lv +1",
+                  val: "[바드] [<FONT COLOR='#FFD200'>사운드 홀릭</FONT>] 사운드 집중 <FONT COLOR='#73dc04'>Lv +2</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>수호의 연주</FONT>] 끝나지 않는 수호 <FONT COLOR='#73dc04'>Lv +3</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: "선택", active: null },
-              desc: [
-                { val: "선택 (리아네 하프)[전설]", active: null },
-                { val: "선택 (머리 방어구)[전설]", active: null },
-                { val: "선택 (상의)", active: 0 },
-                { val: "선택 (하의)[전설]", active: null },
-                { val: "선택 (장갑)[전설]", active: null },
-                { val: "선택 (어깨 방어구)", active: 0 },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>선택</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "어비스 레이드 몬스터에게 공격 적중 시 '아르고스의 힘' 효과 획득",
-                    " 아르고스의 힘: 20초 동안 적에게 주는 피해 20% 증가 (재사용 대기시간 60초)",
-                  ],
+                  val: "<font size='12'>선택 (리아네 하프)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
                   active: null,
+                },
+                {
+                  val: "<font color='#aaaaaa'><font size='12'>선택 (머리 방어구)</font></font>",
+                  active: 0,
+                },
+                {
+                  val: "<font color='#aaaaaa'><font size='12'>선택 (상의)</font></font>",
+                  active: 0,
+                },
+                {
+                  val: "<font color='#aaaaaa'><font size='12'>선택 (하의)</font></font>",
+                  active: 0,
+                },
+                {
+                  val: "<font color='#aaaaaa'><font size='12'>선택 (장갑)</font></font>",
+                  active: 0,
+                },
+                {
+                  val: "<font color='#aaaaaa'><font size='12'>선택 (어깨 방어구)</font></font>",
+                  active: 0,
                 },
               ],
             },
             {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
+              title: {
+                val: "<font size='14'><font color='#aaaaaa'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'>Lv.1</font></font>]</font></font>",
+                active: 0,
+              },
               desc: [
                 {
-                  val: "가디언 등급 이하 몬스터에게 주는 피해 10% 증가",
+                  val: "<font size='12'><font color='#aaaaaa'>어비스 레이드 몬스터에게 공격 적중 시 '아르고스의 힘' 효과 획득<BR> 아르고스의 힘: <FONT COLOR='#ffff99'>20</FONT>초 동안 적에게 주는 피해 <FONT COLOR='#99FF99'>20%</FONT> 증가 (재사용 대기시간 <FONT COLOR='#ffff99'>60</FONT>초)</font></font>",
+                  active: 0,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#aaaaaa'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'>Lv.1</font></font>]</font></font>",
+                active: 0,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#aaaaaa'>가디언 등급 이하 몬스터에게 주는 피해 <FONT COLOR='#99FF99'>10%</FONT> 증가</font></font>",
                   active: 0,
                 },
               ],
@@ -104,67 +143,99 @@ export const User = {
         type: "Equip",
         detail: {
           hover: true,
-          title: "+13 선택의 머리장식",
-          subTitle: ["전설 머리 방어구", "아이템 레벨 1405 (티어 3)"],
-          quality: 64,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_80.png",
+          title: "+16 냉혹한 맹세의 머리장식",
+          subTitle: ["전설 머리 방어구", "아이템 레벨 1430 (티어 3)"],
+          quality: 65,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_80.png",
           grade: 4,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: [
-                "물리 방어력 +3118",
-                "마법 방어력 +3465",
-                "지능 +10781",
-                "체력 +2553",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "물리 방어력 +3288<BR>마법 방어력 +3653<BR>지능 +11993<BR>체력 +2734",
             },
             {
-              title: "추가 효과",
-              desc: ["물리 방어력 +258", "마법 방어력 +401", "체력 +308"],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "물리 방어력 +301<BR>마법 방어력 +368<BR>체력 +308",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "맹세 <FONT COLOR='#FFD200'>Lv.1</FONT>",
             },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
-                { val: "[바드] [천상의 연주] 빠른 준비 Lv +2", active: null },
                 {
-                  val: "[바드] [수호의 연주] 끝나지 않는 수호 Lv +2",
+                  val: "[바드] [<FONT COLOR='#FFD200'>천상의 연주</FONT>] 빠른 준비 <FONT COLOR='#73dc04'>Lv +2</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>수호의 연주</FONT>] 끝나지 않는 수호 <FONT COLOR='#73dc04'>Lv +2</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>빛의 광시곡</FONT>] 빠른 준비 <FONT COLOR='#73dc04'>Lv +2</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: "선택", active: null },
-              desc: [
-                { val: "선택 (리아네 하프)[전설]", active: null },
-                { val: "선택 (머리 방어구)[전설]", active: null },
-                { val: "선택 (상의)", active: 0 },
-                { val: "선택 (하의)[전설]", active: null },
-                { val: "선택 (장갑)[전설]", active: null },
-                { val: "선택 (어깨 방어구)", active: 0 },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>맹세</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "어비스 레이드 몬스터에게 공격 적중 시 '아르고스의 힘' 효과 획득",
-                    " 아르고스의 힘: 20초 동안 적에게 주는 피해 20% 증가 (재사용 대기시간 60초)",
-                  ],
-                  active: null,
-                },
-              ],
-            },
-            {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
-              desc: [
-                {
-                  val: "가디언 등급 이하 몬스터에게 주는 피해 10% 증가",
+                  val: "<font color='#aaaaaa'><font size='12'>맹세 (리아네 하프)</font></font>",
                   active: 0,
+                },
+                {
+                  val: "<font size='12'>맹세 (머리 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (상의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (하의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (장갑)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (어깨 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>적을 타격 시 <FONT COLOR='#ffff99'>2</FONT>초 마다 <FONT COLOR='#ffff99'>6</FONT>초 동안 '달의 힘' 효과 획득<BR> 달의 힘: 치명타 피해 <FONT COLOR='#99FF99'>6%</FONT> 증가 (최대 <FONT COLOR='#ffff99'>5</FONT> 중첩, '태양의 힘'과 중복 적용되지 않음)</font></font>",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>'달의 힘' <FONT COLOR='#ffff99'>5</FONT> 중첩 시 '만월' 효과로 변경된다.<BR>'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 <FONT COLOR='#ffff99'>3m</FONT> 이내 접근 시 '개기 월식' 효과 획득<BR> 만월: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 피해 <FONT COLOR='#99FF99'>50%</FONT> 증가<BR> 개기 월식: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 확률 <FONT COLOR='#99FF99'>25%</FONT> 증가하며 치명타 피해가 <FONT COLOR='#99FF99'>50%</FONT> 증가</font></font>",
+                  active: null,
                 },
               ],
             },
@@ -178,69 +249,95 @@ export const User = {
         type: "Equip",
         detail: {
           hover: true,
-          title: "+8 냉혹한 맹세의 상의",
-          subTitle: ["전설 상의", "아이템 레벨 1380 (티어 3)"],
+          title: "+17 냉혹한 맹세의 상의",
+          subTitle: ["전설 상의", "아이템 레벨 1445 (티어 3)"],
           quality: 61,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_82.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_82.png",
           grade: 4,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: [
-                "물리 방어력 +4055",
-                "마법 방어력 +3717",
-                "지능 +7889",
-                "체력 +3296",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "물리 방어력 +4577<BR>마법 방어력 +4196<BR>지능 +10060<BR>체력 +3852",
             },
             {
-              title: "추가 효과",
-              desc: ["물리 방어력 +406", "마법 방어력 +404", "체력 +363"],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "물리 방어력 +406<BR>마법 방어력 +404<BR>체력 +363",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "맹세 <FONT COLOR='#FFD200'>Lv.1</FONT>",
             },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
-              desc: [
-                { val: "[바드] [컨빅션 코어] 냉기 코어 Lv +2", active: null },
-                { val: "[바드] [사운드 홀릭] 지속력 강화 Lv +1", active: null },
-              ],
-            },
-            {
-              title: { val: "맹세", active: null },
-              desc: [
-                { val: "맹세 (리아네 하프)", active: 0 },
-                { val: "맹세 (머리 방어구)", active: 0 },
-                { val: "맹세 (상의)[전설]", active: null },
-                { val: "맹세 (하의)", active: 0 },
-                { val: "맹세 (장갑)", active: 0 },
-                { val: "맹세 (어깨 방어구)[전설]", active: null },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "적을 타격 시 2초 마다 6초 동안 '달의 힘' 효과 획득",
-                    " 달의 힘: 치명타 피해 6% 증가 (최대 5 중첩, '태양의 힘'과 중복 적용되지 않음)",
-                  ],
+                  val: "[바드] [<FONT COLOR='#FFD200'>폭풍의 서곡</FONT>] 선율 증가 <FONT COLOR='#73dc04'>Lv +3</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>사운드 홀릭</FONT>] 지속력 강화 <FONT COLOR='#73dc04'>Lv +1</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>맹세</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "'달의 힘' 5 중첩 시 '만월' 효과로 변경된다.",
-                    "'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 3m 이내 접근 시 '개기 월식' 효과 획득",
-                    " 만월: 15초 동안 치명타 피해 50% 증가",
-                    " 개기 월식: 15초 동안 치명타 확률 25% 증가하며 치명타 피해가 50% 증가",
-                  ],
+                  val: "<font color='#aaaaaa'><font size='12'>맹세 (리아네 하프)</font></font>",
                   active: 0,
+                },
+                {
+                  val: "<font size='12'>맹세 (머리 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (상의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (하의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (장갑)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (어깨 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>적을 타격 시 <FONT COLOR='#ffff99'>2</FONT>초 마다 <FONT COLOR='#ffff99'>6</FONT>초 동안 '달의 힘' 효과 획득<BR> 달의 힘: 치명타 피해 <FONT COLOR='#99FF99'>6%</FONT> 증가 (최대 <FONT COLOR='#ffff99'>5</FONT> 중첩, '태양의 힘'과 중복 적용되지 않음)</font></font>",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>'달의 힘' <FONT COLOR='#ffff99'>5</FONT> 중첩 시 '만월' 효과로 변경된다.<BR>'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 <FONT COLOR='#ffff99'>3m</FONT> 이내 접근 시 '개기 월식' 효과 획득<BR> 만월: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 피해 <FONT COLOR='#99FF99'>50%</FONT> 증가<BR> 개기 월식: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 확률 <FONT COLOR='#99FF99'>25%</FONT> 증가하며 치명타 피해가 <FONT COLOR='#99FF99'>50%</FONT> 증가</font></font>",
+                  active: null,
                 },
               ],
             },
@@ -254,68 +351,99 @@ export const User = {
         type: "Equip",
         detail: {
           hover: true,
-          title: "+12 선택의 하의",
-          subTitle: ["전설 하의", "아이템 레벨 1400 (티어 3)"],
-          quality: 69,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_84.png",
+          title: "+16 냉혹한 맹세의 하의",
+          subTitle: ["전설 하의", "아이템 레벨 1430 (티어 3)"],
+          quality: 66,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_84.png",
           grade: 4,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: [
-                "물리 방어력 +3792",
-                "마법 방어력 +4137",
-                "지능 +9032",
-                "체력 +2875",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "물리 방어력 +4019<BR>마법 방어력 +4384<BR>지능 +10148<BR>체력 +3098",
             },
             {
-              title: "추가 효과",
-              desc: ["물리 방어력 +503", "마법 방어력 +433", "체력 +286"],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "물리 방어력 +425<BR>마법 방어력 +437<BR>체력 +312",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "맹세 <FONT COLOR='#FFD200'>Lv.1</FONT>",
             },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
-                { val: "[바드] [수호의 연주] 강력한 수호 Lv +1", active: null },
                 {
-                  val: "[바드] [윈드 오브 뮤직] 수호의 바람 Lv +3",
+                  val: "[바드] [<FONT COLOR='#FFD200'>수호의 연주</FONT>] 강력한 수호 <FONT COLOR='#73dc04'>Lv +1</FONT>",
                   active: null,
                 },
-                { val: "[바드] [폭풍의 서곡] 선율 증가 Lv +2", active: null },
-              ],
-            },
-            {
-              title: { val: "선택", active: null },
-              desc: [
-                { val: "선택 (리아네 하프)[전설]", active: null },
-                { val: "선택 (머리 방어구)[전설]", active: null },
-                { val: "선택 (상의)", active: 0 },
-                { val: "선택 (하의)[전설]", active: null },
-                { val: "선택 (장갑)[전설]", active: null },
-                { val: "선택 (어깨 방어구)", active: 0 },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
-              desc: [
                 {
-                  val: [
-                    "어비스 레이드 몬스터에게 공격 적중 시 '아르고스의 힘' 효과 획득",
-                    " 아르고스의 힘: 20초 동안 적에게 주는 피해 20% 증가 (재사용 대기시간 60초)",
-                  ],
+                  val: "[바드] [<FONT COLOR='#FFD200'>윈드 오브 뮤직</FONT>] 수호의 바람 <FONT COLOR='#73dc04'>Lv +3</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>폭풍의 서곡</FONT>] 선율 증가 <FONT COLOR='#73dc04'>Lv +2</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>맹세</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: "가디언 등급 이하 몬스터에게 주는 피해 10% 증가",
+                  val: "<font color='#aaaaaa'><font size='12'>맹세 (리아네 하프)</font></font>",
                   active: 0,
+                },
+                {
+                  val: "<font size='12'>맹세 (머리 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (상의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (하의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (장갑)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (어깨 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>적을 타격 시 <FONT COLOR='#ffff99'>2</FONT>초 마다 <FONT COLOR='#ffff99'>6</FONT>초 동안 '달의 힘' 효과 획득<BR> 달의 힘: 치명타 피해 <FONT COLOR='#99FF99'>6%</FONT> 증가 (최대 <FONT COLOR='#ffff99'>5</FONT> 중첩, '태양의 힘'과 중복 적용되지 않음)</font></font>",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>'달의 힘' <FONT COLOR='#ffff99'>5</FONT> 중첩 시 '만월' 효과로 변경된다.<BR>'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 <FONT COLOR='#ffff99'>3m</FONT> 이내 접근 시 '개기 월식' 효과 획득<BR> 만월: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 피해 <FONT COLOR='#99FF99'>50%</FONT> 증가<BR> 개기 월식: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 확률 <FONT COLOR='#99FF99'>25%</FONT> 증가하며 치명타 피해가 <FONT COLOR='#99FF99'>50%</FONT> 증가</font></font>",
+                  active: null,
                 },
               ],
             },
@@ -329,64 +457,95 @@ export const User = {
         type: "Equip",
         detail: {
           hover: true,
-          title: "+13 선택의 장갑",
-          subTitle: ["전설 장갑", "아이템 레벨 1405 (티어 3)"],
-          quality: 72,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_83.png",
+          title: "+15 냉혹한 맹세의 장갑",
+          subTitle: ["전설 장갑", "아이템 레벨 1415 (티어 3)"],
+          quality: 66,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_83.png",
           grade: 4,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: [
-                "물리 방어력 +2772",
-                "마법 방어력 +2772",
-                "지능 +13269",
-                "체력 +1702",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "물리 방어력 +2800<BR>마법 방어력 +2800<BR>지능 +13537<BR>체력 +1724",
             },
             {
-              title: "추가 효과",
-              desc: ["물리 방어력 +326", "마법 방어력 +352", "체력 +168"],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "물리 방어력 +322<BR>마법 방어력 +268<BR>체력 +191",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "맹세 <FONT COLOR='#FFD200'>Lv.1</FONT>",
             },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
-              desc: [
-                { val: "[바드] [폭풍의 서곡] 빠른 준비 Lv +1", active: null },
-                { val: "[바드] [사운드 홀릭] 집중 포화 Lv +1", active: null },
-              ],
-            },
-            {
-              title: { val: "선택", active: null },
-              desc: [
-                { val: "선택 (리아네 하프)[전설]", active: null },
-                { val: "선택 (머리 방어구)[전설]", active: null },
-                { val: "선택 (상의)", active: 0 },
-                { val: "선택 (하의)[전설]", active: null },
-                { val: "선택 (장갑)[전설]", active: null },
-                { val: "선택 (어깨 방어구)", active: 0 },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "어비스 레이드 몬스터에게 공격 적중 시 '아르고스의 힘' 효과 획득",
-                    " 아르고스의 힘: 20초 동안 적에게 주는 피해 20% 증가 (재사용 대기시간 60초)",
-                  ],
+                  val: "[바드] [<FONT COLOR='#FFD200'>폭풍의 서곡</FONT>] 빠른 준비 <FONT COLOR='#73dc04'>Lv +1</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>사운드 홀릭</FONT>] 집중 포화 <FONT COLOR='#73dc04'>Lv +2</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>맹세</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: "가디언 등급 이하 몬스터에게 주는 피해 10% 증가",
+                  val: "<font color='#aaaaaa'><font size='12'>맹세 (리아네 하프)</font></font>",
                   active: 0,
+                },
+                {
+                  val: "<font size='12'>맹세 (머리 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (상의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (하의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (장갑)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (어깨 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>적을 타격 시 <FONT COLOR='#ffff99'>2</FONT>초 마다 <FONT COLOR='#ffff99'>6</FONT>초 동안 '달의 힘' 효과 획득<BR> 달의 힘: 치명타 피해 <FONT COLOR='#99FF99'>6%</FONT> 증가 (최대 <FONT COLOR='#ffff99'>5</FONT> 중첩, '태양의 힘'과 중복 적용되지 않음)</font></font>",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>'달의 힘' <FONT COLOR='#ffff99'>5</FONT> 중첩 시 '만월' 효과로 변경된다.<BR>'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 <FONT COLOR='#ffff99'>3m</FONT> 이내 접근 시 '개기 월식' 효과 획득<BR> 만월: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 피해 <FONT COLOR='#99FF99'>50%</FONT> 증가<BR> 개기 월식: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 확률 <FONT COLOR='#99FF99'>25%</FONT> 증가하며 치명타 피해가 <FONT COLOR='#99FF99'>50%</FONT> 증가</font></font>",
+                  active: null,
                 },
               ],
             },
@@ -400,72 +559,99 @@ export const User = {
         type: "Equip",
         detail: {
           hover: true,
-          title: "+8 냉혹한 맹세의 어깨장식",
-          subTitle: ["전설 어깨 방어구", "아이템 레벨 1380 (티어 3)"],
+          title: "+15 냉혹한 맹세의 어깨장식",
+          subTitle: ["전설 어깨 방어구", "아이템 레벨 1415 (티어 3)"],
           quality: 70,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_81.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/SM_Item/SM_Item_01_81.png",
           grade: 4,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: [
-                "물리 방어력 +3380",
-                "마법 방어력 +3042",
-                "지능 +11044",
-                "체력 +2143",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "물리 방어력 +3499<BR>마법 방어력 +3149<BR>지능 +11845<BR>체력 +2242",
             },
             {
-              title: "추가 효과",
-              desc: ["물리 방어력 +394", "마법 방어력 +377", "체력 +226"],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "물리 방어력 +394<BR>마법 방어력 +377<BR>체력 +226",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>세트 효과 레벨</FONT>",
+              desc: "맹세 <FONT COLOR='#FFD200'>Lv.1</FONT>",
             },
           ],
           indentStringGroup: [
             {
-              title: { val: "트라이포드 효과", active: null },
+              title: {
+                val: "<FONT COLOR='#A9D0F5'>트라이포드 효과</FONT>",
+                active: null,
+              },
               desc: [
-                { val: "[바드] [수호의 연주] 날렵한 시전 Lv +3", active: null },
                 {
-                  val: "[바드] [윈드 오브 뮤직] 빠른 준비 Lv +3",
+                  val: "[바드] [<FONT COLOR='#FFD200'>수호의 연주</FONT>] 날렵한 시전 <FONT COLOR='#73dc04'>Lv +3</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>윈드 오브 뮤직</FONT>] 빠른 준비 <FONT COLOR='#73dc04'>Lv +3</FONT>",
+                  active: null,
+                },
+                {
+                  val: "[바드] [<FONT COLOR='#FFD200'>사운드 홀릭</FONT>] 집중 포화 <FONT COLOR='#73dc04'>Lv +3</FONT>",
                   active: null,
                 },
               ],
             },
             {
-              title: { val: "맹세", active: null },
-              desc: [
-                { val: "맹세 (리아네 하프)", active: 0 },
-                { val: "맹세 (머리 방어구)", active: 0 },
-                { val: "맹세 (상의)[전설]", active: null },
-                { val: "맹세 (하의)", active: 0 },
-                { val: "맹세 (장갑)", active: 0 },
-                { val: "맹세 (어깨 방어구)[전설]", active: null },
-              ],
-            },
-            {
-              title: { val: ["2 세트 효과", "[전설]"], active: null },
+              title: {
+                val: "<font size='14'><font color='#91fe02'>맹세</font></font>",
+                active: null,
+              },
               desc: [
                 {
-                  val: [
-                    "적을 타격 시 2초 마다 6초 동안 '달의 힘' 효과 획득",
-                    " 달의 힘: 치명타 피해 6% 증가 (최대 5 중첩, '태양의 힘'과 중복 적용되지 않음)",
-                  ],
-                  active: null,
-                },
-              ],
-            },
-            {
-              title: { val: ["5 세트 효과", "[전설]"], active: 0 },
-              desc: [
-                {
-                  val: [
-                    "'달의 힘' 5 중첩 시 '만월' 효과로 변경된다.",
-                    "'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 3m 이내 접근 시 '개기 월식' 효과 획득",
-                    " 만월: 15초 동안 치명타 피해 50% 증가",
-                    " 개기 월식: 15초 동안 치명타 확률 25% 증가하며 치명타 피해가 50% 증가",
-                  ],
+                  val: "<font color='#aaaaaa'><font size='12'>맹세 (리아네 하프)</font></font>",
                   active: 0,
+                },
+                {
+                  val: "<font size='12'>맹세 (머리 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (상의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (하의)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (장갑)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+                {
+                  val: "<font size='12'>맹세 (어깨 방어구)</font> [<FONT COLOR='#FFD200'>Lv.1</FONT>]",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>2 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>적을 타격 시 <FONT COLOR='#ffff99'>2</FONT>초 마다 <FONT COLOR='#ffff99'>6</FONT>초 동안 '달의 힘' 효과 획득<BR> 달의 힘: 치명타 피해 <FONT COLOR='#99FF99'>6%</FONT> 증가 (최대 <FONT COLOR='#ffff99'>5</FONT> 중첩, '태양의 힘'과 중복 적용되지 않음)</font></font>",
+                  active: null,
+                },
+              ],
+            },
+            {
+              title: {
+                val: "<font size='14'><font color='#91fe02'>5 세트 효과<BR>[<font size='14'><font color='#aaaaaa'><FONT COLOR='#FFD200'>Lv.1</FONT></font></font>]</font></font>",
+                active: null,
+              },
+              desc: [
+                {
+                  val: "<font size='12'><font color='#ffffff'>'달의 힘' <FONT COLOR='#ffff99'>5</FONT> 중첩 시 '만월' 효과로 변경된다.<BR>'만월' 효과 발동 중 결단 5세트로 발동되는 효과를 가지고 있는 파티원에게 <FONT COLOR='#ffff99'>3m</FONT> 이내 접근 시 '개기 월식' 효과 획득<BR> 만월: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 피해 <FONT COLOR='#99FF99'>50%</FONT> 증가<BR> 개기 월식: <FONT COLOR='#ffff99'>15</FONT>초 동안 치명타 확률 <FONT COLOR='#99FF99'>25%</FONT> 증가하며 치명타 피해가 <FONT COLOR='#99FF99'>50%</FONT> 증가</font></font>",
+                  active: null,
                 },
               ],
             },
@@ -479,49 +665,30 @@ export const User = {
         type: "Acc",
         detail: {
           hover: true,
-          title: "비틀린 시간의 목걸이",
-          subTitle: ["전설 목걸이", "아이템 티어 3"],
-          quality: 45,
-          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png",
-          grade: 4,
+          title: "타락한 시간의 목걸이",
+          subTitle: ["유물 목걸이", "아이템 티어 3"],
+          quality: 50,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_209.png",
+          grade: 5,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: ["힘 +7171", "민첩 +7171", "지능 +7171", "체력 +2322"],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "<FONT COLOR='#686660'>힘 +9872</FONT><BR><FONT COLOR='#686660'>민첩 +9872</FONT><BR>지능 +9872<BR>체력 +2848",
             },
-            { title: "추가 효과", desc: ["치명 +367", "신속 +397"] },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[승부사] 활성도 +3",
-                "[원한] 활성도 +2",
-                "[이동속도 감소] 활성도 +2",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "특화 +468<BR>신속 +432",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>중갑 착용</FONT>] 활성도 +5<BR>[<FONT COLOR='#FFFFAC'>기습의 대가</FONT>] 활성도 +3<BR>[<FONT COLOR='#FE2E2E'>이동속도 감소</FONT>] 활성도 +3",
             },
           ],
           indentStringGroup: [],
           tripodSkillCustom: [
-            {
-              name: "5레벨 홍염의 보석",
-              desc: "[바드] 음파 진동 재사용 대기시간 10.00% 감소",
-              grade: 3,
-              src:
-                "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_60.png",
-            },
-            {
-              name: "6레벨 홍염의 보석",
-              desc: "[바드] 천상의 연주 재사용 대기시간 12.00% 감소",
-              grade: 3,
-              src:
-                "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_61.png",
-            },
-            {
-              name: "5레벨 홍염의 보석",
-              desc: "[바드] 수호의 연주 재사용 대기시간 10.00% 감소",
-              grade: 3,
-              src:
-                "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_60.png",
-            },
+            { name: "", desc: "보석 장착 필요", src: null },
+            { name: "", desc: "보석 장착 필요", src: null },
+            { name: "", desc: "보석 장착 필요", src: null },
           ],
         },
       },
@@ -531,30 +698,39 @@ export const User = {
         type: "Acc",
         detail: {
           hover: true,
-          title: "빛나는 파멸자의 귀걸이",
-          subTitle: ["전설 귀걸이", "아이템 티어 3"],
-          quality: 10,
-          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_108.png",
-          grade: 4,
+          title: "찬란한 구도자의 귀걸이",
+          subTitle: ["유물 귀걸이", "아이템 티어 3"],
+          quality: 36,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_109.png",
+          grade: 5,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: ["힘 +5578", "민첩 +5578", "지능 +5578", "체력 +1659"],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "<FONT COLOR='#686660'>힘 +7678</FONT><BR><FONT COLOR='#686660'>민첩 +7678</FONT><BR>지능 +7678<BR>체력 +2034",
             },
-            { title: "추가 효과", desc: "치명 +203" },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[예리한 둔기] 활성도 +2",
-                "[원한] 활성도 +2",
-                "[공격속도 감소] 활성도 +2",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "신속 +262",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>정기 흡수</FONT>] 활성도 +5<BR>[<FONT COLOR='#FFFFAC'>각성</FONT>] 활성도 +3<BR>[<FONT COLOR='#FE2E2E'>공격력 감소</FONT>] 활성도 +3",
             },
           ],
           indentStringGroup: [],
           tripodSkillCustom: [
-            { desc: "보석 장착 필요", src: null },
-            { desc: "보석 장착 필요", src: null },
+            {
+              name: "<FONT COLOR='#ce43fc'>5레벨 홍염의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>수호의 연주</FONT> 재사용 대기시간 10.00% 감소",
+              grade: 3,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_60.png",
+            },
+            {
+              name: "<FONT COLOR='#ce43fc'>6레벨 홍염의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>천상의 연주</FONT> 재사용 대기시간 12.00% 감소",
+              grade: 3,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_61.png",
+            },
           ],
         },
       },
@@ -564,41 +740,38 @@ export const User = {
         type: "Acc",
         detail: {
           hover: true,
-          title: "비틀린 시간의 귀걸이",
-          subTitle: ["전설 귀걸이", "아이템 티어 3"],
-          quality: 0,
-          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_108.png",
-          grade: 4,
+          title: "찬란한 파멸자의 귀걸이",
+          subTitle: ["유물 귀걸이", "아이템 티어 3"],
+          quality: 58,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_109.png",
+          grade: 5,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: ["힘 +5578", "민첩 +5578", "지능 +5578", "체력 +1659"],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "<FONT COLOR='#686660'>힘 +7678</FONT><BR><FONT COLOR='#686660'>민첩 +7678</FONT><BR>지능 +7678<BR>체력 +2034",
             },
-            { title: "추가 효과", desc: "치명 +195" },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[예리한 둔기] 활성도 +3",
-                "[원한] 활성도 +2",
-                "[공격력 감소] 활성도 +1",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "신속 +275",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>정기 흡수</FONT>] 활성도 +5<BR>[<FONT COLOR='#FFFFAC'>각성</FONT>] 활성도 +3<BR>[<FONT COLOR='#FE2E2E'>방어력 감소</FONT>] 활성도 +2",
             },
           ],
           indentStringGroup: [],
           tripodSkillCustom: [
             {
-              name: "7레벨 멸화의 보석",
-              desc: "[바드] 사운드 홀릭 피해 21.00% 증가",
-              grade: 4,
-              src:
-                "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_52.png",
+              name: "<FONT COLOR='#ce43fc'>5레벨 홍염의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>윈드 오브 뮤직</FONT> 재사용 대기시간 10.00% 감소",
+              grade: 3,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_60.png",
             },
             {
-              name: "7레벨 멸화의 보석",
-              desc: "[바드] 음파 진동 피해 21.00% 증가",
-              grade: 4,
-              src:
-                "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_52.png",
+              name: "<FONT COLOR='#ce43fc'>5레벨 홍염의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>음파 진동</FONT> 재사용 대기시간 10.00% 감소",
+              grade: 3,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_60.png",
             },
           ],
         },
@@ -609,31 +782,43 @@ export const User = {
         type: "Acc",
         detail: {
           hover: true,
-          title: "빛나는 구도자의 반지",
-          subTitle: ["전설 반지", "아이템 티어 3"],
-          quality: 70,
-          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_15.png",
-          grade: 4,
+          title: "찬란한 구도자의 반지",
+          subTitle: ["유물 반지", "아이템 티어 3"],
+          quality: 35,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_16.png",
+          grade: 5,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: ["힘 +5179", "민첩 +5179", "지능 +5179", "체력 +1327"],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "<FONT COLOR='#686660'>힘 +7130</FONT><BR><FONT COLOR='#686660'>민첩 +7130</FONT><BR>지능 +7130<BR>체력 +1628",
             },
-            { title: "추가 효과", desc: "치명 +165" },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[예리한 둔기] 활성도 +2",
-                "[원한] 활성도 +3",
-                "[공격력 감소] 활성도 +3",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "신속 +174",
             },
-            { title: "추가 각인 효과", desc: "[진실된 용맹] 활성도 +9" },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>최대 마나 증가</FONT>] 활성도 +5<BR>[<FONT COLOR='#FFFFAC'>중갑 착용</FONT>] 활성도 +3<BR>[<FONT COLOR='#FE2E2E'>이동속도 감소</FONT>] 활성도 +1",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>추가 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>절실한 구원</FONT>] 활성도 +9",
+            },
           ],
           indentStringGroup: [],
           tripodSkillCustom: [
-            { desc: "보석 장착 필요", src: null },
-            { desc: "보석 장착 필요", src: null },
+            {
+              name: "<FONT COLOR='#ce43fc'>6레벨 홍염의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>사운드 쇼크</FONT> 재사용 대기시간 12.00% 감소",
+              grade: 3,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_61.png",
+            },
+            {
+              name: "<FONT COLOR='#F99200'>7레벨 멸화의 보석</FONT><BR>",
+              desc: "[바드] <FONT COLOR='#FFD200'>사운드 홀릭</FONT> 피해 21.00% 증가",
+              grade: 4,
+              src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_52.png",
+            },
           ],
         },
       },
@@ -643,31 +828,33 @@ export const User = {
         type: "Acc",
         detail: {
           hover: true,
-          title: "비틀린 시간의 반지",
-          subTitle: ["전설 반지", "아이템 티어 3"],
-          quality: 62,
-          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_15.png",
-          grade: 4,
+          title: "타락한 시간의 반지",
+          subTitle: ["유물 반지", "아이템 티어 3"],
+          quality: 42,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_16.png",
+          grade: 5,
           itemPartBox: [
             {
-              title: "기본 효과",
-              desc: ["힘 +5179", "민첩 +5179", "지능 +5179", "체력 +1327"],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "<FONT COLOR='#686660'>힘 +7130</FONT><BR><FONT COLOR='#686660'>민첩 +7130</FONT><BR>지능 +7130<BR>체력 +1628",
             },
-            { title: "추가 효과", desc: "치명 +161" },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[예리한 둔기] 활성도 +2",
-                "[원한] 활성도 +2",
-                "[공격속도 감소] 활성도 +2",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>추가 효과</FONT>",
+              desc: "신속 +177",
             },
-            { title: "추가 각인 효과", desc: "[진실된 용맹] 활성도 +9" },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>정기 흡수</FONT>] 활성도 +5<BR>[<FONT COLOR='#FFFFAC'>각성</FONT>] 활성도 +3<BR>[<FONT COLOR='#FE2E2E'>공격력 감소</FONT>] 활성도 +1",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>추가 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>절실한 구원</FONT>] 활성도 +9",
+            },
           ],
           indentStringGroup: [],
           tripodSkillCustom: [
-            { desc: "보석 장착 필요", src: null },
-            { desc: "보석 장착 필요", src: null },
+            { name: "", desc: "보석 장착 필요", src: null },
+            { name: "", desc: "보석 장착 필요", src: null },
           ],
         },
       },
@@ -677,21 +864,19 @@ export const User = {
         type: "Stone",
         detail: {
           hover: true,
-          title: "강력한 비상의 돌",
-          subTitle: ["전설 어빌리티 스톤", "아이템 티어 3"],
+          title: "고고한 비상의 돌",
+          subTitle: ["유물 어빌리티 스톤", "아이템 티어 3"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_20.png",
-          grade: 4,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_22.png",
+          grade: 5,
           itemPartBox: [
-            { title: "기본 효과", desc: "체력 +12439" },
             {
-              title: "무작위 각인 효과",
-              desc: [
-                "[예리한 둔기] 활성도 +6",
-                "[원한] 활성도 +5",
-                "[방어력 감소] 활성도 +5",
-              ],
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "체력 +15254",
+            },
+            {
+              title: "<FONT COLOR='#A9D0F5'>무작위 각인 효과</FONT>",
+              desc: "[<FONT COLOR='#FFFFAC'>중갑 착용</FONT>] 활성도 +7<BR>[<FONT COLOR='#FFFFAC'>각성</FONT>] 활성도 +6<BR>[<FONT COLOR='#FE2E2E'>방어력 감소</FONT>] 활성도 +3",
             },
           ],
           indentStringGroup: [],
@@ -707,10 +892,14 @@ export const User = {
           title: "노래하는 가을의 리아네 하프",
           subTitle: ["전설 리아네 하프 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2367.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2367.png",
           grade: 4,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +2.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +2.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -724,10 +913,14 @@ export const User = {
           title: "붉은 장미의 무희 머리",
           subTitle: ["영웅 머리 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_178.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_178.png",
           grade: 3,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +1.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +1.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -741,10 +934,14 @@ export const User = {
           title: "노래하는 가을의 귀족 상의",
           subTitle: ["전설 상의 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2364.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2364.png",
           grade: 4,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +2.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +2.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -758,10 +955,14 @@ export const User = {
           title: "노래하는 가을의 귀족 하의",
           subTitle: ["전설 하의 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2365.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_2365.png",
           grade: 4,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +2.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +2.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -780,8 +981,7 @@ export const User = {
           title: "고고한 달무리 낭자 얼굴1",
           subTitle: ["영웅 얼굴1 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_3482.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_3482.png",
           grade: 3,
           itemPartBox: [],
           indentStringGroup: [],
@@ -794,11 +994,10 @@ export const User = {
         type: "InnerAv",
         detail: {
           hover: true,
-          title: "푸른 나비의 여신 얼굴2",
+          title: "대도시의 광휘 얼굴2",
           subTitle: ["영웅 얼굴2 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_3143.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/shop_icon_3967.png",
           grade: 3,
           itemPartBox: [],
           indentStringGroup: [],
@@ -809,6 +1008,22 @@ export const User = {
         backSrc:
           "//cdn-lostark.game.onstove.com//2018/obt/assets/images/common/game/bg_avatar_slot1.png?9aa3bac1ce5aaa477bd3f829e5833d9f",
         type: "OuterAv",
+        detail: {
+          hover: true,
+          title: "트리의 영혼 리아네 하프",
+          subTitle: ["영웅 리아네 하프 아바타", "아이템 레벨 -"],
+          quality: -1,
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_3394.png",
+          grade: 3,
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +1.00%",
+            },
+          ],
+          indentStringGroup: [],
+          tripodSkillCustom: [],
+        },
       },
       "020_av_in_head": {
         backSrc:
@@ -821,13 +1036,17 @@ export const User = {
         type: "OuterAv",
         detail: {
           hover: true,
-          title: "여름빛 바람 상의",
+          title: "대도시의 광휘 상의",
           subTitle: ["영웅 상의 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/shop_icon_1821.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/shop_icon_3964.png",
           grade: 3,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +1.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +1.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -838,13 +1057,17 @@ export const User = {
         type: "OuterAv",
         detail: {
           hover: true,
-          title: "우아한 노을 낭자 하의",
+          title: "대도시의 광휘 하의",
           subTitle: ["영웅 하의 아바타", "아이템 레벨 -"],
           quality: -1,
-          src:
-            "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/Shop_icon_3473.png",
+          src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Shop_icon/shop_icon_3965.png",
           grade: 3,
-          itemPartBox: [{ title: "기본 효과", desc: "지능 +1.00%" }],
+          itemPartBox: [
+            {
+              title: "<FONT COLOR='#A9D0F5'>기본 효과</FONT>",
+              desc: "지능 +1.00%",
+            },
+          ],
           indentStringGroup: [],
           tripodSkillCustom: [],
         },
@@ -855,14 +1078,12 @@ export const User = {
         title: "기본 특성",
         content: [
           {
-            title: ["공격력", "18858"],
-            desc:
-              "적에게 주는 피해를 계산할 때 기준이 되는 값입니다.\n                          힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 18858 입니다.\n                          공격력 증감 효과로 공격력이 0 증가되었습니다.\n            \n        ",
+            title: ["공격력", "20658"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font color="#99ff99">20658</font> 입니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 공격력 증감 효과로 공격력이 <font color="#99ff99">0</font> 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["최대 생명력", "69266"],
-            desc:
-              "캐릭터의 최대 생명력을 나타냅니다.\n                          체력으로 최대 생명력이 69266 증가되었습니다.\n                          생명 활성력으로 최대 생명력이 0.00% 증가되었습니다.\n            \n        ",
+            title: ["최대 생명력", "90158"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 캐릭터의 최대 생명력을 나타냅니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><textformat indent="-21" leftmargin="10"><font> </font> 체력으로 최대 생명력이 <font color="#99ff99">80499</font> 증가되었습니다.</textformat></textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 생명 활성력으로 최대 생명력이 <font color="#99ff99">0.00%</font> 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
         ],
       },
@@ -870,34 +1091,28 @@ export const User = {
         title: "전투 특성",
         content: [
           {
-            title: ["치명", "1130"],
-            desc:
-              "치명타 적중률이 40.44% 증가합니다.\n                          물약 효과로 20만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["치명", "42"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 치명타 적중률이 <font color="#99ff99">1.50%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">20</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["특화", "37"],
-            desc:
-              "구원의 세레나데 스킬의 회복량이 1.05% 증가합니다.\n                          파티원에게 적용되는 용맹의 세레나데 스킬의 버프 효율이 1.85% 증가합니다.\n                          세레나데 게이지 획득량이 1.48% 증가합니다.\n                          각성 스킬의 피해량이 2.02% 증가합니다.\n                          물약 효과로 24만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["특화", "509"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 구원의 세레나데 스킬의 회복량이 <font color="#99ff99">14.56%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 파티원에게 적용되는 용맹의 세레나데 스킬의 버프 효율이 <font color="#99ff99">25.48%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 세레나데 게이지 획득량이 <font color="#99ff99">20.38%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 각성 스킬의 피해량이 <font color="#99ff99">27.81%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["제압", "38"],
-            desc:
-              "피격이상 및 상태이상 대상에게 주는 피해량이 2.33% 증가합니다.\n                          무력화 대상에게 주는 피해량이  증가합니다.\n                          물약 효과로 24만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["제압", "49"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.00%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["신속", "435"],
-            desc:
-              "공격 속도가 7.47% 증가합니다.\n                          이동 속도가 7.47% 증가합니다.\n                          스킬 재사용 대기시간이 9.34% 감소합니다.\n                          물약 효과로 24만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["신속", "1365"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 공격 속도가 <font color="#99ff99">23.44%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 이동 속도가 <font color="#99ff99">23.44%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 스킬 재사용 대기시간이 <font color="#99ff99">29.31%</font> 감소합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["인내", "21"],
-            desc:
-              "물리 방어력이 1.71% 증가합니다.\n                          마법 방어력이 1.71% 증가합니다.\n                          보호막 효과가 0.53% 증가합니다.\n                          생명력 회복 효과가 0.75% 증가합니다.\n                          물약 효과로 16만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["인내", "37"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물리 방어력이 <font color="#99ff99">3.02%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 마법 방어력이 <font color="#99ff99">3.02%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 보호막 효과가 <font color="#99ff99">0.94%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 생명력 회복 효과가 <font color="#99ff99">1.32%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">20</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
           {
-            title: ["숙련", "41"],
-            desc:
-              "상태이상 공격 지속시간이 1.76% 증가합니다.\n                          상태이상 피해 지속시간이 1.46% 감소합니다.\n                          무력화 피해량이 1.17% 증가합니다.\n                          물약 효과로 24만큼 영구적으로 증가되었습니다.\n            \n        ",
+            title: ["숙련", "44"],
+            desc: '\n            <ul>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 상태이상 공격 지속시간이 <font color="#99ff99">1.88%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 상태이상 피해 지속시간이 <font color="#99ff99">1.57%</font> 감소합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 무력화 피해량이 <font color="#99ff99">1.25%</font> 증가합니다.</textformat></li>\n                        <li><textformat indent="-21" leftmargin="10"><font> </font> 물약 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</textformat></li>\n            </ul>\n        ',
           },
         ],
       },
@@ -906,23 +1121,28 @@ export const User = {
         title: "각인 효과",
         content: [
           {
-            title: ["진실된 용맹 Lv. 3"],
-            desc:
-              "용맹의 세레나데 사용 시 자신이 적에게 주는 피해량이 추가로 15% 증가하고, 치명타 적중률이 10% 증가한다.\n                        ",
+            title: ["절실한 구원 Lv. 3"],
+            desc: "\n                            <p>회복 효과가 종료될 때 추가로 회복 효과가 발동되어 자신의 최대 생명력 24% 만큼 회복한다.</p>\n                        ",
           },
           {
-            title: ["원한 Lv. 3"],
-            desc:
-              "보스 등급 이상 몬스터에게 주는 피해가 20% 증가하지만, 받는 피해가 20% 증가한다.\n                        ",
+            title: ["정기 흡수 Lv. 3"],
+            desc: "\n                            <p>공격 및 이동속도가 15% 증가한다.</p>\n                        ",
           },
           {
-            title: ["예리한 둔기 Lv. 3"],
-            desc:
-              "치명타 피해량이 50% 증가하지만, 공격 시 일정 확률로 20% 감소된 피해를 준다.\n                        ",
+            title: ["중갑 착용 Lv. 3"],
+            desc: "\n                            <p>모든 방어력이 150% 증가한다. 중갑 착용으로 인해 증가된 방어력은 방어력 감소 효과에 영향받지 않는다.</p>\n                        ",
+          },
+          {
+            title: ["각성 Lv. 3"],
+            desc: "\n                            <p>각성기의 재사용 대기시간이 50% 감소하고, 사용 제한 횟수가 3회 증가한다.</p>\n                        ",
+          },
+          {
+            title: ["최대 마나 증가 Lv. 1"],
+            desc: "\n                            <p>최대 마나가 5% 증가한다.</p>\n                        ",
           },
           {
             title: ["방어력 감소 Lv. 1"],
-            desc: "방어력이 5% 감소한다.\n                        ",
+            desc: "\n                            <p>방어력이 5% 감소한다.</p>\n                        ",
           },
         ],
       },
@@ -930,94 +1150,9 @@ export const User = {
   },
   skillInfo: {
     battleSkill: {
-      usePoint: "378",
-      getPoint: "384",
+      usePoint: "384",
+      getPoint: "396",
       skills: [
-        {
-          type: "Left",
-          backSrc:
-            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_11.png",
-          detail: {
-            title: "Lv11 사운드 홀릭 ",
-            subTitle: ["일반"],
-            hover: true,
-            tripodSkillCustom: [
-              {
-                name: "사운드 집중",
-                desc:
-                  "매 판정마다 적에게 주는 피해가 8.0% 씩 증가하여 최대 48.0%까지 증가한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_58.png",
-              },
-              {
-                name: "지속력 강화",
-                desc:
-                  "지속 시간이 1.5초 증가하여 판정횟수가 5회 증가하지만, 재사용 대기시간이 2.3초 증가한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_42.png",
-              },
-              {
-                name: "집중 포화",
-                desc:
-                  "방향전환이 불가능해지며, 지속 시간이 50.0% 감소하여 판정횟수가 5회로 줄어들지만 각 공격이 적에게 주는 피해가 740.0% 증가한다. 지속력 강화 트라이포드 적용시, 판정횟수가 7회로 감소한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_40.png",
-              },
-            ],
-            rune: {
-              runeInfo: ["스킬 시전 속도가 12% 증가"],
-              runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_194.png",
-              runeGrade: "영웅 스킬 룬",
-            },
-          },
-        },
-        {
-          type: "Left",
-          backSrc:
-            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_1.png",
-          detail: {
-            title: "Lv10 사운드 쇼크 ",
-            subTitle: ["일반"],
-            hover: true,
-            tripodSkillCustom: [
-              {
-                name: "폭파 유지",
-                desc:
-                  "사운드 쇼크가 소멸되는 위치에 잔해가 남아 2.0초간 적들에게 30.0%의 추가 피해를 준다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_8.png",
-              },
-              {
-                name: "성스러운 쇼크",
-                desc:
-                  "[성] 속성으로 변경되고, 사운드 쇼크에 적중된 적에게 2.0초간 음표 낙인이 생겨 자신 및 파티원이 주는 피해가 10.0% 증가한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_18.png",
-              },
-              {
-                name: "연사",
-                desc: "사운드 쇼크를 연속으로 2회 발사한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_54.png",
-              },
-            ],
-            rune: {
-              runeInfo: [
-                "스킬 사용 시 일정 확률로 전체 재사용 대기 시간이 12% 감소",
-              ],
-              runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_196.png",
-              runeGrade: "영웅 스킬 룬",
-            },
-          },
-        },
         {
           type: "Left",
           backSrc:
@@ -1028,32 +1163,28 @@ export const User = {
             hover: true,
             tripodSkillCustom: [
               {
-                name: "선율 증가",
-                desc: "적중 시 획득하는 세레나데 게이지가 30.0% 증가한다.",
+                name: "날렵한 시전",
+                desc: "시전 속도가 15.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_64.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_41.png",
               },
               {
-                name: "무기력한 화음",
-                desc:
-                  "적중 시 적의 공격력이 2.0초간 6.0%씩 최대 30.0% 감소한다.",
+                name: "약육강식",
+                desc: "네임드급 이하의 몬스터에게 주는 피해가 100.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_46.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_61.png",
               },
               {
                 name: "화음 강화",
                 desc: "적에게 주는 피해가 100.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_1.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_1.png",
               },
             ],
             rune: {
-              runeInfo: ["스킬 적중 시 아이덴티티 게이지 획득량 40% 증가"],
+              runeInfo: ["스킬 적중 시 적을 6초간 '출혈' 상태로 만듦"],
               runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_204.png",
+                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_206.png",
               runeGrade: "전설 스킬 룬",
             },
           },
@@ -1068,27 +1199,53 @@ export const User = {
             hover: true,
             tripodSkillCustom: [
               {
-                name: "지속력 강화",
-                desc:
-                  "스티그마의 지속시간이 2초 증가하고, 판정횟수가 2회 증가한다.",
+                name: "넓은 공격",
+                desc: "판정 범위가 20.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_51.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_7.png",
               },
               {
-                name: "광휘의 낙인",
-                desc:
-                  "[성] 속성으로 변경되고, 2.0초간 음표 낙인이 생겨 자신 및 파티원이 주는 피해가 10.0% 증가한다.",
+                name: "얼어붙은 낙인",
+                desc: "[수] 속성으로 변경되어, 시드 이하 적에게 주는 피해가 30.0% 증가하고, 3.0초간 이동속도를 50.0% 감소시키고, 더 이상 경직을 발생시키지 않지만 짧은 시간 내 3 회 적중 시 4.0초간 동결상태로 만든다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_18.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_14.png",
               },
               {
                 name: "고통의 낙인",
                 desc: "피해 증가 수치가 12.5%에서 60.0%로 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_53.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_53.png",
+              },
+            ],
+            rune: null,
+          },
+        },
+        {
+          type: "Left",
+          backSrc:
+            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_13.png",
+          detail: {
+            title: "Lv10 음파 진동 ",
+            subTitle: ["지점"],
+            hover: true,
+            tripodSkillCustom: [
+              {
+                name: "수호의 진동",
+                desc: "음파 진동의 구체를 적에게 적중 시 자신에게 3.0초간 보호막이 생성되고, 적중된 적 1명당 5.0% 씩 최대 30.0% 까지 증가한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_75.png",
+              },
+              {
+                name: "얼어붙은 핵",
+                desc: "[수] 속성으로 변경되어, 시드 이하 적에게 주는 피해가 50.0% 증가하고, 더 이상 적에게 피격이상을 걸지 않지만, 지상에 음파를 생성해, 가운데로 끌어당겨 4.0초간 이동속도를 40.0% 감소시키고, 짧은 시간 내 5회 적중 시 3.0초간 동결상태로 만든다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_14.png",
+              },
+              {
+                name: "넓은 공격",
+                desc: "음파 진동의 구체가 커져 판정 범위가 40.0% 증가한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_7.png",
               },
             ],
             rune: {
@@ -1104,44 +1261,68 @@ export const User = {
         {
           type: "Left",
           backSrc:
-            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_13.png",
+            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_11.png",
           detail: {
-            title: "Lv10 음파 진동 ",
-            subTitle: ["지점"],
+            title: "Lv10 사운드 홀릭 ",
+            subTitle: ["일반"],
             hover: true,
             tripodSkillCustom: [
               {
-                name: "강인함",
-                desc: "음파 진동 사용 중 피격이상에 면역이 된다.",
+                name: "사운드 집중",
+                desc: "매 판정마다 적에게 주는 피해가 8.0% 씩 증가하여 최대 48.0%까지 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_23.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_58.png",
               },
               {
-                name: "연쇄 진동",
-                desc:
-                  "더 이상 잔류물이 생성되지 않지만, 음표가 다시 한번 공중으로 떠 올라 한번 더 내려찍는 공격을 하고, 부위파괴를 한번 더 적용한다.",
+                name: "지속력 강화",
+                desc: "지속 시간이 1.5초 증가하여 판정횟수가 5회 증가하지만, 재사용 대기시간이 2.3초 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_81.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_42.png",
               },
               {
-                name: "진동 확산",
-                desc:
-                  "음파가 지면에 충돌 또는 폭발 시, X자 방향으로 음파가 10.0m 날아가 적에게 기본 피해량의  60.0% 피해를 추가로 준다.",
+                name: "집중 포화",
+                desc: "방향전환이 불가능해지며, 지속 시간이 50.0% 감소하여 판정횟수가 5회로 줄어들지만 각 공격이 적에게 주는 피해가 828.0% 증가한다. 지속력 강화 트라이포드 적용시, 판정횟수가 7회로 감소한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_54.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_40.png",
               },
             ],
             rune: {
-              runeInfo: [
-                "스킬 적중 시 30% 확률로 자신의 '단죄' 상태를 제거하여 6초간 전투자원 회복량 증가 및 스킬 재사용 대기시간 감소",
-              ],
+              runeInfo: ["스킬 적중 시 아이덴티티 게이지 획득량 20% 증가"],
               runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_201.png",
-              runeGrade: "영웅 스킬 룬",
+                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_204.png",
+              runeGrade: "희귀 스킬 룬",
             },
+          },
+        },
+        {
+          type: "Left",
+          backSrc:
+            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_7.png",
+          detail: {
+            title: "Lv10 폭풍의 서곡 ",
+            subTitle: ["일반"],
+            hover: true,
+            tripodSkillCustom: [
+              {
+                name: "약육 강식",
+                desc: "네임드급 이하의 몬스터에게 주는 피해가 50.0% 증가한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_61.png",
+              },
+              {
+                name: "낙뢰 강화",
+                desc: "적에게 주는 피해가 100.0% 증가한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_1.png",
+              },
+              {
+                name: "강력한 서곡",
+                desc: "기절 시간이 1초 감소하지만, 지면에 2.0초간 총 100.0% 피해를 주는 전기지대가 생성된다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_8.png",
+              },
+            ],
+            rune: null,
           },
         },
         {
@@ -1154,32 +1335,61 @@ export const User = {
             hover: true,
             tripodSkillCustom: [
               {
-                name: "날렵한 시전",
-                desc: "스킬 시전 속도가 25.0% 증가한다.",
+                name: "빠른 준비",
+                desc: "재사용 대기시간이 4.4초 감소한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_41.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_56.png",
               },
               {
                 name: "강인한 연주",
                 desc: "공격속도가 추가로 8.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_65.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_65.png",
               },
               {
                 name: "격렬한 연주",
-                desc:
-                  "기존 효과에 추가로 자신 및 파티원의 공격력에 버프 시전자의 기본 공격력의 15.0%만큼 더해지며, 전체 공격력이 6.0% 증가한다.",
+                desc: "기존 효과에 추가로 자신 및 파티원의 공격력에 버프 시전자의 기본 공격력의 15.0%만큼 더해지며, 전체 공격력이 6.0% 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_1.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_1.png",
+              },
+            ],
+            rune: null,
+          },
+        },
+        {
+          type: "Right",
+          backSrc:
+            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_20.png",
+          detail: {
+            title: "Lv10 죽음의 전주곡 ",
+            subTitle: ["일반"],
+            hover: true,
+            tripodSkillCustom: [
+              {
+                name: "빠른 준비",
+                desc: "재사용 대기시간이 2.0초 감소한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_56.png",
+              },
+              {
+                name: "죽음의 증폭",
+                desc: "죽음의 끝으로 주는 피해 증폭량이 중첩당 50.0% 더 증가한다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_1.png",
+              },
+              {
+                name: "죽음의 아리아",
+                desc: "죽음의 전주곡으로 주는 선율 피해가 30.0% 증가하고 죽음의 전주곡에 적중된 대상이 죽음의 끝 디버프가 풀리기 전에 죽으면 3.0m 범위 안의 가장 가까운 적 1명에게 652740의 추가 피해를 준다.",
+                grade: 8,
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_50.png",
               },
             ],
             rune: {
-              runeInfo: ["스킬 시전 속도가 12% 증가"],
+              runeInfo: [
+                "스킬 적중 시 30% 확률로 자신의 '단죄' 상태를 제거하여 6초간 전투자원 회복량 증가 및 스킬 재사용 대기시간 감소",
+              ],
               runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_194.png",
+                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_201.png",
               runeGrade: "영웅 스킬 룬",
             },
           },
@@ -1197,66 +1407,22 @@ export const User = {
                 name: "소환의 의지",
                 desc: "하프의 유지 시간이 2.0초 증가한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_51.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_51.png",
               },
               {
-                name: "날렵한 연사",
-                desc: "하프의 공격속도가 60.0% 증가한다.",
+                name: "폭파",
+                desc: "하프의 공격 거리가 6.0m로 감소하지만 강력한 광역 공격을 한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_6.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_40.png",
               },
               {
                 name: "거대 하프",
-                desc:
-                  "크기가 20.0% 커지고 주는 피해가 100.0% 증가한 하프를 소환한다.",
+                desc: "크기가 20.0% 커지고 주는 피해가 100.0% 증가한 하프를 소환한다.",
                 grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_39.png",
+                src: "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_3_39.png",
               },
             ],
-            rune: {
-              runeInfo: ["스킬 적중 시 적을 6초간 '출혈' 상태로 만듦"],
-              runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_206.png",
-              runeGrade: "전설 스킬 룬",
-            },
-          },
-        },
-        {
-          type: "Right",
-          backSrc:
-            "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/BD_Skill/BD_Skill_01_9.png",
-          detail: {
-            title: "Lv9 리듬 벅샷 ",
-            subTitle: ["일반"],
-            hover: true,
-            tripodSkillCustom: [
-              {
-                name: "선율 증가",
-                desc: "적중 시 회복하는 세레나데 게이지가 30.0% 증가한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_1_64.png",
-              },
-              {
-                name: "샷 강화",
-                desc: "넘어뜨리는 시간이 증가하고 주는 피해가 25.0% 증가한다.",
-                grade: 8,
-                src:
-                  "//cdn-lostark.game.onstove.com/EFUI_IconAtlas/Tripod_Tier/Tripod_Tier_2_9.png",
-              },
-              { desc: "티어 3 트라이포드 스킬 레벨 10에 개방", src: null },
-            ],
-            rune: {
-              runeInfo: [
-                "스킬 사용 시 일정 확률로 전체 재사용 대기 시간이 8% 감소",
-              ],
-              runeImg:
-                "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_196.png",
-              runeGrade: "희귀 스킬 룬",
-            },
+            rune: null,
           },
         },
         {
@@ -1294,46 +1460,46 @@ export const User = {
       {
         type: "Left",
         backSrc: "/loa-hands/img/lifeskill/1.PNG",
-        detail: { title: "벌목", subTitle: ["Lv.47"] },
+        detail: { title: "벌목", subTitle: ["Lv.54"] },
       },
       {
         type: "Left",
         backSrc: "/loa-hands/img/lifeskill/2.PNG",
-        detail: { title: "채광", subTitle: ["Lv.49"] },
+        detail: { title: "채광", subTitle: ["Lv.55"] },
       },
       {
         type: "Right",
         backSrc: "/loa-hands/img/lifeskill/3.PNG",
-        detail: { title: "수렵", subTitle: ["Lv.34"] },
+        detail: { title: "수렵", subTitle: ["Lv.36"] },
       },
       {
         type: "Right",
         backSrc: "/loa-hands/img/lifeskill/4.PNG",
-        detail: { title: "낚시", subTitle: ["Lv.35"] },
+        detail: { title: "낚시", subTitle: ["Lv.37"] },
       },
       {
         type: "Right",
         backSrc: "/loa-hands/img/lifeskill/5.PNG",
-        detail: { title: "고고학", subTitle: ["Lv.24"] },
+        detail: { title: "고고학", subTitle: ["Lv.26"] },
       },
     ],
   },
   collectionInfo: {
     collectionMini: [
-      { name: "섬의 마음", size: "91" },
-      { name: "오르페우스의 별", size: "5" },
+      { name: "섬의 마음", size: "92" },
+      { name: "오르페우스의 별", size: "6" },
       { name: "거인의 심장", size: "15" },
-      { name: "위대한 미술품", size: "40" },
-      { name: "모코코 씨앗", size: "1,210" },
+      { name: "위대한 미술품", size: "41" },
+      { name: "모코코 씨앗", size: "1,213" },
       { name: "항해 모험물", size: "40" },
-      { name: "이그네아의 징표", size: "12" },
-      { name: "세계수의 잎", size: "16" },
+      { name: "이그네아의 징표", size: "13" },
+      { name: "세계수의 잎", size: "37" },
     ],
     collectionDetail: [
       {
         title: "섬의 마음 획득 현황",
-        getCount: "91",
-        totalCount: "93",
+        getCount: "92",
+        totalCount: "94",
         collection: [
           {
             type: "True",
@@ -1710,11 +1876,15 @@ export const User = {
             type: "True",
             detail: { subTitle: ["#93"], title: "스노우팡 아일랜드 섬의 마음" },
           },
+          {
+            type: "True",
+            detail: { subTitle: ["#94"], title: "모코모코 야시장 섬의 마음" },
+          },
         ],
       },
       {
         title: "오르페우스의 별 획득 현황",
-        getCount: "5",
+        getCount: "6",
         totalCount: "7",
         collection: [
           {
@@ -1734,7 +1904,7 @@ export const User = {
             detail: { subTitle: ["#4"], title: "오르페우스의 별 #4" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#5"], title: "오르페우스의 별 #5" },
           },
           {
@@ -1816,7 +1986,7 @@ export const User = {
       },
       {
         title: "위대한 미술품 획득 현황",
-        getCount: "40",
+        getCount: "41",
         totalCount: "51",
         collection: [
           {
@@ -1860,7 +2030,7 @@ export const User = {
             detail: { subTitle: ["#10"], title: "위대한 미술품 #10" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#11"], title: "위대한 미술품 #11" },
           },
           {
@@ -2027,8 +2197,8 @@ export const User = {
       },
       {
         title: "모코코 씨앗 획득 현황",
-        getCount: "1,210",
-        totalCount: "1,235",
+        getCount: "1,213",
+        totalCount: "1,238",
         collection: [
           {
             type: "True",
@@ -2077,11 +2247,11 @@ export const User = {
           },
           {
             type: "False",
-            detail: { subTitle: ["#13"], title: "베른 남부 0 / 25" },
+            detail: { subTitle: ["#13"], title: "베른 남부 3 / 25" },
           },
           {
-            type: "True",
-            detail: { subTitle: ["#14"], title: "대항해 345 / 345" },
+            type: "False",
+            detail: { subTitle: ["#14"], title: "대항해 345 / 348" },
           },
         ],
       },
@@ -2278,7 +2448,7 @@ export const User = {
       },
       {
         title: "이그네아의 징표 획득 현황",
-        getCount: "12",
+        getCount: "13",
         totalCount: "14",
         collection: [
           {
@@ -2336,7 +2506,7 @@ export const User = {
             detail: { subTitle: ["#12"], title: "이그네아의 징표 : 페이튼" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#13"], title: "이그네아의 징표 : 파푸니카" },
           },
           {
@@ -2347,7 +2517,7 @@ export const User = {
       },
       {
         title: "세계수의 잎 획득 현황",
-        getCount: "16",
+        getCount: "37",
         totalCount: "61",
         collection: [
           {
@@ -2367,7 +2537,7 @@ export const User = {
             detail: { subTitle: ["#4"], title: "세계수의 잎 #4" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#5"], title: "세계수의 잎 #5" },
           },
           {
@@ -2391,7 +2561,7 @@ export const User = {
             detail: { subTitle: ["#10"], title: "세계수의 잎 #10" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#11"], title: "세계수의 잎 #11" },
           },
           {
@@ -2407,7 +2577,7 @@ export const User = {
             detail: { subTitle: ["#14"], title: "세계수의 잎 #14" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#15"], title: "세계수의 잎 #15" },
           },
           {
@@ -2415,11 +2585,11 @@ export const User = {
             detail: { subTitle: ["#16"], title: "세계수의 잎 #16" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#17"], title: "세계수의 잎 #17" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#18"], title: "세계수의 잎 #18" },
           },
           {
@@ -2431,7 +2601,7 @@ export const User = {
             detail: { subTitle: ["#20"], title: "세계수의 잎 #20" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#21"], title: "세계수의 잎 #21" },
           },
           {
@@ -2439,11 +2609,11 @@ export const User = {
             detail: { subTitle: ["#22"], title: "세계수의 잎 #22" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#23"], title: "세계수의 잎 #23" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#24"], title: "세계수의 잎 #24" },
           },
           {
@@ -2459,7 +2629,7 @@ export const User = {
             detail: { subTitle: ["#27"], title: "세계수의 잎 #27" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#28"], title: "세계수의 잎 #28" },
           },
           {
@@ -2467,7 +2637,7 @@ export const User = {
             detail: { subTitle: ["#29"], title: "세계수의 잎 #29" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#30"], title: "세계수의 잎 #30" },
           },
           {
@@ -2479,15 +2649,15 @@ export const User = {
             detail: { subTitle: ["#32"], title: "세계수의 잎 #41" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#33"], title: "세계수의 잎 #42" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#34"], title: "세계수의 잎 #43" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#35"], title: "세계수의 잎 #44" },
           },
           {
@@ -2495,7 +2665,7 @@ export const User = {
             detail: { subTitle: ["#36"], title: "세계수의 잎 #45" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#37"], title: "세계수의 잎 #46" },
           },
           {
@@ -2515,7 +2685,7 @@ export const User = {
             detail: { subTitle: ["#41"], title: "세계수의 잎 #53" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#42"], title: "세계수의 잎 #54" },
           },
           {
@@ -2527,15 +2697,15 @@ export const User = {
             detail: { subTitle: ["#44"], title: "세계수의 잎 #59" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#45"], title: "세계수의 잎 #60" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#46"], title: "세계수의 잎 #61" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#47"], title: "세계수의 잎 #62" },
           },
           {
@@ -2551,7 +2721,7 @@ export const User = {
             detail: { subTitle: ["#50"], title: "세계수의 잎 #68" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#51"], title: "세계수의 잎 #69" },
           },
           {
@@ -2559,7 +2729,7 @@ export const User = {
             detail: { subTitle: ["#52"], title: "세계수의 잎 #70" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#53"], title: "세계수의 잎 #71" },
           },
           {
@@ -2575,7 +2745,7 @@ export const User = {
             detail: { subTitle: ["#56"], title: "세계수의 잎 #77" },
           },
           {
-            type: "False",
+            type: "True",
             detail: { subTitle: ["#57"], title: "세계수의 잎 #78" },
           },
           {
