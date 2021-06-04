@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import "style/userInfo.scss";
-import Basic from "components/basic-info/index";
+import BasicInfo from "components/basic-info/index";
 import Expedition from "components/expedition/index";
 import Nav from "components/nav/index";
 import Collection from "components/collection/index";
@@ -46,7 +46,6 @@ const Index = ({
     collectionNav,
   ];
   const mainNavs = ["능력치", "스킬", "수집형포인트"];
-
   const { equipInfo, characteristicInfo } = userData.abilityInfo;
   const { battleSkill, lifeSkill } = userData.skillInfo;
   const { collectionDetail } = userData.collectionInfo;
@@ -66,7 +65,7 @@ const Index = ({
             expeditionPop={expeditionPop}
             setExpeditionPop={setExpeditionPop}
           />
-          <Basic userData={userData} collection={collectionNav} />
+          <BasicInfo userData={userData} collection={collectionNav} />
         </section>
         <section className="userInfoBottom">
           <Nav
