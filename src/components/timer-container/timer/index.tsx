@@ -1,45 +1,21 @@
 import React from "react";
-import { addZero } from "utility/utility";
 import { useTimer } from "hooks/use-timer";
+import { useTimerType } from "hooks/use-timer-type";
 
-const Timer = props => {
-  const { state } = useTimer(props);
+const Timer = ({ setTime, data }) => {
+  const { name, src, lv, time, endTime, position, endPosition } = data;
+  const pos =
+    typeof position !== "string" ? position[0] || endPosition : position;
 
-  let { timeOut, targetState } = state;
-  let { name, src, time, lv, position, endTime, contType, waiting } = props;
-  let borderColor = null;
-  let endTimeBg = null;
+  const {
+    timerVariable: { borderColor, contentAlert, endTimeBg },
+    calcTimer,
+  } = useTimerType(time, endTime, setTime);
 
-  switch (targetState) {
-    // 섬 10분전
-    case "APPEAR":
-      borderColor = "#CC99FF";
-      time = "일렁이는중";
-      break;
-    // 섬 등장
-    // 그 외, 퀘스트 알림 등장
-    case "OPEN":
-      borderColor = "#FF6666";
-      if (contType !== "FIELD_BOSS" && contType !== "CO_OCEAN") {
-        time = "출현중";
-      } else {
-        time = "대기중";
-      }
-      break;
-    // 모두 종료
-    case "NORMAL":
-      borderColor = null;
-      break;
-  }
-
-  if (!time) {
-    time = endTime;
-    endTimeBg = "block";
-    timeOut = "종료";
-  }
+  const timeOut = useTimer(time, calcTimer);
 
   return (
-    <div className="timer" style={{ borderColor: borderColor }}>
+    <div className="timer" style={{ borderColor }}>
       <div style={{ display: endTimeBg }} className="end-time-bg"></div>
       <div className="name text-center overflow-dot">{name}</div>
       <div className="content">
@@ -48,21 +24,13 @@ const Timer = props => {
           <div className="lv">{lv}</div>
         </div>
         <div className="time">
-          <div className="start">{minusMin(time, waiting)}</div>
+          <div className="start">{contentAlert}</div>
           <div className="time-out">{timeOut}</div>
         </div>
       </div>
-      <div className="name text-center overflow-dot">{position}</div>
+      <div className="name text-center overflow-dot">{pos}</div>
     </div>
   );
 };
-
-function minusMin(time, waiting) {
-  if (time.includes(":")) {
-    const [hour, min] = time.split(":");
-    return `${addZero(Number(hour))}:${addZero(Number(min) - (waiting || 3))}`;
-  }
-  return time;
-}
 
 export default Timer;
