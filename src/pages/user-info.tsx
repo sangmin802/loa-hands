@@ -14,9 +14,8 @@ import {
 import { useUser } from "hooks/use-user";
 import { useExpedition } from "hooks/use-expedition";
 import { useNav } from "hooks/use-nav";
-import { arrayReducer } from "utility/utility";
 
-const Index = ({
+const UserInfo = ({
   match: {
     params: { name },
   },
@@ -25,17 +24,37 @@ const Index = ({
   const { expeditionPop, setExpeditionPop } = useExpedition();
   const { nav: subNav, setNav: setSubNav } = useNav("sub");
   const { nav: mainNav, setNav: setMainNav } = useNav("main");
-  const collectionNav = useMemo(
-    () =>
-      userData?.collectionInfo.collectionMini.map((col, index) => (
-        <Collection
-          key={`collectionMini${index}`}
-          index={index}
-          size={col.size}
-        />
-      )),
-    [userData]
-  );
+
+  const collectionNav = useMemo(() => {
+    if (!userData) return;
+    return userData.collectionInfo.collectionMini.map((col, index) => (
+      <Collection
+        key={`collectionMini${index}`}
+        index={index}
+        size={col.size}
+      />
+    ));
+  }, [userData]);
+
+  const equipInfoValues: any = useMemo(() => {
+    if (!userData) return null;
+    return Object.values(userData.abilityInfo.equipInfo);
+  }, [userData]);
+
+  const [av, equip] = useMemo(() => {
+    if (!equipInfoValues) return [null, null];
+    return equipInfoValues.reduce(
+      (prev, cur) => {
+        if (cur.type.includes("Av")) {
+          prev[0].push(cur);
+        } else {
+          prev[1].push(cur);
+        }
+        return prev;
+      },
+      [[], []]
+    );
+  }, [equipInfoValues]);
 
   useEffect(() => {
     if (!userData) setUserData(name);
@@ -48,10 +67,9 @@ const Index = ({
     collectionNav,
   ];
   const mainNavs = ["능력치", "스킬", "수집형포인트"];
-  const { equipInfo, characteristicInfo } = userData.abilityInfo;
+  const { characteristicInfo } = userData.abilityInfo;
   const { battleSkill, lifeSkill } = userData.skillInfo;
   const { collectionDetail } = userData.collectionInfo;
-  const [av, equip] = arrayReducer(Object.values(equipInfo), "Av");
   const { battle, basic, engrave } = characteristicInfo;
 
   return (
@@ -133,4 +151,4 @@ const Index = ({
   );
 };
 
-export default React.memo(Index, () => true);
+export default React.memo(UserInfo, () => true);
