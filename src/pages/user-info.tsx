@@ -36,26 +36,6 @@ const UserInfo = ({
     ));
   }, [userData]);
 
-  const equipInfoValues: any = useMemo(() => {
-    if (!userData) return null;
-    return Object.values(userData.abilityInfo.equipInfo);
-  }, [userData]);
-
-  const [av, equip] = useMemo(() => {
-    if (!equipInfoValues) return [null, null];
-    return equipInfoValues.reduce(
-      (prev, cur) => {
-        if (cur.type.includes("Av")) {
-          prev[0].push(cur);
-        } else {
-          prev[1].push(cur);
-        }
-        return prev;
-      },
-      [[], []]
-    );
-  }, [equipInfoValues]);
-
   useEffect(() => {
     if (!userData) setUserData(name);
   }, [name, setUserData, userData]);
@@ -67,7 +47,10 @@ const UserInfo = ({
     collectionNav,
   ];
   const mainNavs = ["능력치", "스킬", "수집형포인트"];
-  const { characteristicInfo } = userData.abilityInfo;
+  const {
+    characteristicInfo,
+    equipInfo: { equipment, avatar },
+  } = userData.abilityInfo;
   const { battleSkill, lifeSkill } = userData.skillInfo;
   const { collectionDetail } = userData.collectionInfo;
   const { battle, basic, engrave } = characteristicInfo;
@@ -110,10 +93,10 @@ const UserInfo = ({
               selected={subNav}
               cn="ability-container nav-content-container"
             >
-              <DoubleListContainer data={equip} type="Equip">
+              <DoubleListContainer data={Object.values(equipment)} type="Equip">
                 <Quality />
               </DoubleListContainer>
-              <DoubleListContainer data={av} type="Inner" />
+              <DoubleListContainer data={Object.values(avatar)} type="Inner" />
               <Characteristic data={[basic, battle, engrave]} />
             </NavContent>
             <NavContent
