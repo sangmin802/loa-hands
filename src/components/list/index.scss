@@ -1,8 +1,8 @@
 @import "../../style/variables.scss";
 
 .column-list {
+  display: flex;
   position: relative;
-  min-height: 52px;
   margin-bottom: 0.5rem;
   padding: 0.3rem;
   background: $bgLow;
