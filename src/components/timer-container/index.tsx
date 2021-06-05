@@ -9,7 +9,7 @@ const TimerContainer = ({ data, today = null }) => {
   // 배열 내 객체도 모두 복사
   const newData = [...data].map(obj => ({ ...obj }));
   // 렌더링 시, 현재 시간 이후의 시간들만 유지
-  const validTimes = GetValidTimes(newData);
+  const validTimes = getValidTime(newData);
 
   newData.forEach((is, index) => {
     is.time = validTimes[index];
@@ -40,42 +40,14 @@ const TimerContainer = ({ data, today = null }) => {
 
   return (
     <div className="timer-wrap">
-      {newData.map((data, index) => {
-        const {
-          name,
-          src,
-          time,
-          position,
-          endPosition,
-          lv,
-          endTime,
-          waiting,
-          contType,
-        } = data;
-        let _position = position;
-        if (typeof position !== "string") {
-          _position = position[0] || endPosition;
-        }
-        return (
-          <Timer
-            setTime={setTime}
-            name={name}
-            src={src}
-            time={time[0]}
-            endTime={endTime}
-            position={_position}
-            lv={lv}
-            contType={contType}
-            waiting={waiting}
-            key={`timer${index}`}
-          />
-        );
-      })}
+      {newData.map((data, index) => (
+        <Timer setTime={setTime} data={data} key={`timer${index}`} />
+      ))}
     </div>
   );
 };
 
-function GetValidTimes(newData) {
+function getValidTime(newData) {
   const date = new Date();
   return newData
     .map(is => is.time)
@@ -85,7 +57,7 @@ function GetValidTimes(newData) {
         const min =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         const now = String(date.getHours()) + String(min);
-        if (Number(newTime) > Number(now)) return time;
+        if (Number(newTime) > Number(now) - 3) return time;
         return null;
       });
     });
