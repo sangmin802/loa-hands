@@ -3,10 +3,12 @@ import { DAILY_ISLAND, FIELD_BOSS, CHAOS_GATE, OCEAN_ACT } from "json/json";
 import { useDateOver } from "hooks/use-date";
 import { useHome } from "hooks/use-home";
 import "style/home.scss";
-import SectionContainer from "components/section-container/index";
-import TimerContainer from "components/timer-container/index";
-import LoadingSpinner from "components/loading-spinner/index";
-import Event from "components/event/index";
+import {
+  SectionContainer,
+  TimerContainer,
+  LoadingSpinner,
+  Event,
+} from "components/";
 
 const Index = () => {
   const { homeData, setHomeData } = useHome();
