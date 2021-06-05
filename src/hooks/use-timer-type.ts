@@ -52,7 +52,7 @@ export const useTimerType = (time, endTime, setTime) => {
       NORMAL: {
         borderColor: "inherit",
         endTimeBg: "none",
-        contentAlert: time,
+        contentAlert: time[0],
       },
       END: {
         borderColor: "inherit",
