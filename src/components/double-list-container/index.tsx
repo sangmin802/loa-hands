@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./index.css";
 import { ListContainer } from "../";
 import Lodash from "lodash";
-import { arrayReducer } from "utility/utility";
 
 const DoubleListContainer = ({
   data,
@@ -11,7 +10,20 @@ const DoubleListContainer = ({
   rt = null,
   children = null,
 }) => {
-  const [left, right] = arrayReducer(data, type);
+  const [left, right] = useMemo(() => {
+    return data.reduce(
+      (prev, cur) => {
+        if (cur.type.includes(type)) {
+          prev[0].push(cur);
+        } else {
+          prev[1].push(cur);
+        }
+        return prev;
+      },
+      [[], []]
+    );
+  }, [data, type]);
+
   return (
     <div className="double-column-wrap">
       <ListContainer title={lt} arr={left} side="left">
