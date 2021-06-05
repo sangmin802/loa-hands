@@ -1,8 +1,6 @@
 import React from "react";
 import Lodash from "lodash";
-import Thumbnail from "components/thumbnail/index";
-import DangerousHTML from "components/dangerous-html/index";
-import Image from "components/image/index";
+import { Thumbnail, DangerousHTML, Image } from "../";
 import "./index.scss";
 
 const TripodSkillCustom = ({ data }) => {
