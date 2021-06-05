@@ -8,9 +8,8 @@ export function useDateOver(reset) {
       const hour = new Date().getHours();
       const min = new Date().getMinutes();
       const sec = new Date().getSeconds();
-
       if (hour === 0 && min === 0 && sec === 0) {
-        dispatch(reset());
+        reset();
       }
     };
     const checkInterval = setInterval(checkNight, 1000);
