@@ -4,17 +4,3 @@ export function addZero(num) {
   }
   return num;
 }
-
-export function arrayReducer(arr, type) {
-  return arr.reduce(
-    (prev, cur) => {
-      if (cur.type.includes(type)) {
-        prev[0].push(cur);
-      } else {
-        prev[1].push(cur);
-      }
-      return prev;
-    },
-    [[], []]
-  );
-}
