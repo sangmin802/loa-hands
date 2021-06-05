@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Characteristic from "./index";
 
@@ -34,17 +34,19 @@ const demoCharacgteristic = [
 
 describe("Characteristic", () => {
   it("Charateristic 별 title 렌더링 파악", () => {
-    render(<Characteristic data={demoCharacgteristic} />);
-
-    expect(screen.getByText(demoCharacgteristic[0].title)).toBeInTheDocument();
-    expect(screen.getByText(demoCharacgteristic[1].title)).toBeInTheDocument();
+    const { container } = render(<Characteristic data={demoCharacgteristic} />);
+    const mainTitles = container.querySelectorAll(".title");
+    mainTitles.forEach((dom, index) => {
+      expect(dom.textContent).toBe(demoCharacgteristic[index].title);
+    });
   });
 
   it("Charateristic 별 content 렌더링 파악", () => {
     const { container } = render(<Characteristic data={demoCharacgteristic} />);
+    const content = demoCharacgteristic[0].content;
 
-    demoCharacgteristic[0].content.forEach(({ title, desc }, index) => {
-      expect(screen.getByText(title[0])).toBeInTheDocument();
+    content.forEach(({ title, desc }) => {
+      expect(container.innerHTML.includes(title[1])).toBe(true);
       expect(container.innerHTML.includes(desc)).toBe(true);
     });
   });

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import BasicInfo from "./index";
@@ -9,8 +9,8 @@ const demoUserData = {
     title: "-",
     curBigLv: "1,402",
     curSmallLv: ".50",
-    reachBigLv: "1,502",
-    reachSmallLv: ".30",
+    reachBigLv: "1,402",
+    reachSmallLv: ".50",
     guild: "지칠때쉬러와",
     pvp: "8단",
     garden: "Lv.65 동산",
@@ -29,23 +29,29 @@ const demoCollection = "유저 컬렉션";
 
 describe("BasicInfo", () => {
   it("데이터에 맞는 DOM 구성", () => {
-    render(<BasicInfo userData={demoUserData} collection={demoCollection} />);
+    const { container } = render(
+      <BasicInfo userData={demoUserData} collection={demoCollection} />
+    );
     const { basicInfo, expeditionInfo } = demoUserData;
     const name = `${expeditionInfo.Lv} ${expeditionInfo.name}`;
     const expedition = `${expeditionInfo.server} Lv ${basicInfo.expeditionLv}`;
 
-    expect(screen.getByText(basicInfo.className)).toBeInTheDocument();
-    expect(screen.getByAltText(basicInfo.classSrc)).toBeInTheDocument();
-    expect(screen.getByText(name)).toBeInTheDocument();
-    expect(screen.getByText(expedition)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.curBigLv)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.curSmallLv)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.reachBigLv)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.reachSmallLv)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.garden)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.pvp)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.title)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.guild)).toBeInTheDocument();
-    expect(screen.getByText(demoCollection)).toBeInTheDocument();
+    const classInfo = `클래스${basicInfo.className}`;
+    const nameInfo = `이름${name}원정대 레벨${expedition}`;
+    const levelInfo = `현재 아이템 레벨${basicInfo.curBigLv}${basicInfo.curSmallLv}달성 아이템 레벨${basicInfo.reachBigLv}${basicInfo.reachSmallLv}`;
+    const sub1Info = `영지${basicInfo.garden}PVP${basicInfo.pvp}`;
+    const sub2Info = `칭호${basicInfo.title}길드${basicInfo.guild}`;
+    const collectionInfo = demoCollection;
+
+    expect(getTextContent(container, ".class-info")).toBe(classInfo);
+    expect(getTextContent(container, ".name-info")).toBe(nameInfo);
+    expect(getTextContent(container, ".level-info")).toBe(levelInfo);
+    expect(getTextContent(container, ".sub1-info")).toBe(sub1Info);
+    expect(getTextContent(container, ".sub2-info")).toBe(sub2Info);
+    expect(getTextContent(container, ".collection-info")).toBe(collectionInfo);
   });
 });
+
+function getTextContent(dom, query) {
+  return dom.querySelector(query).textContent;
+}
