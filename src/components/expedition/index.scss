@@ -1,6 +1,6 @@
 @import "../../style/variables.scss";
 
-.searchedUserExpedition {
+.searched-user-expedition {
   position: absolute;
   display: none;
   width: 85%;
@@ -17,23 +17,23 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  .searchedUserExpeditionClose {
+  .searched-user-expedition-close {
     float: right;
     cursor: pointer;
   }
-  .userExpedition {
+  .user-expedition {
     margin-bottom: 1rem;
   }
-  .userExpeditionServer {
+  .user-expedition-server {
     font-weight: bold;
     margin-bottom: 1rem;
     font-size: 1.3rem;
   }
-  .userExpeditionCharWrap {
+  .user-expedition-char-wrap {
     display: flex;
     flex-wrap: wrap;
   }
-  .userExpeditionChar {
+  .user-expedition-char {
     width: 50%;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
@@ -41,7 +41,7 @@
     cursor: pointer;
     font-size: 0.9rem;
   }
-  .userExpeditionChar:hover {
+  .user-expedition-char:hover {
     background: $bgLow;
   }
 }

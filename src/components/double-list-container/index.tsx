@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import ListContainer from "components/list-container/index";
+import { ListContainer } from "../";
 import Lodash from "lodash";
 import { arrayReducer } from "utility/utility";
 
@@ -13,7 +13,7 @@ const DoubleListContainer = ({
 }) => {
   const [left, right] = arrayReducer(data, type);
   return (
-    <div className="doubleColumnWrap">
+    <div className="double-column-wrap">
       <ListContainer title={lt} arr={left} side="left">
         {children}
       </ListContainer>

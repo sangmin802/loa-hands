@@ -18,24 +18,17 @@ body {
   background: $bgDeep;
   -ms-overflow-style: none;
   color: $white;
-  .displayNone {
+  .display-none {
     display: none;
   }
-  .displayBlock {
+  .display-block {
     display: block;
-  }
-  .displayFlex {
-    display: flex;
   }
   .pointer {
     cursor: pointer;
   }
   .absolute {
     position: absolute;
-  }
-  .imgWidth {
-    display: block;
-    width: 100%;
   }
   .text-center {
     text-align: center;
@@ -44,13 +37,13 @@ body {
     height: 100vh;
     overflow: hidden;
   }
-  .zIndex10 {
+  .z-index10 {
     z-index: 10;
   }
-  .zIndex11 {
+  .z-index11 {
     z-index: 11;
   }
-  .zIndex99 {
+  .z-index99 {
     z-index: 99;
   }
   .gradient-1 {
@@ -128,12 +121,12 @@ body {
     color: #ff5e00 !important;
     font-weight: bold;
   }
-  .overflowDot {
+  .overflow-dot {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
-  .contentBoxBorder {
+  .content-box-border {
     border: $contBox-border;
     border-radius: $contBox-border-radius;
   }

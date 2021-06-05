@@ -16,14 +16,14 @@ function App() {
   const { setUserData } = useUser();
 
   return (
-    <div className={`App ${isLoading ? "height100vh" : ""}`}>
+    <div className={`app ${isLoading ? "height100vh" : ""}`}>
       <LoadingSpinner
-        style={isLoading ? "loadingBg zIndex99" : "displayNone"}
+        style={isLoading ? "loading-bg z-index99" : "display-none"}
       />
       <Dialog />
-      <div className="innerApp">
+      <div className="inner-app">
         <Header setHomeData={setHomeData} setUserData={setUserData} />
-        <div className="AppWrap">
+        <div className="app-wrap">
           <Route exact path="/" component={Home} />
           <Route path="/userInfo/:name" component={UserInfo} />
         </div>

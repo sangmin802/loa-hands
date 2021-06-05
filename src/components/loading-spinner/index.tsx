@@ -3,7 +3,7 @@ import "./index.css";
 
 const LoadingSpinner = ({ style = "" }) => {
   return (
-    <div className={`spinnerWrap ${style}`}>
+    <div className={`spinner-wrap ${style}`}>
       <div className="lds-spinner">
         <div></div>
         <div></div>

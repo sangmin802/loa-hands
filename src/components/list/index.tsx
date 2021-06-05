@@ -1,8 +1,5 @@
 import React, { useCallback } from "react";
-import Thumbnail from "components/thumbnail/index";
-import TextContainer from "components/text-container/index";
-import Detail from "components/detail/index";
-import Image from "components/image/index";
+import { Thumbnail, TextContainer, Detail, Image } from "../";
 import { useDialog } from "hooks/use-dialog";
 import "./index.scss";
 
@@ -19,7 +16,7 @@ const ColumnList = ({ data, children }: { data; children? }) => {
   }, [detail, setDialog, data, children]);
   return (
     <div
-      className={`columnList ${detail?.hover ? "pointer" : ""}`}
+      className={`column-list ${detail?.hover ? "pointer" : ""}`}
       onClick={callDialog}
     >
       <Thumbnail>

@@ -5,9 +5,9 @@ import DangerousHTML from "components/dangerous-html/index";
 import Image from "components/image/index";
 import "./index.scss";
 
-const Index = ({ data }) => {
+const TripodSkillCustom = ({ data }) => {
   return (
-    <div className="tripodSkillCustoms">
+    <div className="tripod-skill-customs">
       {data.map((ts, index) => {
         const { name = null, desc = null, grade = null, src = null } = ts;
         return (
@@ -24,4 +24,6 @@ const Index = ({ data }) => {
   );
 };
 
-export default React.memo(Index, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(TripodSkillCustom, (left, right) =>
+  Lodash.isEqual(left, right)
+);

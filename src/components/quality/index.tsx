@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 
-export default ({ data }: { data? }) => {
+const Quality = ({ data }: { data? }) => {
   const { quality } = data.detail;
 
   if (quality === -1) return null;
@@ -14,7 +14,7 @@ export default ({ data }: { data? }) => {
   if (quality === 100) qualityColor = 4;
 
   return (
-    <div className="detail-quality textCenter">
+    <div className="detail-quality text-center">
       품질 {quality}%
       <div
         className={`quality-value gradient${qualityColor}`}
@@ -23,3 +23,5 @@ export default ({ data }: { data? }) => {
     </div>
   );
 };
+
+export default Quality;

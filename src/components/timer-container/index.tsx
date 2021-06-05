@@ -3,7 +3,7 @@ import Timer from "./timer/index";
 import { useNewTime } from "hooks/use-newtime";
 import "./index.scss";
 
-const Index = ({ data, today = null }) => {
+const TimerContainer = ({ data, today = null }) => {
   const { setTime } = useNewTime();
 
   // 배열 내 객체도 모두 복사
@@ -36,10 +36,10 @@ const Index = ({ data, today = null }) => {
   });
 
   if (newData.length === 0)
-    return <div className="no-timer textCenter">다음에 만나요</div>;
+    return <div className="no-timer text-center">다음에 만나요</div>;
 
   return (
-    <div className="timerWrap">
+    <div className="timer-wrap">
       {newData.map((data, index) => {
         const {
           name,
@@ -91,7 +91,7 @@ function GetValidTimes(newData) {
     });
 }
 
-export default React.memo(Index, (prev, next) => {
+export default React.memo(TimerContainer, (prev, next) => {
   // 자정이 되어서 변경된 homeDate로 Home이 다시 렌더링 될 때, Home에서 받아온 today 속성값의 변경으로 TimeWrap 다시 렌더링
   if (prev.today !== next.today) return false;
   return true;

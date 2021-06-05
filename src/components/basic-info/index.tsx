@@ -1,11 +1,9 @@
 import React from "react";
 import Lodash from "lodash";
 import "./index.scss";
-import Thumbnail from "components/thumbnail";
-import TextContainer from "components/text-container";
-import Image from "components/image/index";
+import { Thumbnail, TextContainer, Image } from "../";
 
-const basicInfo = ({ userData, collection }) => {
+const BasicInfo = ({ userData, collection }) => {
   const { basicInfo, expeditionInfo } = userData;
   const {
     className,
@@ -52,6 +50,6 @@ const basicInfo = ({ userData, collection }) => {
   );
 };
 
-export default React.memo(basicInfo, (left, right) =>
+export default React.memo(BasicInfo, (left, right) =>
   Lodash.isEqual(left, right)
 );

@@ -3,9 +3,9 @@ import ServerChar from "../char/index";
 
 const Index = ({ wrap, setUserData }) => {
   return (
-    <div className="userExpedition">
-      <div className="userExpeditionServer">{wrap.server}</div>
-      <div className="userExpeditionCharWrap">
+    <div className="user-expedition">
+      <div className="user-expedition-server">{wrap.server}</div>
+      <div className="user-expedition-char-wrap">
         {wrap.charList.map((char, charIndex) => {
           return (
             <ServerChar

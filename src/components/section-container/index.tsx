@@ -2,15 +2,15 @@ import React from "react";
 import Lodash from "lodash";
 import "./index.scss";
 
-const HomeSection = ({ children, title, cn = "" }) => {
+const SectionContainer = ({ children, title, cn = "" }) => {
   return (
     <section className={`section ${cn}`}>
-      <div className="sectionTitle textCenter">{title}</div>
-      <div className="sectionContent">{children}</div>
+      <div className="section-title text-center">{title}</div>
+      <div className="section-content">{children}</div>
     </section>
   );
 };
 
-export default React.memo(HomeSection, (left, right) =>
+export default React.memo(SectionContainer, (left, right) =>
   Lodash.isEqual(left, right)
 );

@@ -54,9 +54,9 @@ const Index = ({
 
   return (
     <>
-      <section className="userInfo">
-        <section className="userInfoTop">
-          <div className="showExpeditionWrap" onClick={setExpeditionPop}>
+      <section className="user-info">
+        <section className="user-info-top">
+          <div className="show-expedition-wrap" onClick={setExpeditionPop}>
             원정대 캐릭터 보기
           </div>
           <Expedition
@@ -67,7 +67,7 @@ const Index = ({
           />
           <BasicInfo userData={userData} collection={collectionNav} />
         </section>
-        <section className="userInfoBottom">
+        <section className="user-info-bottom">
           <Nav
             arr={mainNavs}
             isShow={true}
@@ -85,7 +85,7 @@ const Index = ({
               navType="sub"
             />
           ))}
-          <NavContent selected={mainNav} cn="tabContentWrap">
+          <NavContent selected={mainNav} cn="tab-content-wrap">
             <NavContent
               selected={subNav}
               cn="ability-container nav-content-container"

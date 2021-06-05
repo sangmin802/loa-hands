@@ -1,6 +1,6 @@
 @import "../../style/variables.scss";
 
-.detailTop {
+.detail-top {
   display: flex;
   justify-content: space-between;
   .thumbnail {
@@ -23,7 +23,7 @@
     }
   }
 }
-.detailBottom {
+.detail-bottom {
   > div {
     margin-top: 0.7rem;
     * {

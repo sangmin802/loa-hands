@@ -16,7 +16,7 @@ const Header = ({ setHomeData, setUserData }) => {
 
   return (
     <div className="header">
-      <div className="innerHeader">
+      <div className="inner-header">
         <div
           className="logo"
           style={{
@@ -24,7 +24,7 @@ const Header = ({ setHomeData, setUserData }) => {
           }}
           onClick={setHomeData}
         />
-        <form onSubmit={onSubmitHandler} className="searchForm">
+        <form onSubmit={onSubmitHandler} className="search-form">
           <input
             type="text"
             name="searchedUser"

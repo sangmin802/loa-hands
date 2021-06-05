@@ -1,5 +1,5 @@
 import React from "react";
-import List from "components/list/index";
+import { List } from "../";
 import "./index.scss";
 
 const ListContainer = ({
@@ -15,8 +15,8 @@ const ListContainer = ({
 }) => {
   return (
     <div className={`list-${side} list-container`}>
-      <div className="title textCenter">{title}</div>
-      <div className="columnContent">
+      <div className="title text-center">{title}</div>
+      <div className="column-content">
         {arr.map((res, index) => {
           return (
             <List key={`columnList${side}${index}`} data={res}>

@@ -6,7 +6,7 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
   return (
     <article
       className={`${navType}-nav-container nav-container ${
-        isShow ? "" : "displayNone"
+        isShow ? "" : "display-none"
       }`}
     >
       {arr.map((tab, index) => {
@@ -32,7 +32,7 @@ const Item = ({ NavName, setNav, selected, index }) => {
 
   return (
     <nav
-      className={`nav textCenter ${selected ? "white" : ""}`}
+      className={`nav text-center ${selected ? "white" : ""}`}
       onClick={navClickHandler}
     >
       {NavName}

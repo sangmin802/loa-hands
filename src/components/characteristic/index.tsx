@@ -1,7 +1,6 @@
 import React from "react";
 import Lodash from "lodash";
-import TextContainer from "components/text-container/index";
-import DangerousHTML from "components/dangerous-html/index";
+import { TextContainer, DangerousHTML } from "../";
 import "./index.scss";
 
 const Chararteristic = ({ data }) => {

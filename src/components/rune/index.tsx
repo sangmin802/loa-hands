@@ -1,10 +1,8 @@
 import React from "react";
 import "./index.scss";
-import Thumbnail from "components/thumbnail/index";
-import TextContainer from "components/text-container/index";
-import Image from "components/image/index";
+import { Thumbnail, TextContainer, Image } from "../";
 
-export default ({ data }: { data? }) => {
+const Rune = ({ data }: { data? }) => {
   const rune = data.detail.rune;
 
   if (!rune) return null;
@@ -27,3 +25,5 @@ export default ({ data }: { data? }) => {
     </div>
   );
 };
+
+export default Rune;

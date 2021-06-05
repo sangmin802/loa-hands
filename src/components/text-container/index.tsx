@@ -8,7 +8,7 @@ const TextContainer = ({ text, grade }: { text; grade? }) => {
         return (
           <div
             key={`text${index}`}
-            className={`overflowDot ${
+            className={`overflow-dot ${
               index === 0 && grade ? `color${grade}` : ""
             }`}
           >

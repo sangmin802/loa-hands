@@ -2,7 +2,7 @@ import React from "react";
 import { addZero } from "utility/utility";
 import { useTimer } from "hooks/use-timer";
 
-const Index = props => {
+const Timer = props => {
   const { state } = useTimer(props);
 
   let { timeOut, targetState } = state;
@@ -41,7 +41,7 @@ const Index = props => {
   return (
     <div className="timer" style={{ borderColor: borderColor }}>
       <div style={{ display: endTimeBg }} className="end-time-bg"></div>
-      <div className="name textCenter overflowDot">{name}</div>
+      <div className="name text-center overflow-dot">{name}</div>
       <div className="content">
         <div className="timer-img">
           <img src={`${process.env.PUBLIC_URL}${src}`} alt={name as string} />
@@ -52,7 +52,7 @@ const Index = props => {
           <div className="time-out">{timeOut}</div>
         </div>
       </div>
-      <div className="name textCenter overflowDot">{position}</div>
+      <div className="name text-center overflow-dot">{position}</div>
     </div>
   );
 };
@@ -65,4 +65,4 @@ function minusMin(time, waiting) {
   return time;
 }
 
-export default Index;
+export default Timer;

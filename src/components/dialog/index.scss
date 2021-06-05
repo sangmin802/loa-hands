@@ -1,13 +1,13 @@
 @import "../../style/variables.scss";
 
-.dialogBack {
+.dialog-back {
   width: 100%;
   height: 100%;
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
-.dialogContent {
+.dialog-content {
   padding: 0.5rem;
   position: fixed;
   width: 30%;
@@ -24,6 +24,6 @@
   border-radius: $contBox-border-radius;
   z-index: 3;
 }
-.dialogContent::-webkit-scrollbar {
+.dialog-content::-webkit-scrollbar {
   display: none;
 }

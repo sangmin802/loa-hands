@@ -1,17 +1,17 @@
 @import "./variables.scss";
 
-.userInfo {
+.user-info {
   border-radius: $contBox-border-radius;
   padding: 0.5rem;
 }
 /* userInfoTop */
-.userInfoTop {
+.user-info-top {
   position: relative;
   width: 100%;
   background: $bgDeep;
   border-radius: $contBox-border-radius;
   padding: 1rem 0.5rem 1rem;
-  .showExpeditionWrap {
+  .show-expedition-wrap {
     float: right;
     background: $bgLow;
     padding: 0.3rem;
@@ -22,15 +22,15 @@
 }
 
 /* userInfoBottom */
-.userInfoBottom {
+.user-info-bottom {
   margin-top: 1rem;
-  .tabContentWrap {
+  .tab-content-wrap {
     background: $bgDeep;
     padding: 0.5rem;
     border-radius: 0 0 5px 5px;
   }
   .nav-content-container {
-    .columnList {
+    .column-list {
       > .thumbnail {
         .text-container {
           div {
@@ -47,9 +47,9 @@
 
 // ability-container
 .ability-container {
-  .columnList {
-    > .imgTextWrap {
-      .textWrap {
+  .column-list {
+    > .img-text-wrap {
+      .text-wrap {
         * {
           line-height: 14px;
         }
@@ -60,8 +60,8 @@
 
 // skill-container
 .skill-container {
-  .hoverDetailBottom {
-    .tripodSkillCustoms {
+  .hover-detailbottom {
+    .tripod-skill-customs {
       .text-container {
         > div {
           &:last-child {
@@ -78,7 +78,7 @@
 
 // collection-container
 .collection-container {
-  .columnList {
+  .column-list {
     min-height: initial;
     .img-container {
       display: none;

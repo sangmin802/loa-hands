@@ -33,8 +33,8 @@ const Dialog = () => {
     <>
       {dialog && (
         <>
-          <div className="dialogBack" onClick={closeDialog}></div>
-          <div className="dialogContent">{dialog}</div>
+          <div className="dialog-back" onClick={closeDialog}></div>
+          <div className="dialog-content">{dialog}</div>
         </>
       )}
     </>

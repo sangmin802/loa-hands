@@ -1,7 +1,7 @@
 import React from "react";
 import Lodash from "lodash";
 import "./index.scss";
-import DangerousHTML from "components/dangerous-html/index";
+import { DangerousHTML } from "../";
 
 const ItemPartBox = ({ data }) => {
   return (

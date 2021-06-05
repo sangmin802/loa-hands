@@ -13,11 +13,14 @@ const UserExpedition = ({
     expeditionInfo: { expeditionUserWrap },
   } = userData;
 
-  const displayPop = expeditionPop ? "displayBlock" : null;
+  const displayPop = expeditionPop ? "display-block" : null;
 
   return (
-    <div className={`searchedUserExpedition zIndex11 ${displayPop}`}>
-      <div className="searchedUserExpeditionClose" onClick={setExpeditionPop}>
+    <div className={`searched-user-expedition z-index11 ${displayPop}`}>
+      <div
+        className="searched-user-expedition-close"
+        onClick={setExpeditionPop}
+      >
         닫기
       </div>
       {expeditionUserWrap.map((wrap, index) => {

@@ -1,6 +1,6 @@
 @import "../../style/variables.scss";
 
-.columnList {
+.column-list {
   position: relative;
   min-height: 52px;
   margin-bottom: 0.5rem;
@@ -8,6 +8,6 @@
   background: $bgLow;
   border-radius: $contBox-border-radius;
 }
-.columnList:last-child {
+.column-list:last-child {
   margin-bottom: 0;
 }

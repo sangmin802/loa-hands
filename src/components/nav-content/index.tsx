@@ -5,7 +5,7 @@ const NavContent = ({ children, selected, cn }) => {
   return (
     <article className={cn}>
       {Children.map(children, (component, index) => (
-        <article className={selected === index ? "" : "displayNone"}>
+        <article className={selected === index ? "" : "display-none"}>
           {component}
         </article>
       ))}
