@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect } from "react";
-import { useDialog } from "hooks/use-dialog";
 import "./index.scss";
 
-const Dialog = () => {
-  const { dialog, setDialog } = useDialog();
+const Dialog = ({ dialog, setDialog }) => {
   const closeDialog = useCallback(() => {
     setDialog(null);
   }, [setDialog]);
@@ -41,4 +39,4 @@ const Dialog = () => {
   );
 };
 
-export default React.memo(Dialog, () => true);
+export default Dialog;
