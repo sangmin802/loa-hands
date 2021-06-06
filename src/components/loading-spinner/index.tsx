@@ -1,9 +1,9 @@
 import React from "react";
 import "./index.css";
 
-const LoadingSpinner = ({ style = "" }) => {
+const LoadingSpinner = ({ back = true }) => {
   return (
-    <div className={`spinner-wrap ${style}`}>
+    <div className={back ? "spinner-wrap" : "default"}>
       <div className="lds-spinner">
         <div></div>
         <div></div>
