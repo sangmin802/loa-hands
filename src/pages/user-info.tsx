@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "style/userInfo.scss";
 import {
   BasicInfo,
@@ -10,10 +10,11 @@ import {
   Quality,
   Rune,
   Characteristic,
+  Detail,
+  ListItem,
+  Dialog,
 } from "components/";
 import { useUser } from "hooks/use-user";
-import { useExpedition } from "hooks/use-expedition";
-import { useNav } from "hooks/use-nav";
 
 const UserInfo = ({
   match: {
@@ -21,9 +22,10 @@ const UserInfo = ({
   },
 }) => {
   const { userData, setUserData } = useUser();
-  const { expeditionPop, setExpeditionPop } = useExpedition();
-  const { nav: subNav, setNav: setSubNav } = useNav("sub");
-  const { nav: mainNav, setNav: setMainNav } = useNav("main");
+  const [expeditionPop, setExpeditionPop] = useState(false);
+  const [subNav, setSubNav] = useState(0);
+  const [mainNav, setMainNav] = useState(0);
+  const [dialog, setDialog] = useState(null);
 
   const collectionNav = useMemo(() => {
     if (!userData) return;
@@ -35,6 +37,33 @@ const UserInfo = ({
       />
     ));
   }, [userData]);
+
+  const toggleExpedition = useCallback(() => {
+    setExpeditionPop(!expeditionPop);
+  }, [setExpeditionPop, expeditionPop]);
+
+  const setMainNavHandler = useCallback(
+    index => {
+      setMainNav(index);
+      setSubNav(0);
+    },
+    [setMainNav, setSubNav]
+  );
+
+  const setDialogHandler = useCallback(
+    dialog => {
+      setDialog(dialog);
+    },
+    [setDialog]
+  );
+  useEffect(() => {
+    return () => {
+      setMainNav(0);
+      setSubNav(0);
+      setExpeditionPop(false);
+      setDialogHandler(null);
+    };
+  }, [userData, setMainNav, setSubNav, setExpeditionPop, setDialogHandler]);
 
   useEffect(() => {
     if (!userData) setUserData(name);
@@ -57,16 +86,17 @@ const UserInfo = ({
 
   return (
     <>
+      <Dialog dialog={dialog} setDialog={setDialogHandler} />
       <section className="user-info">
         <section className="user-info-top">
-          <div className="show-expedition-wrap" onClick={setExpeditionPop}>
+          <div className="show-expedition-wrap" onClick={toggleExpedition}>
             원정대 캐릭터 보기
           </div>
           <Expedition
             userData={userData}
             setUserData={setUserData}
             expeditionPop={expeditionPop}
-            setExpeditionPop={setExpeditionPop}
+            toggleExpedition={toggleExpedition}
           />
           <BasicInfo userData={userData} collection={collectionNav} />
         </section>
@@ -75,7 +105,7 @@ const UserInfo = ({
             arr={mainNavs}
             isShow={true}
             selectedNav={mainNav}
-            setNav={setMainNav}
+            setNav={setMainNavHandler}
             navType="main"
           />
           {subNavs.map((tab, index) => (
