@@ -1,5 +1,4 @@
-import React from "react";
-import { List } from "../";
+import React, { cloneElement } from "react";
 import "./index.scss";
 
 const ListContainer = ({
@@ -17,13 +16,9 @@ const ListContainer = ({
     <div className={`list-${side} list-container`}>
       <div className="title text-center">{title}</div>
       <div className="column-content">
-        {arr.map((res, index) => {
-          return (
-            <List key={`columnList${side}${index}`} data={res}>
-              {children}
-            </List>
-          );
-        })}
+        {arr.map((res, index) =>
+          cloneElement(children, { data: res, key: `item${index}` })
+        )}
       </div>
     </div>
   );

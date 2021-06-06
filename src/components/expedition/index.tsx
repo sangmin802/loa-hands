@@ -7,7 +7,7 @@ const UserExpedition = ({
   userData,
   setUserData,
   expeditionPop,
-  setExpeditionPop,
+  toggleExpedition,
 }) => {
   const {
     expeditionInfo: { expeditionUserWrap },
@@ -19,7 +19,7 @@ const UserExpedition = ({
     <div className={`searched-user-expedition z-index11 ${displayPop}`}>
       <div
         className="searched-user-expedition-close"
-        onClick={setExpeditionPop}
+        onClick={toggleExpedition}
       >
         닫기
       </div>

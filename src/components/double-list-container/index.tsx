@@ -8,7 +8,7 @@ const DoubleListContainer = ({
   type,
   lt = null,
   rt = null,
-  children = null,
+  children,
 }) => {
   const [left, right] = useMemo(() => {
     return data.reduce(

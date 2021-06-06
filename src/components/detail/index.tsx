@@ -10,7 +10,7 @@ import {
   Image,
 } from "../";
 
-const Detail = ({ data, children }: { data; children? }) => {
+const Detail = ({ data, children }: { data?; children? }) => {
   const { backSrc, detail } = data;
   const {
     src,
