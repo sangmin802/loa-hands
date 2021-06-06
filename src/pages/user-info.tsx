@@ -124,9 +124,17 @@ const UserInfo = ({
               cn="ability-container nav-content-container"
             >
               <DoubleListContainer data={Object.values(equipment)} type="Equip">
-                <Quality />
+                <ListItem setDialog={setDialogHandler}>
+                  <Detail>
+                    <Quality />
+                  </Detail>
+                </ListItem>
               </DoubleListContainer>
-              <DoubleListContainer data={Object.values(avatar)} type="Inner" />
+              <DoubleListContainer data={Object.values(avatar)} type="Inner">
+                <ListItem setDialog={setDialogHandler}>
+                  <Detail />
+                </ListItem>
+              </DoubleListContainer>
               <Characteristic data={[basic, battle, engrave]} />
             </NavContent>
             <NavContent
@@ -139,9 +147,15 @@ const UserInfo = ({
                 rt={`획득 : ${battleSkill.getPoint}`}
                 type="Left"
               >
-                <Rune />
+                <ListItem setDialog={setDialogHandler}>
+                  <Detail>
+                    <Rune />
+                  </Detail>
+                </ListItem>
               </DoubleListContainer>
-              <DoubleListContainer data={lifeSkill} type="Left" />
+              <DoubleListContainer data={lifeSkill} type="Left">
+                <ListItem />
+              </DoubleListContainer>
             </NavContent>
             <NavContent
               selected={subNav}
@@ -154,7 +168,9 @@ const UserInfo = ({
                   type="True"
                   lt={res.title}
                   rt={`획득 : ${res.getCount} 미획득 : ${res.totalCount}`}
-                />
+                >
+                  <ListItem />
+                </DoubleListContainer>
               ))}
             </NavContent>
           </NavContent>
