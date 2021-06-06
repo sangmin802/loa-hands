@@ -1,6 +1,5 @@
 import { put, takeLatest, call } from "redux-saga/effects";
-import { loadingToggle, resetToggle } from "../ducks/toggle-slicer";
-import { resetNav } from "../ducks/nav-slicer";
+import { loadingToggle } from "../ducks/toggle-slicer";
 import Api from "api/api";
 import { GET_USER_DATA_SAGA, getUserData } from "../ducks/ajax-slicer";
 
@@ -11,9 +10,8 @@ export function* getUserData_Saga(action) {
     yield put(loadingToggle());
     try {
       const userData = yield call(Api.getUserData, name);
-      yield put(resetToggle());
-      yield put(resetNav());
       yield put(getUserData({ userData }));
+      yield put(loadingToggle());
       history.replace(`/userInfo/${name}`);
     } catch (err) {
       alert(err.message);
