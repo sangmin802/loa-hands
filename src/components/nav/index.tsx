@@ -27,7 +27,7 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
 
 const Item = ({ NavName, setNav, selected, index }) => {
   const navClickHandler = useCallback(() => {
-    setNav({ nav: index });
+    setNav(index);
   }, [index, setNav]);
 
   return (
