@@ -10,7 +10,7 @@ import {
   Event,
 } from "components/";
 
-const Index = () => {
+const Home = () => {
   const { homeData, setHomeData } = useHome();
 
   useDateOver(setHomeData);
@@ -24,13 +24,13 @@ const Index = () => {
   return (
     <section className="home">
       <SectionContainer title="진행중인 이벤트" cn="event-container">
-        {!homeData?.events && <LoadingSpinner />}
+        {!homeData?.events && <LoadingSpinner back={false} />}
         {homeData?.events.map((event, index) => (
           <Event event={event} key={`event${index}`} />
         ))}
       </SectionContainer>
       <SectionContainer title="오늘의 캘린더섬" cn="calendar-container">
-        {!homeData?.calendar && <LoadingSpinner />}
+        {!homeData?.calendar && <LoadingSpinner back={false} />}
         {homeData?.calendar && (
           <>
             <SectionContainer title="14:00">
@@ -64,4 +64,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Home;
