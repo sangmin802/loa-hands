@@ -2,11 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,6 +19,9 @@
     "jsx": "react"
   },
   "include": [
-    "src", "store/controller/actions.ts", "store/model/store.ts", "selector.ts"
+    "src",
+    "store/controller/actions.ts",
+    "store/model/store.ts",
+    "selector.ts"
   ]
 }
