@@ -1,6 +1,6 @@
-@import "../../style/variables.scss";
+import styled from "styled-components";
 
-.dialog-back {
+export const Background = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -8,8 +8,9 @@
   z-index: 2;
   left: 0;
   top: 0;
-}
-.dialog-content {
+`;
+
+export const Container = styled.div`
   padding: 0.5rem;
   position: fixed;
   width: 30%;
@@ -22,10 +23,11 @@
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border: $contBox-border;
-  border-radius: $contBox-border-radius;
+  border: 1px solid #f0f4f5;
+  border-radius: 3px;
   z-index: 3;
-}
-.dialog-content::-webkit-scrollbar {
-  display: none;
-}
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import "./index.scss";
+import * as Styled from "./index.style";
 
 const Dialog = ({ dialog, setDialog }) => {
   const closeDialog = useCallback(() => {
@@ -31,8 +31,8 @@ const Dialog = ({ dialog, setDialog }) => {
     <>
       {dialog && (
         <>
-          <div className="dialog-back" onClick={closeDialog}></div>
-          <div className="dialog-content">{dialog}</div>
+          <Styled.Background onClick={closeDialog}></Styled.Background>
+          <Styled.Container>{dialog}</Styled.Container>
         </>
       )}
     </>
