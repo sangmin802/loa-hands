@@ -1,7 +1,7 @@
 import React from "react";
 import Lodash from "lodash";
-import "./index.scss";
-import { Thumbnail, TextContainer, Image } from "../";
+import { Image, Text } from "../";
+import * as Styled from "./index.styles";
 
 const BasicInfo = ({ userData, collection }) => {
   const { basicInfo, expeditionInfo } = userData;
@@ -21,32 +21,98 @@ const BasicInfo = ({ userData, collection }) => {
   const { name, server, Lv } = expeditionInfo;
 
   return (
-    <div className="searched-user-info">
-      <div className="basic-info class-info">
-        <TextContainer text={["클래스"]} />
-        <Thumbnail>
-          <Image args={{ src: classSrc }} />
-          <TextContainer text={[className]} />
-        </Thumbnail>
-      </div>
-      <div className="basic-info name-info">
-        <TextContainer text={["이름", `${Lv} ${name}`]} />
-        <TextContainer text={["원정대 레벨", `${server} Lv ${expeditionLv}`]} />
-      </div>
-      <div className="basic-info level-info">
-        <TextContainer text={["현재 아이템 레벨", curBigLv, curSmallLv]} />
-        <TextContainer text={["달성 아이템 레벨", reachBigLv, reachSmallLv]} />
-      </div>
-      <div className="basic-info sub1-info">
-        <TextContainer text={["영지", garden]} />
-        <TextContainer text={["PVP", pvp]} />
-      </div>
-      <div className="basic-info sub2-info">
-        <TextContainer text={["칭호", title]} />
-        <TextContainer text={["길드", guild]} />
-      </div>
-      <div className="user-info-collection collection-info">{collection}</div>
-    </div>
+    <>
+      <Styled.Container>
+        <Styled.Content type="title">
+          <Text>클래스</Text>
+        </Styled.Content>
+        <Styled.Content>
+          <Image src={classSrc} />
+          <Text>{className}</Text>
+        </Styled.Content>
+      </Styled.Container>
+      <Styled.Container>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>이름</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>
+              {Lv} {name}
+            </Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>원정대 레벨</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>
+              {server} Lv {expeditionLv}
+            </Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+      </Styled.Container>
+      <Styled.Container>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>현재 아이템 레벨</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>
+              {curBigLv} <small>{curSmallLv}</small>
+            </Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>달성 아이템 레벨</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>
+              {reachBigLv} <small>{reachSmallLv}</small>
+            </Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+      </Styled.Container>
+      <Styled.Container>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>영지</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>{garden}</Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>PVP</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>{pvp}</Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+      </Styled.Container>
+      <Styled.Container>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>칭호</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>{title}</Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+        <Styled.InnerContainer>
+          <Styled.Content type="title">
+            <Text>길드</Text>
+          </Styled.Content>
+          <Styled.Content>
+            <Text>{guild}</Text>
+          </Styled.Content>
+        </Styled.InnerContainer>
+      </Styled.Container>
+      <Styled.Collection>{collection}</Styled.Collection>
+    </>
   );
 };
 
