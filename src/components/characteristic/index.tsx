@@ -1,20 +1,22 @@
 import React from "react";
 import Lodash from "lodash";
-import { TextContainer, DangerousHTML } from "../";
-import "./index.scss";
+import { DangerousHTML, Text } from "../";
+import * as Styled from "./index.style";
 
 const Chararteristic = ({ data }) => {
   return (
-    <div className="characteristic-container">
+    <>
       {data.map(({ title, content }) => {
         return (
-          <div className="characteristics" key={title}>
-            <div className="title text-center">{title}</div>
+          <Styled.Container key={title}>
+            <Styled.Title>
+              <Text>{title}</Text>
+            </Styled.Title>
             <Item content={content} />
-          </div>
+          </Styled.Container>
         );
       })}
-    </div>
+    </>
   );
 };
 
@@ -22,10 +24,14 @@ const Item = ({ content }) => {
   return (
     <>
       {content.map(({ title, desc }) => (
-        <div className="characteristic" key={title[0]}>
-          <TextContainer text={title} />
+        <Styled.Item key={title[0]}>
+          <Styled.Title type="itemTitle">
+            <Text>
+              {title[0]} {title[1]}
+            </Text>
+          </Styled.Title>
           <DangerousHTML html={desc} />
-        </div>
+        </Styled.Item>
       ))}
     </>
   );
