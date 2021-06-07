@@ -1,5 +1,4 @@
 import React, { ImgHTMLAttributes } from "react";
-import "./index.scss";
 import * as Styled from "./index.style";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
