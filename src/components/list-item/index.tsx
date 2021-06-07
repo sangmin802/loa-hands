@@ -25,12 +25,13 @@ const ListItem = ({
       onClick={setDialogHandler}
     >
       <Thumbnail>
-        <Image
+        {/* <Image
           args={{
             className: `gradient${detail?.grade}`,
             src: detail?.src ?? backSrc,
           }}
-        />
+        /> */}
+        <Image src={detail?.src ?? backSrc} grade={detail?.grade} />
         <TextContainer
           text={detail ? [...detail.subTitle, detail.title] : []}
           grade={detail?.grade}

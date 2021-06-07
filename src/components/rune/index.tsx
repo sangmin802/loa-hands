@@ -19,7 +19,7 @@ const Rune = ({ data }: { data? }) => {
   return (
     <div className="rune">
       <Thumbnail>
-        <Image args={{ src: runeImg, className: `gradient${gradeColor}` }} />
+        <Image src={runeImg} grade={gradeColor} />
         <TextContainer text={[runeGrade, runeInfo]} grade={gradeColor} />
       </Thumbnail>
     </div>

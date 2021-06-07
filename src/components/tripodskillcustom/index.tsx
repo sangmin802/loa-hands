@@ -10,7 +10,7 @@ const TripodSkillCustom = ({ data }) => {
         const { name = null, desc = null, grade = null, src = null } = ts;
         return (
           <Thumbnail key={`ts${index}`}>
-            <Image args={{ src, className: `gradient${grade}` }} />
+            <Image src={src} grade={grade} />
             <div className="desc">
               <DangerousHTML html={name} />
               <DangerousHTML html={desc} />

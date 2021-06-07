@@ -12,7 +12,7 @@ const Event = ({ event }) => {
   return (
     <div className="event" onClick={goHref}>
       <Thumbnail>
-        <Image args={{ src: img }} />
+        <Image src={img} />
         <TextContainer text={[name, date]} />
       </Thumbnail>
     </div>
