@@ -1,10 +1,15 @@
-import React, { createElement } from "react";
+import React, { ImgHTMLAttributes } from "react";
 import "./index.scss";
+import * as Styled from "./index.style";
 
-const Image = ({ args }: { args }) => {
+interface Props extends ImgHTMLAttributes<HTMLImageElement> {
+  grade?: number;
+}
+
+const Image = ({ grade, ...props }: Props) => {
   return (
     <div className="img-container">
-      {args.src && createElement("img", { ...args, alt: args.src })}
+      <Styled.Image as="img" grade={grade} {...props} />
     </div>
   );
 };
