@@ -1,14 +1,7 @@
 import React, { cloneElement } from "react";
 import Lodash from "lodash";
-import "./index.scss";
-import {
-  Thumbnail,
-  ItemPartBox,
-  IndentString,
-  TripodSkillCustom,
-  TextContainer,
-  Image,
-} from "../";
+import { ItemPartBox, IndentString, TripodSkillCustom, Image, Text } from "../";
+import * as Styled from "./index.style";
 
 const Detail = ({ data, children }: { data?; children? }) => {
   const { backSrc, detail } = data;
@@ -24,24 +17,27 @@ const Detail = ({ data, children }: { data?; children? }) => {
 
   return (
     <div className="detail">
-      <div className="detail-top">
-        <Thumbnail>
-          <Image
-            args={{
-              className: `gradient${grade ?? ""}`,
-              style: { backgroundImage: backSrc ?? "" },
-              src: src ?? backSrc,
-            }}
-          />
-          <TextContainer text={[...subTitle, title]} grade={grade} />
-        </Thumbnail>
-      </div>
+      <Styled.Top>
+        <Styled.Container>
+          <Image src={src ?? backSrc} grade={grade} />
+          <Styled.Desc>
+            {subTitle.map(res => (
+              <Text type="subTitle" key={res}>
+                {res}
+              </Text>
+            ))}
+            <Text type="title" grade={grade}>
+              {title}
+            </Text>
+          </Styled.Desc>
+        </Styled.Container>
+      </Styled.Top>
       {children && cloneElement(children, { data })}
-      <div className="detail-bottom">
+      <>
         <ItemPartBox data={itemPartBox} />
         <IndentString data={indentStringGroup} />
         <TripodSkillCustom data={tripodSkillCustom} />
-      </div>
+      </>
     </div>
   );
 };
