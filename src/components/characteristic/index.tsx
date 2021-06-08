@@ -10,7 +10,7 @@ const Chararteristic = ({ data }) => {
         return (
           <Styled.Container key={title}>
             <Styled.Title>
-              <Text>{title}</Text>
+              <Text type="title">{title}</Text>
             </Styled.Title>
             <Item content={content} />
           </Styled.Container>
