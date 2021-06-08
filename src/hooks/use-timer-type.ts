@@ -41,22 +41,22 @@ export const useTimerType = (time, endTime, setTime) => {
     () => ({
       READY: {
         borderColor: "#CC99FF",
-        endTimeBg: "none",
+        endTimeBg: false,
         contentAlert: "컨텐츠 준비중",
       },
       START: {
         borderColor: "#FF6666",
-        endTimeBg: "none",
+        endTimeBg: false,
         contentAlert: "컨텐츠 시작",
       },
       NORMAL: {
-        borderColor: "inherit",
-        endTimeBg: "none",
+        borderColor: "",
+        endTimeBg: false,
         contentAlert: time[0],
       },
       END: {
-        borderColor: "inherit",
-        endTimeBg: "block",
+        borderColor: "",
+        endTimeBg: true,
         contentAlert: endTime,
       },
     }),
