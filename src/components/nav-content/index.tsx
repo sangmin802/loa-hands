@@ -1,13 +1,12 @@
 import React, { Children } from "react";
 import Lodash from "lodash";
+import * as Styled from "./index.style";
 
 const NavContent = ({ children, selected, cn }) => {
   return (
-    <article className={cn}>
+    <article>
       {Children.map(children, (component, index) => (
-        <article className={selected === index ? "" : "display-none"}>
-          {component}
-        </article>
+        <Styled.Content isShow={selected === index}>{component}</Styled.Content>
       ))}
     </article>
   );
