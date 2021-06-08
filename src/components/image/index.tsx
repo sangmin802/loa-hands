@@ -2,13 +2,13 @@ import React, { ImgHTMLAttributes } from "react";
 import * as Styled from "./index.style";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
-  grade?: number;
+  color: string;
 }
 
-const Image = ({ grade, ...props }: Props) => {
+const Image = ({ color, ...props }: Partial<Props>) => {
   return (
     <div className="img-container">
-      <Styled.Image as="img" grade={grade} {...props} />
+      <Styled.Image color={color} {...props} />
     </div>
   );
 };
