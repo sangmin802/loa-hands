@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import * as Styled from "./index.style";
 
-const Text = ({ children, ...props }) => (
+interface Props {
+  children: ReactNode;
+  type?: string;
+  color?: string;
+}
+
+const Text = ({ children, ...props }: Props) => (
   <Styled.Text {...props}>{children}</Styled.Text>
 );
 
