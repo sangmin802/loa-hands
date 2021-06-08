@@ -1,10 +1,10 @@
 import React from "react";
-import "./index.css";
+import * as Styled from "./index.style";
 
 const LoadingSpinner = ({ back = true }) => {
   return (
-    <div className={back ? "spinner-wrap" : "default"}>
-      <div className="lds-spinner">
+    <Styled.Container type={back ? "spinner-wrap" : "default"}>
+      <Styled.Content>
         <div></div>
         <div></div>
         <div></div>
@@ -17,8 +17,8 @@ const LoadingSpinner = ({ back = true }) => {
         <div></div>
         <div></div>
         <div></div>
-      </div>
-    </div>
+      </Styled.Content>
+    </Styled.Container>
   );
 };
 
