@@ -1,13 +1,16 @@
 import React from "react";
 import Lodash from "lodash";
-import "./index.scss";
+import * as Styled from "./index.style";
+import { Text } from "components/";
 
 const SectionContainer = ({ children, title, cn = "" }) => {
   return (
-    <section className={`section ${cn}`}>
-      <div className="section-title text-center">{title}</div>
-      <div className="section-content">{children}</div>
-    </section>
+    <article>
+      <Styled.Title>
+        <Text>{title}</Text>
+      </Styled.Title>
+      <>{children}</>
+    </article>
   );
 };
 
