@@ -24,4 +24,5 @@ export { default as TimerContainer } from "./timer-container";
 export { default as TripodSkillCustom } from "./tripodskillcustom";
 export { default as ListItem } from "./list-item";
 export { default as Text } from "./text";
+export { default as Button } from "./button";
 export { default as Input } from "./input";
