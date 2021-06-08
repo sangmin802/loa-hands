@@ -6,9 +6,10 @@ const titleType = {
     flex-direction: row;
     width: fit-content;
     margin-bottom: 0.5rem;
-    background-color: #1f222a;
-    border-radius: 3px;
     padding: 0.1rem 0.3rem;
+
+    ${({ theme }) => theme.contentBox}
+    background : ${({ theme }) => theme.backgroundColor.darkLow};
   `,
 };
 
