@@ -1,6 +1,8 @@
 import React from "react";
 import { useTimer } from "hooks/use-timer";
 import { useTimerType } from "hooks/use-timer-type";
+import { Text, Image } from "components/";
+import * as Styled from "./index.style";
 
 const Timer = ({ setTime, data }) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
@@ -15,21 +17,29 @@ const Timer = ({ setTime, data }) => {
   const timeOut = useTimer(time, calcTimer);
 
   return (
-    <div className="timer" style={{ borderColor }}>
-      <div style={{ display: endTimeBg }} className="end-time-bg"></div>
-      <div className="name text-center overflow-dot">{name}</div>
-      <div className="content">
-        <div className="timer-img">
-          <img src={`${process.env.PUBLIC_URL}${src}`} alt={name as string} />
-          <div className="lv">{lv}</div>
-        </div>
-        <div className="time">
-          <div className="start">{contentAlert}</div>
-          <div className="time-out">{timeOut}</div>
-        </div>
-      </div>
-      <div className="name text-center overflow-dot">{pos}</div>
-    </div>
+    <Styled.Container borderColor={borderColor}>
+      <Styled.Background isShow={endTimeBg}></Styled.Background>
+      <Styled.Title>
+        <Text type="desc">{name}</Text>
+      </Styled.Title>
+      <Styled.Content>
+        <Styled.TimerImg>
+          <Image src={`${process.env.PUBLIC_URL}${src}`} />
+          <Styled.Lv>
+            <Text type="small">{lv}</Text>
+          </Styled.Lv>
+        </Styled.TimerImg>
+        <Styled.Time>
+          <Text type="subTitle">{contentAlert}</Text>
+          <Text type="subTitle" color="timeOut">
+            {timeOut}
+          </Text>
+        </Styled.Time>
+      </Styled.Content>
+      <Styled.Position>
+        <Text type="desc">{pos}</Text>
+      </Styled.Position>
+    </Styled.Container>
   );
 };
 
