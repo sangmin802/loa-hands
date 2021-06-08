@@ -20,14 +20,8 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.85);
   max-height: 400px;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  border: 1px solid #f0f4f5;
-  border-radius: 3px;
   z-index: 3;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  ${({ theme }) => theme.contentBox}
+  ${({ theme }) => theme.scrollbar}
 `;
