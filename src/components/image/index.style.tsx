@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Image = styled.image<{ grade: number }>`
+export const Image = styled.img<{ color: string }>`
   display: block;
   width: 100%;
 
-  background: ${({ grade, theme }) => theme.gradientColor[`gradient${grade}`]};
+  background: ${({ color, theme }) => theme.gradientColor[color]};
 `;
