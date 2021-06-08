@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import "./index.css";
 import { ListContainer } from "../";
 import Lodash from "lodash";
+import * as Styled from "./index.style";
 
 const DoubleListContainer = ({
   data,
@@ -25,14 +25,18 @@ const DoubleListContainer = ({
   }, [data, type]);
 
   return (
-    <div className="double-column-wrap">
-      <ListContainer title={lt} arr={left} side="left">
-        {children}
-      </ListContainer>
-      <ListContainer title={rt} arr={right} side="right">
-        {children}
-      </ListContainer>
-    </div>
+    <Styled.Container>
+      <Styled.Content type="left">
+        <ListContainer title={lt} arr={left}>
+          {children}
+        </ListContainer>
+      </Styled.Content>
+      <Styled.Content type="right">
+        <ListContainer title={rt} arr={right}>
+          {children}
+        </ListContainer>
+      </Styled.Content>
+    </Styled.Container>
   );
 };
 
