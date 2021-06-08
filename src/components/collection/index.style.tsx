@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-const backgroundImage = `${process.env.PUBLIC_URL}/img/all.png`;
+import { BACKGROUND } from "constants/index";
 
 const positionX = [
   "720px",
@@ -22,7 +21,7 @@ export const Container = styled.div`
 export const Background = styled.div<{ position: number }>`
   width: 20px;
   height: 24px;
-  background: url("${backgroundImage}");
+  background: url("${BACKGROUND}");
   background-size: 1250px 1209px;
   background-position: ${({ position }) => positionX[position]} 50px;
   margin-right: 0.3rem;
