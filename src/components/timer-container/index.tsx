@@ -1,7 +1,8 @@
 import React from "react";
 import Timer from "./timer/index";
 import { useNewTime } from "hooks/use-newtime";
-import "./index.scss";
+import { Text } from "components/";
+import * as Styled from "./index.style";
 
 const TimerContainer = ({ data, today = null }) => {
   const { setTime } = useNewTime();
@@ -36,14 +37,20 @@ const TimerContainer = ({ data, today = null }) => {
   });
 
   if (newData.length === 0)
-    return <div className="no-timer text-center">다음에 만나요</div>;
+    return (
+      <Styled.Alert>
+        <Text>다음에 만나요</Text>
+      </Styled.Alert>
+    );
 
   return (
-    <div className="timer-wrap">
+    <Styled.Container>
       {newData.map((data, index) => (
-        <Timer setTime={setTime} data={data} key={`timer${index}`} />
+        <Styled.Content>
+          <Timer setTime={setTime} data={data} key={`timer${index}`} />
+        </Styled.Content>
       ))}
-    </div>
+    </Styled.Container>
   );
 };
 
