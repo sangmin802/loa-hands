@@ -1,23 +1,25 @@
 import React from "react";
 import ServerChar from "../char/index";
+import * as Styled from "./index.style";
+import { Text } from "components/";
 
-const Index = ({ wrap, setUserData }) => {
+const Server = ({ wrap, setUserData }) => {
   return (
-    <div className="user-expedition">
-      <div className="user-expedition-server">{wrap.server}</div>
-      <div className="user-expedition-char-wrap">
+    <>
+      <Styled.Title>
+        <Text>{wrap.server}</Text>
+      </Styled.Title>
+      <Styled.InnerContainer>
         {wrap.charList.map((char, charIndex) => {
           return (
-            <ServerChar
-              key={`userExpeditionChar${charIndex}`}
-              setUserData={setUserData}
-              char={char}
-            />
+            <Styled.Content key={`userExpeditionChar${charIndex}`}>
+              <ServerChar setUserData={setUserData} char={char} />
+            </Styled.Content>
           );
         })}
-      </div>
-    </div>
+      </Styled.InnerContainer>
+    </>
   );
 };
 
-export default Index;
+export default Server;
