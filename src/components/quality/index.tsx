@@ -1,5 +1,6 @@
 import React from "react";
-import "./index.scss";
+import * as Styled from "./index.style";
+import { Text } from "components/";
 
 const Quality = ({ data }: { data? }) => {
   const { quality } = data.detail;
@@ -14,13 +15,13 @@ const Quality = ({ data }: { data? }) => {
   if (quality === 100) qualityColor = 4;
 
   return (
-    <div className="detail-quality text-center">
-      품질 {quality}%
-      <div
-        className={`quality-value gradient${qualityColor}`}
-        style={{ width: `${quality}%` }}
-      ></div>
-    </div>
+    <Styled.Container>
+      <Text type="subTitle">품질 {quality}%</Text>
+      <Styled.Background
+        color={`gradient${qualityColor}`}
+        width={quality}
+      ></Styled.Background>
+    </Styled.Container>
   );
 };
 
