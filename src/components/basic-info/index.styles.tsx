@@ -3,11 +3,11 @@ import styled, { css } from "styled-components";
 const contentType = {
   title: css`
     margin-right: 0.3rem;
-    border-radius: 3px;
-    border: 1px solid #f0f4f5;
-    background: #1f222a;
     padding: 0.2rem 0.6rem;
     overflow: initial;
+
+    ${({ theme }) => theme.contentBox}
+    background : ${({ theme }) => theme.backgroundColor.darkLow};
   `,
 };
 
