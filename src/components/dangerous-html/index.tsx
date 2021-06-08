@@ -1,12 +1,8 @@
 import React from "react";
+import * as Styled from "./index.style";
 
 const DangerousHTML = ({ html }) => {
-  return (
-    <div
-      className="dangerous-html"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
+  return <Styled.Container dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 export default DangerousHTML;
