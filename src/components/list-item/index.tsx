@@ -1,6 +1,6 @@
 import React, { cloneElement, useCallback } from "react";
-import { Thumbnail, TextContainer, Image } from "../";
-import "./index.scss";
+import { Thumbnail, TextContainer, Image, Text } from "components/";
+import * as Styled from "./index.style";
 
 const ListItem = ({
   data,
@@ -20,24 +20,23 @@ const ListItem = ({
   }, [children, data, setDialog, detail]);
 
   return (
-    <div
-      className={`column-list ${detail?.hover ? "pointer" : ""}`}
-      onClick={setDialogHandler}
-    >
-      <Thumbnail>
-        {/* <Image
-          args={{
-            className: `gradient${detail?.grade}`,
-            src: detail?.src ?? backSrc,
-          }}
-        /> */}
-        <Image src={detail?.src ?? backSrc} grade={detail?.grade} />
-        <TextContainer
-          text={detail ? [...detail.subTitle, detail.title] : []}
-          grade={detail?.grade}
-        />
-      </Thumbnail>
-    </div>
+    <Styled.Container hover={detail?.hover} onClick={setDialogHandler}>
+      <Image src={detail?.src ?? backSrc} color={`gradient${detail?.grade}`} />
+      {detail && (
+        <Styled.Desc>
+          {detail.subTitle.map((text, index) => (
+            <Text
+              key={text}
+              color={index === 0 ? `color${detail.grade}` : "white"}
+              type={"subTitle"}
+            >
+              {text}
+            </Text>
+          ))}
+          <Text>{detail.title}</Text>
+        </Styled.Desc>
+      )}
+    </Styled.Container>
   );
 };
 
