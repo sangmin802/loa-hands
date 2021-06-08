@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.scss";
-import { Thumbnail, TextContainer, Image } from "../";
+import { Image, Text } from "../";
+import * as Styled from "./index.style";
 
 const Rune = ({ data }: { data? }) => {
   const rune = data.detail.rune;
@@ -17,12 +17,13 @@ const Rune = ({ data }: { data? }) => {
   if (runeGrade.includes("유물")) gradeColor = 5;
 
   return (
-    <div className="rune">
-      <Thumbnail>
-        <Image src={runeImg} grade={gradeColor} />
-        <TextContainer text={[runeGrade, runeInfo]} grade={gradeColor} />
-      </Thumbnail>
-    </div>
+    <Styled.Container>
+      <Image src={runeImg} color={`gradient${gradeColor}`} />
+      <Styled.Desc>
+        <Text color={`color${gradeColor}`}>{runeGrade}</Text>
+        <Text type="desc">{runeInfo}</Text>
+      </Styled.Desc>
+    </Styled.Container>
   );
 };
 
