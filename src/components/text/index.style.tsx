@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface Props {
-  grade: number;
   type: string;
+  color: string;
 }
 
 export const Text = styled.div<Partial<Props>>`
@@ -10,6 +10,6 @@ export const Text = styled.div<Partial<Props>>`
   overflow: hidden;
   white-space: nowrap;
 
-  color: ${({ grade, theme }) => theme.fontColor[`color${grade}`]};
-  font-size: ${({ type, theme }) => theme.fontSize[type]};
+  color: ${({ color = "white", theme }) => theme.fontColor[color]};
+  font-size: ${({ type = "normal", theme }) => theme.fontSize[type]};
 `;
