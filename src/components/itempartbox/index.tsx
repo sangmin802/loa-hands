@@ -1,20 +1,20 @@
 import React from "react";
 import Lodash from "lodash";
-import "./index.scss";
 import { DangerousHTML } from "../";
+import * as Styled from "./index.style";
 
 const ItemPartBox = ({ data }) => {
   return (
-    <div className="item-part-box">
+    <>
       {data.map(({ title, desc }, index) => {
         return (
-          <div key={index}>
+          <Styled.Content key={index}>
             <DangerousHTML html={title} />
             <DangerousHTML html={desc} />
-          </div>
+          </Styled.Content>
         );
       })}
-    </div>
+    </>
   );
 };
 
