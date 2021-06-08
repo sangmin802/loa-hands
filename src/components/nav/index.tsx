@@ -1,27 +1,23 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import Lodash from "lodash";
-import "./index.scss";
+import { Button, Text } from "components/";
+import * as Styled from "./index.style";
 
 const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
   return (
-    <article
-      className={`${navType}-nav-container nav-container ${
-        isShow ? "" : "display-none"
-      }`}
-    >
+    <Styled.Container isFlex={isShow} type={navType}>
       {arr.map((tab, index) => {
-        const active = isShow && selectedNav === index ? true : false;
         return (
           <Item
             key={`${navType}Nav${index}`}
             NavName={tab}
             setNav={setNav}
-            selected={active}
+            selected={isShow && selectedNav === index ? true : false}
             index={index}
           />
         );
       })}
-    </article>
+    </Styled.Container>
   );
 };
 
@@ -30,13 +26,14 @@ const Item = ({ NavName, setNav, selected, index }) => {
     setNav(index);
   }, [index, setNav]);
 
+  const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
+
   return (
-    <nav
-      className={`nav text-center ${selected ? "white" : ""}`}
-      onClick={navClickHandler}
-    >
-      {NavName}
-    </nav>
+    <Styled.Content>
+      <Button onClick={navClickHandler}>
+        <Text color={fontColor}>{NavName}</Text>
+      </Button>
+    </Styled.Content>
   );
 };
 
