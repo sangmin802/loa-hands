@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { Thumbnail, TextContainer, Image } from "../";
-import "./index.scss";
+import { Image, Text } from "../";
+import * as Styled from "./index.style";
 
 const Event = ({ event }) => {
   const { date, href, img, name } = event;
@@ -10,12 +10,13 @@ const Event = ({ event }) => {
   }, [href]);
 
   return (
-    <div className="event" onClick={goHref}>
-      <Thumbnail>
-        <Image src={img} />
-        <TextContainer text={[name, date]} />
-      </Thumbnail>
-    </div>
+    <Styled.Container onClick={goHref}>
+      <Image src={img} />
+      <Styled.Desc>
+        <Text>{name}</Text>
+        <Text type="desc">{date}</Text>
+      </Styled.Desc>
+    </Styled.Container>
   );
 };
 
