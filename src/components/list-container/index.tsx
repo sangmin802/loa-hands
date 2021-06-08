@@ -1,26 +1,19 @@
 import React, { cloneElement } from "react";
-import "./index.scss";
+import { Text } from "components/";
+import * as Styled from "./index.style";
 
-const ListContainer = ({
-  title,
-  arr,
-  side,
-  children,
-}: {
-  title;
-  arr;
-  side;
-  children?;
-}) => {
+const ListContainer = ({ title, arr, children }: { title; arr; children? }) => {
   return (
-    <div className={`list-${side} list-container`}>
-      <div className="title text-center">{title}</div>
-      <div className="column-content">
+    <>
+      <Styled.Title>
+        <Text>{title}</Text>
+      </Styled.Title>
+      <>
         {arr.map((res, index) =>
           cloneElement(children, { data: res, key: `item${index}` })
         )}
-      </div>
-    </div>
+      </>
+    </>
   );
 };
 
