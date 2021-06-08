@@ -15,8 +15,8 @@ export const Container = styled.div`
     width: 20%;
     min-width: 60px;
     margin-right: 0.5rem;
-    border-radius: 3px;
-    border: 1px solid #f0f4f5;
+
+    ${({ theme }) => theme.contentBox}
   }
 `;
 
