@@ -1,7 +1,8 @@
 import React from "react";
 import Lodash from "lodash";
-import "./index.scss";
 import ExpeditionServer from "./server/index";
+import { Button, Text } from "components/";
+import * as Styled from "./index.style";
 
 const UserExpedition = ({
   userData,
@@ -13,16 +14,13 @@ const UserExpedition = ({
     expeditionInfo: { expeditionUserWrap },
   } = userData;
 
-  const displayPop = expeditionPop ? "display-block" : null;
-
   return (
-    <div className={`searched-user-expedition z-index11 ${displayPop}`}>
-      <div
-        className="searched-user-expedition-close"
-        onClick={toggleExpedition}
-      >
-        닫기
-      </div>
+    <Styled.Container isShow={expeditionPop}>
+      <Styled.ButtonContainer>
+        <Button onClick={toggleExpedition}>
+          <Text>닫기</Text>
+        </Button>
+      </Styled.ButtonContainer>
       {expeditionUserWrap.map((wrap, index) => {
         return (
           <ExpeditionServer
@@ -32,7 +30,7 @@ const UserExpedition = ({
           />
         );
       })}
-    </div>
+    </Styled.Container>
   );
 };
 
