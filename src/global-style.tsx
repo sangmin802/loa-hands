@@ -1,4 +1,4 @@
-// import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 export const THEME = {
   fontColor: {
@@ -8,12 +8,16 @@ export const THEME = {
     color3: "#700099",
     color4: "#ff9500",
     color5: "#ff5e00",
+    white: "#f0f4f5",
+    "#666": "#666",
+    timeOut: "#ff9933",
   },
   fontSize: {
     normal: "1rem",
     desc: "0.9rem",
     subTitle: "0.8rem",
     title: "1.2rem",
+    small: "0.7rem",
   },
   gradientColor: {
     "gradient-1": "linear-gradient(135deg, #232323, #7a0000)",
@@ -24,4 +28,26 @@ export const THEME = {
     gradient4: "linear-gradient(135deg, #362003, #9e5f04)",
     gradient5: "linear-gradient(135deg, #341a09, #a24006)",
   },
+  backgroundColor: {
+    darkDeep: "#000000",
+    darkLow: "#1f222a",
+  },
+  contentBox: css`
+    border-radius: 3px;
+    border: 1px solid #f0f4f5;
+  `,
+  scrollbar: css`
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  `,
+  isShow: css<{ isShow: boolean }>`
+    display: ${({ isShow }) => (isShow ? "block" : "none")};
+  `,
+  isFlex: css<{ isFlex: boolean }>`
+    display: ${({ isFlex }) => (isFlex ? "flex" : "none")};
+  `,
 };
