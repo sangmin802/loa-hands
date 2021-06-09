@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Lodash from "lodash";
 import ExpeditionServer from "./server/index";
 import { Button, Text } from "components/";
 import * as Styled from "./index.style";
 
-const UserExpedition = ({
-  userData,
-  setUserData,
-  expeditionPop,
-  toggleExpedition,
-}) => {
+const UserExpedition = ({ userData, setUserData, setDialog }) => {
   const {
     expeditionInfo: { expeditionUserWrap },
   } = userData;
 
+  const closeHandler = useCallback(() => {
+    setDialog(null);
+  }, [setDialog]);
+
   return (
-    <Styled.Container isShow={expeditionPop}>
+    <>
       <Styled.ButtonContainer>
-        <Button onClick={toggleExpedition}>
+        <Button onClick={closeHandler}>
           <Text>닫기</Text>
         </Button>
       </Styled.ButtonContainer>
@@ -30,7 +29,7 @@ const UserExpedition = ({
           />
         );
       })}
-    </Styled.Container>
+    </>
   );
 };
 
