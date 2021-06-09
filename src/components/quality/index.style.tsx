@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.article`
   position: relative;
   width: 100%;
-  margin-top: 0.5rem;
   text-align: center;
 
   ${({ theme }) => theme.contentBox}

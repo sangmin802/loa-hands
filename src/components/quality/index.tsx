@@ -17,10 +17,7 @@ const Quality = ({ data }: { data? }) => {
   return (
     <Styled.Container>
       <Text type="subTitle">품질 {quality}%</Text>
-      <Styled.Background
-        color={`gradient${qualityColor}`}
-        width={quality}
-      ></Styled.Background>
+      <Styled.Background color={`gradient${qualityColor}`} width={quality} />
     </Styled.Container>
   );
 };
