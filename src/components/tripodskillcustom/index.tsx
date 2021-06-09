@@ -9,11 +9,15 @@ const TripodSkillCustom = ({ data }) => {
       {data.map((ts, index) => {
         const { name = null, desc = null, grade = null, src = null } = ts;
         return (
-          <Styled.Content key={`ts${index}`}>
+          <Styled.Content key={`ts${index}`} src={src}>
             <Image src={src} color={`gradient${grade}`} />
             <>
-              <DangerousHTML html={name} />
-              <DangerousHTML html={desc} />
+              <Styled.TextContainer type="title" src={src}>
+                <DangerousHTML html={name} />
+              </Styled.TextContainer>
+              <Styled.TextContainer type="desc" src={src}>
+                <DangerousHTML html={desc} />
+              </Styled.TextContainer>
             </>
           </Styled.Content>
         );
