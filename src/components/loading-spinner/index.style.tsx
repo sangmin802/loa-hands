@@ -10,6 +10,17 @@ const containerType = {
     background: rgba(0, 0, 0, 0.7);
     z-index: 99;
   `,
+  default: css``,
+};
+
+const contentType = {
+  absolute: css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `,
+
   default: css`
     margin: 0 auto;
   `,
@@ -19,13 +30,11 @@ export const Container = styled.article<{ type: string }>`
   ${({ type }) => containerType[type]}
 `;
 
-export const Content = styled.div`
-  position: absolute;
+export const Content = styled.div<{ type: string }>`
   width: 80px;
   height: 80px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+  ${({ type }) => contentType[type]}
 
   div {
     transform-origin: 40px 40px;
