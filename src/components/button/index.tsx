@@ -5,8 +5,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const Button = ({ children, ...args }: Props) => (
-  <Styled.Button {...args}>{children}</Styled.Button>
+const Button = ({ children, ...props }: Props) => (
+  <Styled.Button {...props}>{children}</Styled.Button>
 );
 
 export default Button;
