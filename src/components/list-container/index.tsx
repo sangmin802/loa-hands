@@ -9,9 +9,11 @@ const ListContainer = ({ title, arr, children }: { title; arr; children? }) => {
         <Text>{title}</Text>
       </Styled.Title>
       <>
-        {arr.map((res, index) =>
-          cloneElement(children, { data: res, key: `item${index}` })
-        )}
+        {arr.map((res, index) => (
+          <Styled.Content key={`item${index}`}>
+            {cloneElement(children, { data: res })}
+          </Styled.Content>
+        ))}
       </>
     </>
   );
