@@ -2,7 +2,7 @@ import React, { Children } from "react";
 import Lodash from "lodash";
 import * as Styled from "./index.style";
 
-const NavContent = ({ children, selected, cn }) => {
+const NavContent = ({ children, selected }) => {
   return (
     <article>
       {Children.map(children, (component, index) => (
