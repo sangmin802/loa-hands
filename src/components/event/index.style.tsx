@@ -5,6 +5,7 @@ export const Container = styled.article`
   flex-direction: column;
 
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
+  ${({ theme }) => theme.contentBox}
 `;
 
 export const Desc = styled.div`
