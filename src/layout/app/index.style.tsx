@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div<{ isLoading: boolean }>`
   position: relative;
-  ${({ theme, isLoading }) => (isLoading ? theme.isLoaindg : "")}
+  ${({ theme, isLoading }) => (isLoading ? theme.isLoading : "")}
 `;
-
 export const InnerContainer = styled.section`
   padding: 0.5rem;
 `;
