@@ -7,15 +7,15 @@ export function* getUserData_Saga(action) {
   const name = action.name.replace(/ /g, "");
   const history = action.history;
   if (name) {
-    yield put(loadingToggle());
+    yield put(loadingToggle(true));
     try {
       const userData = yield call(Api.getUserData, name);
       yield put(getUserData({ userData }));
-      yield put(loadingToggle());
+      yield put(loadingToggle(false));
       history.replace(`/userInfo/${name}`);
     } catch (err) {
       alert(err.message);
-      yield put(loadingToggle());
+      yield put(loadingToggle(false));
       history.replace(`/`);
     }
   }

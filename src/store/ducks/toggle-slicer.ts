@@ -8,8 +8,8 @@ const toggleSlicer = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-    loadingToggle: state => {
-      state.isLoading = !state.isLoading;
+    loadingToggle: (state, action) => {
+      state.isLoading = action.payload;
     },
   },
 });
