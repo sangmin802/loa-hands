@@ -46,8 +46,8 @@ const TimerContainer = ({ data, today = null }) => {
   return (
     <Styled.Container>
       {newData.map((data, index) => (
-        <Styled.Content>
-          <Timer setTime={setTime} data={data} key={`timer${index}`} />
+        <Styled.Content key={`timer${index}`}>
+          <Timer setTime={setTime} data={data} />
         </Styled.Content>
       ))}
     </Styled.Container>
