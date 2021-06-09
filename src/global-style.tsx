@@ -11,6 +11,8 @@ export const THEME = {
     white: "#f0f4f5",
     "#666": "#666",
     timeOut: "#ff9933",
+    colorget: "#b3e27a",
+    colornoGet: "#e76f6b",
   },
   fontSize: {
     normal: "1rem",
@@ -50,4 +52,39 @@ export const THEME = {
   isFlex: css<{ isFlex: boolean }>`
     display: ${({ isFlex }) => (isFlex ? "flex" : "none")};
   `,
+  isLoading: css<{ isLoading: true }>`
+    height: 100vh;
+    overflow: hidden;
+  `,
 };
+
+export default createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "oneMobile", sans-serif;
+  }
+
+  body {
+    ${THEME.scrollbar}
+    background : ${THEME.backgroundColor.darkDeep};
+  }
+
+  @media all and (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    html {
+      font-size: 10px;
+    }
+  }
+`;
