@@ -5,7 +5,7 @@ import * as Styled from "./index.style";
 
 const DoubleListContainer = ({
   data,
-  type,
+  divideType,
   lt = null,
   rt = null,
   children,
@@ -13,7 +13,7 @@ const DoubleListContainer = ({
   const [left, right] = useMemo(() => {
     return data.reduce(
       (prev, cur) => {
-        if (cur.type.includes(type)) {
+        if (cur.divideType.includes(divideType)) {
           prev[0].push(cur);
         } else {
           prev[1].push(cur);
@@ -22,7 +22,7 @@ const DoubleListContainer = ({
       },
       [[], []]
     );
-  }, [data, type]);
+  }, [data, divideType]);
 
   return (
     <Styled.Container>
