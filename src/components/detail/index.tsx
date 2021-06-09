@@ -37,7 +37,9 @@ const Detail = ({ data, children }: { data?; children? }) => {
           </Styled.Desc>
         </Styled.Container>
       </Styled.Top>
-      {children && cloneElement(children, { data })}
+      <Styled.Children>
+        {children && cloneElement(children, { data })}
+      </Styled.Children>
       <>
         {itemPartBox && <ItemPartBox data={itemPartBox} />}
         {indentStringGroup && <IndentString data={indentStringGroup} />}

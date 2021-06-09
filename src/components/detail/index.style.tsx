@@ -24,3 +24,7 @@ export const Desc = styled.div`
   width: calc(80% - 0.5rem - 0.1px);
   min-width: calc(100% - 0.5rem - 60.1px);
 `;
+
+export const Children = styled.div`
+  margin-top: 0.5rem;
+`;
