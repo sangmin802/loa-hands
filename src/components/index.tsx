@@ -18,8 +18,6 @@ export { default as NavContent } from "./nav-content";
 export { default as Quality } from "./quality";
 export { default as Rune } from "./rune";
 export { default as SectionContainer } from "./section-container";
-export { default as TextContainer } from "./text-container";
-export { default as Thumbnail } from "./thumbnail";
 export { default as TimerContainer } from "./timer-container";
 export { default as TripodSkillCustom } from "./tripodskillcustom";
 export { default as ListItem } from "./list-item";
