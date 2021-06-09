@@ -1,31 +1,54 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.article<{ hover: boolean }>`
+const containerType = {
+  normal: css`
+    .img-container {
+      width: 12%;
+      min-width: 40px;
+      margin-right: 0.5rem;
+      img {
+        ${({ theme }) => theme.contentBox}
+      }
+    }
+  `,
+  collection: css`
+    .img-container {
+      display: none;
+    }
+  `,
+};
+
+export const Container = styled.article<{ hover: boolean; type: string }>`
   display: flex;
   align-items: center;
   position: relative;
-  margin-bottom: 0.5rem;
   padding: 0.3rem;
   border-radius: 3px;
 
-  &:last-chid {
-    margin-bottom: 0;
-  }
-
   cursor: ${({ hover }) => (hover ? "pointer" : "")};
   background: ${({ theme }) => theme.backgroundColor.darkLow};
-
-  .img-container {
-    width: 12%;
-    min-width: 40px;
-    margin-right: 0.5rem;
-    img {
-      ${({ theme }) => theme.contentBox}
-    }
-  }
+  ${({ type }) => {
+    const index = type === "collection" ? type : "normal";
+    return containerType[index];
+  }}
 `;
 
-export const Desc = styled.div`
-  width: calc(88% - 0.5rem -0.1px);
-  min-width: calc(100% - 0.5rem - 40.1px);
+const descType = {
+  normal: css`
+    width: calc(88% - 0.5rem -0.1px);
+    min-width: calc(100% - 0.5rem - 40.1px);
+  `,
+  collection: `
+    display: flex;
+    div:first-child {
+      margin-right: 0.3rem;
+    }
+  `,
+};
+
+export const Desc = styled.div<{ type: string }>`
+  ${({ type }) => {
+    const index = type === "collection" ? type : "normal";
+    return descType[index];
+  }}
 `;

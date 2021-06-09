@@ -1,5 +1,5 @@
 import React, { cloneElement, useCallback } from "react";
-import { Thumbnail, TextContainer, Image, Text } from "components/";
+import { Image, Text } from "components/";
 import * as Styled from "./index.style";
 
 const ListItem = ({
@@ -20,14 +20,18 @@ const ListItem = ({
   }, [children, data, setDialog, detail]);
 
   return (
-    <Styled.Container hover={detail?.hover} onClick={setDialogHandler}>
+    <Styled.Container
+      hover={detail?.hover}
+      onClick={setDialogHandler}
+      type={data.type}
+    >
       <Image src={detail?.src ?? backSrc} color={`gradient${detail?.grade}`} />
       {detail && (
-        <Styled.Desc>
-          {detail.subTitle.map((text, index) => (
+        <Styled.Desc type={data.type}>
+          {detail.subTitle.map(text => (
             <Text
               key={text}
-              color={index === 0 ? `color${detail.grade}` : "white"}
+              color={detail.grade ? `color${detail.grade}` : "white"}
               type={"subTitle"}
             >
               {text}
