@@ -21,7 +21,9 @@ const Rune = ({ data }: { data? }) => {
       <Image src={runeImg} color={`gradient${gradeColor}`} />
       <Styled.Desc>
         <Text color={`color${gradeColor}`}>{runeGrade}</Text>
-        <Text type="desc">{runeInfo}</Text>
+        <Styled.FullText>
+          <Text type="desc">{runeInfo}</Text>
+        </Styled.FullText>
       </Styled.Desc>
     </Styled.Container>
   );
