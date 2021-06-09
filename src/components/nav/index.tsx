@@ -8,13 +8,14 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
     <Styled.Container isFlex={isShow} type={navType}>
       {arr.map((tab, index) => {
         return (
-          <Item
-            key={`${navType}Nav${index}`}
-            NavName={tab}
-            setNav={setNav}
-            selected={isShow && selectedNav === index ? true : false}
-            index={index}
-          />
+          <Styled.Content key={`${navType}Nav${index}`}>
+            <Item
+              NavName={tab}
+              setNav={setNav}
+              selected={isShow && selectedNav === index ? true : false}
+              index={index}
+            />
+          </Styled.Content>
         );
       })}
     </Styled.Container>
@@ -29,11 +30,9 @@ const Item = ({ NavName, setNav, selected, index }) => {
   const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
 
   return (
-    <Styled.Content>
-      <Button onClick={navClickHandler}>
-        <Text color={fontColor}>{NavName}</Text>
-      </Button>
-    </Styled.Content>
+    <Button onClick={navClickHandler}>
+      <Text color={fontColor}>{NavName}</Text>
+    </Button>
   );
 };
 
