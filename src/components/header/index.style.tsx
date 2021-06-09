@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { BACKGROUND } from "constants/index";
 
-export const Header = styled.header`
-  width: 100%;
-  margin-bottom: 1.5rem;
-`;
+export const Header = styled.header``;
 
 export const InnerHeader = styled.div`
   max-width: 600px;
@@ -32,6 +29,10 @@ export const InputText = styled.div`
   width: 80%;
   padding: 0.3rem;
   border-bottom: 1px solid #f0f4f5;
+
+  input {
+    font-size: 1rem;
+  }
 `;
 
 export const InputSubmit = styled.b`
