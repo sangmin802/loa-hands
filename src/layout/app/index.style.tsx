@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div<{ isLoading: boolean }>`
   position: relative;
-  ${({ theme }) => theme.isLoaindg}
+  ${({ theme, isLoading }) => (isLoading ? theme.isLoaindg : "")}
 `;
 
 export const InnerContainer = styled.section`

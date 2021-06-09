@@ -52,7 +52,7 @@ export const THEME = {
   isFlex: css<{ isFlex: boolean }>`
     display: ${({ isFlex }) => (isFlex ? "flex" : "none")};
   `,
-  isLoading: css<{ isLoading: true }>`
+  isLoading: css`
     height: 100vh;
     overflow: hidden;
   `,
