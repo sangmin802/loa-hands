@@ -23,11 +23,10 @@ const UserInfo = ({
     params: { name },
   },
 }) => {
-  const { userData, setUserData } = useUser();
+  const { userData, setUserData, infos } = useUser();
   const [subNav, setSubNav] = useState(0);
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
-
   const collectionNav = useMemo(() => {
     if (!userData) return;
     return userData.collectionInfo.collectionMini.map((col, index) => (
@@ -38,6 +37,15 @@ const UserInfo = ({
       />
     ));
   }, [userData]);
+  const subNavs = useMemo(
+    () => [
+      ["착용 아이템", "착용 아바타", "특성·각인"],
+      ["전투스킬", "생활스킬"],
+      collectionNav,
+    ],
+    [collectionNav]
+  );
+  const mainNavs = useMemo(() => ["능력치", "스킬", "수집형포인트"], []);
 
   const setMainNavHandler = useCallback(
     index => {
@@ -75,19 +83,16 @@ const UserInfo = ({
   }, [name, setUserData, userData]);
   if (!userData) return null;
 
-  const subNavs = [
-    ["착용 아이템", "착용 아바타", "특성·각인"],
-    ["전투스킬", "생활스킬"],
-    collectionNav,
-  ];
-  const mainNavs = ["능력치", "스킬", "수집형포인트"];
   const {
-    characteristicInfo,
-    equipInfo: { equipment, avatar },
-  } = userData.abilityInfo;
-  const { battleSkill, lifeSkill } = userData.skillInfo;
-  const { collectionDetail } = userData.collectionInfo;
-  const { battle, basic, engrave } = characteristicInfo;
+    equipment,
+    avatar,
+    battleSkill,
+    lifeSkill,
+    collectionDetail,
+    battle,
+    basic,
+    engrave,
+  } = infos;
 
   return (
     <>
