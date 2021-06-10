@@ -17,8 +17,8 @@ const Header = ({ setHomeData, setUserData }) => {
   return (
     <Styled.Header>
       <Styled.InnerHeader>
-        <Styled.Background onClick={setHomeData} />
-        <Styled.Form onSubmit={onSubmitHandler}>
+        <Styled.Background role="go-home" onClick={setHomeData} />
+        <Styled.Form role="form" onSubmit={onSubmitHandler}>
           <Styled.InputText>
             <Input
               type="text"
