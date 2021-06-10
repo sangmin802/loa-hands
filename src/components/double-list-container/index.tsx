@@ -26,12 +26,12 @@ const DoubleListContainer = ({
 
   return (
     <Styled.Container>
-      <Styled.Content type="left">
+      <Styled.Content role="left" type="left" data-size={left.length}>
         <ListContainer title={lt} arr={left}>
           {children}
         </ListContainer>
       </Styled.Content>
-      <Styled.Content type="right">
+      <Styled.Content role="right" type="right" data-size={right.length}>
         <ListContainer title={rt} arr={right}>
           {children}
         </ListContainer>
