@@ -21,6 +21,7 @@ const ListItem = ({
 
   return (
     <Styled.Container
+      role="list-item"
       hover={detail?.hover}
       onClick={setDialogHandler}
       type={data.type}
