@@ -24,7 +24,11 @@ const Detail = ({ data, children }: { data?; children? }) => {
     <>
       <Styled.Top>
         <Styled.Container>
-          <Image src={src ?? backSrc} color={`gradient${grade}`} />
+          <Image
+            role="gradient"
+            src={src ?? backSrc}
+            color={`gradient${grade}`}
+          />
           <Styled.Desc>
             {subTitle.map(res => (
               <Text type="subTitle" key={res}>
