@@ -10,7 +10,7 @@ const Event = ({ event }) => {
   }, [href]);
 
   return (
-    <Styled.Container onClick={goHref}>
+    <Styled.Container title="event" onClick={goHref}>
       <Image src={img} />
       <Styled.Desc>
         <Text>{name}</Text>
