@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { getUserData_Saga_Async } from "store/ducks/ajax-slicer";
@@ -21,5 +21,28 @@ export function useUser() {
     [history, dispatch]
   );
 
-  return { userData, setUserData };
+  const infos = useMemo(() => {
+    if (!userData) return;
+
+    const {
+      characteristicInfo,
+      equipInfo: { equipment, avatar },
+    } = userData.abilityInfo;
+    const { battleSkill, lifeSkill } = userData.skillInfo;
+    const { collectionDetail } = userData.collectionInfo;
+    const { battle, basic, engrave } = characteristicInfo;
+
+    return {
+      equipment,
+      avatar,
+      battleSkill,
+      lifeSkill,
+      collectionDetail,
+      battle,
+      basic,
+      engrave,
+    };
+  }, [userData]);
+
+  return { userData, setUserData, infos };
 }
