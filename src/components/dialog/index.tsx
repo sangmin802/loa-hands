@@ -31,8 +31,11 @@ const Dialog = ({ dialog, setDialog }) => {
     <>
       {dialog && (
         <>
-          <Styled.Background onClick={closeDialog}></Styled.Background>
-          <Styled.Container>{dialog}</Styled.Container>
+          <Styled.Background
+            onClick={closeDialog}
+            role="close-dialog"
+          ></Styled.Background>
+          <Styled.Container role="dialog-content">{dialog}</Styled.Container>
         </>
       )}
     </>
