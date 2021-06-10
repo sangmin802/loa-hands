@@ -10,7 +10,7 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
         return (
           <Styled.Content key={`${navType}Nav${index}`}>
             <Item
-              NavName={tab}
+              navName={tab}
               setNav={setNav}
               selected={isShow && selectedNav === index ? true : false}
               index={index}
@@ -22,7 +22,7 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
   );
 };
 
-const Item = ({ NavName, setNav, selected, index }) => {
+export const Item = ({ navName, setNav, selected, index }) => {
   const navClickHandler = useCallback(() => {
     setNav(index);
   }, [index, setNav]);
@@ -31,7 +31,7 @@ const Item = ({ NavName, setNav, selected, index }) => {
 
   return (
     <Button onClick={navClickHandler}>
-      <Text color={fontColor}>{NavName}</Text>
+      <Text color={fontColor}>{navName}</Text>
     </Button>
   );
 };
