@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTimer } from "hooks/use-timer";
 import { useTimerType } from "hooks/use-timer-type";
 import { Text, Image } from "components/";
