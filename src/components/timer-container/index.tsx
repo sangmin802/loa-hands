@@ -44,7 +44,10 @@ const TimerContainer = ({ data, today = null }) => {
     );
 
   return (
-    <Styled.Container>
+    <Styled.Container
+      role="timer-container"
+      data-timers={JSON.stringify(newData)}
+    >
       {newData.map((data, index) => (
         <Styled.Content key={`timer${index}`}>
           <Timer setTime={setTime} data={data} />
