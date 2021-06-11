@@ -17,7 +17,7 @@ const Rune = ({ data }: { data? }) => {
   if (runeGrade.includes("유물")) gradeColor = 5;
 
   return (
-    <Styled.Container>
+    <Styled.Container role="rune-grade" data-grade={gradeColor}>
       <Image src={runeImg} color={`gradient${gradeColor}`} />
       <Styled.Desc>
         <Text color={`color${gradeColor}`}>{runeGrade}</Text>
