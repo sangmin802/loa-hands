@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTimer } from "hooks/use-timer";
 import { useTimerType } from "hooks/use-timer-type";
 import { Text, Image } from "components/";
@@ -17,7 +17,11 @@ const Timer = ({ setTime, data }) => {
   const timeOut = useTimer(time, calcTimer);
 
   return (
-    <Styled.Container borderColor={borderColor}>
+    <Styled.Container
+      role="timer-border"
+      data-border={borderColor}
+      borderColor={borderColor}
+    >
       <Styled.Background isShow={endTimeBg}></Styled.Background>
       <Styled.Title>
         <Text type="desc">{name}</Text>
@@ -30,13 +34,15 @@ const Timer = ({ setTime, data }) => {
           </Styled.Lv>
         </Styled.TimerImg>
         <Styled.Time>
-          <Text type="subTitle">{contentAlert}</Text>
-          <Text type="subTitle" color="timeOut">
+          <Text type="subTitle" role="timer-alert">
+            {contentAlert}
+          </Text>
+          <Text type="subTitle" role="timeout" color="timeOut">
             {timeOut}
           </Text>
         </Styled.Time>
       </Styled.Content>
-      <Styled.Position>
+      <Styled.Position role="position">
         <Text type="desc">{pos}</Text>
       </Styled.Position>
     </Styled.Container>
