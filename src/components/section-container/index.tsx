@@ -3,7 +3,7 @@ import Lodash from "lodash";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 
-const SectionContainer = ({ children, title, cn = "" }) => {
+const SectionContainer = ({ children, title }) => {
   return (
     <article>
       <Styled.Title>
