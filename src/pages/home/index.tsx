@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { DAILY_ISLAND, FIELD_BOSS, CHAOS_GATE, OCEAN_ACT } from "json/json";
-import { useDateOver } from "hooks/use-date";
 import { useHome } from "hooks/use-home";
 import {
   SectionContainer,
@@ -8,23 +7,44 @@ import {
   LoadingSpinner,
   Event,
 } from "components/";
+import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
 
 const Home = () => {
   const { homeData, setHomeData } = useHome();
+  const now = new Date();
+  const today = now.getDate();
+  const yoil = now.getDay();
 
-  useDateOver(setHomeData);
+  const checkNight = useCallback(setHomeData => {
+    const now = new Date();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    const sec = now.getSeconds();
+    if (hour === 0 && min === 0 && sec === 0) {
+      setHomeData();
+    }
+  }, []);
+
+  const { startInterval, endInterval } = useMemo(
+    () => interval(1, checkNight),
+    [checkNight]
+  );
+
+  useEffect(() => {
+    startInterval(setHomeData);
+    return () => {
+      endInterval();
+    };
+  }, [endInterval, startInterval, setHomeData]);
 
   useEffect(() => {
     if (!homeData) setHomeData();
   }, [homeData, setHomeData]);
-
-  const today = new Date().getSeconds();
-  const yoil = new Date().getDay();
   return (
-    <section className="home">
+    <section role="home" data-isdata={homeData ? true : false}>
       <Styled.Section>
-        <SectionContainer title="진행중인 이벤트" cn="event-container">
+        <SectionContainer title="진행중인 이벤트">
           {!homeData?.events && <LoadingSpinner back={false} />}
           {homeData?.events && (
             <Styled.Content type="event">
@@ -38,7 +58,7 @@ const Home = () => {
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
-        <SectionContainer title="오늘의 캘린더섬" cn="calendar-container">
+        <SectionContainer title="오늘의 캘린더섬">
           {!homeData?.calendar && <LoadingSpinner back={false} />}
           {homeData?.calendar && (
             <>
