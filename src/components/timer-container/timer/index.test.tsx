@@ -29,6 +29,10 @@ const initialData2 = {
   endTime: "20:00",
 };
 
+const timeNumber = string => {
+  return Number(string.replace(/:/gi, ""));
+};
+
 describe("Timer1", () => {
   beforeEach(() => {
     const mockDate = new Date(2021, 5, 11, 0, 10);
@@ -68,6 +72,8 @@ describe("Timer1", () => {
 
 describe("Timer2", () => {
   beforeEach(() => {
+    const setTime = jest.fn();
+    render(<Timer data={initialData2} setTime={setTime} />);
     jest.useFakeTimers();
   });
 
@@ -76,19 +82,14 @@ describe("Timer2", () => {
   });
 
   it("타이머", async () => {
-    const setTime = jest.fn();
-    render(<Timer data={initialData2} setTime={setTime} />);
-
-    const prevTime = Number(
-      screen.getByRole("timeout").textContent.replace(/:/gi, "")
-    );
+    const prevTime = timeNumber(screen.getByRole("timeout").textContent);
     act(() => {
       jest.advanceTimersByTime(1000);
     });
     await waitFor(() => {
-      expect(
-        Number(screen.getByRole("timeout").textContent.replace(/:/gi, ""))
-      ).toBe(prevTime - 1);
+      expect(timeNumber(screen.getByRole("timeout").textContent)).toBe(
+        prevTime - 1
+      );
     });
   });
 });
