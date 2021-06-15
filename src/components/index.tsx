@@ -7,7 +7,6 @@ export { default as Dialog } from "./dialog";
 export { default as DoubleListContainer } from "./double-list-container";
 export { default as Event } from "./event";
 export { default as Expedition } from "./expedition";
-export { default as Header } from "./header";
 export { default as Image } from "./image";
 export { default as IndentString } from "./indentstring";
 export { default as ItemPartBox } from "./itempartbox";
