@@ -95,7 +95,7 @@ const UserInfo = ({
   } = infos;
 
   return (
-    <>
+    <section role="user-info">
       <Dialog dialog={dialog} setDialog={setDialog} />
       <Styled.Top>
         <Styled.ButtonContainer>
@@ -179,7 +179,7 @@ const UserInfo = ({
           </NavContent>
         </Styled.Container>
       </Styled.Bottom>
-    </>
+    </section>
   );
 };
 
