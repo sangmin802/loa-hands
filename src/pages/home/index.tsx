@@ -41,6 +41,7 @@ const Home = () => {
   useEffect(() => {
     if (!homeData) setHomeData();
   }, [homeData, setHomeData]);
+
   return (
     <section role="home" data-isdata={homeData ? true : false}>
       <Styled.Section>
