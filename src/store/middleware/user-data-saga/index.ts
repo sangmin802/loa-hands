@@ -1,7 +1,7 @@
 import { put, takeLatest, call } from "redux-saga/effects";
-import { loadingToggle } from "../ducks/toggle-slicer";
+import { loadingToggle } from "../../ducks/toggle-slicer";
 import Api from "api/api";
-import { GET_USER_DATA_SAGA, getUserData } from "../ducks/ajax-slicer";
+import { GET_USER_DATA_SAGA, getUserData } from "../../ducks/ajax-slicer";
 
 export function* getUserData_Saga(action) {
   const name = action.name.replace(/ /g, "");
