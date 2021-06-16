@@ -55,15 +55,29 @@ const UserInfo = ({
     [setMainNav, setSubNav]
   );
 
+  const resetHandler = useCallback(() => {
+    setMainNav(0);
+    setSubNav(0);
+    setDialog(null);
+  }, [setMainNav, setSubNav, setDialog]);
+
+  const setUserDataHandler = useCallback(
+    name => {
+      setUserData(name);
+      resetHandler();
+    },
+    [setUserData, resetHandler]
+  );
+
   const expeditionDialog = useMemo(
     () => (
       <Expedition
         userData={userData}
-        setUserData={setUserData}
+        setUserData={setUserDataHandler}
         setDialog={setDialog}
       />
     ),
-    [userData, setUserData, setDialog]
+    [userData, setUserDataHandler, setDialog]
   );
 
   const setExpeditionDialog = useCallback(() => {
@@ -72,15 +86,13 @@ const UserInfo = ({
 
   useEffect(() => {
     return () => {
-      setMainNav(0);
-      setSubNav(0);
-      setDialog(null);
+      resetHandler();
     };
-  }, [userData, setMainNav, setSubNav, setDialog]);
+  }, [userData, resetHandler]);
 
   useEffect(() => {
-    if (!userData) setUserData(name);
-  }, [name, setUserData, userData]);
+    if (!userData) setUserDataHandler(name);
+  }, [name, setUserDataHandler, userData]);
   if (!userData) return null;
 
   const {
@@ -95,11 +107,11 @@ const UserInfo = ({
   } = infos;
 
   return (
-    <section role="user-info">
+    <section role="user-info" data-user={userData.expeditionInfo.name}>
       <Dialog dialog={dialog} setDialog={setDialog} />
       <Styled.Top>
         <Styled.ButtonContainer>
-          <Button onClick={setExpeditionDialog}>
+          <Button onClick={setExpeditionDialog} aria-label="expedition-button">
             <Text>원정대 캐릭터 보기</Text>
           </Button>
         </Styled.ButtonContainer>
