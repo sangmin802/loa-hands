@@ -9,7 +9,7 @@ const Index = ({ setUserData, char }) => {
 
   return (
     <Styled.Container>
-      <Button onClick={setUserDataEvent}>
+      <Button onClick={setUserDataEvent} aria-label="expedition-char">
         <Text type="desc">
           {char.lv} {char.name}
         </Text>
