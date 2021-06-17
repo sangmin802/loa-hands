@@ -5,10 +5,14 @@ import * as Styled from "./index.style";
 
 const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
   return (
-    <Styled.Container isFlex={isShow} type={navType}>
+    <Styled.Container
+      role={`${navType}-nav-container`}
+      isFlex={isShow}
+      type={navType}
+    >
       {arr.map((tab, index) => {
         return (
-          <Styled.Content key={`${navType}Nav${index}`}>
+          <Styled.Content role={`${navType}-nav`} key={`${navType}Nav${index}`}>
             <Item
               navName={tab}
               setNav={setNav}
@@ -31,7 +35,9 @@ export const Item = ({ navName, setNav, selected, index }) => {
 
   return (
     <Button onClick={navClickHandler}>
-      <Text color={fontColor}>{navName}</Text>
+      <Text role="nav-text" color={fontColor}>
+        {navName}
+      </Text>
     </Button>
   );
 };
