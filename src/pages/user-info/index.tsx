@@ -27,6 +27,7 @@ const UserInfo = ({
   const [subNav, setSubNav] = useState(0);
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
+
   const collectionNav = useMemo(() => {
     if (!userData) return;
     return userData.collectionInfo.collectionMini.map((col, index) => (
@@ -37,6 +38,7 @@ const UserInfo = ({
       />
     ));
   }, [userData]);
+
   const subNavs = useMemo(
     () => [
       ["착용 아이템", "착용 아바타", "특성·각인"],
@@ -45,6 +47,7 @@ const UserInfo = ({
     ],
     [collectionNav]
   );
+
   const mainNavs = useMemo(() => ["능력치", "스킬", "수집형포인트"], []);
 
   const setMainNavHandler = useCallback(
@@ -136,7 +139,7 @@ const UserInfo = ({
           />
         ))}
         <Styled.Container>
-          <NavContent selected={mainNav}>
+          <NavContent type="main" selected={mainNav}>
             <NavContent selected={subNav}>
               <DoubleListContainer
                 data={Object.values(equipment)}
