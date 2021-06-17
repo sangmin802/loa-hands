@@ -2,13 +2,15 @@ import React, { Children } from "react";
 import Lodash from "lodash";
 import * as Styled from "./index.style";
 
-const NavContent = ({ children, selected }) => {
+const NavContent = ({ children, selected, type = "sub" }) => {
   return (
-    <article>
+    <>
       {Children.map(children, (component, index) => (
-        <Styled.Content isShow={selected === index}>{component}</Styled.Content>
+        <Styled.Content role={`${type}-content`} isShow={selected === index}>
+          {component}
+        </Styled.Content>
       ))}
-    </article>
+    </>
   );
 };
 
