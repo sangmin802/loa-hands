@@ -69,22 +69,23 @@ describe("UserInfo", () => {
     });
 
     it("원정대 내 다른 캐릭터 검색", async () => {
+      const otherClass = "블레이드";
+      const otherName = "백어택시너지있어요";
       const button = screen.getByRole("button", { name: "expedition-button" });
+
       fireEvent.click(button);
 
       expect(screen.queryByRole("dialog-content")).not.toBe(null);
-      // 백어택시너지있어요 - 블레이드
+
       const char = screen.getAllByRole("button", {
         name: "expedition-char",
       })[0];
 
       fireEvent.click(char);
 
-      await waitFor(() => screen.getByText("블레이드"));
-
-      expect(screen.getByRole("user-info").dataset.user).toBe(
-        "백어택시너지있어요"
-      );
+      await waitFor(() => screen.getByText(otherClass));
+      expect(screen.getByRole("user-info").dataset.user).toBe(otherName);
+      expect(screen.queryByRole("dialog-content")).toBe(null);
     });
   });
 });
