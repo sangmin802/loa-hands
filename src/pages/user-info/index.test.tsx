@@ -43,6 +43,18 @@ describe("UserInfo", () => {
     });
   });
 
+  describe("navigation", () => {
+    it("main navigation", () => {
+      const regex = /섬의 마음/i;
+      navigation("main", regex);
+    });
+
+    it("sub navigation", () => {
+      const regex = /기본 특성/i;
+      navigation("sub", regex);
+    });
+  });
+
   describe("원정대 이벤트", () => {
     it("원정대 팝업 활성화, 비활성화", () => {
       const button = screen.getByRole("button", { name: "expedition-button" });
