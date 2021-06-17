@@ -25,9 +25,12 @@ const navigation = (type, regex) => {
 };
 
 describe("UserInfo", () => {
+  const name = "모여요꿈동산";
+
   beforeEach(() => {
     window.scrollTo = jest.fn();
     window.alert = jest.fn();
+
     render(<UserInfo match={{ params: { name } }} />);
   });
 
