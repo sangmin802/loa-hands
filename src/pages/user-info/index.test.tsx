@@ -2,6 +2,21 @@ import { fireEvent, render, screen, waitFor } from "utils/test";
 import UserInfo from "./index";
 
 const name = "모여요꿈동산";
+const navigation = (type, regex) => {
+  const [prev, , next] = screen.getAllByRole(`${type}-nav`);
+
+  expect(getByRole(prev, "nav-text").getAttribute("color")).toBe("white");
+  expect(getByRole(next, "nav-text").getAttribute("color")).toBe("#666");
+
+  fireEvent.click(getByRole(next, "button"));
+
+  expect(getByRole(prev, "nav-text").getAttribute("color")).toBe("#666");
+  expect(getByRole(next, "nav-text").getAttribute("color")).toBe("white");
+
+  expect(queryAllByText(screen.getByRole(`${type}-content`), regex)).not.toBe(
+    null
+  );
+};
 
 describe("UserInfo", () => {
   beforeEach(() => {
