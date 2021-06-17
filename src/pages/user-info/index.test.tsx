@@ -1,7 +1,13 @@
-import { fireEvent, render, screen, waitFor } from "utils/test";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  getByRole,
+  queryAllByText,
+} from "utils/test";
 import UserInfo from "./index";
 
-const name = "모여요꿈동산";
 const navigation = (type, regex) => {
   const [prev, , next] = screen.getAllByRole(`${type}-nav`);
 
