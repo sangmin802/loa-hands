@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const contentType = {
   title: css`
-    margin-right: 0.3rem;
+    margin-right: 0.7rem;
     padding: 0.2rem 0.6rem;
     overflow: initial;
 
