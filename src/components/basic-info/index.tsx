@@ -1,6 +1,6 @@
 import React from "react";
 import Lodash from "lodash";
-import { Image, Text } from "../";
+import { Image, Text, Collection } from "../";
 import * as Styled from "./index.styles";
 
 const BasicInfo = ({ userData, collection }) => {
@@ -111,7 +111,7 @@ const BasicInfo = ({ userData, collection }) => {
           </Styled.Content>
         </Styled.InnerContainer>
       </Styled.Container>
-      <Styled.Collection>{collection}</Styled.Collection>
+      <Styled.Collection>{Collection({ collection })}</Styled.Collection>
     </>
   );
 };
