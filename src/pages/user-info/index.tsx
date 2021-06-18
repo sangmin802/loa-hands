@@ -30,13 +30,8 @@ const UserInfo = ({
 
   const collectionNav = useMemo(() => {
     if (!userData) return;
-    return userData.collectionInfo.collectionMini.map((col, index) => (
-      <Collection
-        key={`collectionMini${index}`}
-        index={index}
-        size={col.size}
-      />
-    ));
+    const collection = userData.collectionInfo.collectionMini;
+    return Collection({ collection });
   }, [userData]);
 
   const subNavs = useMemo(
@@ -118,7 +113,10 @@ const UserInfo = ({
             <Text>원정대 캐릭터 보기</Text>
           </Button>
         </Styled.ButtonContainer>
-        <BasicInfo userData={userData} collection={collectionNav} />
+        <BasicInfo
+          userData={userData}
+          collection={userData.collectionInfo.collectionMini}
+        />
       </Styled.Top>
       <Styled.Bottom>
         <Nav
