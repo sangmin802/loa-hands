@@ -1,38 +1,17 @@
 import { render } from "@testing-library/react";
+import { USER_DATA } from "constants/";
 import "@testing-library/jest-dom";
 import React from "react";
 import BasicInfo from "./index";
-
-const demoUserData = {
-  basicInfo: {
-    expeditionLv: "221",
-    title: "-",
-    curBigLv: "1,402",
-    curSmallLv: ".50",
-    reachBigLv: "1,402",
-    reachSmallLv: ".50",
-    guild: "지칠때쉬러와",
-    pvp: "8단",
-    garden: "Lv.65 동산",
-    className: "바드",
-    classSrc:
-      "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/bard_m.png",
-  },
-  expeditionInfo: {
-    name: "모여요꿈동산",
-    Lv: "Lv.57",
-    server: "@아브렐슈드",
-  },
-};
 
 const demoCollection = "유저 컬렉션";
 
 describe("BasicInfo", () => {
   it("데이터에 맞는 DOM 구성", () => {
     const { container } = render(
-      <BasicInfo userData={demoUserData} collection={demoCollection} />
+      <BasicInfo userData={USER_DATA} collection={demoCollection} />
     );
-    const { basicInfo, expeditionInfo } = demoUserData;
+    const { basicInfo, expeditionInfo } = USER_DATA;
     const name = `${expeditionInfo.Lv} ${expeditionInfo.name}`;
     const expedition = `${expeditionInfo.server} Lv ${basicInfo.expeditionLv}`;
 
