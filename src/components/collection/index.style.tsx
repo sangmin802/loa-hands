@@ -12,7 +12,7 @@ const positionX = [
   "696px",
 ];
 
-export const Container = styled.div`
+export const Item = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: center;

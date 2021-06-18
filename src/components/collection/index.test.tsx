@@ -1,12 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Collection from "./index";
+import { Item } from "./index";
 
 describe("Collection", () => {
   it("Collection 컴포넌트 적절한 값 렌더링", () => {
     // index 5 -> 627px
-    const { container } = render(<Collection size={80} index={5} />);
+    const { container } = render(<Item size={80} index={5} />);
     const backgroundStyle = container
       .querySelector(".collection-mini-bg")
       .getAttribute("style");
