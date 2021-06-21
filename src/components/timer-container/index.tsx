@@ -1,7 +1,6 @@
 import React from "react";
-import Timer from "./timer/index";
 import { useNewTime } from "hooks/use-newtime";
-import { Text } from "components/";
+import { Text, Timer } from "components/";
 import * as Styled from "./index.style";
 
 const TimerContainer = ({ data, today = null }) => {
