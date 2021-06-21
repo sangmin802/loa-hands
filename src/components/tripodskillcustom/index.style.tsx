@@ -6,7 +6,7 @@ export const Content = styled.article<{ src: string }>`
   margin-top: 0.5rem;
 
   .img-container {
-    ${({ src }) => (src ? "width: 10%; min-width: 30px;" : "")}
+    ${({ src }) => (src ? "width: 8%; min-width: 26px;" : "")}
 
     img {
       ${({ theme, src }) => (src ? theme.contentBox : "")}
@@ -19,12 +19,12 @@ export const Content = styled.article<{ src: string }>`
 
 const textContainerType = {
   title: css<{ src: string }>`
-    ${({ src }) => (src ? "width: 17%; margin: 0 0.5rem;" : "")}
+    ${({ src }) => (src ? "width: 19%; margin: 0 0.5rem;" : "")}
   `,
   desc: css<{ src: string }>`
     ${({ src }) =>
       src
-        ? "width: calc(73% - 1rem - 0.1px); min-width: calc(100% - 1rem- 30.1px);"
+        ? "width: calc(73% - 1rem - 0.1px); min-width: calc(100% - 1rem- 26.1px);"
         : ""}
   `,
 };
