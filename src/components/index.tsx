@@ -18,6 +18,7 @@ export { default as Quality } from "./quality";
 export { default as Rune } from "./rune";
 export { default as SectionContainer } from "./section-container";
 export { default as TimerContainer } from "./timer-container";
+export { default as Timer } from "./timer";
 export { default as TripodSkillCustom } from "./tripodskillcustom";
 export { default as ListItem } from "./list-item";
 export { default as Text } from "./text";
