@@ -21,6 +21,13 @@
   > `React` 특유의 깜빡임 제거(`vue`의 `isShow`와 유사한 방식으로 변경)
 - `Dialog` 노출 시, 스크롤 된 높이에서 화면 고정
 - 반응형 최적화
+- CSS-in-JS 방식의 styled-component 사용
+
+### UI Test
+- StroyBook
+
+### Unit Test
+- Jest, React-testing-library
 
 ### src 디렉토리 구조
 
