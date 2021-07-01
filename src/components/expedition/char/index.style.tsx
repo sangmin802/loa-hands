@@ -8,4 +8,9 @@ export const Container = styled.article`
   &:hover {
     background: ${({ theme }) => theme.backgroundColor.darkLow};
   }
+
+  button {
+    width: 100%;
+    text-align: left;
+  }
 `;
