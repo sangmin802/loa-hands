@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useLoadingToggle } from "hooks/use-loadingtoggle";
 import { useHome } from "hooks/use-home";
@@ -8,18 +8,27 @@ import { Home, UserInfo } from "../../pages/";
 import * as Styled from "./index.style";
 
 function App() {
+  const [disabled, setDisabled] = useState(false);
   const { isLoading } = useLoadingToggle();
   const { setHomeData } = useHome();
   const { setUserData } = useUser();
   const textInput = useRef(null);
+
   const onSubmitHandler = useCallback(
     e => {
       e.preventDefault();
+      setDisabled(true);
       setUserData(textInput.current.value);
       textInput.current.value = null;
     },
-    [textInput, setUserData]
+    [textInput, setUserData, setDisabled]
   );
+
+  useEffect(() => {
+    return () => {
+      if (isLoading) setDisabled(false);
+    };
+  }, [isLoading, setDisabled]);
 
   return (
     <Styled.Container isLoading={isLoading}>
@@ -35,6 +44,7 @@ function App() {
                   name="searchedUser"
                   ref={textInput}
                   autoComplete="off"
+                  disabled={disabled}
                 />
               </Styled.InputText>
               <Styled.InputSubmit>
