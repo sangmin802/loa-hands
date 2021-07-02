@@ -7,6 +7,9 @@ import { store } from "./store/index";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle, { THEME } from "global-style";
 import App from "layout/app/index";
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,7 +17,9 @@ ReactDOM.render(
       <ThemeProvider theme={THEME}>
         {/* <React.StrictMode> */}
         <GlobalStyle />
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
         {/* </React.StrictMode> */}
       </ThemeProvider>
     </BrowserRouter>
