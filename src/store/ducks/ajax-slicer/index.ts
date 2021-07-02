@@ -24,7 +24,7 @@ const ajaxSlicer = createSlice({
       state.userData = action.payload.userData;
     },
     getHomeData: (state, action) => {
-      state.homeData = action.payload.homeData;
+      state.homeData = action.payload.data;
     },
   },
 });
