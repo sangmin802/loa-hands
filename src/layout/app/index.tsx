@@ -1,7 +1,6 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { useLoadingToggle } from "hooks/use-loadingtoggle";
-import { useHome } from "hooks/use-home";
 import { useUser } from "hooks/use-user";
 import { LoadingSpinner, Input, Text, Button } from "components/";
 import { Home, UserInfo } from "../../pages/";
@@ -10,7 +9,6 @@ import * as Styled from "./index.style";
 function App() {
   const [disabled, setDisabled] = useState(false);
   const { isLoading } = useLoadingToggle();
-  const { setHomeData } = useHome();
   const { setUserData } = useUser();
   const textInput = useRef(null);
 
@@ -36,7 +34,9 @@ function App() {
       <Styled.InnerContainer>
         <Styled.HeaderContainer>
           <Styled.InnerHeader>
-            <Styled.Background role="go-home" onClick={setHomeData} />
+            <Link to="/">
+              <Styled.Background role="go-home" />
+            </Link>
             <Styled.Form role="form" onSubmit={onSubmitHandler}>
               <Styled.InputText>
                 <Input
