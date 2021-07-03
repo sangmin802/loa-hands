@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "style/fonts.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/index";
 import { ThemeProvider } from "styled-components";
@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={THEME}>
         {/* <React.StrictMode> */}
         <GlobalStyle />
@@ -22,7 +22,7 @@ ReactDOM.render(
         </QueryClientProvider>
         {/* </React.StrictMode> */}
       </ThemeProvider>
-    </BrowserRouter>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
