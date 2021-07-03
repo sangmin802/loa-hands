@@ -24,3 +24,5 @@ export { default as ListItem } from "./list-item";
 export { default as Text } from "./text";
 export { default as Button } from "./button";
 export { default as Input } from "./input";
+export { default as Header } from "./header";
+export { default as SearchLoading } from "./search-loading";
