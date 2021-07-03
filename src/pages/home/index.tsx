@@ -45,7 +45,7 @@ const Home = () => {
 
   return (
     <>
-      <Suspense fallback={<LoadingSpinner back={false} />}>
+      <Suspense fallback={<LoadingSpinner />}>
         <FetchHome today={today} />
       </Suspense>
       <Styled.Section>
@@ -73,14 +73,14 @@ const Home = () => {
 };
 
 const FetchHome = ({ today }) => {
-  const HomeData = useHome();
+  const homeData = useHome();
 
   return (
-    <section role="home" data-isdata={HomeData ? true : false}>
+    <section role="home" data-isdata={homeData ? true : false}>
       <Styled.Section>
         <SectionContainer title="진행중인 이벤트">
           <Styled.Content type="event">
-            {HomeData?.events.map((event, index) => (
+            {homeData?.events.map((event, index) => (
               <Styled.Event key={`event${index}`}>
                 <Event event={event} />
               </Styled.Event>
@@ -93,7 +93,7 @@ const FetchHome = ({ today }) => {
           <Styled.Section>
             <SectionContainer title="14:00">
               <TimerContainer
-                data={HomeData?.calendar[0] ?? []}
+                data={homeData?.calendar[0] ?? []}
                 today={today}
               />
             </SectionContainer>
@@ -101,7 +101,7 @@ const FetchHome = ({ today }) => {
           <Styled.Section>
             <SectionContainer title="21:00">
               <TimerContainer
-                data={HomeData?.calendar[1] ?? []}
+                data={homeData?.calendar[1] ?? []}
                 today={today}
               />
             </SectionContainer>
