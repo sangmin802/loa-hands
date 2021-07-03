@@ -16,17 +16,16 @@ import {
   Text,
 } from "components/";
 import { useUser } from "hooks/use-user";
+import { useParams, useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 
-const UserInfo = ({
-  match: {
-    params: { name },
-  },
-}) => {
-  const { userData, setUserData, infos } = useUser();
+const UserInfo = () => {
+  const history = useHistory();
+  const { name } = useParams<{ name }>();
   const [subNav, setSubNav] = useState(0);
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
+  const { userData, infos } = useUser(name);
 
   const collectionNav = useMemo(() => {
     if (!userData) return;
@@ -61,10 +60,10 @@ const UserInfo = ({
 
   const setUserDataHandler = useCallback(
     name => {
-      setUserData(name);
+      history.push(`/userInfo/${name}`);
       resetHandler();
     },
-    [setUserData, resetHandler]
+    [history, resetHandler]
   );
 
   const expeditionDialog = useMemo(
@@ -87,11 +86,6 @@ const UserInfo = ({
       resetHandler();
     };
   }, [userData, resetHandler]);
-
-  useEffect(() => {
-    if (!userData) setUserDataHandler(name);
-  }, [name, setUserDataHandler, userData]);
-  if (!userData) return null;
 
   const {
     equipment,
