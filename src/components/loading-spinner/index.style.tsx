@@ -1,40 +1,10 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const containerType = {
-  "spinner-wrap": css`
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 99;
-  `,
-  default: css``,
-};
-
-const contentType = {
-  absolute: css`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  `,
-
-  default: css`
-    margin: 0 auto;
-  `,
-};
-
-export const Container = styled.article<{ type: string }>`
-  ${({ type }) => containerType[type]}
-`;
-
-export const Content = styled.div<{ type: string }>`
+export const Content = styled.div`
   width: 80px;
   height: 80px;
 
-  ${({ type }) => contentType[type]}
+  margin: 0 auto;
 
   div {
     transform-origin: 40px 40px;
