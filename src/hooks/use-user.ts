@@ -1,24 +1,12 @@
-import { useCallback, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { getUserData_Saga_Async } from "store/ducks/ajax-slicer";
-import { RootState } from "store/index";
-import Lodash from "lodash";
+import { useMemo } from "react";
+import { useQuery } from "react-query";
+import API from "api/api";
 
-export function useUser() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const userData = useSelector(
-    (state: RootState) => state.ajaxReducer.userData,
-    (left, right) => Lodash.isEqual(left, right)
-  );
-
-  const setUserData = useCallback(
-    name => {
-      dispatch(getUserData_Saga_Async(name, history));
-    },
-    [history, dispatch]
+export function useUser(name) {
+  const { data: userData } = useQuery(
+    ["userInfo", name],
+    () => API.getUserData(name),
+    { suspense: true }
   );
 
   const infos = useMemo(() => {
@@ -28,10 +16,9 @@ export function useUser() {
       characteristicInfo,
       equipInfo: { equipment, avatar },
     } = userData.abilityInfo;
-    const { battleSkill, lifeSkill } = userData.skillInfo;
+    const { battleSkill = null, lifeSkill } = userData.skillInfo;
     const { collectionDetail } = userData.collectionInfo;
     const { battle, basic, engrave } = characteristicInfo;
-
     return {
       equipment,
       avatar,
@@ -44,5 +31,5 @@ export function useUser() {
     };
   }, [userData]);
 
-  return { userData, setUserData, infos };
+  return { userData, infos };
 }
