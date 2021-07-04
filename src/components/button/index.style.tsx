@@ -5,4 +5,7 @@ export const Button = styled.button`
   outline: none;
   background: none;
   border: 0;
+  display: inlin-block;
+  width: 100%;
+  height: 100%;
 `;
