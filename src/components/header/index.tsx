@@ -10,7 +10,6 @@ const Header = () => {
   const onSubmitHandler = useCallback(
     e => {
       e.preventDefault();
-
       const name = textInput?.current?.value;
       history.replace(`/userInfo/${name}`);
       textInput.current.value = null;
@@ -23,7 +22,11 @@ const Header = () => {
       <Link to="/">
         <Styled.Background role="go-home" />
       </Link>
-      <Styled.Form role="form" onSubmit={onSubmitHandler}>
+      <Styled.Form
+        role="form"
+        className="submit-area"
+        onSubmit={onSubmitHandler}
+      >
         <Styled.InputText>
           <Input
             className="search-area"
