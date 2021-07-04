@@ -6,7 +6,10 @@ export function useUser(name) {
   const { data: userData } = useQuery(
     ["userInfo", name],
     () => API.getUserData(name),
-    { suspense: true }
+    {
+      suspense: true,
+      retry: false,
+    }
   );
 
   const infos = useMemo(() => {
