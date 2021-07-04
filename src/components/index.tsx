@@ -26,3 +26,5 @@ export { default as Button } from "./button";
 export { default as Input } from "./input";
 export { default as Header } from "./header";
 export { default as SearchLoading } from "./search-loading";
+export { default as AsyncBoundary } from "./async-boundary";
+export { default as ErrorBoundary } from "./error-boundary";
