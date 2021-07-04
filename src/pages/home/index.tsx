@@ -1,17 +1,13 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  Suspense,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DAILY_ISLAND, FIELD_BOSS, CHAOS_GATE, OCEAN_ACT } from "json/json";
-import { useHome } from "hooks/use-home";
+import { useCalendar } from "hooks/use-calendar";
+import { useEvent } from "hooks/use-event";
 import {
   SectionContainer,
   TimerContainer,
   LoadingSpinner,
   Event,
+  AsyncBoundary,
 } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
@@ -42,12 +38,22 @@ const Home = () => {
       endInterval();
     };
   }, [endInterval, startInterval, setNow]);
-
   return (
     <>
-      <Suspense fallback={<LoadingSpinner />}>
-        <FetchHome today={today} />
-      </Suspense>
+      <Styled.Section>
+        <SectionContainer title="진행중인 이벤트">
+          <AsyncBoundary suspenseFallback={<LoadingSpinner />}>
+            <FetchEvent />
+          </AsyncBoundary>
+        </SectionContainer>
+      </Styled.Section>
+      <Styled.Section>
+        <SectionContainer title="오늘의 캘린더섬">
+          <AsyncBoundary suspenseFallback={<LoadingSpinner />}>
+            <FetchCalendar today={today} />
+          </AsyncBoundary>
+        </SectionContainer>
+      </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 모험섬">
           <TimerContainer data={DAILY_ISLAND} today={today} />
@@ -72,43 +78,36 @@ const Home = () => {
   );
 };
 
-const FetchHome = ({ today }) => {
-  const homeData = useHome();
+const FetchCalendar = ({ today }) => {
+  const calendarData = useCalendar();
 
   return (
-    <section role="home" data-isdata={homeData ? true : false}>
+    <>
       <Styled.Section>
-        <SectionContainer title="진행중인 이벤트">
-          <Styled.Content type="event">
-            {homeData?.events.map((event, index) => (
-              <Styled.Event key={`event${index}`}>
-                <Event event={event} />
-              </Styled.Event>
-            ))}
-          </Styled.Content>
+        <SectionContainer title="14:00">
+          <TimerContainer data={calendarData.calendar[0] ?? []} today={today} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
-        <SectionContainer title="오늘의 캘린더섬">
-          <Styled.Section>
-            <SectionContainer title="14:00">
-              <TimerContainer
-                data={homeData?.calendar[0] ?? []}
-                today={today}
-              />
-            </SectionContainer>
-          </Styled.Section>
-          <Styled.Section>
-            <SectionContainer title="21:00">
-              <TimerContainer
-                data={homeData?.calendar[1] ?? []}
-                today={today}
-              />
-            </SectionContainer>
-          </Styled.Section>
+        <SectionContainer title="21:00">
+          <TimerContainer data={calendarData.calendar[1] ?? []} today={today} />
         </SectionContainer>
       </Styled.Section>
-    </section>
+    </>
+  );
+};
+
+const FetchEvent = () => {
+  const eventData = useEvent();
+
+  return (
+    <Styled.Content type="event">
+      {eventData.events.map((event, index) => (
+        <Styled.Event key={`event${index}`}>
+          <Event event={event} />
+        </Styled.Event>
+      ))}
+    </Styled.Content>
   );
 };
 
