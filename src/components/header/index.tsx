@@ -3,25 +3,40 @@ import { Link, useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 import { Input, Button, Text } from "components/";
 
-const Header = () => {
+interface Props {
+  resetBoundary?: () => void;
+}
+
+const Header = ({ resetBoundary }: Props) => {
   const textInput = useRef(null);
   const history = useHistory();
-
   const onSubmitHandler = useCallback(
     e => {
-      e.preventDefault();
       const name = textInput?.current?.value;
+
+      e.preventDefault();
+      resetBoundary?.();
+
       history.replace(`/userInfo/${name}`);
       textInput.current.value = null;
     },
-    [textInput, history]
+    [textInput, history, resetBoundary]
+  );
+
+  const onHomeHandler = useCallback(
+    e => {
+      e.preventDefault();
+      resetBoundary?.();
+      history.replace(`/`);
+    },
+    [resetBoundary, history]
   );
 
   return (
     <Styled.Container>
-      <Link to="/">
+      <Button onClick={onHomeHandler}>
         <Styled.Background role="go-home" />
-      </Link>
+      </Button>
       <Styled.Form
         role="form"
         className="submit-area"
