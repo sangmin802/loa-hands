@@ -1,20 +1,20 @@
 import { useMemo } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import API from "api/api";
 
 export function useUser(name) {
-  const { data: userData } = useQuery(
-    ["userInfo", name],
-    () => API.getUserData(name),
-    {
-      suspense: true,
-      retry: false,
-    }
-  );
+  const queryClient = useQueryClient();
+  const key = useMemo(() => ["userData", name], [name]);
+
+  const { data: userData } = useQuery(key, async () => {
+    queryClient.prefetchQuery(key, () => {
+      API.getUserData(name);
+    });
+
+    return API.getUserData(name);
+  });
 
   const infos = useMemo(() => {
-    if (!userData) return;
-
     const {
       characteristicInfo,
       equipInfo: { equipment, avatar },
