@@ -8,6 +8,7 @@ import {
   LoadingSpinner,
   Event,
   AsyncBoundary,
+  ErrorFallback,
 } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
@@ -38,18 +39,25 @@ const Home = () => {
       endInterval();
     };
   }, [endInterval, startInterval, setNow]);
+
   return (
     <>
       <Styled.Section>
         <SectionContainer title="진행중인 이벤트">
-          <AsyncBoundary suspenseFallback={<LoadingSpinner />}>
+          <AsyncBoundary
+            suspenseFallback={<LoadingSpinner />}
+            errorFallback={<ErrorFallback />}
+          >
             <FetchEvent />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 캘린더섬">
-          <AsyncBoundary suspenseFallback={<LoadingSpinner />}>
+          <AsyncBoundary
+            suspenseFallback={<LoadingSpinner />}
+            errorFallback={<ErrorFallback />}
+          >
             <FetchCalendar today={today} />
           </AsyncBoundary>
         </SectionContainer>
@@ -111,4 +119,4 @@ const FetchEvent = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home, () => true);
