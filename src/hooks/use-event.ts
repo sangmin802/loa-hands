@@ -6,8 +6,7 @@ export function useEvent() {
     "fetchEventData",
     () => API.getEventData(),
     {
-      suspense: true,
-      retry: false,
+      refetchOnWindowFocus: false,
     }
   );
 
