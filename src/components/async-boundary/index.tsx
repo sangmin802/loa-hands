@@ -1,25 +1,29 @@
-import { ReactNode, Suspense, useCallback, useState } from "react";
+import { ReactElement, ReactNode, Suspense, useCallback } from "react";
 import { useQueryErrorResetBoundary } from "react-query";
 import { ErrorBoundary } from "components/";
 
 interface Props {
   suspenseFallback: ReactNode;
-  children: ReactNode;
+  errorFallback: any;
+  children: ReactElement;
 }
 
-const AsyncBoundary = ({ suspenseFallback, children }: Props) => {
-  const [explode, setExplode] = useState(false);
+const AsyncBoundary = ({
+  suspenseFallback,
+  errorFallback,
+  children,
+}: Props) => {
   const { reset } = useQueryErrorResetBoundary();
-  const resetHandler = useCallback(
-    err => {
-      reset();
-      setExplode(err);
-    },
-    [setExplode, reset]
-  );
+  const resetHandler = useCallback(() => {
+    reset();
+  }, [reset]);
 
   return (
-    <ErrorBoundary resetKey={resetHandler} resetQuery={reset} keys={[explode]}>
+    <ErrorBoundary
+      resetQuery={resetHandler}
+      errorFallback={errorFallback}
+      excludeSuspense={children}
+    >
       <Suspense fallback={suspenseFallback}>{children}</Suspense>
     </ErrorBoundary>
   );
