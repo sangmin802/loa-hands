@@ -4,6 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import GlobalStyle, { THEME } from "../src/global-style";
 import { Provider } from "react-redux";
 import { store } from "../src/store/index";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "../src/index";
+import { ReactQueryDevtools } from "react-query/devtools";
 import "../src/style/fonts.css";
 
 export const parameters = {
@@ -22,7 +25,10 @@ export const decorators = [
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ThemeProvider theme={THEME}>
           <GlobalStyle />
-          <Story />
+          <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <Story />
+          </QueryClientProvider>
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
