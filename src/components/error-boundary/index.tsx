@@ -1,11 +1,10 @@
-import React from "react";
-import { Text, Button, Image } from "components/";
-import * as Styled from "./index.style";
+import React, { cloneElement, ReactElement } from "react";
 
 interface Props {
-  keys: any[];
-  resetKey: (T: Error) => void;
-  resetQuery: () => void;
+  resetQuery?: () => void;
+  errorFallback: ReactElement;
+  children: ReactElement;
+  excludeSuspense: ReactElement;
 }
 
 interface States {
@@ -27,12 +26,13 @@ export default class ErrorBoundary extends React.Component<Props, States> {
 
   // componentDidCatch(error, errorInfo) {
   //   // 에러 리포팅 서비스에 에러를 기록할 수도 있습니다.
-  //   logErrorToMyService(error, errorInfo);
+  //   // logErrorToMyService(error, errorInfo);
   // }
 
   // Fallback 컴포넌트의 내부 이벤트를 통한 리렌더링
   resetBoundary = () => {
-    this.props.resetKey?.(this.state.error);
+    // 상부의 setState 속성이 있다면
+    this.props.resetQuery?.();
     this.setState(initialState);
   };
 
@@ -43,35 +43,23 @@ export default class ErrorBoundary extends React.Component<Props, States> {
   //   }
   // }
 
-  componentDidMount() {
-    const submit = document.querySelector(".submit-area");
-    submit.addEventListener("submit", e => {
-      e.preventDefault();
-      this.resetBoundary();
-    });
-  }
-
   render() {
     if (this.state.hasError) {
+      const { errorFallback } = this.props;
+      const { error } = this.state;
       // 폴백 UI를 커스텀하여 렌더링할 수 있습니다.
-
-      return (
-        <>
-          <Styled.TextContainer>
-            <Text>{this.state.error.message}</Text>
-          </Styled.TextContainer>
-          <Styled.ButtonContainer>
-            <Button onClick={this.resetBoundary}>
-              <Text>재시도</Text>
-            </Button>
-          </Styled.ButtonContainer>
-          <Styled.ImageContainer>
-            <Image src={`${process.env.PUBLIC_URL}/img/emoticon_3.gif`} />
-          </Styled.ImageContainer>
-        </>
-      );
+      return cloneElement(errorFallback, {
+        error,
+        resetBoundary: this.resetBoundary,
+      });
     }
 
-    return this.props.children;
+    // return this.props.children;
+
+    const newChildren = cloneElement(this.props.excludeSuspense, {
+      resetBoundary: this.resetBoundary,
+    });
+
+    return cloneElement(this.props.children, {}, newChildren);
   }
 }
