@@ -8,8 +8,19 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle, { THEME } from "global-style";
 import App from "layout/app/index";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      suspense: true,
+      useErrorBoundary: true,
+      cacheTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 3,
+    },
+  },
+});
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,6 +29,7 @@ ReactDOM.render(
         {/* <React.StrictMode> */}
         <GlobalStyle />
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
           <App />
         </QueryClientProvider>
         {/* </React.StrictMode> */}
