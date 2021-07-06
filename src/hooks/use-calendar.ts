@@ -5,7 +5,9 @@ export function useCalendar() {
   const { data: calendarData } = useQuery(
     "fetchCalendarData",
     () => API.getCalendarData(),
-    { suspense: true, retry: false }
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return calendarData;
