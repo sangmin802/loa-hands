@@ -6,13 +6,19 @@ export function useUser(name) {
   const queryClient = useQueryClient();
   const key = useMemo(() => ["userData", name], [name]);
 
-  const { data: userData } = useQuery(key, async () => {
-    queryClient.prefetchQuery(key, () => {
-      API.getUserData(name);
-    });
+  const { data: userData } = useQuery(
+    key,
+    async () => {
+      queryClient.prefetchQuery(key, () => {
+        API.getUserData(name);
+      });
 
-    return API.getUserData(name);
-  });
+      return API.getUserData(name);
+    },
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const infos = useMemo(() => {
     const {
