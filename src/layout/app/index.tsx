@@ -1,24 +1,40 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import { Route } from "react-router-dom";
-import { SearchLoading, Header, AsyncBoundary } from "components/";
+import {
+  SearchLoading,
+  Header,
+  AsyncBoundary,
+  ErrorFallback,
+} from "components/";
 import { Home, UserInfo } from "../../pages/";
 import * as Styled from "./index.style";
 
 function App() {
   return (
-    <Styled.Container isLoading={false}>
-      <Styled.InnerContainer>
-        <Styled.HeaderContainer>
-          <Header />
-        </Styled.HeaderContainer>
-        <AsyncBoundary suspenseFallback={<SearchLoading />}>
+    <Styled.Container>
+      <AsyncBoundary
+        suspenseFallback={<SearchLoading />}
+        errorFallback={<HeaderLayout children={<ErrorFallback />} />}
+      >
+        <HeaderLayout>
           <Styled.Main>
             <Route exact path="/" component={Home} />
             <Route path="/userInfo/:name" component={UserInfo} />
           </Styled.Main>
-        </AsyncBoundary>
-      </Styled.InnerContainer>
+        </HeaderLayout>
+      </AsyncBoundary>
     </Styled.Container>
+  );
+}
+
+function HeaderLayout({ children, ...props }) {
+  return (
+    <Styled.InnerContainer>
+      <Styled.HeaderContainer>
+        <Header {...props} />
+      </Styled.HeaderContainer>
+      {cloneElement(children, { ...props })}
+    </Styled.InnerContainer>
   );
 }
 
