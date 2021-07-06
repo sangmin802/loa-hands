@@ -1,17 +1,22 @@
 import React from "react";
 import UserInfo from "./index";
+import { AsyncBoundary, SearchLoading, ErrorFallback } from "components/";
+import { HeaderLayout } from "../../layout/app/index";
 
 export default {
   title: "UserInfo",
   component: UserInfo,
 };
 
-const Template = args => <UserInfo {...args} />;
+const Template = args => (
+  <AsyncBoundary
+    suspenseFallback={<SearchLoading />}
+    errorFallback={<HeaderLayout children={<ErrorFallback />} />}
+  >
+    <UserInfo {...args} />
+  </AsyncBoundary>
+);
 
 export const Default = Template.bind({});
 
-Default.args = {
-  match: {
-    params: { name: "모여요꿈동산" },
-  },
-};
+Default.args = {};

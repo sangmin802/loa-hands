@@ -27,7 +27,7 @@ function App() {
   );
 }
 
-function HeaderLayout({ children, ...props }) {
+export function HeaderLayout({ children, ...props }) {
   return (
     <Styled.InnerContainer>
       <Styled.HeaderContainer>
