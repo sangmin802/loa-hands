@@ -22,10 +22,10 @@ import * as Styled from "./index.style";
 const UserInfo = () => {
   const history = useHistory();
   const { name } = useParams<{ name }>();
+  const { userData, infos } = useUser(name);
   const [subNav, setSubNav] = useState(0);
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
-  const { userData, infos } = useUser(name);
 
   const collectionNav = useMemo(() => {
     if (!userData) return;
