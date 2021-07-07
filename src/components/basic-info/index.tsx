@@ -1,10 +1,24 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Lodash from "lodash";
 import { Image, Text, Collection } from "../";
 import * as Styled from "./index.styles";
 
-const BasicInfo = ({ userData, collection }) => {
-  const { basicInfo, expeditionInfo } = userData;
+interface UserData {
+  basicInfo: { [key: string]: string };
+  expeditionInfo: { [key: string]: string };
+  collectionInfo: {
+    collectionMini;
+  };
+}
+
+interface Props<T> {
+  userData: T;
+}
+
+const BasicInfo = <T extends UserData>({
+  userData,
+}: PropsWithChildren<Props<T>>) => {
+  const { basicInfo, expeditionInfo, collectionInfo } = userData;
   const {
     className,
     classSrc,
@@ -19,6 +33,7 @@ const BasicInfo = ({ userData, collection }) => {
     title,
   } = basicInfo;
   const { name, server, Lv } = expeditionInfo;
+  const { collectionMini: collection } = collectionInfo;
 
   return (
     <>
@@ -115,6 +130,8 @@ const BasicInfo = ({ userData, collection }) => {
     </>
   );
 };
+
+// export default BasicInfo;
 
 export default React.memo(BasicInfo, (left, right) =>
   Lodash.isEqual(left, right)
