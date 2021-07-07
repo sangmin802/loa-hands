@@ -13,12 +13,15 @@ const Header = ({ resetBoundary }: Props) => {
   const onSubmitHandler = useCallback(
     e => {
       const name = textInput?.current?.value;
+      const isEmpty = name.replace(/ /gi, "") === "";
 
       e.preventDefault();
       resetBoundary?.();
 
-      history.replace(`/userInfo/${name}`);
       textInput.current.value = null;
+
+      if (isEmpty) return;
+      history.replace(`/userInfo/${name}`);
     },
     [textInput, history, resetBoundary]
   );
