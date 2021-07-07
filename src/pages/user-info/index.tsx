@@ -107,10 +107,7 @@ const UserInfo = () => {
             <Text>원정대 캐릭터 보기</Text>
           </Button>
         </Styled.ButtonContainer>
-        <BasicInfo
-          userData={userData}
-          collection={userData.collectionInfo.collectionMini}
-        />
+        <BasicInfo userData={userData} />
       </Styled.Top>
       <Styled.Bottom>
         <Nav
