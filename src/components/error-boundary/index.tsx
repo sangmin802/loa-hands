@@ -4,7 +4,6 @@ interface Props {
   resetQuery?: () => void;
   errorFallback: ReactElement;
   children: ReactElement;
-  excludeSuspense: ReactElement;
 }
 
 interface States {
@@ -26,12 +25,10 @@ export default class ErrorBoundary extends React.Component<Props, States> {
 
   // componentDidCatch(error, errorInfo) {
   //   // 에러 리포팅 서비스에 에러를 기록할 수도 있습니다.
-  //   // logErrorToMyService(error, errorInfo);
   // }
 
   // Fallback 컴포넌트의 내부 이벤트를 통한 리렌더링
   resetBoundary = () => {
-    // 상부의 setState 속성이 있다면
     this.props.resetQuery?.();
     this.setState(initialState);
   };
@@ -54,12 +51,6 @@ export default class ErrorBoundary extends React.Component<Props, States> {
       });
     }
 
-    // return this.props.children;
-
-    const newChildren = cloneElement(this.props.excludeSuspense, {
-      resetBoundary: this.resetBoundary,
-    });
-
-    return cloneElement(this.props.children, {}, newChildren);
+    return this.props.children;
   }
 }
