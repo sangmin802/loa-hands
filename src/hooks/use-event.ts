@@ -2,7 +2,7 @@ import API from "api/api";
 import { useQuery } from "react-query";
 
 export function useEvent() {
-  const { data: calendarData } = useQuery(
+  const { data: eventData } = useQuery(
     "fetchEventData",
     () => API.getEventData(),
     {
@@ -10,5 +10,5 @@ export function useEvent() {
     }
   );
 
-  return calendarData;
+  return eventData;
 }
