@@ -1,9 +1,28 @@
-import React, { useCallback, useMemo } from "react";
+import React, {
+  PropsWithChildren,
+  ReactElement,
+  useCallback,
+  useMemo,
+} from "react";
 import Lodash from "lodash";
 import { Button, Text } from "components/";
 import * as Styled from "./index.style";
 
-const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
+interface INavigation {
+  navType: string;
+  arr: (string | ReactElement)[];
+  isShow: boolean;
+  selectedNav: number;
+  setNav: (T: number) => void;
+}
+
+const Navigation = ({
+  navType,
+  arr,
+  isShow,
+  selectedNav,
+  setNav,
+}: PropsWithChildren<INavigation>) => {
   return (
     <Styled.Container
       role={`${navType}-nav-container`}
@@ -26,7 +45,18 @@ const Navigation = ({ navType, arr, isShow, selectedNav, setNav }) => {
   );
 };
 
-export const Item = ({ navName, setNav, selected, index }) => {
+interface IItem {
+  navName: string | ReactElement;
+  setNav: (T: number) => void;
+  selected: boolean;
+  index: number;
+}
+export const Item = ({
+  navName,
+  setNav,
+  selected,
+  index,
+}: PropsWithChildren<IItem>) => {
   const navClickHandler = useCallback(() => {
     setNav(index);
   }, [index, setNav]);
