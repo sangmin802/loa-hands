@@ -1,9 +1,37 @@
-import React, { cloneElement, useMemo } from "react";
+import React, {
+  cloneElement,
+  PropsWithChildren,
+  ReactElement,
+  useMemo,
+} from "react";
 import Lodash from "lodash";
-import { ItemPartBox, IndentString, TripodSkillCustom, Image, Text } from "../";
+import { ItemPartBox, IndentString, TripodSkillCustom, Image, Text } from "..";
 import * as Styled from "./index.style";
 
-const Detail = ({ data, children }: { data?; children? }) => {
+interface IDetail {
+  src: string;
+  grade: string;
+  title: string;
+  subTitle: string[];
+  itemPartBox: [];
+  indentStringGroup: [];
+  tripodSkillCustom: [];
+}
+
+interface IData<T> {
+  backSrc: string;
+  detail: T;
+}
+
+interface IHoverContent<T> {
+  data: T;
+  children: ReactElement;
+}
+
+const HoverContent = ({
+  data,
+  children,
+}: PropsWithChildren<Partial<IHoverContent<IData<IDetail>>>>) => {
   const { backSrc, detail } = data;
   const {
     src,
@@ -15,10 +43,9 @@ const Detail = ({ data, children }: { data?; children? }) => {
     tripodSkillCustom,
   } = detail;
 
-  const titleColor = useMemo(
-    () => (grade ? `color${grade}` : "white"),
-    [grade]
-  );
+  const titleColor = useMemo(() => (grade ? `color${grade}` : "white"), [
+    grade,
+  ]);
 
   return (
     <>
@@ -53,4 +80,6 @@ const Detail = ({ data, children }: { data?; children? }) => {
   );
 };
 
-export default React.memo(Detail, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(HoverContent, (left, right) =>
+  Lodash.isEqual(left, right)
+);
