@@ -3,7 +3,7 @@ import Lodash from "lodash";
 import { Image, Text, Collection } from "../";
 import * as Styled from "./index.styles";
 
-interface UserData {
+interface IUserData {
   basicInfo: { [key: string]: string };
   expeditionInfo: { [key: string]: string };
   collectionInfo: {
@@ -11,13 +11,13 @@ interface UserData {
   };
 }
 
-interface Props<T> {
+interface IBasicInfo<T> {
   userData: T;
 }
 
-const BasicInfo = <T extends UserData>({
+const BasicInfo = <T extends IUserData>({
   userData,
-}: PropsWithChildren<Props<T>>) => {
+}: PropsWithChildren<IBasicInfo<T>>) => {
   const { basicInfo, expeditionInfo, collectionInfo } = userData;
   const {
     className,
