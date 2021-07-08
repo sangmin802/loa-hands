@@ -1,5 +1,5 @@
 import React from "react";
-import Text, { Props } from "./index";
+import Text, { IText } from "./index";
 import { Story } from "@storybook/react";
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: Text,
 };
 
-const Template: Story<Props> = args => <Text {...args} />;
+const Template: Story<IText> = args => <Text {...args} />;
 
 export const Title = Template.bind({});
 export const Normal = Template.bind({});
