@@ -1,9 +1,17 @@
-import React from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import Lodash from "lodash";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 
-const SectionContainer = ({ children, title }) => {
+interface ISectionContainer {
+  children: ReactElement;
+  title: string;
+}
+
+const SectionContainer = ({
+  children,
+  title,
+}: PropsWithChildren<ISectionContainer>) => {
   return (
     <article>
       <Styled.Title>
