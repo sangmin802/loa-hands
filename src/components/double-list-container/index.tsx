@@ -1,7 +1,19 @@
-import React, { useMemo } from "react";
+import React, { PropsWithChildren, ReactElement, useMemo } from "react";
 import { ListContainer } from "../";
 import Lodash from "lodash";
 import * as Styled from "./index.style";
+
+interface IData {
+  divideType: string;
+}
+
+interface IDoubleListContainer<T> {
+  data: T[];
+  divideType: string;
+  lt?: null | string;
+  rt?: null | string;
+  children: ReactElement;
+}
 
 const DoubleListContainer = ({
   data,
@@ -9,7 +21,7 @@ const DoubleListContainer = ({
   lt = null,
   rt = null,
   children,
-}) => {
+}: PropsWithChildren<IDoubleListContainer<IData>>) => {
   const [left, right] = useMemo(() => {
     return data.reduce(
       (prev, cur) => {
