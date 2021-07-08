@@ -1,9 +1,25 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Lodash from "lodash";
 import { DangerousHTML, Text } from "../";
 import * as Styled from "./index.style";
 
-const Chararteristic = ({ data }) => {
+interface IContent {
+  title: string[];
+  desc: string;
+}
+
+interface IData {
+  title: string;
+  content: IContent[];
+}
+
+interface ICharacteristic<T> {
+  data: T[];
+}
+
+const Chararteristic = <T extends IData>({
+  data,
+}: PropsWithChildren<ICharacteristic<T>>) => {
   return (
     <>
       {data.map(({ title, content }) => {
@@ -20,7 +36,11 @@ const Chararteristic = ({ data }) => {
   );
 };
 
-const Item = ({ content }) => {
+interface IItem<T> {
+  content: T[];
+}
+
+const Item = <T extends IContent>({ content }: PropsWithChildren<IItem<T>>) => {
   return (
     <>
       {content.map(({ title, desc }) => (
