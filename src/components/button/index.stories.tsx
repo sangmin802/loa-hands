@@ -1,5 +1,5 @@
 import React from "react";
-import Button, { Props } from "./index";
+import Button, { IButton } from "./index";
 import { Story } from "@storybook/react";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ export default {
   component: Button,
 };
 
-const Template: Story<Props> = args => <Button {...args} />;
+const Template: Story<IButton> = args => <Button {...args} />;
 
 export const Default = Template.bind({});
 
