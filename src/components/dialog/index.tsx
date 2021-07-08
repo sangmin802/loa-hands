@@ -1,7 +1,17 @@
-import React, { useCallback, useEffect } from "react";
+import React, {
+  PropsWithChildren,
+  ReactElement,
+  useCallback,
+  useEffect,
+} from "react";
 import * as Styled from "./index.style";
 
-const Dialog = ({ dialog, setDialog }) => {
+interface IDialog {
+  dialog: ReactElement;
+  setDialog: (T: null) => void;
+}
+
+const Dialog = ({ dialog, setDialog }: PropsWithChildren<IDialog>) => {
   const closeDialog = useCallback(() => {
     setDialog(null);
   }, [setDialog]);
