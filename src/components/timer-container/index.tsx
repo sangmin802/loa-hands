@@ -1,9 +1,17 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { useNewTime } from "hooks/use-newtime";
 import { Text, Timer } from "components/";
 import * as Styled from "./index.style";
 
-const TimerContainer = ({ data, today = null }) => {
+interface ITimerContainer {
+  data: any[];
+  today: null | number;
+}
+
+const TimerContainer = ({
+  data,
+  today = null,
+}: PropsWithChildren<ITimerContainer>) => {
   const { setTime } = useNewTime();
 
   // 배열 내 객체도 모두 복사
