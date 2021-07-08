@@ -9,7 +9,7 @@ import {
   Quality,
   Rune,
   Characteristic,
-  Detail,
+  HoverContent,
   ListItem,
   Dialog,
   Button,
@@ -120,7 +120,7 @@ const UserInfo = () => {
         {subNavs.map((tab, index) => (
           <Nav
             arr={tab}
-            key={tab}
+            key={`sub${index}`}
             isShow={mainNav === index}
             selectedNav={subNav}
             setNav={setSubNav}
@@ -135,9 +135,9 @@ const UserInfo = () => {
                 divideType="equip"
               >
                 <ListItem setDialog={setDialog}>
-                  <Detail>
+                  <HoverContent>
                     <Quality />
-                  </Detail>
+                  </HoverContent>
                 </ListItem>
               </DoubleListContainer>
               <DoubleListContainer
@@ -145,7 +145,7 @@ const UserInfo = () => {
                 divideType="inner"
               >
                 <ListItem setDialog={setDialog}>
-                  <Detail />
+                  <HoverContent />
                 </ListItem>
               </DoubleListContainer>
               <Characteristic data={[basic, battle, engrave]} />
@@ -158,9 +158,9 @@ const UserInfo = () => {
                 divideType="leftSkill"
               >
                 <ListItem setDialog={setDialog}>
-                  <Detail>
+                  <HoverContent>
                     <Rune />
-                  </Detail>
+                  </HoverContent>
                 </ListItem>
               </DoubleListContainer>
               <DoubleListContainer data={lifeSkill} divideType="leftSkill">
