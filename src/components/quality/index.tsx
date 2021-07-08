@@ -1,8 +1,16 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 
-const Quality = ({ data }: { data? }) => {
+interface IData {
+  detail: { quality: number };
+}
+
+interface IQuality<T> {
+  data?: T;
+}
+
+const Quality = ({ data }: PropsWithChildren<IQuality<IData>>) => {
   const { quality } = data.detail;
 
   if (quality === -1) return null;
@@ -20,7 +28,7 @@ const Quality = ({ data }: { data? }) => {
       <Styled.Background
         role="quality-background"
         color={`gradient${qualityColor}`}
-        width={quality}
+        width={String(quality)}
       />
     </Styled.Container>
   );
