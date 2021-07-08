@@ -1,16 +1,37 @@
-import React, { cloneElement, useCallback } from "react";
+import React, {
+  cloneElement,
+  PropsWithChildren,
+  ReactElement,
+  useCallback,
+} from "react";
 import { Image, Text } from "components/";
 import * as Styled from "./index.style";
+
+interface IDetail {
+  src: string;
+  grade: string;
+  subTitle: string[];
+  title: string;
+  hover: boolean;
+}
+
+interface IData<T> {
+  backSrc: string;
+  detail: T;
+  type: string;
+}
+
+interface IListItem<T> {
+  children: ReactElement;
+  setDialog: (T: ReactElement) => void;
+  data: T;
+}
 
 const ListItem = ({
   data,
   children,
   setDialog,
-}: {
-  data?;
-  children?;
-  setDialog?;
-}) => {
+}: PropsWithChildren<Partial<IListItem<IData<IDetail>>>>) => {
   const { backSrc, detail } = data;
 
   const setDialogHandler = useCallback(() => {
