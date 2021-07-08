@@ -1,10 +1,25 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { useTimer } from "hooks/use-timer";
 import { useTimerType } from "hooks/use-timer-type";
 import { Text, Image } from "components/";
 import * as Styled from "./index.style";
 
-const Timer = ({ setTime, data }) => {
+interface IData {
+  name: string;
+  src: string;
+  lv: string;
+  time: string;
+  endTime: string;
+  position: string;
+  endPosition: string;
+}
+
+interface ITimer<T> {
+  setTime: (T: string) => void;
+  data: T;
+}
+
+const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
   const pos =
     typeof position !== "string" ? position[0] || endPosition : position;
