@@ -8,7 +8,7 @@ import {
 import { useQueryErrorResetBoundary } from "react-query";
 import { ErrorBoundary } from "components/";
 
-interface Props {
+interface IAsyncBoundary {
   suspenseFallback: ReactNode;
   errorFallback: ReactElement;
   children: ReactElement;
@@ -18,7 +18,7 @@ const AsyncBoundary = ({
   suspenseFallback,
   errorFallback,
   children,
-}: PropsWithChildren<Props>) => {
+}: PropsWithChildren<IAsyncBoundary>) => {
   const { reset } = useQueryErrorResetBoundary();
   const resetHandler = useCallback(() => {
     reset();
