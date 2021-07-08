@@ -1,9 +1,22 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Lodash from "lodash";
 import { DangerousHTML, Image } from "../";
 import * as Styled from "./index.style";
 
-const TripodSkillCustom = ({ data }) => {
+interface IData {
+  name: null | string;
+  desc: null | string;
+  grade: null | string;
+  src: null | string;
+}
+
+interface ITripodSkillCustom<T> {
+  data: T[];
+}
+
+const TripodSkillCustom = ({
+  data,
+}: PropsWithChildren<ITripodSkillCustom<IData>>) => {
   return (
     <>
       {data.map((ts, index) => {
