@@ -1,8 +1,19 @@
-import React, { useCallback } from "react";
+import React, { PropsWithChildren, useCallback } from "react";
 import { Image, Text } from "../";
 import * as Styled from "./index.style";
 
-const Event = ({ event }) => {
+interface IData {
+  date: string;
+  href: string;
+  img: string;
+  name: string;
+}
+
+interface IEvent<T> {
+  event: T;
+}
+
+const Event = ({ event }: PropsWithChildren<IEvent<IData>>) => {
   const { date, href, img, name } = event;
 
   const goHref = useCallback(() => {
