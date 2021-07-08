@@ -1,8 +1,18 @@
-import React, { cloneElement } from "react";
+import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
 import { Text } from "components/";
 import * as Styled from "./index.style";
 
-const ListContainer = ({ title, arr, children }: { title; arr; children? }) => {
+interface IListContainer {
+  title: string;
+  arr: any[];
+  children: ReactElement;
+}
+
+const ListContainer = ({
+  title,
+  arr,
+  children,
+}: PropsWithChildren<IListContainer>) => {
   return (
     <>
       <Styled.Title>
