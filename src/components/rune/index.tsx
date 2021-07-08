@@ -1,8 +1,20 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { Image, Text } from "../";
 import * as Styled from "./index.style";
 
-const Rune = ({ data }: { data? }) => {
+interface IRune {
+  data?: {
+    detail: {
+      rune: {
+        runeGrade: string;
+        runeImg: string;
+        runeInfo: string;
+      };
+    };
+  };
+}
+
+const Rune = ({ data }: PropsWithChildren<IRune>) => {
   const rune = data.detail.rune;
 
   if (!rune) return null;
