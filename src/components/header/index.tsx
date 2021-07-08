@@ -1,13 +1,13 @@
-import React, { useRef, useCallback } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useRef, useCallback, PropsWithChildren } from "react";
+import { useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 import { Input, Button, Text } from "components/";
 
-interface Props {
+interface IHeader {
   resetBoundary?: () => void;
 }
 
-const Header = ({ resetBoundary }: Props) => {
+const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
   const textInput = useRef(null);
   const history = useHistory();
   const onSubmitHandler = useCallback(
