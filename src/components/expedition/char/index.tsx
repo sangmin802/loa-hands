@@ -1,8 +1,18 @@
-import React, { useCallback } from "react";
+import React, { PropsWithChildren, useCallback } from "react";
 import { Button, Text } from "components/";
 import * as Styled from "./index.style";
 
-const Index = ({ setUserData, char }) => {
+interface IData {
+  lv: string;
+  name: string;
+}
+
+interface IChar<T> {
+  setUserData: (T: string) => void;
+  char: T;
+}
+
+const Char = ({ setUserData, char }: PropsWithChildren<IChar<IData>>) => {
   const setUserDataEvent = useCallback(() => {
     setUserData(char.name);
   }, [char.name, setUserData]);
@@ -18,4 +28,4 @@ const Index = ({ setUserData, char }) => {
   );
 };
 
-export default Index;
+export default Char;
