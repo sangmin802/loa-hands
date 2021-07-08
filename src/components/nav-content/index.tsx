@@ -1,8 +1,18 @@
-import React, { Children } from "react";
+import React, { Children, PropsWithChildren, ReactElement } from "react";
 import Lodash from "lodash";
 import * as Styled from "./index.style";
 
-const NavContent = ({ children, selected, type = "sub" }) => {
+interface INavContent {
+  children: ReactElement | ReactElement[];
+  selected: number;
+  type?: string;
+}
+
+const NavContent = ({
+  children,
+  selected,
+  type = "sub",
+}: PropsWithChildren<INavContent>) => {
   return (
     <>
       {Children.map(children, (component, index) => (
