@@ -2,7 +2,7 @@ export { default as BasicInfo } from "./basic-info";
 export { default as Characteristic } from "./characteristic";
 export { default as Collection } from "./collection";
 export { default as DangerousHTML } from "./dangerous-html";
-export { default as Detail } from "./detail";
+export { default as HoverContent } from "./hover-content";
 export { default as Dialog } from "./dialog";
 export { default as DoubleListContainer } from "./double-list-container";
 export { default as Event } from "./event";
