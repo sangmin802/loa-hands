@@ -1,9 +1,19 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import ServerChar from "../char/index";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 
-const Server = ({ wrap, setUserData }) => {
+interface IWrap {
+  server: string;
+  charList: any[];
+}
+
+interface IServer<T> {
+  setUserData: (T: string) => void;
+  wrap: T;
+}
+
+const Server = ({ wrap, setUserData }: PropsWithChildren<IServer<IWrap>>) => {
   return (
     <>
       <Styled.Title>
