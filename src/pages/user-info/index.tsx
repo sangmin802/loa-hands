@@ -119,7 +119,7 @@ const UserInfo = () => {
   } = infos;
 
   return (
-    <section role="user-info" data-user={userData.expeditionInfo.name}>
+    <section data-testid={userData.expeditionInfo.name}>
       <Dialog dialog={dialog} setDialog={setDialog} />
       <Styled.Top>
         <Styled.ButtonContainer>
