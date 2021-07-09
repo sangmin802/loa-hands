@@ -4,11 +4,12 @@ import * as Styeld from "./index.style";
 
 const SearchLoading = () => {
   useEffect(() => {
-    const input: HTMLInputElement = document.querySelector(".search-area");
-    input.disabled = true;
+    const input: HTMLInputElement =
+      document.querySelector(".search-area") ?? null;
+    input?.setAttribute("disabled", "true");
 
     return () => {
-      input.disabled = false;
+      input?.removeAttribute("disabled");
     };
   }, []);
 
