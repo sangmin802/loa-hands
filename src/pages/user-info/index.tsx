@@ -22,10 +22,30 @@ import * as Styled from "./index.style";
 const UserInfo = () => {
   const history = useHistory();
   const { name } = useParams<{ name }>();
-  const { userData, infos } = useUser(name);
+  const userData = useUser(name);
   const [subNav, setSubNav] = useState(0);
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
+
+  const infos = useMemo(() => {
+    const {
+      characteristicInfo,
+      equipInfo: { equipment, avatar },
+    } = userData.abilityInfo;
+    const { battleSkill = null, lifeSkill } = userData.skillInfo;
+    const { collectionDetail } = userData.collectionInfo;
+    const { battle, basic, engrave } = characteristicInfo;
+    return {
+      equipment,
+      avatar,
+      battleSkill,
+      lifeSkill,
+      collectionDetail,
+      battle,
+      basic,
+      engrave,
+    };
+  }, [userData]);
 
   const collectionNav = useMemo(() => {
     if (!userData) return;
