@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQuery, useQueryClient } from "react-query";
-import API from "api/api";
+import { getUserData } from "api/api";
 
 export function useUser(name) {
   const queryClient = useQueryClient();
@@ -10,10 +10,10 @@ export function useUser(name) {
     key,
     async () => {
       queryClient.prefetchQuery(key, () => {
-        API.getUserData(name);
+        getUserData(name);
       });
 
-      return API.getUserData(name);
+      return getUserData(name);
     },
     {
       refetchOnWindowFocus: false,
