@@ -5,7 +5,7 @@ import * as Styled from "./index.style";
 
 interface ITimerContainer {
   data: any[];
-  today: null | number;
+  today?: null | number;
 }
 
 const TimerContainer = ({
