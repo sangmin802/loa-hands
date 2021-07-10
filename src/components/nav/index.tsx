@@ -31,12 +31,13 @@ const Navigation = ({
     >
       {arr.map((tab, index) => {
         return (
-          <Styled.Content role={`${navType}-nav`} key={`${navType}Nav${index}`}>
+          <Styled.Content key={`${navType}Nav${index}`}>
             <Item
               navName={tab}
               setNav={setNav}
               selected={isShow && selectedNav === index ? true : false}
               index={index}
+              testid={`${navType}-nav-${index}`}
             />
           </Styled.Content>
         );
@@ -50,12 +51,14 @@ interface IItem {
   setNav: (T: number) => void;
   selected: boolean;
   index: number;
+  testid: string;
 }
 export const Item = ({
   navName,
   setNav,
   selected,
   index,
+  testid,
 }: PropsWithChildren<IItem>) => {
   const navClickHandler = useCallback(() => {
     setNav(index);
@@ -64,10 +67,8 @@ export const Item = ({
   const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
 
   return (
-    <Button onClick={navClickHandler}>
-      <Text role="nav-text" color={fontColor}>
-        {navName}
-      </Text>
+    <Button data-testid={testid} onClick={navClickHandler}>
+      <Text color={fontColor}>{navName}</Text>
     </Button>
   );
 };
