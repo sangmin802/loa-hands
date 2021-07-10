@@ -123,7 +123,7 @@ const UserInfo = () => {
       <Dialog dialog={dialog} setDialog={setDialog} />
       <Styled.Top>
         <Styled.ButtonContainer>
-          <Button onClick={setExpeditionDialog} aria-label="expedition-button">
+          <Button onClick={setExpeditionDialog} data-testid="expedition-button">
             <Text>원정대 캐릭터 보기</Text>
           </Button>
         </Styled.ButtonContainer>
