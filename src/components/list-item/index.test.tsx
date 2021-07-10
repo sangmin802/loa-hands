@@ -19,7 +19,7 @@ describe("ListItem", () => {
       </ListItem>
     );
 
-    fireEvent.click(screen.getByRole("list-item"));
+    fireEvent.click(screen.getByTestId("list-item"));
 
     expect(setDialog).toBeCalledTimes(1);
     expect(setDialog.mock.calls[0][0].props.data).toEqual(initialData);
