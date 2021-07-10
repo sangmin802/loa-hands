@@ -43,9 +43,11 @@ const Dialog = ({ dialog, setDialog }: PropsWithChildren<IDialog>) => {
         <>
           <Styled.Background
             onClick={closeDialog}
-            role="close-dialog"
+            data-testid="close-dialog"
           ></Styled.Background>
-          <Styled.Container role="dialog-content">{dialog}</Styled.Container>
+          <Styled.Container data-testid="dialog-content">
+            {dialog}
+          </Styled.Container>
         </>
       )}
     </>

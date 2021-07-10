@@ -16,17 +16,17 @@ describe("Dialog", () => {
     let expectBodyStyle = "position:fixed;top:-0px;left:0px;right:0px;";
 
     const { rerender } = render(
-      <Dialog dialog="다이얼로그 등장!" setDialog={setDialog} />
+      <Dialog dialog={<>다이얼로그 등장!</>} setDialog={setDialog} />
     );
 
     expect(document.body.getAttribute("style").replace(/(\s)*/gi, "")).toBe(
       expectBodyStyle
     );
-    expect(screen.getByRole("dialog-content").textContent).toBe(
+    expect(screen.getByTestId("dialog-content").textContent).toBe(
       "다이얼로그 등장!"
     );
 
-    const closeDialog = screen.getByRole("close-dialog");
+    const closeDialog = screen.getByTestId("close-dialog");
 
     expect(setDialog.mock.calls[0]).toBe(undefined);
 
