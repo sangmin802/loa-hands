@@ -147,7 +147,7 @@ const UserInfo = () => {
             navType="sub"
           />
         ))}
-        <Styled.Container>
+        <Styled.Container data-testid="content">
           <NavContent type="main" selected={mainNav}>
             <NavContent selected={subNav}>
               <DoubleListContainer
