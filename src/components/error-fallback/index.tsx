@@ -13,11 +13,11 @@ const ErrorFallback = ({
 }: Partial<PropsWithChildren<IErrorFallback>>) => {
   return (
     <>
-      <Styled.TextContainer>
+      <Styled.TextContainer data-testid="error-message">
         <Text>{error.message}</Text>
       </Styled.TextContainer>
       <Styled.ButtonContainer>
-        <Button onClick={resetBoundary}>
+        <Button data-testid="retry-button" onClick={resetBoundary}>
           <Text>재시도</Text>
         </Button>
       </Styled.ButtonContainer>
