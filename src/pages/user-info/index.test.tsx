@@ -1,11 +1,4 @@
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-  getByRole,
-  queryAllByText,
-} from "utils/test";
+import { fireEvent, render } from "utils/test";
 import UserInfo from "./index";
 import { AsyncBoundary, ErrorFallback, SearchLoading } from "components/";
 import { createMemoryHistory } from "history";
@@ -27,25 +20,9 @@ const renderWithRouter = (component, route) => {
         suspenseFallback={<SearchLoading />}
         errorFallback={<ErrorFallback />}
       >
-        <Route path="/:name">{component}</Route>
+        <Route path="/userInfo/:name">{component}</Route>
       </AsyncBoundary>
     </Router>
-  );
-};
-
-const navigation = (type, regex) => {
-  const [prev, , next] = screen.getAllByRole(`${type}-nav`);
-
-  expect(getByRole(prev, "nav-text").getAttribute("color")).toBe("white");
-  expect(getByRole(next, "nav-text").getAttribute("color")).toBe("#666");
-
-  fireEvent.click(getByRole(next, "button"));
-
-  expect(getByRole(prev, "nav-text").getAttribute("color")).toBe("#666");
-  expect(getByRole(next, "nav-text").getAttribute("color")).toBe("white");
-
-  expect(queryAllByText(screen.getByRole(`${type}-content`), regex)).not.toBe(
-    null
   );
 };
 
@@ -55,10 +32,16 @@ jest.mock("hooks/use-user", () => ({
 }));
 
 window.alert = jest.fn();
+window.scrollTo = jest.fn();
 
 describe("UserInfo", () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
+  });
+
   it("useUser name 변수 확인", () => {
-    render(renderWithRouter(<UserInfo />, "/모여요꿈동산"));
+    render(renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산"));
 
     expect(useUser as jest.Mock).toBeCalledWith("모여요꿈동산");
   });
@@ -70,68 +53,59 @@ describe("UserInfo", () => {
 
     it("name변수에 맞는 유저정보 fetched", () => {
       const { getByTestId } = render(
-        renderWithRouter(<UserInfo />, "/모여요꿈동산")
+        renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산")
       );
 
       expect(getByTestId("모여요꿈동산")).toBeTruthy();
     });
   });
 
-  // describe("UserInfo Data", () => {
-  //   it("userInfo route에서 userData는 없고, url에 검색 기록이 있다면 fetch 하기", async () => {
-  //     expect(screen.queryByRole("user-info")).toBe(null);
+  describe("user event", () => {
+    beforeEach(() => {
+      (useUser as jest.Mock).mockImplementation(() => USER_DATA);
+    });
 
-  //     await waitFor(() =>
-  //       expect(screen.queryByRole("user-info")).not.toBe(null)
-  //     );
+    it("네비게이션 변경", () => {
+      const { getByTestId } = render(
+        renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산")
+      );
 
-  //     expect(screen.queryByRole("user-info").dataset.user).toBe(name);
-  //   });
-  // });
+      expect(getByTestId("main-content-0")).toBeTruthy();
 
-  // describe("navigation", () => {
-  //   it("main navigation", () => {
-  //     const regex = /섬의 마음/i;
-  //     navigation("main", regex);
-  //   });
+      fireEvent.click(getByTestId("main-nav-1"));
 
-  //   it("sub navigation", () => {
-  //     const regex = /기본 특성/i;
-  //     navigation("sub", regex);
-  //   });
-  // });
+      expect(getByTestId("main-content-0").dataset.show).toBe("false");
+      expect(getByTestId("main-content-1").dataset.show).toBe("true");
+    });
 
-  // describe("원정대 이벤트", () => {
-  //   it("원정대 팝업 활성화, 비활성화", () => {
-  //     const button = screen.getByRole("button", { name: "expedition-button" });
-  //     fireEvent.click(button);
+    it("상세보기 다이얼로그 활성화", () => {
+      const { getAllByTestId, queryByTestId, getByTestId } = render(
+        renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산")
+      );
 
-  //     expect(screen.queryByRole("dialog-content")).not.toBe(null);
+      expect(queryByTestId("dialog-content")).toBe(null);
 
-  //     const closeButton = screen.getByRole("close-dialog");
-  //     fireEvent.click(closeButton);
+      fireEvent.click(getAllByTestId("list-item")[0]);
 
-  //     expect(screen.queryByRole("dialog-content")).toBe(null);
-  //   });
+      expect(getByTestId("dialog-content")).toBeTruthy();
+    });
 
-  //   it("원정대 내 다른 캐릭터 검색", async () => {
-  //     const otherClass = "블레이드";
-  //     const otherName = "백어택시너지있어요";
-  //     const button = screen.getByRole("button", { name: "expedition-button" });
+    it("원정대 유저 팝업 활성화 및 검색 실행", () => {
+      const { queryByTestId, getByTestId, getByText, debug } = render(
+        renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산")
+      );
 
-  //     fireEvent.click(button);
+      expect(queryByTestId("dialog-content")).toBe(null);
 
-  //     expect(screen.queryByRole("dialog-content")).not.toBe(null);
+      fireEvent.click(getByTestId("expedition-button"));
 
-  //     const char = screen.getAllByRole("button", {
-  //       name: "expedition-char",
-  //     })[0];
+      expect(getByTestId("dialog-content")).toBeTruthy();
+      expect(getByText(/워로드는뒤로점프/gi)).toBeTruthy();
 
-  //     fireEvent.click(char);
+      fireEvent.click(getByText(/워로드는뒤로점프/gi));
 
-  //     await waitFor(() => screen.getByText(otherClass));
-  //     expect(screen.getByRole("user-info").dataset.user).toBe(otherName);
-  //     expect(screen.queryByRole("dialog-content")).toBe(null);
-  //   });
-  // });
+      expect(useUser as jest.Mock).toBeCalledWith("워로드는뒤로점프");
+      expect(queryByTestId("dialog-content")).toBe(null);
+    });
+  });
 });
