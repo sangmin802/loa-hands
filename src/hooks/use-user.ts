@@ -8,7 +8,7 @@ export function useUser(name) {
 
   const { data: userData } = useQuery(
     key,
-    async () => {
+    () => {
       queryClient.prefetchQuery(key, () => {
         getUserData(name);
       });
