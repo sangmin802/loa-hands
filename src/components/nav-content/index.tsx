@@ -16,7 +16,11 @@ const NavContent = ({
   return (
     <>
       {Children.map(children, (component, index) => (
-        <Styled.Content role={`${type}-content`} isShow={selected === index}>
+        <Styled.Content
+          data-testid={`${type}-content-${index}`}
+          data-show={selected === index}
+          isShow={selected === index}
+        >
           {component}
         </Styled.Content>
       ))}
