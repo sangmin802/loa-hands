@@ -38,18 +38,18 @@ const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
   return (
     <Styled.Container>
       <Button onClick={onHomeHandler}>
-        <Styled.Background role="go-home" />
+        <Styled.Background data-testid="go-home" />
       </Button>
       <Styled.Form
-        role="form"
+        data-testid="submit-form"
         className="submit-area"
         onSubmit={onSubmitHandler}
       >
         <Styled.InputText>
           <Input
+            data-testid="search-area"
             className="search-area"
             type="text"
-            name="searchedUser"
             ref={textInput}
             autoComplete="off"
           />
