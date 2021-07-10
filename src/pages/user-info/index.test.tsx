@@ -35,12 +35,7 @@ window.alert = jest.fn();
 window.scrollTo = jest.fn();
 
 describe("UserInfo", () => {
-  afterAll(() => {
-    jest.clearAllMocks();
-    jest.restoreAllMocks();
-  });
-
-  it("useUser name 변수 확인", () => {
+  it("useUser name 변수 확인", async () => {
     render(renderWithRouter(<UserInfo />, "/userInfo/모여요꿈동산"));
 
     expect(useUser as jest.Mock).toBeCalledWith("모여요꿈동산");
