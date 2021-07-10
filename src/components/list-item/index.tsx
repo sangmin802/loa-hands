@@ -8,17 +8,17 @@ import { Image, Text } from "components/";
 import * as Styled from "./index.style";
 
 interface IDetail {
-  src: string;
-  grade: string;
+  src?: string;
+  grade?: string;
   subTitle: string[];
   title: string;
   hover: boolean;
 }
 
 interface IData<T> {
-  backSrc: string;
+  backSrc?: string;
+  type?: string;
   detail: T;
-  type: string;
 }
 
 interface IListItem<T> {
@@ -42,7 +42,7 @@ const ListItem = ({
 
   return (
     <Styled.Container
-      role="list-item"
+      data-testid="list-item"
       hover={detail?.hover}
       onClick={setDialogHandler}
       type={data.type}
