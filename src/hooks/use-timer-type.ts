@@ -15,21 +15,36 @@ export const useTimerType = (time, endTime, setTime) => {
       const year = now.getFullYear();
       const month = now.getMonth();
       const date = now.getDate();
-      const closeTime = new Date(year, month, date, hour, min * 1 + 3); // 종료 시간 = 시작시간+3
-      const startTime = new Date(year, month, date, hour, min); // 시작 시간
-
-      let gap = startTime.getTime() - now.getTime();
+      const additionalTime = 1000 * 60 * 60 * 24;
+      const closeTime = new Date(
+        year,
+        month,
+        date,
+        hour,
+        min * 1 + 3
+      ).getTime(); // 종료 시간 = 시작시간+3
+      let startTime = new Date(year, month, date, hour, min).getTime(); // 시작 시간
+      let gap = Math.ceil((startTime - now.getTime()) / 1000) * 1000;
       let type = "NORMAL";
 
-      if (gap <= 600000) type = "READY";
-      if (gap === 0 || 0 > gap) {
-        type = "START";
-        gap = closeTime.getTime() - now.getTime();
+      // 이어질 타이머가 START 3분보다 이전임 -> 다음날 첫 타이머
+      if (gap < -180000) {
+        gap =
+          Math.ceil((closeTime + additionalTime - now.getTime()) / 1000) * 1000;
       }
 
-      if (gap === 0 || 0 > gap) {
+      // READY 10분
+      if (0 <= gap && gap < 600000) type = "READY";
+
+      // START 3분
+      if (-180000 <= gap && gap < 0) {
+        type = "START";
+        gap = Math.ceil((closeTime - now.getTime()) / 1000) * 1000;
+      }
+
+      // 종료
+      if (gap === 0) {
         setTime(time);
-        return null;
       }
       setState(type);
       return gap;
@@ -63,10 +78,10 @@ export const useTimerType = (time, endTime, setTime) => {
     [time, endTime]
   );
 
-  const timerVariable = useMemo(
-    () => timerVariables[timerType],
-    [timerType, timerVariables]
-  );
+  const timerVariable = useMemo(() => timerVariables[timerType], [
+    timerType,
+    timerVariables,
+  ]);
 
   return { timerVariable, calcTimer };
 };
