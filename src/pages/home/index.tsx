@@ -93,6 +93,10 @@ const FetchCalendar = ({ today }) => {
     return ["09:00 ~ 13:00", "19:00 ~ 23:00"];
   }, [yoil]);
 
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
+
   return (
     <>
       <Styled.Section>
