@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { interval } from "utils/events/interval";
 import { addZero } from "utils/util";
 
-export const useTimer = (time, calcTimer) => {
+export const useTimer = (time, calcTimer, name) => {
   const [timer, setState] = useState(null);
 
   const setTimer = useCallback(
     time => {
       const gap = calcTimer(time);
-      if (!gap) return setState("종료");
+      if (gap === null) return setState("종료");
       const _sec = 1000;
       const _min = _sec * 60;
       const _hour = _min * 60;
