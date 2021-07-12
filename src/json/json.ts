@@ -175,92 +175,92 @@ export const DAILY_ISLAND = [
 ];
 
 // 캘린더섬 리스트
-export const CALENDAR_ISLAND = [
-  {
+export const CALENDAR_ISLAND = {
+  "기회의 섬": {
     name: "기회의 섬",
     src: "/img/calendar/calendar_00.jpg",
     lv: 505,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  수라도: {
     name: "수라도",
     src: "/img/calendar/calendar_01.jpg",
     lv: 400,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  포르페: {
     name: "포르페",
     src: "/img/calendar/calendar_02.jpg",
     lv: 325,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "쿵덕쿵 아일랜드": {
     name: "쿵덕쿵 아일랜드",
     src: "/img/calendar/calendar_03.jpg",
     lv: 250,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "볼라르 섬": {
     name: "볼라르 섬",
     src: "/img/calendar/calendar_04.jpg",
     lv: 250,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "블루홀 섬": {
     name: "블루홀 섬",
     src: "/img/calendar/calendar_05.jpg",
     lv: 1005,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "하모니 섬": {
     name: "하모니 섬",
     src: "/img/calendar/calendar_06.jpg",
     lv: 400,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "고요한 안식의 섬": {
     name: "고요한 안식의 섬",
     src: "/img/calendar/calendar_07.jpg",
     lv: 505,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "몬테 섬": {
     name: "몬테 섬",
     src: "/img/calendar/calendar_08.jpg",
     lv: 900,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "죽음의 협곡": {
     name: "죽음의 협곡",
     src: "/img/calendar/calendar_09.jpg",
     lv: 400,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  메데이아: {
     name: "메데이아",
     src: "/img/calendar/calendar_10.jpg",
     lv: 250,
     position: "대항해",
     contType: "ISLAND",
   },
-  {
+  "스노우팡 아일랜드": {
     name: "스노우팡 아일랜드",
     src: "/img/calendar/calendar_11.jpg",
     lv: 250,
     position: "대항해",
     contType: "ISLAND",
   },
-];
+};
 
 // 필드보스 일월화수목금토
 export const FIELD_BOSS = [
