@@ -28,7 +28,8 @@ const TimerContainer = ({ data }: PropsWithChildren<ITimerContainer>) => {
         // 모든 시간이 현재시간보다 작다면, 자정지난 첫 컨텐츠로 실행
         if (!cachedTime.length) {
           cachedTime = [...d.time];
-          cachedPosition = [...d.position];
+          cachedPosition =
+            typeof d.position !== "string" ? [...d.position] : d.position;
           break;
         }
       }
