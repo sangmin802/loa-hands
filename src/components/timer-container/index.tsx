@@ -6,9 +6,13 @@ import * as Styled from "./index.style";
 interface ITimerContainer {
   data: any[];
   rerenderKey?: null | Date;
+  allTime?: boolean;
 }
 
-const TimerContainer = ({ data }: PropsWithChildren<ITimerContainer>) => {
+const TimerContainer = ({
+  data,
+  allTime = false,
+}: PropsWithChildren<ITimerContainer>) => {
   const { setTime } = useNewTime();
   const date = new Date();
   const min =
@@ -26,7 +30,7 @@ const TimerContainer = ({ data }: PropsWithChildren<ITimerContainer>) => {
         cachedTime.shift();
 
         // 모든 시간이 현재시간보다 작다면, 자정지난 첫 컨텐츠로 실행
-        if (!cachedTime.length) {
+        if (!cachedTime.length && allTime) {
           cachedTime = [...d.time];
           cachedPosition =
             typeof d.position !== "string" ? [...d.position] : d.position;
