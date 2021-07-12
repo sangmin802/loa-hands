@@ -110,7 +110,7 @@ const FetchCalendar = ({ today, yoil, setNow }) => {
 
   useEffect(() => {
     setNow(new Date());
-  }, []);
+  }, [setNow]);
 
   return (
     <>
