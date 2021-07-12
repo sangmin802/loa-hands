@@ -1,5 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { DAILY_ISLAND, FIELD_BOSS, CHAOS_GATE, OCEAN_ACT } from "json/json";
+import {
+  DAILY_ISLAND,
+  FIELD_BOSS,
+  CHAOS_GATE,
+  OCEAN_ACT,
+  PHANTOM_SHIP,
+} from "json/json";
 import { useCalendar } from "hooks/use-calendar";
 import { useEvent } from "hooks/use-event";
 import {
@@ -64,7 +70,11 @@ const Home = () => {
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 모험섬">
-          <TimerContainer data={DAILY_ISLAND} rerenderKey={now} />
+          <TimerContainer
+            data={DAILY_ISLAND}
+            rerenderKey={now}
+            allTime={true}
+          />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
@@ -75,6 +85,11 @@ const Home = () => {
       <Styled.Section>
         <SectionContainer title="오늘의 카오스 게이트">
           <TimerContainer data={CHAOS_GATE[yoil]} rerenderKey={now} />
+        </SectionContainer>
+      </Styled.Section>
+      <Styled.Section>
+        <SectionContainer title="오늘의 유령선">
+          <TimerContainer data={PHANTOM_SHIP[yoil]} rerenderKey={now} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
