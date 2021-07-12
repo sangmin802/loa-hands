@@ -45,9 +45,10 @@ export const useTimerType = (time, endTime, setTime) => {
       // 종료
       if (gap === 0) {
         setTime(time);
+      } else {
+        setState(type);
+        return gap;
       }
-      setState(type);
-      return gap;
     },
     [setState, setTime]
   );
@@ -67,7 +68,7 @@ export const useTimerType = (time, endTime, setTime) => {
       NORMAL: {
         borderColor: "",
         endTimeBg: false,
-        contentAlert: time[0],
+        contentAlert: time[0] === "24:00" ? "00:00" : time[0],
       },
       END: {
         borderColor: "",
