@@ -3,6 +3,7 @@ import { BACKGROUND } from "constants/index";
 
 export const Container = styled.div`
   position: relative;
+  margin-bottom: 10px;
 `;
 export const InnerContainer = styled.section`
   padding: 0.5rem;
