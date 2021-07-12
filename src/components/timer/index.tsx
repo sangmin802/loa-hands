@@ -23,7 +23,6 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
   const pos =
     typeof position !== "string" ? position[0] || endPosition : position;
-
   const {
     timerVariable: { borderColor, contentAlert, endTimeBg },
     calcTimer,
