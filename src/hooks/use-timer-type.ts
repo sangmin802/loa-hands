@@ -45,10 +45,10 @@ export const useTimerType = (time, endTime, setTime) => {
       // 종료
       if (gap === 0) {
         setTime(time);
-      } else {
-        setState(type);
-        return gap;
       }
+
+      setState(type);
+      return gap;
     },
     [setState, setTime]
   );
