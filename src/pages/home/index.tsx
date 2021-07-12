@@ -58,28 +58,28 @@ const Home = () => {
             suspenseFallback={<LoadingSpinner />}
             errorFallback={<ErrorFallback />}
           >
-            <FetchCalendar today={today} />
+            <FetchCalendar today={today} yoil={yoil} setNow={setNow} />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 모험섬">
-          <TimerContainer data={DAILY_ISLAND} today={today} />
+          <TimerContainer data={DAILY_ISLAND} rerenderKey={now} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 필드보스">
-          <TimerContainer data={FIELD_BOSS[yoil]} today={today} />
+          <TimerContainer data={FIELD_BOSS[yoil]} rerenderKey={now} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 카오스 게이트">
-          <TimerContainer data={CHAOS_GATE[yoil]} today={today} />
+          <TimerContainer data={CHAOS_GATE[yoil]} rerenderKey={now} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 항해">
-          <TimerContainer data={OCEAN_ACT[yoil]} today={today} />
+          <TimerContainer data={OCEAN_ACT[yoil]} rerenderKey={now} />
         </SectionContainer>
       </Styled.Section>
     </>
