@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { interval } from "utils/events/interval";
 import { addZero } from "utils/util";
 
-export const useTimer = (time, calcTimer, name) => {
+export const useTimer = (time, calcTimer) => {
   const [timer, setState] = useState(null);
 
   const setTimer = useCallback(
