@@ -38,10 +38,6 @@ const TimerContainer = ({ data }: PropsWithChildren<ITimerContainer>) => {
         ...d,
         time: cachedTime,
         position: cachedPosition,
-        endPosition:
-          typeof cachedPosition === "string"
-            ? cachedPosition
-            : cachedPosition[0] ?? d.endPosition,
       };
     })
     .sort((a, b) => {
