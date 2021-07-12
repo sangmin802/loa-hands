@@ -86,7 +86,7 @@ const Home = () => {
   );
 };
 
-const FetchCalendar = ({ today }) => {
+const FetchCalendar = ({ today, yoil, setNow }) => {
   const calendarData = useCalendar();
   const [title1, title2] = useMemo(() => {
     if (6 > yoil && yoil > 0) return ["11:00 ~ 21:00", null];
@@ -100,15 +100,23 @@ const FetchCalendar = ({ today }) => {
   return (
     <>
       <Styled.Section>
-        <SectionContainer title="14:00">
-          <TimerContainer data={calendarData.calendar[0] ?? []} today={today} />
+        <SectionContainer title={title1}>
+          <TimerContainer
+            data={calendarData.calendar[0] ?? []}
+            rerenderKey={today}
+          />
         </SectionContainer>
       </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="21:00">
-          <TimerContainer data={calendarData.calendar[1] ?? []} today={today} />
-        </SectionContainer>
-      </Styled.Section>
+      {calendarData.calendar[1].length !== 0 && (
+        <Styled.Section>
+          <SectionContainer title={title2}>
+            <TimerContainer
+              data={calendarData.calendar[1] ?? []}
+              rerenderKey={today}
+            />
+          </SectionContainer>
+        </Styled.Section>
+      )}
     </>
   );
 };
