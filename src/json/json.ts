@@ -284,7 +284,7 @@ const partTime1 = [
   "24:00",
 ];
 const partTime2 = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00"];
-const partTime1End = "24:00";
+const partTime1End = "00:00";
 const partTime2End = "05:00";
 
 // 필드보스 일월화수목금토
