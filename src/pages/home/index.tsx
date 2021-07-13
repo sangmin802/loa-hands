@@ -67,53 +67,59 @@ const Home = () => {
             suspenseFallback={<LoadingSpinner />}
             errorFallback={<ErrorFallback />}
           >
-            <FetchCalendar today={today} yoil={yoil} setNow={setNow} />
+            <FetchCalendar isMidnight={isMidnight} />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 모험섬">
-          <TimerContainer
-            data={DAILY_ISLAND}
-            rerenderKey={now}
-            allTime={true}
-          />
+          <TimerContainer data={DAILY_ISLAND} />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 필드보스">
-          <TimerContainer data={FIELD_BOSS[yoil]} rerenderKey={now} />
+          <TimerContainer
+            data={FIELD_BOSS[isFive.getDay()]}
+            rerenderKey={isFive}
+          />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 카오스 게이트">
-          <TimerContainer data={CHAOS_GATE[yoil]} rerenderKey={now} />
+          <TimerContainer
+            data={CHAOS_GATE[isFive.getDay()]}
+            rerenderKey={isFive}
+          />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 유령선">
-          <TimerContainer data={PHANTOM_SHIP[yoil]} rerenderKey={now} />
+          <TimerContainer
+            data={PHANTOM_SHIP[isFive.getDay()]}
+            rerenderKey={isFive}
+          />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 항해">
-          <TimerContainer data={OCEAN_ACT[yoil]} rerenderKey={now} />
+          <TimerContainer
+            data={OCEAN_ACT[isFive.getDay()]}
+            rerenderKey={isMidnight}
+          />
         </SectionContainer>
       </Styled.Section>
     </>
   );
 };
 
-const FetchCalendar = ({ today, yoil, setNow }) => {
+const FetchCalendar = ({ isMidnight }) => {
+  const today = isMidnight.getDate();
+  const yoil = isMidnight.getDay();
   const calendarData = useCalendar();
   const [title1, title2] = useMemo(() => {
     if (6 > yoil && yoil > 0) return ["11:00 ~ 21:00", null];
     return ["09:00 ~ 13:00", "19:00 ~ 23:00"];
   }, [yoil]);
-
-  useEffect(() => {
-    setNow(new Date());
-  }, [setNow]);
 
   return (
     <>
