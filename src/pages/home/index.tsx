@@ -23,27 +23,31 @@ const Home = () => {
   const [isMidnight, setMidnight] = useState(new Date());
   const [isFive, setFive] = useState(new Date());
 
-  const checkNight = useCallback(setNow => {
+  const updateTime = useCallback(arr => {
+    const [setMidnight, setFive] = arr;
     const now = new Date();
     const hour = now.getHours();
     const min = now.getMinutes();
     const sec = now.getSeconds();
-    if (hour === 0 && min === 0 && sec === 1) {
-      setNow(now);
+    if (hour === 0 && min === 0 && sec === 0) {
+      setMidnight(now);
+    }
+    if (hour === 5 && min === 0 && sec === 0) {
+      setFive(now);
     }
   }, []);
 
   const { startInterval, endInterval } = useMemo(
-    () => interval(1, checkNight),
-    [checkNight]
+    () => interval(1, updateTime),
+    [updateTime]
   );
 
   useEffect(() => {
-    startInterval(setNow);
+    startInterval([setMidnight, setFive]);
     return () => {
       endInterval();
     };
-  }, [endInterval, startInterval, setNow]);
+  }, [endInterval, startInterval, setMidnight, setFive]);
 
   return (
     <>
