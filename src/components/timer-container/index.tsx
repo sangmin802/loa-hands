@@ -6,12 +6,11 @@ import * as Styled from "./index.style";
 interface ITimerContainer {
   data: any[];
   rerenderKey?: null | Date;
-  allTime?: boolean;
 }
 
 const TimerContainer = ({
   data,
-  allTime = false,
+  rerenderKey,
 }: PropsWithChildren<ITimerContainer>) => {
   const { setTime } = useNewTime();
   const date = new Date();
@@ -24,13 +23,15 @@ const TimerContainer = ({
       let cachedTime = [...d.time];
       let cachedPosition =
         typeof d.position !== "string" ? [...d.position] : d.position;
-
+      // 앞에서부터 종료된 시간은 제거
+      // 0500종료되는 컨텐츠 만약 모두 작다면, 0000~0500으로 시간대 설정하고 종료하도록 해보기
       while (Number(replaceColon(cachedTime[0])) + 3 <= now) {
         if (typeof d.position !== "string") cachedPosition.shift();
         cachedTime.shift();
 
         // 모든 시간이 현재시간보다 작다면, 자정지난 첫 컨텐츠로 실행
-        if (!cachedTime.length && allTime) {
+        // 실제로 종료된 오전시간컨텐츠도 다시실행시켜버림
+        if (!cachedTime.length && !rerenderKey) {
           cachedTime = [...d.time];
           cachedPosition =
             typeof d.position !== "string" ? [...d.position] : d.position;
@@ -48,11 +49,15 @@ const TimerContainer = ({
       // 종료시간이 현재시간보다 이전의 시간일 경우 내일의 시간이므로 +2400
       const time_a = beforeCurTime(replaceColon(a.time[0]), now);
       const time_b = beforeCurTime(replaceColon(b.time[0]), now);
-      if (!time_b) return -1;
+
+      if (time_b === null) return -1;
       if (time_a > time_b) return 1;
       if (time_a < time_b) return -1;
+
       return 0;
     });
+
+  console.log(replacedData);
   if (!replacedData.length)
     return (
       <Styled.Alert>
@@ -80,7 +85,7 @@ function beforeCurTime(time, now) {
 }
 
 export default React.memo(TimerContainer, (prev, next) => {
-  // 자정이 되어서 변경된 homeDate로 Home이 다시 렌더링 될 때, Home에서 받아온 rerenderKey 속성값의 변경으로 TimeWrap 다시 렌더링
+  // 리셋타임은 5시
   if (prev.rerenderKey !== next.rerenderKey) return false;
   return true;
 });
