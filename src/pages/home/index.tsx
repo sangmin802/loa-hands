@@ -20,9 +20,8 @@ import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
 
 const Home = () => {
-  const [now, setNow] = useState(new Date());
-  const today = now.getDate();
-  const yoil = now.getDay();
+  const [isMidnight, setMidnight] = useState(new Date());
+  const [isFive, setFive] = useState(new Date());
 
   const checkNight = useCallback(setNow => {
     const now = new Date();
