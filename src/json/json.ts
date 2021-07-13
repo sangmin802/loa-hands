@@ -137,23 +137,7 @@ export const DAILY_ISLAND = [
     position: "대항해",
     contType: "ISLAND",
   },
-  {
-    name: "우거진 갈대섬",
-    src: "/img/island/island_03.png",
-    time: [
-      "02:00",
-      "05:00",
-      "08:00",
-      "11:00",
-      "14:00",
-      "17:00",
-      "20:00",
-      "23:00",
-    ],
-    lv: 505,
-    position: "대항해",
-    contType: "ISLAND",
-  },
+
   {
     name: "신월의 섬",
     src: "/img/island/island_02.png",
@@ -262,6 +246,13 @@ export const CALENDAR_ISLAND = {
     name: "환영 나비의 섬",
     src: "/img/calendar/calendar_12.jpg",
     lv: 460,
+    position: "대항해",
+    contType: "ISLAND",
+  },
+  "우거진 갈대의 섬": {
+    name: "우거진 갈대섬",
+    src: "/img/calendar/calendar_13.jpg",
+    lv: 505,
     position: "대항해",
     contType: "ISLAND",
   },
