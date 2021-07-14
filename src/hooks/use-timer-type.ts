@@ -30,19 +30,14 @@ export const useTimerType = (time, endTime, setTime) => {
           Math.ceil((closeTime + additionalTime - now.getTime()) / 1000) * 1000;
       }
       // READY 10분
-      if (0 <= gap && gap < 600000) type = "READY";
-
-      // START 3분
-      if (-180000 <= gap && gap < 0) {
-        type = "START";
-        gap = Math.ceil((closeTime - now.getTime()) / 1000) * 1000;
       if (gap >= 780000) {
         setState("NORMAL");
         return gap - 180000;
       }
-
-      // 종료
-      if (gap === 0) {
+      if (180000 <= gap && gap < 780000) {
+        setState("READY");
+        return gap - 180000;
+      }
         setTime(time);
       }
 
