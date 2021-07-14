@@ -1614,6 +1614,7 @@ export const OCEAN_ACT = [
   ],
 ];
 
+// 유령선
 export const PHANTOM_SHIP = [
   [
     {
