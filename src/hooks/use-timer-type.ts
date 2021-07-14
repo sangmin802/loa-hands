@@ -42,11 +42,11 @@ export const useTimerType = (time, endTime, setTime) => {
         setState("START");
         return gap;
       }
+      if (gap < 0) {
+        setState("CLOSE");
         setTime(time);
+        return gap;
       }
-
-      setState(type);
-      return gap;
     },
     [setState, setTime]
   );
