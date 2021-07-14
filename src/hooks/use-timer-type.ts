@@ -36,6 +36,9 @@ export const useTimerType = (time, endTime, setTime) => {
       if (-180000 <= gap && gap < 0) {
         type = "START";
         gap = Math.ceil((closeTime - now.getTime()) / 1000) * 1000;
+      if (gap >= 780000) {
+        setState("NORMAL");
+        return gap - 180000;
       }
 
       // 종료
