@@ -104,7 +104,7 @@ const Home = () => {
         <SectionContainer title="오늘의 항해">
           <TimerContainer
             data={OCEAN_ACT[isFive.getDay()]}
-            rerenderKey={isMidnight}
+            rerenderKey={isFive}
           />
         </SectionContainer>
       </Styled.Section>
