@@ -14,31 +14,35 @@ const TimerContainer = ({
 }: PropsWithChildren<ITimerContainer>) => {
   const { setTime } = useNewTime();
   const date = new Date();
+  const isMustUseBefore =
+    rerenderKey && date.getDate() !== rerenderKey.getDate() ? true : false;
   const min =
     date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
   const now = Number(String(date.getHours()) + String(min));
 
   const replacedData = data
     .map(d => {
-      let cachedTime = [...d.time];
+      let cachedTime = isMustUseBefore ? [...d.additionalTime] : [...d.time];
       let cachedPosition =
         typeof d.position !== "string" ? [...d.position] : d.position;
       // 앞에서부터 종료된 시간은 제거
-      // 0500종료되는 컨텐츠 만약 모두 작다면, 0000~0500으로 시간대 설정하고 종료하도록 해보기
       while (Number(replaceColon(cachedTime[0])) + 3 <= now) {
         if (typeof d.position !== "string") cachedPosition.shift();
         cachedTime.shift();
 
         // 모든 시간이 현재시간보다 작다면, 자정지난 첫 컨텐츠로 실행
-        // 실제로 종료된 오전시간컨텐츠도 다시실행시켜버림
         if (!cachedTime.length && !rerenderKey) {
           cachedTime = [...d.time];
           cachedPosition =
             typeof d.position !== "string" ? [...d.position] : d.position;
           break;
         }
+        if (!cachedTime.length && d.additionalTime) {
+          cachedTime = [...d.additionalTime];
+          cachedPosition = d.position;
+          break;
+        }
       }
-
       return {
         ...d,
         time: cachedTime,
@@ -57,7 +61,6 @@ const TimerContainer = ({
       return 0;
     });
 
-  console.log(replacedData);
   if (!replacedData.length)
     return (
       <Styled.Alert>
