@@ -62,7 +62,7 @@ export const useTimerType = (time, endTime, setTime) => {
   const timerVariables = useMemo(
     () => ({
       READY: {
-        borderColor: "#e6da00",
+        borderColor: "#d333ff",
         endTimeBg: false,
         contentAlert: "컨텐츠 준비중",
       },
