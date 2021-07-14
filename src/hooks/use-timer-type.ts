@@ -38,6 +38,10 @@ export const useTimerType = (time, endTime, setTime) => {
         setState("READY");
         return gap - 180000;
       }
+      if (0 <= gap && gap < 180000) {
+        setState("START");
+        return gap;
+      }
         setTime(time);
       }
 
