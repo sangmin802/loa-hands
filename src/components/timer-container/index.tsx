@@ -54,7 +54,7 @@ const TimerContainer = ({
       const time_a = beforeCurTime(replaceColon(a.time[0]), now);
       const time_b = beforeCurTime(replaceColon(b.time[0]), now);
 
-      if (time_b === null) return -1;
+      if (time_b !== 0 && !time_b) return -1;
       if (time_a > time_b) return 1;
       if (time_a < time_b) return -1;
 
