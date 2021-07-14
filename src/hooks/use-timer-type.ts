@@ -56,19 +56,24 @@ export const useTimerType = (time, endTime, setTime) => {
   const timerVariables = useMemo(
     () => ({
       READY: {
-        borderColor: "#CC99FF",
+        borderColor: "#e6da00",
         endTimeBg: false,
         contentAlert: "컨텐츠 준비중",
       },
       START: {
+        borderColor: "#0adb18",
+        endTimeBg: false,
+        contentAlert: "컨텐츠 진행중",
+      },
+      CLOSE: {
         borderColor: "#FF6666",
         endTimeBg: false,
-        contentAlert: "컨텐츠 시작",
+        contentAlert: "컨텐츠 종료",
       },
       NORMAL: {
         borderColor: "",
         endTimeBg: false,
-        contentAlert: time[0] === "24:00" ? "00:00" : time[0],
+        contentAlert: time[0],
       },
       END: {
         borderColor: "",
