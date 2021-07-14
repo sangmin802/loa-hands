@@ -25,12 +25,10 @@ export const useTimerType = (time, endTime, setTime) => {
       ).getTime(); // 종료 시간 = 시작시간+3
       let gap = Math.ceil((closeTime - now.getTime()) / 1000) * 1000;
 
-      // 이어질 타이머가 START 3분보다 이전임 -> 다음날 첫 타이머
-      if (gap < -180000) {
+      if (gap < -1000) {
         gap =
-          Math.ceil((startTime + additionalTime - now.getTime()) / 1000) * 1000;
+          Math.ceil((closeTime + additionalTime - now.getTime()) / 1000) * 1000;
       }
-
       // READY 10분
       if (0 <= gap && gap < 600000) type = "READY";
 
