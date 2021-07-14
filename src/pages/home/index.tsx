@@ -113,9 +113,8 @@ const Home = () => {
 };
 
 const FetchCalendar = ({ isMidnight }) => {
-  const today = isMidnight.getDate();
   const yoil = isMidnight.getDay();
-  const calendarData = useCalendar();
+  const calendarData = useCalendar(isMidnight.getDate());
   const [title1, title2] = useMemo(() => {
     if (6 > yoil && yoil > 0) return ["11:00 ~ 21:00", null];
     return ["09:00 ~ 13:00", "19:00 ~ 23:00"];
@@ -127,7 +126,7 @@ const FetchCalendar = ({ isMidnight }) => {
         <SectionContainer title={title1}>
           <TimerContainer
             data={calendarData.calendar[0] ?? []}
-            rerenderKey={today}
+            rerenderKey={isMidnight}
           />
         </SectionContainer>
       </Styled.Section>
@@ -136,7 +135,7 @@ const FetchCalendar = ({ isMidnight }) => {
           <SectionContainer title={title2}>
             <TimerContainer
               data={calendarData.calendar[1] ?? []}
-              rerenderKey={today}
+              rerenderKey={isMidnight}
             />
           </SectionContainer>
         </Styled.Section>
