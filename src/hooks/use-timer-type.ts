@@ -23,9 +23,7 @@ export const useTimerType = (time, endTime, setTime) => {
         hour,
         min * 1 + 3
       ).getTime(); // 종료 시간 = 시작시간+3
-      let startTime = new Date(year, month, date, hour, min).getTime(); // 시작 시간
-      let gap = Math.ceil((startTime - now.getTime()) / 1000) * 1000;
-      let type = "NORMAL";
+      let gap = Math.ceil((closeTime - now.getTime()) / 1000) * 1000;
 
       // 이어질 타이머가 START 3분보다 이전임 -> 다음날 첫 타이머
       if (gap < -180000) {
