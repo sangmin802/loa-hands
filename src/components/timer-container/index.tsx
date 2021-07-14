@@ -61,21 +61,24 @@ const TimerContainer = ({
       return 0;
     });
 
-  if (!replacedData.length)
-    return (
-      <Styled.Alert>
-        <Text>다음에 만나요</Text>
-      </Styled.Alert>
-    );
-
+  const dataLength = replacedData.length;
   return (
-    <Styled.Container role="timer-container">
-      {replacedData.map((data, index) => (
-        <Styled.Content key={`timer${index}`}>
-          <Timer setTime={setTime} data={data} />
-        </Styled.Content>
-      ))}
-    </Styled.Container>
+    <>
+      {dataLength === 0 && (
+        <Styled.Alert>
+          <Text>다음에 만나요</Text>
+        </Styled.Alert>
+      )}
+      {dataLength !== 0 && (
+        <Styled.Container role="timer-container">
+          {replacedData.map((data, index) => (
+            <Styled.Content key={`timer${index}`}>
+              <Timer setTime={setTime} data={data} />
+            </Styled.Content>
+          ))}
+        </Styled.Container>
+      )}
+    </>
   );
 };
 
