@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/loa-hands/static/css/main.c68d20e8.chunk.css",
-    "main.js": "/loa-hands/static/js/main.1bd0ac67.chunk.js",
-    "main.js.map": "/loa-hands/static/js/main.1bd0ac67.chunk.js.map",
+    "main.js": "/loa-hands/static/js/main.efb1b709.chunk.js",
+    "main.js.map": "/loa-hands/static/js/main.efb1b709.chunk.js.map",
     "runtime-main.js": "/loa-hands/static/js/runtime-main.47bb0c31.js",
     "runtime-main.js.map": "/loa-hands/static/js/runtime-main.47bb0c31.js.map",
     "static/js/2.37b9471e.chunk.js": "/loa-hands/static/js/2.37b9471e.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.47bb0c31.js",
     "static/js/2.37b9471e.chunk.js",
     "static/css/main.c68d20e8.chunk.css",
-    "static/js/main.1bd0ac67.chunk.js"
+    "static/js/main.efb1b709.chunk.js"
   ]
 }
