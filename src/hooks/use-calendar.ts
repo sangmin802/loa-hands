@@ -1,9 +1,9 @@
 import { getCalendarData } from "api/api";
 import { useQuery } from "react-query";
 
-export function useCalendar() {
+export function useCalendar(rerenderKey) {
   const { data: calendarData } = useQuery(
-    "fetchCalendarData",
+    ["fetchCalendarData", rerenderKey],
     () => getCalendarData(),
     {
       refetchOnWindowFocus: false,
