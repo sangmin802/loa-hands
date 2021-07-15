@@ -21,10 +21,10 @@ import * as Styled from "./index.style";
 
 const Home = () => {
   const [isMidnight, setMidnight] = useState(new Date());
-  const [isFive, setFive] = useState(new Date());
+  const [isSix, setSix] = useState(new Date());
 
   const updateTime = useCallback(arr => {
-    const [setMidnight, setFive] = arr;
+    const [setMidnight, setSix] = arr;
     const now = new Date();
     const hour = now.getHours();
     const min = now.getMinutes();
@@ -32,8 +32,8 @@ const Home = () => {
     if (hour === 0 && min === 0 && sec === 0) {
       setMidnight(now);
     }
-    if (hour === 5 && min === 0 && sec === 0) {
-      setFive(now);
+    if (hour === 6 && min === 0 && sec === 0) {
+      setSix(now);
     }
   }, []);
 
@@ -43,11 +43,11 @@ const Home = () => {
   );
 
   useEffect(() => {
-    startInterval([setMidnight, setFive]);
+    startInterval([setMidnight, setSix]);
     return () => {
       endInterval();
     };
-  }, [endInterval, startInterval, setMidnight, setFive]);
+  }, [endInterval, startInterval, setMidnight, setSix]);
 
   return (
     <>
@@ -79,32 +79,32 @@ const Home = () => {
       <Styled.Section>
         <SectionContainer title="오늘의 필드보스">
           <TimerContainer
-            data={FIELD_BOSS[isFive.getDay()]}
-            rerenderKey={isFive}
+            data={FIELD_BOSS[isSix.getDay()]}
+            rerenderKey={isSix}
           />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 카오스 게이트">
           <TimerContainer
-            data={CHAOS_GATE[isFive.getDay()]}
-            rerenderKey={isFive}
+            data={CHAOS_GATE[isSix.getDay()]}
+            rerenderKey={isSix}
           />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 유령선">
           <TimerContainer
-            data={PHANTOM_SHIP[isFive.getDay()]}
-            rerenderKey={isFive}
+            data={PHANTOM_SHIP[isSix.getDay()]}
+            rerenderKey={isSix}
           />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 항해">
           <TimerContainer
-            data={OCEAN_ACT[isFive.getDay()]}
-            rerenderKey={isFive}
+            data={OCEAN_ACT[isSix.getDay()]}
+            rerenderKey={isSix}
           />
         </SectionContainer>
       </Styled.Section>

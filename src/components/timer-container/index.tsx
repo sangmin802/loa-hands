@@ -91,7 +91,7 @@ function beforeCurTime(time, now) {
 }
 
 export default React.memo(TimerContainer, (prev, next) => {
-  // 리셋타임은 5시
+  // 리셋타임은 6시
   if (prev.rerenderKey !== next.rerenderKey) return false;
   return true;
 });
