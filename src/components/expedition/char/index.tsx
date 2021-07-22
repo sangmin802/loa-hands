@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useCallback } from "react";
+import React, { PropsWithChildren } from "react";
 import { Button, Text } from "components/";
 import * as Styled from "./index.style";
 
@@ -8,14 +8,8 @@ interface IData {
 }
 
 interface IChar<T> {
-  setUserData: (T: string) => void;
   char: T;
 }
-
-const Char = ({ setUserData, char }: PropsWithChildren<IChar<IData>>) => {
-  const setUserDataEvent = useCallback(() => {
-    setUserData(char.name);
-  }, [char.name, setUserData]);
 
   return (
     <Styled.Container>
