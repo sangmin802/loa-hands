@@ -119,7 +119,7 @@ const FetchCalendar = ({ isMidnight }) => {
   const title = useMemo(() => {
     if (isWeek) return "11:00 ~ 21:00";
     return "09:00 ~ 23:00";
-  }, [yoil, isWeek]);
+  }, [isWeek]);
 
   return (
     <Styled.Section>
