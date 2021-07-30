@@ -155,9 +155,9 @@ const UserInfo = () => {
                 divideType="equip"
               >
                 <ListItem setDialog={setDialog}>
-                  <HoverContent>
+                  <DetailContent>
                     <Quality />
-                  </HoverContent>
+                  </DetailContent>
                 </ListItem>
               </DoubleListContainer>
               <DoubleListContainer
@@ -178,9 +178,9 @@ const UserInfo = () => {
                 divideType="leftSkill"
               >
                 <ListItem setDialog={setDialog}>
-                  <HoverContent>
+                  <DetailContent>
                     <Rune />
-                  </HoverContent>
+                  </DetailContent>
                 </ListItem>
               </DoubleListContainer>
               <DoubleListContainer data={lifeSkill} divideType="leftSkill">
