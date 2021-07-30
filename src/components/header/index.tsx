@@ -10,7 +10,7 @@ interface IHeader {
 const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
   const textInput = useRef(null);
   const history = useHistory();
-  const onSubmitHandler = useCallback(
+  const handleSubmit = useCallback(
     e => {
       const name = textInput?.current?.value;
       const isEmpty = name.replace(/ /gi, "") === "";
