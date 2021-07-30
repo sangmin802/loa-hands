@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactElement, useCallback } from "react";
 import Lodash from "lodash";
-import ExpeditionServer from "./server/index";
-import { Button, Text } from "components/";
+import Server from "./server/index";
+import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface IUserData {
@@ -34,7 +34,7 @@ const UserExpedition = ({
   );
 
   return (
-    <Styled.Container onClick={expeditionHandler}>
+    <Styled.Container onClick={handleExpedition}>
       <Styled.ButtonContainer>
         <Button>
           <Text data-close>닫기</Text>
