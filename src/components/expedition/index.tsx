@@ -23,7 +23,7 @@ const UserExpedition = ({
     expeditionInfo: { expeditionUserWrap },
   } = userData;
 
-  const expeditionHandler = useCallback(
+  const handleExpedition = useCallback(
     e => {
       const type = e.target.dataset;
 
@@ -40,9 +40,9 @@ const UserExpedition = ({
           <Text data-close>닫기</Text>
         </Button>
       </Styled.ButtonContainer>
-      {expeditionUserWrap.map((wrap, index) => (
-        <ExpeditionServer key={`userExpedition${index}`} wrap={wrap} />
-      ))}
+      <MapContainer data={expeditionUserWrap}>
+        <Server />
+      </MapContainer>
     </Styled.Container>
   );
 };
