@@ -120,7 +120,9 @@ const UserInfo = () => {
 
   return (
     <section data-testid={userData.expeditionInfo.name}>
-      <Dialog dialog={dialog} setDialog={setDialog} />
+      <ConditionalContainer isRender={dialog !== null}>
+        <Dialog dialog={dialog} setDialog={setDialog} />
+      </ConditionalContainer>
       <Styled.Top>
         <Styled.ButtonContainer>
           <Button onClick={setExpeditionDialog} data-testid="expedition-button">
