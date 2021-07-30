@@ -26,7 +26,7 @@ const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
     [textInput, history, resetBoundary]
   );
 
-  const onHomeHandler = useCallback(
+  const handleGoHome = useCallback(
     e => {
       e.preventDefault();
       resetBoundary?.();
@@ -37,13 +37,13 @@ const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
 
   return (
     <Styled.Container>
-      <Button onClick={onHomeHandler}>
+      <Button onClick={handleGoHome}>
         <Styled.Background data-testid="go-home" />
       </Button>
       <Styled.Form
         data-testid="submit-form"
         className="submit-area"
-        onSubmit={onSubmitHandler}
+        onSubmit={handleSubmit}
       >
         <Styled.InputText>
           <Input
