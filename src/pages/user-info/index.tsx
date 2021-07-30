@@ -167,10 +167,12 @@ const UserInfo = () => {
                 divideType="inner"
               >
                 <ListItem setDialog={setDialog}>
-                  <HoverContent />
+                  <DetailContent />
                 </ListItem>
               </DoubleListContainer>
-              <Characteristic data={[basic, battle, engrave]} />
+              <MapContainer data={[basic, battle, engrave]}>
+                <Characteristic />
+              </MapContainer>
             </NavContent>
             <NavContent selected={subNav}>
               <DoubleListContainer
