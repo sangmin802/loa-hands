@@ -20,12 +20,12 @@ const AsyncBoundary = ({
   children,
 }: PropsWithChildren<IAsyncBoundary>) => {
   const { reset } = useQueryErrorResetBoundary();
-  const resetHandler = useCallback(() => {
+  const handleReset = useCallback(() => {
     reset();
   }, [reset]);
 
   return (
-    <ErrorBoundary resetQuery={resetHandler} errorFallback={errorFallback}>
+    <ErrorBoundary resetQuery={handleReset} errorFallback={errorFallback}>
       <Suspense fallback={suspenseFallback}>{children}</Suspense>
     </ErrorBoundary>
   );
