@@ -8,19 +8,17 @@ interface IData {
 }
 
 interface IChar<T> {
-  char: T;
+  data?: T;
 }
 
-const Char = ({ char }: PropsWithChildren<IChar<IData>>) => {
-  return (
-    <Styled.Container>
-      <Button aria-label="expedition-char">
-        <Text type="desc" data-name={char.name}>
-          {char.lv} {char.name}
-        </Text>
-      </Button>
-    </Styled.Container>
-  );
-};
+const Char = ({ data }: PropsWithChildren<IChar<IData>>) => (
+  <Styled.Container>
+    <Button aria-label="expedition-char">
+      <Text type="desc" data-name={data.name}>
+        {data.lv} {data.name}
+      </Text>
+    </Button>
+  </Styled.Container>
+);
 
 export default Char;
