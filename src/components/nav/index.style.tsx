@@ -1,12 +1,18 @@
 import styled, { css } from "styled-components";
 
+const button = css`
+  > button {
+    width: fit-content;
+    margin-right: 1rem;
+    color: #666;
+  }
+`;
+
 const containerType = {
   main: css`
     border-radius: 5px 5px 0 0;
 
-    > article {
-      margin-right: 2rem;
-    }
+    ${button}
   `,
 
   sub: css<{ isFlex: boolean }>`
@@ -15,7 +21,9 @@ const containerType = {
 
     ${({ theme }) => theme.isFlex}
 
-    &:nth-of-type(4) article {
+    ${button}
+
+    &:nth-of-type(4) button {
       flex-grow: 1;
       margin-right: 0;
     }
@@ -29,10 +37,4 @@ export const Container = styled.article<{ isFlex: boolean; type: string }>`
 
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
   ${({ type }) => containerType[type]}
-`;
-
-export const Content = styled.article`
-  width: fit-content;
-  margin-right: 1rem;
-  color: #666;
 `;
