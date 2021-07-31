@@ -10,7 +10,7 @@ interface IData {
 }
 
 interface IEvent<T> {
-  event: T;
+  event?: T;
 }
 
 const Event = ({ event }: PropsWithChildren<IEvent<IData>>) => {
