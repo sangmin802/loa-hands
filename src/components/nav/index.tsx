@@ -5,8 +5,17 @@ import React, {
   useMemo,
 } from "react";
 import Lodash from "lodash";
-import { Button, Text } from "components/";
+import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
+
+interface IItem {
+  navName?: string | ReactElement;
+  setNav: (T: number) => void;
+  isSelectedMain: boolean;
+  selectedSub: number;
+  i?: number;
+  navType: string;
+}
 
 interface INavigation {
   navType: string;
@@ -29,45 +38,40 @@ const Navigation = ({
       isFlex={isShow}
       type={navType}
     >
-      {arr.map((tab, index) => {
-        return (
-          <Styled.Content key={`${navType}Nav${index}`}>
-            <Item
-              navName={tab}
-              setNav={setNav}
-              selected={isShow && selectedNav === index ? true : false}
-              index={index}
-              testid={`${navType}-nav-${index}`}
-            />
-          </Styled.Content>
-        );
-      })}
+      <MapContainer data={arr} dataKey="navName">
+        <Item
+          setNav={setNav}
+          isSelectedMain={isShow}
+          selectedSub={selectedNav}
+          navType={navType}
+        />
+      </MapContainer>
     </Styled.Container>
   );
 };
 
-interface IItem {
-  navName: string | ReactElement;
-  setNav: (T: number) => void;
-  selected: boolean;
-  index: number;
-  testid: string;
-}
 export const Item = ({
   navName,
   setNav,
-  selected,
-  index,
-  testid,
+  isSelectedMain,
+  selectedSub,
+  i,
+  navType,
 }: PropsWithChildren<IItem>) => {
-  const navClickHandler = useCallback(() => {
-    setNav(index);
-  }, [index, setNav]);
+  const handleNavigation = useCallback(() => {
+    setNav(i);
+  }, [i, setNav]);
+
+  const selected = useMemo(() => isSelectedMain && selectedSub === i, [
+    isSelectedMain,
+    selectedSub,
+    i,
+  ]);
 
   const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
 
   return (
-    <Button data-testid={testid} onClick={navClickHandler}>
+    <Button data-testid={`${navType}-nav-${i}`} onClick={handleNavigation}>
       <Text color={fontColor}>{navName}</Text>
     </Button>
   );
