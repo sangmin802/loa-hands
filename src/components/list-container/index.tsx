@@ -1,5 +1,5 @@
 import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
-import { Text } from "components/";
+import { Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface IListContainer {
@@ -18,13 +18,9 @@ const ListContainer = ({
       <Styled.Title>
         <Text>{title}</Text>
       </Styled.Title>
-      <>
-        {arr.map((res, index) => (
-          <Styled.Content key={`item${index}`}>
-            {cloneElement(children, { data: res })}
-          </Styled.Content>
-        ))}
-      </>
+      <Styled.Content>
+        <MapContainer data={arr}>{cloneElement(children)}</MapContainer>
+      </Styled.Content>
     </>
   );
 };
