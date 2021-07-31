@@ -15,6 +15,7 @@ import {
   Event,
   AsyncBoundary,
   ErrorFallback,
+  MapContainer,
 } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
@@ -140,11 +141,9 @@ const FetchEvent = () => {
 
   return (
     <Styled.Content type="event">
-      {eventData.events.map((event, index) => (
-        <Styled.Event key={`event${index}`}>
-          <Event event={event} />
-        </Styled.Event>
-      ))}
+      <MapContainer data={eventData.events} dataKey="event">
+        <Event />
+      </MapContainer>
     </Styled.Content>
   );
 };
