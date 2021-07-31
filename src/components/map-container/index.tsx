@@ -12,7 +12,9 @@ const MapContainer = ({
   children,
 }: PropsWithChildren<IMapContainer>) => (
   <>
-    {data.map((data, i) => cloneElement(children, { [dataKey]: data, key: i }))}
+    {data.map((data, i) =>
+      cloneElement(children, { [dataKey]: data, key: i, i })
+    )}
   </>
 );
 
