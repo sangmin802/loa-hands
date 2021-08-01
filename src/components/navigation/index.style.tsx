@@ -15,11 +15,11 @@ const containerType = {
     ${button}
   `,
 
-  sub: css<{ isFlex: boolean }>`
+  sub: css<{ isShow: boolean }>`
     width: 100%;
     border-radius: 0 5px 0 0;
 
-    ${({ theme }) => theme.isFlex}
+    ${({ theme }) => theme.isShow}
 
     ${button}
 
@@ -30,9 +30,8 @@ const containerType = {
   `,
 };
 
-export const Container = styled.article<{ isFlex: boolean; type: string }>`
+export const Container = styled.article<{ isShow: boolean; type: string }>`
   padding: 0.5rem;
-  display: flex;
   width: fit-content;
 
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
