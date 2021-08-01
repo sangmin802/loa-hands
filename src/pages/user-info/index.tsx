@@ -2,20 +2,17 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BasicInfo,
   Expedition,
-  Nav,
+  Navigation,
   Collection,
-  NavContent,
-  DoubleListContainer,
-  Quality,
-  Rune,
-  Characteristic,
-  DetailContent,
-  ListItem,
+  VisibleContainer,
   Dialog,
   Button,
   Text,
   MapContainer,
   ConditionalContainer,
+  AbilityContainer,
+  SkillContainer,
+  CollectionContainer,
 } from "components/";
 import { useUser } from "hooks/use-user";
 import { useParams, useHistory } from "react-router-dom";
@@ -29,28 +26,7 @@ const UserInfo = () => {
   const [mainNav, setMainNav] = useState(0);
   const [dialog, setDialog] = useState(null);
 
-  const infos = useMemo(() => {
-    const {
-      characteristicInfo,
-      equipInfo: { equipment, avatar },
-    } = userData.abilityInfo;
-    const { battleSkill = null, lifeSkill } = userData.skillInfo;
-    const { collectionDetail } = userData.collectionInfo;
-    const { battle, basic, engrave } = characteristicInfo;
-    return {
-      equipment,
-      avatar,
-      battleSkill,
-      lifeSkill,
-      collectionDetail,
-      battle,
-      basic,
-      engrave,
-    };
-  }, [userData]);
-
   const collectionNav = useMemo(() => {
-    if (!userData) return;
     const collection = userData.collectionInfo.collectionMini;
     return Collection({ collection });
   }, [userData]);
@@ -66,7 +42,7 @@ const UserInfo = () => {
 
   const mainNavs = useMemo(() => ["능력치", "스킬", "수집형포인트"], []);
 
-  const setMainNavHandler = useCallback(
+  const handleMainNavigation = useCallback(
     index => {
       setMainNav(index);
       setSubNav(0);
@@ -74,29 +50,29 @@ const UserInfo = () => {
     [setMainNav, setSubNav]
   );
 
-  const resetHandler = useCallback(() => {
+  const handleResetState = useCallback(() => {
     setMainNav(0);
     setSubNav(0);
     setDialog(null);
   }, [setMainNav, setSubNav, setDialog]);
 
-  const setUserDataHandler = useCallback(
+  const handleSearchUser = useCallback(
     name => {
       history.push(`/userInfo/${name}`);
-      resetHandler();
+      handleResetState();
     },
-    [history, resetHandler]
+    [history, handleResetState]
   );
 
   const expeditionDialog = useMemo(
     () => (
       <Expedition
         userData={userData}
-        setUserData={setUserDataHandler}
+        setUserData={handleSearchUser}
         setDialog={setDialog}
       />
     ),
-    [userData, setUserDataHandler, setDialog]
+    [userData, handleSearchUser, setDialog]
   );
 
   const setExpeditionDialog = useCallback(() => {
@@ -105,20 +81,9 @@ const UserInfo = () => {
 
   useEffect(() => {
     return () => {
-      resetHandler();
+      handleResetState();
     };
-  }, [userData, resetHandler]);
-
-  const {
-    equipment,
-    avatar,
-    battleSkill,
-    lifeSkill,
-    collectionDetail,
-    battle,
-    basic,
-    engrave,
-  } = infos;
+  }, [userData, handleResetState]);
 
   return (
     <section data-testid={userData.expeditionInfo.name}>
@@ -134,79 +99,34 @@ const UserInfo = () => {
         <BasicInfo userData={userData} />
       </Styled.Top>
       <Styled.Bottom>
-        <Nav
+        <Navigation
           arr={mainNavs}
-          isShow={true}
           selectedNav={mainNav}
-          setNav={setMainNavHandler}
+          setNav={handleMainNavigation}
           navType="main"
         />
-        {subNavs.map((tab, index) => (
-          <Nav
-            arr={tab}
-            key={`sub${index}`}
-            isShow={mainNav === index}
+        <MapContainer data={subNavs} dataKey="arr">
+          <Navigation
+            upperNav={mainNav}
             selectedNav={subNav}
             setNav={setSubNav}
             navType="sub"
           />
-        ))}
+        </MapContainer>
         <Styled.Container data-testid="content">
-          <NavContent type="main" selected={mainNav}>
-            <NavContent selected={subNav}>
-              <DoubleListContainer
-                data={Object.values(equipment)}
-                divideType="equip"
-              >
-                <ListItem setDialog={setDialog}>
-                  <DetailContent>
-                    <Quality />
-                  </DetailContent>
-                </ListItem>
-              </DoubleListContainer>
-              <DoubleListContainer
-                data={Object.values(avatar)}
-                divideType="inner"
-              >
-                <ListItem setDialog={setDialog}>
-                  <DetailContent />
-                </ListItem>
-              </DoubleListContainer>
-              <MapContainer data={[basic, battle, engrave]}>
-                <Characteristic />
-              </MapContainer>
-            </NavContent>
-            <NavContent selected={subNav}>
-              <DoubleListContainer
-                data={battleSkill.skills}
-                lt={`사용 : ${battleSkill.usePoint}`}
-                rt={`획득 : ${battleSkill.getPoint}`}
-                divideType="leftSkill"
-              >
-                <ListItem setDialog={setDialog}>
-                  <DetailContent>
-                    <Rune />
-                  </DetailContent>
-                </ListItem>
-              </DoubleListContainer>
-              <DoubleListContainer data={lifeSkill} divideType="leftSkill">
-                <ListItem />
-              </DoubleListContainer>
-            </NavContent>
-            <NavContent selected={subNav}>
-              {collectionDetail.map((res, index) => (
-                <DoubleListContainer
-                  key={index}
-                  data={res.collection}
-                  divideType="get"
-                  lt={res.title}
-                  rt={`획득 : ${res.getCount} 미획득 : ${res.totalCount}`}
-                >
-                  <ListItem />
-                </DoubleListContainer>
-              ))}
-            </NavContent>
-          </NavContent>
+          <VisibleContainer type="main" selected={mainNav}>
+            <AbilityContainer
+              userData={userData}
+              subNav={subNav}
+              setDialog={setDialog}
+            />
+            <SkillContainer
+              userData={userData}
+              subNav={subNav}
+              setDialog={setDialog}
+            />
+            <CollectionContainer userData={userData} subNav={subNav} />
+          </VisibleContainer>
         </Styled.Container>
       </Styled.Bottom>
     </section>
