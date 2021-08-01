@@ -19,10 +19,16 @@ import {
 } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
+import { useQueryClient } from "react-query";
 
 const Home = () => {
+  const queryClient = useQueryClient();
   const [isMidnight, setMidnight] = useState(new Date());
   const [isSix, setSix] = useState(new Date());
+  const queryKey = useMemo(
+    () => ["fetchEventData", ["fetchCalendarData", isMidnight.getDate()]],
+    [isMidnight]
+  );
 
   const updateTime = useCallback(arr => {
     const [setMidnight, setSix] = arr;
