@@ -36,12 +36,8 @@ const Home = () => {
     const hour = now.getHours();
     const min = now.getMinutes();
     const sec = now.getSeconds();
-    if (hour === 0 && min === 0 && sec === 0) {
-      setMidnight(now);
-    }
-    if (hour === 6 && min === 0 && sec === 0) {
-      setSix(now);
-    }
+    if (hour === 0 && min === 0 && sec === 0) setMidnight(now);
+    if (hour === 6 && min === 0 && sec === 0) setSix(now);
   }, []);
 
   const { startInterval, endInterval } = useMemo(
@@ -56,6 +52,12 @@ const Home = () => {
     };
   }, [endInterval, startInterval, setMidnight, setSix]);
 
+  useEffect(() => {
+    return () => {
+      queryKey.forEach(key => queryClient.cancelQueries(key));
+    };
+  }, [queryClient, queryKey]);
+
   return (
     <>
       <Styled.Section>
@@ -64,7 +66,7 @@ const Home = () => {
             suspenseFallback={<LoadingSpinner />}
             errorFallback={<ErrorFallback />}
           >
-            <FetchEvent />
+            <FetchEvent queryKey={queryKey[0]} />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
@@ -74,7 +76,7 @@ const Home = () => {
             suspenseFallback={<LoadingSpinner />}
             errorFallback={<ErrorFallback />}
           >
-            <FetchCalendar isMidnight={isMidnight} />
+            <FetchCalendar queryKey={queryKey[1]} isMidnight={isMidnight} />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
@@ -119,9 +121,9 @@ const Home = () => {
   );
 };
 
-const FetchCalendar = ({ isMidnight }) => {
+const FetchCalendar = ({ queryKey, isMidnight }) => {
   const yoil = isMidnight.getDay();
-  const calendarData = useCalendar(isMidnight.getDate());
+  const calendarData = useCalendar(queryKey);
   const isWeek = 6 > yoil && yoil > 0;
   const title = useMemo(() => {
     if (isWeek) return "11:00 ~ 21:00";
@@ -142,8 +144,8 @@ const FetchCalendar = ({ isMidnight }) => {
   );
 };
 
-const FetchEvent = () => {
-  const eventData = useEvent();
+const FetchEvent = ({ queryKey }) => {
+  const eventData = useEvent(queryKey);
 
   return (
     <Styled.Content type="event">
