@@ -9,7 +9,15 @@ describe("Navigation", () => {
 
   it("네비게이션 선택 이벤트", () => {
     const setNav = jest.fn();
-    render(<Item navName="메뉴1" setNav={setNav} selected={true} index={0} />);
+    render(
+      <Item
+        navName="메뉴1"
+        setNav={setNav}
+        selectedSub={0}
+        i={0}
+        navType="sub"
+      />
+    );
 
     fireEvent.click(screen.getByRole("button"));
 
@@ -18,7 +26,9 @@ describe("Navigation", () => {
   });
 
   it("선택된 네비게이션 스타일", () => {
-    render(<Item navName="메뉴1" setNav={null} selected={true} index={0} />);
+    render(
+      <Item navName="메뉴1" setNav={null} selectedSub={0} i={0} navType="sub" />
+    );
 
     expect(screen.getByRole("button").children[0].getAttribute("color")).toBe(
       "white"

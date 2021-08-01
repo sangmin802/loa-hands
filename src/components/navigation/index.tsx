@@ -9,42 +9,43 @@ import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface IItem {
-  navName?: string | ReactElement;
   setNav: (T: number) => void;
-  isSelectedMain: boolean;
   selectedSub: number;
-  i?: number;
   navType: string;
+  i?: number;
+  navName?: string | ReactElement;
 }
 
 interface INavigation {
   navType: string;
-  arr: (string | ReactElement)[];
-  isShow: boolean;
   selectedNav: number;
   setNav: (T: number) => void;
+  arr?: (string | ReactElement)[];
+  i?: number;
+  upperNav?: number;
 }
 
 const Navigation = ({
   navType,
   arr,
-  isShow,
   selectedNav,
   setNav,
+  i,
+  upperNav,
 }: PropsWithChildren<INavigation>) => {
+  const isShow = useMemo(() => {
+    if (navType === "main") return true;
+    return upperNav === i;
+  }, [navType, upperNav, i]);
+
   return (
     <Styled.Container
       role={`${navType}-nav-container`}
-      isFlex={isShow}
+      isShow={isShow}
       type={navType}
     >
       <MapContainer data={arr} dataKey="navName">
-        <Item
-          setNav={setNav}
-          isSelectedMain={isShow}
-          selectedSub={selectedNav}
-          navType={navType}
-        />
+        <Item setNav={setNav} selectedSub={selectedNav} navType={navType} />
       </MapContainer>
     </Styled.Container>
   );
@@ -53,7 +54,6 @@ const Navigation = ({
 export const Item = ({
   navName,
   setNav,
-  isSelectedMain,
   selectedSub,
   i,
   navType,
@@ -62,11 +62,7 @@ export const Item = ({
     setNav(i);
   }, [i, setNav]);
 
-  const selected = useMemo(() => isSelectedMain && selectedSub === i, [
-    isSelectedMain,
-    selectedSub,
-    i,
-  ]);
+  const selected = useMemo(() => selectedSub === i, [selectedSub, i]);
 
   const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
 
