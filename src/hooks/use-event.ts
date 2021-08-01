@@ -1,8 +1,8 @@
 import { getEventData } from "api/api";
 import { useQuery } from "react-query";
 
-export function useEvent() {
-  const { data: eventData } = useQuery("fetchEventData", () => getEventData(), {
+export function useEvent(queryKey) {
+  const { data: eventData } = useQuery(queryKey, () => getEventData(), {
     refetchOnWindowFocus: false,
   });
 
