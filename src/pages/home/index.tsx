@@ -17,9 +17,9 @@ import {
   ErrorFallback,
   MapContainer,
 } from "components/";
+import { useQueryClient } from "react-query";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
-import { useQueryClient } from "react-query";
 
 const Home = () => {
   const queryClient = useQueryClient();
@@ -54,7 +54,15 @@ const Home = () => {
 
   useEffect(() => {
     return () => {
-      queryKey.forEach(key => queryClient.cancelQueries(key));
+      queryKey.forEach(key => {
+        const queryData = queryClient.getQueryData(key);
+
+        // key의 query 중단
+        queryClient.cancelQueries(key);
+
+        // key에 대한 캐싱된 값 초기화
+        if (!queryData) queryClient.resetQueries(key, { exact: true });
+      });
     };
   }, [queryClient, queryKey]);
 
