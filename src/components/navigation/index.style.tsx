@@ -19,13 +19,16 @@ const containerType = {
     width: 100%;
     border-radius: 0 5px 0 0;
 
+    ${button}
     ${({ theme }) => theme.isShow}
 
-    ${button}
+    &:nth-of-type(4) {
+      ${({ theme }) => theme.isFlex}
 
-    &:nth-of-type(4) button {
-      flex-grow: 1;
-      margin-right: 0;
+      & > button {
+        flex-grow: 1;
+        margin-right: 0;
+      }
     }
   `,
 };
