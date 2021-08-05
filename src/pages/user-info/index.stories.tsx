@@ -1,7 +1,6 @@
 import React from "react";
 import UserInfo from "./index";
 import { AsyncBoundary, SearchLoading, ErrorFallback } from "components/";
-import { HeaderLayout } from "../../layout/app/index";
 
 export default {
   title: "UserInfo",
@@ -11,7 +10,7 @@ export default {
 const Template = args => (
   <AsyncBoundary
     suspenseFallback={<SearchLoading />}
-    errorFallback={<HeaderLayout children={<ErrorFallback />} />}
+    errorFallback={<ErrorFallback />}
   >
     <UserInfo {...args} />
   </AsyncBoundary>
