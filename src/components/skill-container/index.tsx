@@ -30,7 +30,12 @@ const SkillContainer = ({
 
   return (
     <VisibleContainer selected={subNav}>
-      <DoubleListContainer data={battleSkill.skills} divideType="leftSkill">
+      <DoubleListContainer
+        lt={`사용 : ${battleSkill.usePoint}`}
+        rt={`총 : ${battleSkill.getPoint}`}
+        data={battleSkill.skills}
+        divideType="leftSkill"
+      >
         <ListItem setDialog={setDialog}>
           <DetailContent>
             <Rune />
