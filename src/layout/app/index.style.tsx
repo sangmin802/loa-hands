@@ -4,8 +4,6 @@ import { BACKGROUND } from "constants/index";
 export const Container = styled.div`
   position: relative;
   margin-bottom: 10px;
-`;
-export const InnerContainer = styled.section`
   padding: 0.5rem;
 `;
 
@@ -13,7 +11,6 @@ export const Main = styled.main`
   max-width: 600px;
   min-width: 310px;
   margin: 0 auto;
-  padding: 0.5rem;
   border-radius: 3px;
 
   background: ${({ theme }) => theme.backgroundColor.darkLow};

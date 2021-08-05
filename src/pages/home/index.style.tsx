@@ -7,6 +7,10 @@ const contentType = {
   `,
 };
 
+export const Home = styled.section`
+  padding: 0.5rem;
+`;
+
 export const Section = styled.section`
   margin-top: 0.7rem;
 `;
