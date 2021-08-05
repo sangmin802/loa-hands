@@ -11,7 +11,6 @@ import {
   TripodSkillCustom,
   Image,
   Text,
-  ConditionalContainer,
   MapContainer,
 } from "..";
 import * as Styled from "./index.style";
@@ -55,6 +54,11 @@ const DetailContent = ({
     grade,
   ]);
 
+  const optionalDetail = useMemo(() => {
+    if (!children) return null;
+    return cloneElement(children, { data });
+  }, [children, data]);
+
   return (
     <>
       <Styled.Top>
@@ -74,11 +78,7 @@ const DetailContent = ({
           </Styled.Desc>
         </Styled.Container>
       </Styled.Top>
-      <Styled.Children>
-        <ConditionalContainer isRender={children !== null}>
-          {cloneElement(children, { data })}
-        </ConditionalContainer>
-      </Styled.Children>
+      <Styled.Children>{optionalDetail}</Styled.Children>
       <MapContainer data={itemPartBox}>
         <ItemPartBox />
       </MapContainer>
