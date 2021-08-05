@@ -1,13 +1,12 @@
-import React, { useRef, useCallback, PropsWithChildren } from "react";
+import React, { useRef, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 import { Input, Button, Text } from "components/";
+import Lodash from "lodash";
+import { useQueryErrorResetBoundary } from "react-query";
 
-interface IHeader {
-  resetBoundary?: () => void;
-}
-
-const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
+const Header = () => {
+  const { reset } = useQueryErrorResetBoundary();
   const textInput = useRef(null);
   const history = useHistory();
   const handleSubmit = useCallback(
@@ -16,23 +15,23 @@ const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
       const isEmpty = name.replace(/ /gi, "") === "";
 
       e.preventDefault();
-      resetBoundary?.();
+      reset();
 
       textInput.current.value = null;
 
       if (isEmpty) return;
       history.replace(`/userInfo/${name}`);
     },
-    [textInput, history, resetBoundary]
+    [textInput, history, reset]
   );
 
   const handleGoHome = useCallback(
     e => {
       e.preventDefault();
-      resetBoundary?.();
+      reset();
       history.replace(`/`);
     },
-    [resetBoundary, history]
+    [reset, history]
   );
 
   return (
@@ -64,4 +63,4 @@ const Header = ({ resetBoundary }: PropsWithChildren<IHeader>) => {
   );
 };
 
-export default Header;
+export default React.memo(Header, (left, right) => Lodash.isEqual(left, right));

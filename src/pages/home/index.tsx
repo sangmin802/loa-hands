@@ -17,12 +17,11 @@ import {
   ErrorFallback,
   MapContainer,
 } from "components/";
-import { useQueryClient } from "react-query";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
+import { useCancelQuery } from "hooks/use-cancel-query";
 
 const Home = () => {
-  const queryClient = useQueryClient();
   const [isMidnight, setMidnight] = useState(new Date());
   const [isSix, setSix] = useState(new Date());
   const queryKey = useMemo(
@@ -52,22 +51,10 @@ const Home = () => {
     };
   }, [endInterval, startInterval, setMidnight, setSix]);
 
-  useEffect(() => {
-    return () => {
-      queryKey.forEach(key => {
-        const queryData = queryClient.getQueryData(key);
-
-        // key의 query 중단
-        queryClient.cancelQueries(key);
-
-        // key에 대한 캐싱된 값 초기화
-        if (!queryData) queryClient.resetQueries(key, { exact: true });
-      });
-    };
-  }, [queryClient, queryKey]);
+  useCancelQuery(queryKey);
 
   return (
-    <>
+    <Styled.Home>
       <Styled.Section>
         <SectionContainer title="진행중인 이벤트">
           <AsyncBoundary
@@ -125,7 +112,7 @@ const Home = () => {
           />
         </SectionContainer>
       </Styled.Section>
-    </>
+    </Styled.Home>
   );
 };
 
