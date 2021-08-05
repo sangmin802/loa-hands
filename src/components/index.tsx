@@ -33,4 +33,3 @@ export { default as MapContainer } from "./map-container";
 export { default as ConditionalContainer } from "./conditional-container";
 export { default as AbilityContainer } from "./ability-container";
 export { default as SkillContainer } from "./skill-container";
-export { default as CollectionContainer } from "./collection-container";
