@@ -6,6 +6,7 @@ interface IItem {
   size: string;
   index?: number;
 }
+import Lodash from "lodash";
 
 interface ICollection {
   collection: IItem[];
@@ -27,4 +28,6 @@ export const Item = ({ size, index }: PropsWithChildren<IItem>) => {
   );
 };
 
-export default Collection;
+export default React.memo(Collection, (left, right) =>
+  Lodash.isEqual(left, right)
+);

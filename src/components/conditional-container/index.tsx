@@ -1,4 +1,5 @@
-import { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
+import Lodash from "lodash";
 
 interface IConditionalContainer {
   isRender: boolean;
@@ -14,4 +15,6 @@ const ConditionalContainer = ({
   return children;
 };
 
-export default ConditionalContainer;
+export default React.memo(ConditionalContainer, (left, right) =>
+  Lodash.isEqual(left, right)
+);

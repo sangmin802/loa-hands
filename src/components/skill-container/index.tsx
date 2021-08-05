@@ -6,6 +6,7 @@ import {
   DetailContent,
   Rune,
 } from "components/";
+import Lodash from "lodash";
 
 interface IUserData {
   skillInfo: {
@@ -43,4 +44,6 @@ const SkillContainer = ({
   );
 };
 
-export default SkillContainer;
+export default React.memo(SkillContainer, (left, right) =>
+  Lodash.isEqual(left, right)
+);

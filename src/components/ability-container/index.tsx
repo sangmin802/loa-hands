@@ -8,6 +8,7 @@ import {
   MapContainer,
   Characteristic,
 } from "components/";
+import Lodash from "lodash";
 
 interface IUserData {
   abilityInfo: {
@@ -54,4 +55,6 @@ const AbilityContainer = ({
   );
 };
 
-export default AbilityContainer;
+export default React.memo(AbilityContainer, (left, right) =>
+  Lodash.isEqual(left, right)
+);
