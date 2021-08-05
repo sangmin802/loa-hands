@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const ErrorFallback = styled.section`
+  padding: 3rem 0 0.5rem;
+`;
+
 export const ImageContainer = styled.div`
   width: 40%;
   max-width: 300px;
