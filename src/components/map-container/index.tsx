@@ -1,4 +1,5 @@
-import { cloneElement, PropsWithChildren, ReactElement } from "react";
+import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
+import Lodash from "lodash";
 
 interface IMapContainer {
   data: any[];
@@ -18,4 +19,6 @@ const MapContainer = ({
   </>
 );
 
-export default MapContainer;
+export default React.memo(MapContainer, (left, right) =>
+  Lodash.isEqual(left, right)
+);

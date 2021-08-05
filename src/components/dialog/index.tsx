@@ -5,6 +5,7 @@ import React, {
   useEffect,
 } from "react";
 import * as Styled from "./index.style";
+import Lodash from "lodash";
 
 interface IDialog {
   dialog: ReactElement;
@@ -53,4 +54,4 @@ const Dialog = ({ dialog, setDialog }: PropsWithChildren<IDialog>) => {
   );
 };
 
-export default Dialog;
+export default React.memo(Dialog, (left, right) => Lodash.isEqual(left, right));
