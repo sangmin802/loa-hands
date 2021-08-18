@@ -8,29 +8,10 @@ const initialData = {
   contType: "CO_OCEAN",
   lv: "-",
   src: "/img/ocean/ocean_01.png",
-  position: ["아르데타인", "베른", "애니츠"],
-  // position: [],
-  // position: '애니츠',
+  position: "애니츠",
   endPosition: "애니츠",
-  time: ["00:20"],
+  time: "00:20",
   endTime: "00:20",
-};
-
-const initialData2 = {
-  name: "기에나",
-  contType: "CO_OCEAN",
-  lv: "-",
-  src: "/img/ocean/ocean_01.png",
-  position: ["아르데타인", "베른", "애니츠"],
-  // position: [],
-  // position: '애니츠',
-  endPosition: "애니츠",
-  time: ["20:00"],
-  endTime: "20:00",
-};
-
-const timeNumber = string => {
-  return Number(string.replace(/:/gi, ""));
 };
 
 describe("Timer1", () => {
@@ -40,9 +21,9 @@ describe("Timer1", () => {
     const startDate = new Date(2021, 5, 11, 0, 20);
     jest
       .spyOn(global, "Date")
-      .mockImplementationOnce(() => mockDate as unknown as string)
-      .mockImplementationOnce(() => cloasDate as unknown as string)
-      .mockImplementationOnce(() => startDate as unknown as string);
+      .mockImplementationOnce(() => (mockDate as unknown) as string)
+      .mockImplementationOnce(() => (cloasDate as unknown) as string)
+      .mockImplementationOnce(() => (startDate as unknown) as string);
 
     const setTime = jest.fn();
     render(<Timer data={initialData} setTime={setTime} />);
@@ -67,29 +48,5 @@ describe("Timer1", () => {
   it("타임아웃 계산 로직", () => {
     expect(screen.getByRole("timer-alert").textContent).toBe("컨텐츠 준비중");
     expect(screen.getByRole("timer-border").dataset.border).toBe("#CC99FF");
-  });
-});
-
-describe("Timer2", () => {
-  beforeEach(() => {
-    const setTime = jest.fn();
-    render(<Timer data={initialData2} setTime={setTime} />);
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
-  it("타이머", async () => {
-    const prevTime = timeNumber(screen.getByRole("timeout").textContent);
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-    await waitFor(() => {
-      expect(timeNumber(screen.getByRole("timeout").textContent)).toBe(
-        prevTime - 1
-      );
-    });
   });
 });
