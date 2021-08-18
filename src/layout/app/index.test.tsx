@@ -23,26 +23,5 @@ describe("App", () => {
 
       await waitFor(() => expect(getByTestId("모여요꿈동산")).toBeTruthy());
     });
-
-    // describe('asyncBoundary', async() => {
-    //   it('로딩', () => {
-    //     (getUserData as jest.Mock).mockResolvedValue(USER_DATA);
-
-    //     const { getByTestId, container } = render(<App />);
-
-    //     (container.querySelector(".search-area") as HTMLInputElement).value =
-    //       "모여요꿈동산";
-
-    //     await waitFor(() => expect(getByTestId("모여요꿈동산")).toBeTruthy());
-    //   })
-
-    //   it('에러', () => {
-
-    //   })
-
-    //   it('재시도', () => {
-
-    //   })
-    // })
   });
 });
