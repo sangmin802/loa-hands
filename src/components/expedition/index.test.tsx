@@ -35,7 +35,7 @@ describe("Expedition", () => {
       lv: "레벨",
       name: "이름",
     };
-    render(<Char setUserData={setUserData} char={char} />);
+    render(<Char data={char} />);
 
     fireEvent.click(screen.getByRole("button"));
 
