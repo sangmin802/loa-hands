@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "utils/test";
 import Event from "./index";
 
 const initialEvent = {
-  data: "날짜",
+  date: "날짜",
   href: "경로",
   img: "이미지",
   name: "이벤트명",
