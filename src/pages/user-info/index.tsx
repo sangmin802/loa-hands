@@ -25,6 +25,7 @@ import {
   ErrorBoundary,
 } from "components/";
 import { useUser } from "hooks/use-user";
+import { useNavigation } from "hooks/use-navigation";
 import { useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 import { useUserCollection } from "hooks/use-user-collection";
@@ -69,34 +70,13 @@ const UserInfo = ({
 const FetchUserInfo = ({ userKey, userCollectionKey }) => {
   const history = useHistory();
   const { status, data: userData } = useUser(userKey);
-  const [subNav, setSubNav] = useState(0);
-  const [mainNav, setMainNav] = useState(0);
+  const nav = useNavigation();
   const [dialog, setDialog] = useState(null);
 
-  const subNavs = useMemo(
-    () => [
-      ["착용 아이템", "착용 아바타", "특성·각인"],
-      ["전투스킬", "생활스킬"],
-      ["", "", "", "", "", "", "", ""],
-    ],
-    []
-  );
-
-  const mainNavs = useMemo(() => ["능력치", "스킬", "수집형포인트"], []);
-
-  const handleMainNavigation = useCallback(
-    index => {
-      setMainNav(index);
-      setSubNav(0);
-    },
-    [setMainNav, setSubNav]
-  );
-
   const handleResetState = useCallback(() => {
-    setMainNav(0);
-    setSubNav(0);
+    nav.handleResetNavigation();
     setDialog(null);
-  }, [setMainNav, setSubNav, setDialog]);
+  }, [nav.handleResetNavigation, setDialog]);
 
   const handleSearchUser = useCallback(
     name => {
@@ -145,26 +125,30 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
       <Styled.Bottom>
         <Styled.Navigation type="main">
           <Navigation
-            arr={mainNavs}
-            selectedNav={mainNav}
-            setNav={handleMainNavigation}
+            arr={nav.mainNavs}
+            selectedNav={nav.mainNav}
+            setNav={nav.handleMainNavigation}
           />
         </Styled.Navigation>
-        <Styled.Navigation type="sub" isShow={mainNav} selected={subNav}>
-          <MapContainer data={subNavs} dataKey="arr">
-            <Navigation selectedNav={subNav} setNav={setSubNav} />
+        <Styled.Navigation
+          type="sub"
+          isShow={nav.mainNav}
+          selected={nav.subNav}
+        >
+          <MapContainer data={nav.subNavs} dataKey="arr">
+            <Navigation selectedNav={nav.subNav} setNav={nav.setSubNav} />
           </MapContainer>
         </Styled.Navigation>
         <Styled.Container data-testid="content">
-          <VisibleContainer type="main" selected={mainNav}>
+          <VisibleContainer type="main" selected={nav.mainNav}>
             <AbilityContainer
               userData={userData}
-              subNav={subNav}
+              subNav={nav.subNav}
               setDialog={setDialog}
             />
             <SkillContainer
               userData={userData}
-              subNav={subNav}
+              subNav={nav.subNav}
               setDialog={setDialog}
             />
             <AsyncBoundary
@@ -175,7 +159,7 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
               <FetchUserCollection
                 queryKey={userCollectionKey}
                 member={userData.memberArr}
-                subNav={subNav}
+                subNav={nav.subNav}
               />
             </AsyncBoundary>
           </VisibleContainer>
