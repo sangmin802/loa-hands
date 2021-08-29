@@ -49,17 +49,15 @@ const ListItem = ({
       type={data.type}
     >
       <Image src={detail?.src ?? backSrc} color={`gradient${detail?.grade}`} />
-      <ConditionalContainer isRender={detail !== null}>
-        <Styled.Desc type={data.type}>
-          <MapContainer data={detail?.subTitle} dataKey="children">
-            <Text
-              color={detail?.grade ? `color${detail?.grade}` : "white"}
-              type="small"
-            />
-          </MapContainer>
-          <Text type="subTitle">{detail?.title}</Text>
-        </Styled.Desc>
-      </ConditionalContainer>
+      <Styled.Desc type={data.type}>
+        <MapContainer data={detail?.subTitle} dataKey="children">
+          <Text
+            color={detail?.grade ? `color${detail?.grade}` : "white"}
+            type="small"
+          />
+        </MapContainer>
+        <Text type="subTitle">{detail?.title}</Text>
+      </Styled.Desc>
     </Styled.Container>
   );
 };
