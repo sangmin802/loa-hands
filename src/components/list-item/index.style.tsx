@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 const containerType = {
   normal: css`
     .img-container {
-      width: 12%;
-      min-width: 40px;
+      width: 40px;
+      height: 40px;
       margin-right: 0.5rem;
       img {
         ${({ theme }) => theme.contentBox}
@@ -35,8 +35,7 @@ export const Container = styled.article<{ hover: boolean; type: string }>`
 
 const descType = {
   normal: css`
-    width: calc(88% - 0.5rem -0.1px);
-    min-width: calc(100% - 0.5rem - 40.1px);
+    width: calc(100% - 0.5rem - 40.1px);
   `,
   collection: `
     display: flex;
