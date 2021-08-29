@@ -8,7 +8,9 @@ export interface IText extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Text = ({ children, ...props }: PropsWithChildren<Partial<IText>>) => (
-  <Styled.Text {...props}>{children}</Styled.Text>
+  <Styled.Text className="text" {...props}>
+    {children}
+  </Styled.Text>
 );
 
 export default Text;
