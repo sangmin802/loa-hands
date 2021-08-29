@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement, useMemo } from "react";
 import {
   VisibleContainer,
   DoubleListContainer,
@@ -7,13 +7,16 @@ import {
   Quality,
   MapContainer,
   Characteristic,
+  Engrave,
 } from "components/";
 import Lodash from "lodash";
+import * as Styled from "./index.style";
 
 interface IUserData {
   abilityInfo: {
     characteristicInfo: { battle; basic; engrave };
     equipInfo: { equipment; avatar };
+    engrave;
   };
 }
 
@@ -31,8 +34,20 @@ const AbilityContainer = ({
   const {
     characteristicInfo,
     equipInfo: { equipment, avatar },
+    engrave,
   } = userData.abilityInfo;
-  const { battle, basic, engrave } = characteristicInfo;
+  const { battle, basic } = characteristicInfo;
+
+  const sortedEngrave = useMemo(
+    () =>
+      [...engrave.values()]
+        .filter(e => e.size >= 5)
+        .sort((a, b) => {
+          if (a.size > b.size) return -1;
+          return 0;
+        }),
+    [engrave]
+  );
 
   return (
     <VisibleContainer selected={subNav}>
@@ -48,9 +63,21 @@ const AbilityContainer = ({
           <DetailContent />
         </ListItem>
       </DoubleListContainer>
-      <MapContainer data={[basic, battle, engrave]}>
-        <Characteristic />
-      </MapContainer>
+      <>
+        <Styled.ContainerMargin>
+          <DoubleListContainer
+            data={sortedEngrave}
+            lt="증가 능력"
+            rt="감소 능력"
+            divideType="buff"
+          >
+            <Engrave />
+          </DoubleListContainer>
+        </Styled.ContainerMargin>
+        <MapContainer data={[basic, battle]}>
+          <Characteristic />
+        </MapContainer>
+      </>
     </VisibleContainer>
   );
 };

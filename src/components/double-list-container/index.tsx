@@ -9,7 +9,7 @@ interface IData {
 
 interface IDoubleListContainer<T> {
   data?: T[];
-  divideType: string;
+  divideType?: string;
   lt?: null | string;
   rt?: null | string;
   children: ReactElement;
@@ -17,15 +17,19 @@ interface IDoubleListContainer<T> {
 
 const DoubleListContainer = ({
   data,
-  divideType,
+  divideType = null,
   lt = null,
   rt = null,
   children,
 }: PropsWithChildren<IDoubleListContainer<IData>>) => {
   const [left, right] = useMemo(() => {
     return data.reduce(
-      (prev, cur) => {
-        if (cur.divideType.includes(divideType)) {
+      (prev, cur, i) => {
+        const condition = divideType
+          ? cur.divideType.includes(divideType)
+          : i % 2 === 0;
+
+        if (condition) {
           prev[0].push(cur);
         } else {
           prev[1].push(cur);
