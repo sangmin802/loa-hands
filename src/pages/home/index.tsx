@@ -5,7 +5,7 @@ import {
   CHAOS_GATE,
   OCEAN_ACT,
   PHANTOM_SHIP,
-} from "json/json";
+} from "json/timer";
 import { useCalendar } from "hooks/use-calendar";
 import { useEvent } from "hooks/use-event";
 import {
