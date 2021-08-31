@@ -49,7 +49,7 @@ const Home = () => {
     return () => {
       endInterval();
     };
-  }, [endInterval, startInterval, setMidnight, setSix]);
+  }, [endInterval, startInterval, setSix]);
 
   useCancelQuery(queryKey);
 

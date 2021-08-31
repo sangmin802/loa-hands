@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 
 export const useTimerType = (time, endTime, setTime) => {
   const [timerType, setState] = useState("NORMAL");
@@ -56,44 +56,36 @@ export const useTimerType = (time, endTime, setTime) => {
         return gap;
       }
     },
-    [setState, setTime]
+    [setTime]
   );
 
-  const timerVariables = useMemo(
-    () => ({
-      READY: {
-        borderColor: "#d333ff",
-        endTimeBg: false,
-        contentAlert: "컨텐츠 준비중",
-      },
-      START: {
-        borderColor: "#0adb18",
-        endTimeBg: false,
-        contentAlert: "컨텐츠 진행중",
-      },
-      CLOSE: {
-        borderColor: "#FF6666",
-        endTimeBg: false,
-        contentAlert: "컨텐츠 종료",
-      },
-      NORMAL: {
-        borderColor: "",
-        endTimeBg: false,
-        contentAlert: time[0],
-      },
-      END: {
-        borderColor: "",
-        endTimeBg: true,
-        contentAlert: endTime,
-      },
-    }),
-    [time, endTime]
-  );
+  const timerVariables = {
+    READY: {
+      borderColor: "#d333ff",
+      endTimeBg: false,
+      contentAlert: "컨텐츠 준비중",
+    },
+    START: {
+      borderColor: "#0adb18",
+      endTimeBg: false,
+      contentAlert: "컨텐츠 진행중",
+    },
+    CLOSE: {
+      borderColor: "#FF6666",
+      endTimeBg: false,
+      contentAlert: "컨텐츠 종료",
+    },
+    NORMAL: {
+      borderColor: "",
+      endTimeBg: false,
+      contentAlert: time[0],
+    },
+    END: {
+      borderColor: "",
+      endTimeBg: true,
+      contentAlert: endTime,
+    },
+  };
 
-  const timerVariable = useMemo(() => timerVariables[timerType], [
-    timerType,
-    timerVariables,
-  ]);
-
-  return { timerVariable, calcTimer };
+  return { timerVariable: timerVariables[timerType], calcTimer };
 };

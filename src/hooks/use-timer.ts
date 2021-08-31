@@ -18,12 +18,12 @@ export const useTimer = (time, calcTimer) => {
 
       setState(`${addZero(hour)}:${addZero(min)}:${addZero(sec)}`);
     },
-    [setState, calcTimer]
+    [calcTimer]
   );
 
-  const { startInterval, endInterval } = useMemo(() => {
-    return interval(1, setTimer);
-  }, [setTimer]);
+  const { startInterval, endInterval } = useMemo(() => interval(1, setTimer), [
+    setTimer,
+  ]);
 
   useEffect(() => {
     startInterval(time);

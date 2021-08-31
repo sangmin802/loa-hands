@@ -1,11 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 export function useNewTime() {
-  const [, setState] = useState(null);
-
-  const setTime = useCallback((time: string) => {
-    setState(time);
-  }, []);
+  const [, setTime] = useState(null);
 
   return { setTime };
 }
