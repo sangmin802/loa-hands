@@ -4,7 +4,7 @@ import React, {
   ReactElement,
   useCallback,
 } from "react";
-import { Image, Text, ConditionalContainer, MapContainer } from "components/";
+import { Image, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 import Lodash from "lodash";
 

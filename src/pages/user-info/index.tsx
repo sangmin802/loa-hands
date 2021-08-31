@@ -76,7 +76,7 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
   const handleResetState = useCallback(() => {
     nav.handleResetNavigation();
     setDialog(null);
-  }, [nav.handleResetNavigation, setDialog]);
+  }, [nav.handleResetNavigation]);
 
   const handleSearchUser = useCallback(
     name => {
@@ -94,12 +94,12 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
         setDialog={setDialog}
       />
     ),
-    [userData, handleSearchUser, setDialog]
+    [userData, handleSearchUser]
   );
 
   const setExpeditionDialog = useCallback(() => {
     setDialog(expeditionDialog);
-  }, [setDialog, expeditionDialog]);
+  }, [expeditionDialog]);
 
   useEffect(() => {
     return () => {
