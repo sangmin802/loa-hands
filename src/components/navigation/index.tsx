@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import Lodash from "lodash";
 import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -56,6 +55,4 @@ export const Item = ({
   );
 };
 
-export default React.memo(Navigation, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(Navigation);

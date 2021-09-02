@@ -1,6 +1,5 @@
 import React, { PropsWithChildren, ReactElement, useMemo } from "react";
 import {
-  VisibleContainer,
   DoubleListContainer,
   ListItem,
   DetailContent,
@@ -9,7 +8,6 @@ import {
   Characteristic,
   Engrave,
 } from "components/";
-import Lodash from "lodash";
 import * as Styled from "./index.style";
 
 interface IUserData {
@@ -49,20 +47,20 @@ const AbilityContainer = ({
     [engrave]
   );
 
-  return (
-    <VisibleContainer selected={subNav}>
+  const memoized = useMemo(() => {
+    return [
       <DoubleListContainer data={Object.values(equipment)} divideType="equip">
         <ListItem setDialog={setDialog}>
           <DetailContent>
             <Quality />
           </DetailContent>
         </ListItem>
-      </DoubleListContainer>
+      </DoubleListContainer>,
       <DoubleListContainer data={Object.values(avatar)} divideType="inner">
         <ListItem setDialog={setDialog}>
           <DetailContent />
         </ListItem>
-      </DoubleListContainer>
+      </DoubleListContainer>,
       <>
         <Styled.ContainerMargin>
           <DoubleListContainer
@@ -77,11 +75,11 @@ const AbilityContainer = ({
         <MapContainer data={[basic, battle]}>
           <Characteristic />
         </MapContainer>
-      </>
-    </VisibleContainer>
-  );
+      </>,
+    ];
+  }, [userData]);
+
+  return <>{memoized[subNav]}</>;
 };
 
-export default React.memo(AbilityContainer, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(AbilityContainer);

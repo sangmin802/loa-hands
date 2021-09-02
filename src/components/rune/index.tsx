@@ -42,4 +42,4 @@ const Rune = ({ data }: PropsWithChildren<IRune>) => {
   );
 };
 
-export default React.memo(Rune, (left, right) => Lodash.isEqual(left, right));
+export default React.memo(Rune);

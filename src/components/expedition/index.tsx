@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, ReactElement, useCallback } from "react";
-import Lodash from "lodash";
 import Server from "./server/index";
 import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
@@ -47,6 +46,4 @@ const UserExpedition = ({
   );
 };
 
-export default React.memo(UserExpedition, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(UserExpedition);

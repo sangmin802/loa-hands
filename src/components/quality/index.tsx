@@ -35,6 +35,4 @@ const Quality = ({ data }: PropsWithChildren<IQuality<IData>>) => {
   );
 };
 
-export default React.memo(Quality, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(Quality);

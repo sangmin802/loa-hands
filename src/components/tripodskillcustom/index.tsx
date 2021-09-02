@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { DangerousHTML, Image } from "../";
 import * as Styled from "./index.style";
 
@@ -34,6 +33,4 @@ const TripodSkillCustom = ({
   );
 };
 
-export default React.memo(TripodSkillCustom, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(TripodSkillCustom);

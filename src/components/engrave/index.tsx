@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { Image, Text, DangerousHTML } from "components/";
 import * as Styled from "./index.style";
 
@@ -19,6 +18,4 @@ const Engrave = ({ data }: PropsWithChildren<EngraveProps>) => {
   );
 };
 
-export default React.memo(Engrave, (left, right) => {
-  return Lodash.isEqual(left.data, right.data);
-});
+export default React.memo(Engrave);

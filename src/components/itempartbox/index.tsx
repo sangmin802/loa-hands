@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { DangerousHTML } from "../";
 import * as Styled from "./index.style";
 
@@ -21,6 +20,4 @@ const ItemPartBox = ({ data }: PropsWithChildren<IItemPartBox<IData>>) => {
   );
 };
 
-export default React.memo(ItemPartBox, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(ItemPartBox);

@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useMemo } from "react";
 import { useNewTime } from "hooks/use-newtime";
-import { Text, Timer, ConditionalContainer, MapContainer } from "components/";
+import { Text, Timer, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface ITimerContainer {
@@ -70,18 +70,18 @@ const TimerContainer = ({
   const dataLength = replacedData.length;
   return (
     <>
-      <ConditionalContainer isRender={dataLength === 0}>
+      {dataLength === 0 && (
         <Styled.Alert>
           <Text>다음에 만나요</Text>
         </Styled.Alert>
-      </ConditionalContainer>
-      <ConditionalContainer isRender={dataLength !== 0}>
+      )}
+      {dataLength !== 0 && (
         <Styled.Container role="timer-container">
           <MapContainer data={replacedData}>
             <Timer setTime={setTime} />
           </MapContainer>
         </Styled.Container>
-      </ConditionalContainer>
+      )}
     </>
   );
 };

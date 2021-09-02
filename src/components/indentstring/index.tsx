@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { DangerousHTML, MapContainer } from "../";
 import * as Styled from "./index.style";
 
@@ -23,6 +22,4 @@ const IntentString = ({ data }: PropsWithChildren<IIndengString<IData>>) => {
   );
 };
 
-export default React.memo(IntentString, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(IntentString);

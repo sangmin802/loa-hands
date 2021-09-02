@@ -4,7 +4,6 @@ import React, {
   ReactElement,
   useMemo,
 } from "react";
-import Lodash from "lodash";
 import {
   ItemPartBox,
   IndentString,
@@ -92,6 +91,4 @@ const DetailContent = ({
   );
 };
 
-export default React.memo(DetailContent, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(DetailContent);

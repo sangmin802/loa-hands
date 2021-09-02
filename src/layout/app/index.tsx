@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default React.memo(App, () => true);
+export default App;

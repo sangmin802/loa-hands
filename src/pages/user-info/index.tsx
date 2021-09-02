@@ -9,12 +9,10 @@ import {
   BasicInfo,
   Expedition,
   Navigation,
-  VisibleContainer,
   Dialog,
   Button,
   Text,
   MapContainer,
-  ConditionalContainer,
   AbilityContainer,
   SkillContainer,
   AsyncBoundary,
@@ -35,6 +33,11 @@ interface IFetchUserCollection {
   member: string[];
   queryKey: string[];
   subNav: number;
+}
+
+interface IFetchUserInfo {
+  userKey: string[];
+  userCollectionKey: string[];
 }
 
 interface IUserInfo {
@@ -67,7 +70,10 @@ const UserInfo = ({
   );
 };
 
-const FetchUserInfo = ({ userKey, userCollectionKey }) => {
+const FetchUserInfo = React.memo(function ({
+  userKey,
+  userCollectionKey,
+}: PropsWithChildren<IFetchUserInfo>) {
   const history = useHistory();
   const { status, data: userData } = useUser(userKey);
   const nav = useNavigation();
@@ -101,6 +107,33 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
     setDialog(expeditionDialog);
   }, [expeditionDialog]);
 
+  const memoized = useMemo(() => {
+    if (!userData) return [, , ,];
+    return [
+      <AbilityContainer
+        userData={userData}
+        subNav={nav.subNav}
+        setDialog={setDialog}
+      />,
+      <SkillContainer
+        userData={userData}
+        subNav={nav.subNav}
+        setDialog={setDialog}
+      />,
+      <AsyncBoundary
+        suspenseFallback={<LoadingSpinner />}
+        errorFallback={<ErrorFallback />}
+        keys={userCollectionKey}
+      >
+        <FetchUserCollection
+          queryKey={userCollectionKey}
+          member={userData.memberArr}
+          subNav={nav.subNav}
+        />
+      </AsyncBoundary>,
+    ];
+  }, [userData, nav.subNav, userCollectionKey]);
+
   useEffect(() => {
     return () => {
       handleResetState();
@@ -111,9 +144,7 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
 
   return (
     <Styled.UserInfo data-testid={userData.expeditionInfo.name}>
-      <ConditionalContainer isRender={dialog !== null}>
-        <Dialog dialog={dialog} setDialog={setDialog} />
-      </ConditionalContainer>
+      {dialog && <Dialog dialog={dialog} setDialog={setDialog} />}
       <Styled.Top>
         <Styled.ButtonContainer>
           <Button onClick={setExpeditionDialog} data-testid="expedition-button">
@@ -140,53 +171,27 @@ const FetchUserInfo = ({ userKey, userCollectionKey }) => {
           </MapContainer>
         </Styled.Navigation>
         <Styled.Container data-testid="content">
-          <VisibleContainer type="main" selected={nav.mainNav}>
-            <AbilityContainer
-              userData={userData}
-              subNav={nav.subNav}
-              setDialog={setDialog}
-            />
-            <SkillContainer
-              userData={userData}
-              subNav={nav.subNav}
-              setDialog={setDialog}
-            />
-            <AsyncBoundary
-              suspenseFallback={<LoadingSpinner />}
-              errorFallback={<ErrorFallback />}
-              keys={userCollectionKey}
-            >
-              <FetchUserCollection
-                queryKey={userCollectionKey}
-                member={userData.memberArr}
-                subNav={nav.subNav}
-              />
-            </AsyncBoundary>
-          </VisibleContainer>
+          {memoized[nav.mainNav]}
         </Styled.Container>
       </Styled.Bottom>
     </Styled.UserInfo>
   );
-};
+});
 
-const FetchUserCollection = ({
+const FetchUserCollection = React.memo(function ({
   queryKey,
   subNav,
   member,
-}: PropsWithChildren<IFetchUserCollection>) => {
+}: PropsWithChildren<IFetchUserCollection>) {
   const userCollection = useUserCollection(queryKey, member);
 
-  return (
-    <VisibleContainer selected={subNav}>
-      {userCollection.collectionDetail.map((data, i) => (
-        <Collection
-          data={data}
-          mini={userCollection.collectionMini[i]}
-          key={i}
-        />
-      ))}
-    </VisibleContainer>
-  );
-};
+  const memoized = useMemo(() => {
+    return userCollection.collectionDetail.map((data, i) => (
+      <Collection data={data} mini={userCollection.collectionMini[i]} key={i} />
+    ));
+  }, [userCollection]);
+
+  return <>{memoized[subNav]}</>;
+});
 
 export default UserInfo;

@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { Image, Text } from "../";
 import * as Styled from "./index.styles";
 
@@ -126,6 +125,4 @@ const BasicInfo = <T extends IUserData>({
   );
 };
 
-export default React.memo(BasicInfo, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(BasicInfo);

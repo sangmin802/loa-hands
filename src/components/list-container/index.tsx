@@ -1,7 +1,6 @@
 import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
 import { Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
-import Lodash from "lodash";
 
 interface IListContainer {
   title: string;
@@ -26,6 +25,4 @@ const ListContainer = ({
   );
 };
 
-export default React.memo(ListContainer, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(ListContainer);

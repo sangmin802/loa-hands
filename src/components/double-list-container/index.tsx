@@ -1,6 +1,5 @@
 import React, { PropsWithChildren, ReactElement, useMemo } from "react";
 import { ListContainer } from "../";
-import Lodash from "lodash";
 import * as Styled from "./index.style";
 
 interface IData {
@@ -56,6 +55,4 @@ const DoubleListContainer = ({
   );
 };
 
-export default React.memo(DoubleListContainer, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(DoubleListContainer);

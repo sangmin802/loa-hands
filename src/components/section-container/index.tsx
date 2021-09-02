@@ -22,6 +22,4 @@ const SectionContainer = ({
   );
 };
 
-export default React.memo(SectionContainer, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(SectionContainer);

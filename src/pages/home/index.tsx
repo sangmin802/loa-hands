@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,
@@ -20,6 +26,15 @@ import {
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
 import { useCancelQuery } from "hooks/use-cancel-query";
+
+interface IFetchCalendar {
+  queryKey: string | (string | number)[];
+  isMidnight: Date;
+}
+
+interface IFetchEvent {
+  queryKey: string | (string | number)[];
+}
 
 const Home = () => {
   const [isMidnight, setMidnight] = useState(new Date());
@@ -116,7 +131,10 @@ const Home = () => {
   );
 };
 
-const FetchCalendar = ({ queryKey, isMidnight }) => {
+const FetchCalendar = React.memo(function ({
+  queryKey,
+  isMidnight,
+}: PropsWithChildren<IFetchCalendar>) {
   const yoil = isMidnight.getDay();
   const calendarData = useCalendar(queryKey);
   const isWeek = 6 > yoil && yoil > 0;
@@ -137,9 +155,11 @@ const FetchCalendar = ({ queryKey, isMidnight }) => {
       </SectionContainer>
     </Styled.Section>
   );
-};
+});
 
-const FetchEvent = ({ queryKey }) => {
+const FetchEvent = React.memo(function ({
+  queryKey,
+}: PropsWithChildren<IFetchEvent>) {
   const eventData = useEvent(queryKey);
 
   return (
@@ -149,6 +169,6 @@ const FetchEvent = ({ queryKey }) => {
       </MapContainer>
     </Styled.Content>
   );
-};
+});
 
-export default React.memo(Home, () => true);
+export default Home;

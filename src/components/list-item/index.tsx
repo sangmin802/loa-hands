@@ -6,7 +6,6 @@ import React, {
 } from "react";
 import { Image, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
-import Lodash from "lodash";
 
 interface IDetail {
   src?: string;
@@ -62,6 +61,4 @@ const ListItem = ({
   );
 };
 
-export default React.memo(ListItem, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(ListItem);

@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { DoubleListContainer } from "components/";
 import ListItem from "components/list-item";
-import Lodash from "lodash";
 
 interface ICollection {
   data;
@@ -22,6 +21,4 @@ const Collection = ({ data, mini }: PropsWithChildren<ICollection>) => {
   );
 };
 
-export default React.memo(Collection, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(Collection);

@@ -30,6 +30,4 @@ const AsyncBoundary = ({
   );
 };
 
-export default React.memo(AsyncBoundary, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default AsyncBoundary;

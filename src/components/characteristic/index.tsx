@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Lodash from "lodash";
 import { DangerousHTML, Text, MapContainer } from "../";
 import * as Styled from "./index.style";
 
@@ -49,6 +48,4 @@ const Item = <T extends IContent>({ data }: PropsWithChildren<IItem<T>>) => {
   );
 };
 
-export default React.memo(Chararteristic, (left, right) =>
-  Lodash.isEqual(left, right)
-);
+export default React.memo(Chararteristic);
