@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Image, Text } from "../";
 import * as Styled from "./index.style";
-import Lodash from "lodash";
 
 interface IRune {
   data?: {
