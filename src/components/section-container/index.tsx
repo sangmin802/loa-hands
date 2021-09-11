@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, ReactElement } from "react";
-import Lodash from "lodash";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 

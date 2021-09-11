@@ -6,7 +6,6 @@ import React, {
 } from "react";
 import { useQueryErrorResetBoundary } from "react-query";
 import { ErrorBoundary } from "components/";
-import Lodash from "lodash";
 
 interface IAsyncBoundary {
   suspenseFallback: ReactNode;

@@ -77,7 +77,7 @@ const AbilityContainer = ({
         </MapContainer>
       </>,
     ];
-  }, [userData]);
+  }, [equipment, avatar, basic, battle, setDialog, sortedEngrave]);
 
   return <>{memoized[subNav]}</>;
 };
