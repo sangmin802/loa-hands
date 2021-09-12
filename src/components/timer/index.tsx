@@ -35,6 +35,7 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
     { borderColor, endTimeBg, contentAlert },
     calcConditionalRestTime,
     calcCloseTime,
+    setTimerType,
   ] = useConditionalTimer(time, endTime, setTime);
 
   const timer = useCallback(
@@ -48,7 +49,7 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
         now,
         restTime
       );
-      conditionalRestTime
+      conditionalRestTime !== null
         ? calcRestTimeProps(conditionalRestTime)
         : calcRestTimeProps(null);
     },
@@ -60,11 +61,16 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
   ]);
 
   useEffect(() => {
-    startInterval(time);
+    if (time.length) startInterval(time);
+    if (!time.length) {
+      setTimerType("END");
+      setTime("종료");
+    }
+
     return () => {
       endInterval();
     };
-  }, [time, startInterval, endInterval]);
+  }, [time, startInterval, endInterval, setTimerType]);
 
   return (
     <Styled.Container
