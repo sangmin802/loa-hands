@@ -7,13 +7,6 @@ export function useConditionalTimer(time, endTime, setTime) {
     (closeTime, now, time) => {
       const additionalTime = 1000 * 60 * 60 * 24;
 
-      // 해당 컨텐츠 종료
-      if (!time) {
-        setTimerType("END");
-        setTime("종료");
-        return null;
-      }
-
       // 자정 이후
       if (time < -10000) {
         time =
@@ -42,7 +35,7 @@ export function useConditionalTimer(time, endTime, setTime) {
       if (time < 0) {
         setTimerType("CLOSE");
         setTime(time);
-        return time;
+        return null;
       }
     },
     [setTime]
@@ -88,5 +81,10 @@ export function useConditionalTimer(time, endTime, setTime) {
     return new Date(year, month, date, hour, min * 1 + 3).getTime();
   }, []);
 
-  return [timerTypes[timerType], calcConditionalRestTime, calcCloseTime];
+  return [
+    timerTypes[timerType],
+    calcConditionalRestTime,
+    calcCloseTime,
+    setTimerType,
+  ];
 }

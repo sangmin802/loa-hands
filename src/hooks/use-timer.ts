@@ -15,7 +15,7 @@ export function useTimer() {
     const min = Math.floor((time % _hour) / _min);
     const sec = Math.floor((time % _min) / _sec);
 
-    time
+    time !== null
       ? setRestTimeProps({
           hour: addZero(hour),
           min: addZero(min),
