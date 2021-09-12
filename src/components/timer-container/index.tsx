@@ -1,5 +1,4 @@
-import React, { PropsWithChildren, useMemo } from "react";
-import { useNewTime } from "hooks/use-newtime";
+import React, { PropsWithChildren, useMemo, useState } from "react";
 import { Text, Timer, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -12,7 +11,7 @@ const TimerContainer = ({
   data,
   rerenderKey,
 }: PropsWithChildren<ITimerContainer>) => {
-  const { setTime } = useNewTime();
+  const [, setTime] = useState(null);
   const date = new Date();
   const isMustUseBefore =
     rerenderKey && date.getDate() !== rerenderKey.getDate() ? true : false;
