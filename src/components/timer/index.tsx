@@ -53,7 +53,7 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
         ? calcRestTimeProps(conditionalRestTime)
         : calcRestTimeProps(null);
     },
-    [time, setTime]
+    [setTime]
   );
 
   const { startInterval, endInterval } = useMemo(() => interval(1, timer), [
