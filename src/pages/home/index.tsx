@@ -22,10 +22,13 @@ import {
   AsyncBoundary,
   ErrorFallback,
   MapContainer,
+  Button,
+  Text,
 } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
 import { useCancelQuery } from "hooks/use-cancel-query";
+import { NotificationHandler } from "utils/events/notification";
 
 interface IFetchCalendar {
   queryKey: string | (string | number)[];
@@ -59,6 +62,34 @@ const Home = () => {
     [updateTime]
   );
 
+  const createNotification = useCallback((works, Notification, permission) => {
+    if (!permission) return;
+
+    const [start, ready] = works.reduce(
+      (prev, cur) => {
+        cur.type === "START" ? prev[0].push(cur) : prev[1].push(cur);
+        return prev;
+      },
+      [[], []]
+    );
+
+    const startBody = start.length
+      ? `\n시작 컨텐츠\n[${start[0].name}] 등 ${start.length}개`
+      : "";
+    const readyBody = ready.length
+      ? `\n준비 컨텐츠\n[${ready[0].name}] 등 ${ready.length}개`
+      : "";
+
+    new Notification(`${works[0].time[0]} 알림`, {
+      body: startBody + readyBody,
+    });
+  }, []);
+
+  const notification = useMemo(
+    () => new NotificationHandler(createNotification),
+    [createNotification]
+  );
+
   useEffect(() => {
     startInterval([setMidnight, setSix]);
     return () => {
@@ -80,6 +111,9 @@ const Home = () => {
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
+      <Button onClick={notification.requestPermission}>
+        <Text>알림 활성화</Text>
+      </Button>
       <Styled.Section>
         <SectionContainer title="오늘의 캘린더섬">
           <AsyncBoundary
@@ -92,7 +126,10 @@ const Home = () => {
       </Styled.Section>
       <Styled.Section>
         <SectionContainer title="오늘의 모험섬">
-          <TimerContainer data={DAILY_ISLAND} />
+          <TimerContainer
+            data={DAILY_ISLAND}
+            notification={notification.activeNotification}
+          />
         </SectionContainer>
       </Styled.Section>
       <Styled.Section>
@@ -100,6 +137,7 @@ const Home = () => {
           <TimerContainer
             data={FIELD_BOSS[isSix.getDay()]}
             rerenderKey={isSix}
+            notification={notification.activeNotification}
           />
         </SectionContainer>
       </Styled.Section>
@@ -108,6 +146,7 @@ const Home = () => {
           <TimerContainer
             data={CHAOS_GATE[isSix.getDay()]}
             rerenderKey={isSix}
+            notification={notification.activeNotification}
           />
         </SectionContainer>
       </Styled.Section>
@@ -116,6 +155,7 @@ const Home = () => {
           <TimerContainer
             data={PHANTOM_SHIP[isSix.getDay()]}
             rerenderKey={isSix}
+            notification={notification.activeNotification}
           />
         </SectionContainer>
       </Styled.Section>
@@ -124,6 +164,7 @@ const Home = () => {
           <TimerContainer
             data={OCEAN_ACT[isSix.getDay()]}
             rerenderKey={isSix}
+            notification={notification.activeNotification}
           />
         </SectionContainer>
       </Styled.Section>

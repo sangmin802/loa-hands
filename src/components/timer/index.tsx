@@ -23,9 +23,14 @@ interface IData {
 interface ITimer<T> {
   setTime: (T: string) => void;
   data?: T;
+  notification?;
 }
 
-const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
+const Timer = ({
+  setTime,
+  data,
+  notification,
+}: PropsWithChildren<ITimer<IData>>) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
   const pos =
     typeof position !== "string" ? position[0] || endPosition : position;
@@ -36,6 +41,7 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
     calcConditionalRestTime,
     calcCloseTime,
     setTimerType,
+    timerType,
   ] = useConditionalTimer(time, endTime, setTime);
 
   const timer = useCallback(
@@ -71,6 +77,11 @@ const Timer = ({ setTime, data }: PropsWithChildren<ITimer<IData>>) => {
       endInterval();
     };
   }, [time, startInterval, endInterval, setTimerType]);
+
+  useEffect(() => {
+    if (timerType === "READY") notification?.({ name, time, type: "READY" });
+    if (timerType === "START") notification?.({ name, time, type: "START" });
+  }, [name, time, notification, timerType]);
 
   return (
     <Styled.Container

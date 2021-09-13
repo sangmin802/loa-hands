@@ -1,17 +1,25 @@
-import React, { PropsWithChildren, useMemo, useState } from "react";
+import React, {
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import { Text, Timer, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface ITimerContainer {
   data: any[];
   rerenderKey?: null | Date;
+  notification?;
 }
 
 const TimerContainer = ({
   data,
   rerenderKey,
+  notification,
 }: PropsWithChildren<ITimerContainer>) => {
   const [, setTime] = useState(null);
+
   const date = new Date();
   const isMustUseBefore =
     rerenderKey && date.getDate() !== rerenderKey.getDate() ? true : false;
@@ -77,7 +85,7 @@ const TimerContainer = ({
       {dataLength !== 0 && (
         <Styled.Container role="timer-container">
           <MapContainer data={replacedData}>
-            <Timer setTime={setTime} />
+            <Timer setTime={setTime} notification={notification} />
           </MapContainer>
         </Styled.Container>
       )}
