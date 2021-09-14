@@ -86,5 +86,6 @@ export function useConditionalTimer(time, endTime, setTime) {
     calcConditionalRestTime,
     calcCloseTime,
     setTimerType,
+    timerType,
   ];
 }
