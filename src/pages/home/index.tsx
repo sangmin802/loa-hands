@@ -62,9 +62,7 @@ const Home = () => {
     [updateTime]
   );
 
-  const createNotification = useCallback((works, permission) => {
-    if (!permission) return;
-
+  const createNotification = useCallback(works => {
     const [start, ready] = works.reduce(
       (prev, cur) => {
         cur.type === "START" ? prev[0].push(cur) : prev[1].push(cur);
