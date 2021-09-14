@@ -4,6 +4,7 @@ export function NotificationHandler(createNotification) {
 
   this.requestPermission = async () => {
     const permission = await Notification.requestPermission(res => res);
+    this.notification = null;
 
     if (permission === "granted")
       return new Notification("알림이 허용되었습니다.");
@@ -26,11 +27,12 @@ export function NotificationHandler(createNotification) {
     this.removeTimeout();
     notificationWorks.push(data);
     timeout = setTimeout(() => {
-      createNotification(
+      this.notification?.close.bind(this.notification);
+      const { title, option } = createNotification(
         notificationWorks,
-        Notification,
         this.checkPermission()
       );
+      this.notification = new Notification(title, option);
       notificationWorks = [];
     }, 300);
   };

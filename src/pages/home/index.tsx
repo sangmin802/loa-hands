@@ -62,7 +62,7 @@ const Home = () => {
     [updateTime]
   );
 
-  const createNotification = useCallback((works, Notification, permission) => {
+  const createNotification = useCallback((works, permission) => {
     if (!permission) return;
 
     const [start, ready] = works.reduce(
@@ -80,9 +80,12 @@ const Home = () => {
       ? `\n준비 컨텐츠\n[${ready[0].name}] 등 ${ready.length}개`
       : "";
 
-    new Notification(`${works[0].time[0]} 알림`, {
-      body: startBody + readyBody,
-    });
+    return {
+      title: `Loa-Hands 알림`,
+      option: {
+        body: startBody + readyBody,
+      },
+    };
   }, []);
 
   const notification = useMemo(
@@ -111,9 +114,11 @@ const Home = () => {
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
-      <Button onClick={notification.requestPermission}>
-        <Text>알림 활성화</Text>
-      </Button>
+      <Styled.Notification>
+        <Button onClick={notification.requestPermission}>
+          <Text>알림 활성화</Text>
+        </Button>
+      </Styled.Notification>
       <Styled.Section>
         <SectionContainer title="오늘의 캘린더섬">
           <AsyncBoundary

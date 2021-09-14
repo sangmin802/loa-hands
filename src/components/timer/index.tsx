@@ -79,9 +79,9 @@ const Timer = ({
   }, [time, startInterval, endInterval, setTimerType]);
 
   useEffect(() => {
-    if (timerType === "READY") notification?.({ name, time, type: "READY" });
-    if (timerType === "START") notification?.({ name, time, type: "START" });
-  }, [name, time, notification, timerType]);
+    if (timerType === "READY") notification({ name, type: "READY" });
+    if (timerType === "START") notification({ name, type: "START" });
+  }, [name, notification, timerType]);
 
   return (
     <Styled.Container
