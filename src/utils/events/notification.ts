@@ -1,17 +1,13 @@
 export function NotificationHandler(createNotification) {
   let notificationWorks = [];
   let timeout = null;
+  this.notification = null;
 
   this.requestPermission = async () => {
     const permission = await Notification.requestPermission(res => res);
-    this.notification = null;
 
     if (permission === "granted")
       return new Notification("알림이 허용되었습니다.");
-    if (permission === "default")
-      return alert("사용자의 기본 옵션으로 유지됩니다.");
-    if (permission === "denied")
-      return alert("현재 웹사이트의 모든 알림이 차단되었습니다.");
   };
 
   this.checkPermission = () => {
@@ -24,14 +20,12 @@ export function NotificationHandler(createNotification) {
   this.removeTimeout = () => clearTimeout(timeout);
 
   this.activeNotification = data => {
+    if (!this.checkPermission()) return;
     this.removeTimeout();
     notificationWorks.push(data);
     timeout = setTimeout(() => {
       this.notification?.close.bind(this.notification);
-      const { title, option } = createNotification(
-        notificationWorks,
-        this.checkPermission()
-      );
+      const { title, option } = createNotification(notificationWorks);
       this.notification = new Notification(title, option);
       notificationWorks = [];
     }, 300);
