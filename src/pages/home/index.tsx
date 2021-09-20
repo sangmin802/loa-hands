@@ -1,10 +1,4 @@
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,
@@ -178,7 +172,7 @@ const Home = () => {
 const FetchCalendar = React.memo(function ({
   queryKey,
   isMidnight,
-}: PropsWithChildren<IFetchCalendar>) {
+}: IFetchCalendar) {
   const yoil = isMidnight.getDay();
   const calendarData = useCalendar(queryKey);
   const isWeek = 6 > yoil && yoil > 0;
@@ -201,9 +195,7 @@ const FetchCalendar = React.memo(function ({
   );
 });
 
-const FetchEvent = React.memo(function ({
-  queryKey,
-}: PropsWithChildren<IFetchEvent>) {
+const FetchEvent = React.memo(function ({ queryKey }: IFetchEvent) {
   const eventData = useEvent(queryKey);
 
   return (

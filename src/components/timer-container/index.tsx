@@ -1,9 +1,4 @@
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import React, { useMemo, useState } from "react";
 import { Text, Timer, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -17,7 +12,7 @@ const TimerContainer = ({
   data,
   rerenderKey,
   notification,
-}: PropsWithChildren<ITimerContainer>) => {
+}: ITimerContainer) => {
   const [, setTime] = useState(null);
 
   const date = new Date();

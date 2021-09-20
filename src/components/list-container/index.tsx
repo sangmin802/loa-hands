@@ -1,4 +1,4 @@
-import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -8,18 +8,14 @@ interface IListContainer {
   children: ReactElement;
 }
 
-const ListContainer = ({
-  title,
-  arr,
-  children,
-}: PropsWithChildren<IListContainer>) => {
+const ListContainer = ({ title, arr, children }: IListContainer) => {
   return (
     <>
       <Styled.Title>
         <Text>{title}</Text>
       </Styled.Title>
       <Styled.Content>
-        <MapContainer data={arr}>{cloneElement(children)}</MapContainer>
+        <MapContainer data={arr}>{children}</MapContainer>
       </Styled.Content>
     </>
   );

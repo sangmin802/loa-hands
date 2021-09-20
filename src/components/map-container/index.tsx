@@ -1,4 +1,4 @@
-import React, { cloneElement, PropsWithChildren, ReactElement } from "react";
+import React, { cloneElement, ReactElement } from "react";
 
 interface IMapContainer {
   data: any[];
@@ -10,7 +10,7 @@ const MapContainer = ({
   data = [],
   dataKey = "data",
   children,
-}: PropsWithChildren<IMapContainer>) => (
+}: IMapContainer) => (
   <>
     {data.map((data, i) =>
       cloneElement(children, { [dataKey]: data, key: i, i })

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Image, Text } from "../";
 import * as Styled from "./index.styles";
 
@@ -11,9 +11,7 @@ interface IBasicInfo<T> {
   userData: T;
 }
 
-const BasicInfo = <T extends IUserData>({
-  userData,
-}: PropsWithChildren<IBasicInfo<T>>) => {
+const BasicInfo = <T extends IUserData>({ userData }: IBasicInfo<T>) => {
   const { basicInfo, expeditionInfo } = userData;
   const {
     className,

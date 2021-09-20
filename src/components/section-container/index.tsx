@@ -1,9 +1,8 @@
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren } from "react";
 import * as Styled from "./index.style";
 import { Text } from "components/";
 
 interface ISectionContainer {
-  children: ReactElement;
   title: string;
 }
 

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useMemo } from "react";
+import React, { ReactElement, useMemo } from "react";
 import {
   DoubleListContainer,
   ListItem,
@@ -6,24 +6,18 @@ import {
   Rune,
 } from "components/";
 
-interface IUserData {
-  skillInfo: {
-    battleSkill;
-    lifeSkill;
+interface ISkillContainer {
+  userData: {
+    skillInfo: {
+      battleSkill;
+      lifeSkill;
+    };
   };
-}
-
-interface ISkillContainer<T> {
-  userData: T;
   subNav: number;
   setDialog(T: ReactElement): void;
 }
 
-const SkillContainer = ({
-  userData,
-  subNav,
-  setDialog,
-}: PropsWithChildren<ISkillContainer<IUserData>>) => {
+const SkillContainer = ({ userData, subNav, setDialog }: ISkillContainer) => {
   const { battleSkill = null, lifeSkill } = userData.skillInfo;
 
   const memoized = useMemo(() => {

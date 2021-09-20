@@ -24,20 +24,17 @@ interface IDetail {
   tripodSkillCustom?: [];
 }
 
-interface IData<T> {
+interface IData {
   backSrc: string;
-  detail: T;
+  detail: IDetail;
 }
 
-interface IDetailContent<T> {
-  data: T;
+interface IDetailContent {
+  data: IData;
   children: ReactElement;
 }
 
-const DetailContent = ({
-  data,
-  children,
-}: PropsWithChildren<Partial<IDetailContent<IData<IDetail>>>>) => {
+const DetailContent = ({ data, children }: Partial<IDetailContent>) => {
   const { backSrc, detail } = data;
   const {
     src,

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useMemo } from "react";
+import React, { ReactElement, useMemo } from "react";
 import {
   DoubleListContainer,
   ListItem,
@@ -28,7 +28,7 @@ const AbilityContainer = ({
   userData,
   subNav,
   setDialog,
-}: PropsWithChildren<IAbilityContainer<IUserData>>) => {
+}: IAbilityContainer<IUserData>) => {
   const {
     characteristicInfo,
     equipInfo: { equipment, avatar, badge, gem },

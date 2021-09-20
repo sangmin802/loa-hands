@@ -1,10 +1,4 @@
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BasicInfo,
   Expedition,
@@ -52,7 +46,7 @@ const UserInfo = ({
   match: {
     params: { name },
   },
-}: PropsWithChildren<IUserInfo>) => {
+}: IUserInfo) => {
   const [userKey, userCollectionKey] = useMemo(
     () => [
       ["userInfo", name],
@@ -73,7 +67,7 @@ const UserInfo = ({
 const FetchUserInfo = React.memo(function ({
   userKey,
   userCollectionKey,
-}: PropsWithChildren<IFetchUserInfo>) {
+}: IFetchUserInfo) {
   const history = useHistory();
   const { status, data: userData } = useUser(userKey);
   const nav = useNavigation();
@@ -182,7 +176,7 @@ const FetchUserCollection = React.memo(function ({
   queryKey,
   subNav,
   member,
-}: PropsWithChildren<IFetchUserCollection>) {
+}: IFetchUserCollection) {
   const userCollection = useUserCollection(queryKey, member);
 
   const memoized = useMemo(() => {

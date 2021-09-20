@@ -10,7 +10,6 @@ import { ErrorBoundary } from "components/";
 interface IAsyncBoundary {
   suspenseFallback: ReactNode;
   errorFallback: ReactElement;
-  children: ReactElement;
   keys?: any;
 }
 

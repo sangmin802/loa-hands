@@ -1,9 +1,4 @@
-import React, {
-  PropsWithChildren,
-  ReactElement,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { ReactElement, useCallback, useEffect } from "react";
 import * as Styled from "./index.style";
 
 interface IDialog {
@@ -11,7 +6,7 @@ interface IDialog {
   setDialog: (T: null) => void;
 }
 
-const Dialog = ({ dialog, setDialog }: PropsWithChildren<IDialog>) => {
+const Dialog = ({ dialog, setDialog }: IDialog) => {
   const handleCloseDialog = useCallback(() => {
     setDialog(null);
   }, [setDialog]);
