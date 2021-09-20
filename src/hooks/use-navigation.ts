@@ -5,7 +5,7 @@ export function useNavigation() {
   const [mainNav, setMainNav] = useState(0);
 
   const subNavs = [
-    ["착용 아이템", "착용 아바타", "각인·특성", "보석"],
+    ["착용 아이템", "착용 아바타", "각인·특성"],
     ["전투스킬", "생활스킬"],
     ["", "", "", "", "", "", "", ""],
   ];

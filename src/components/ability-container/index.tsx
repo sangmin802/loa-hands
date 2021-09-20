@@ -13,7 +13,7 @@ import * as Styled from "./index.style";
 interface IUserData {
   abilityInfo: {
     characteristicInfo: { battle; basic; engrave };
-    equipInfo: { equipment; avatar; badge; gem };
+    equipInfo: { equipment; avatar };
     engrave;
   };
 }
@@ -31,10 +31,11 @@ const AbilityContainer = ({
 }: PropsWithChildren<IAbilityContainer<IUserData>>) => {
   const {
     characteristicInfo,
-    equipInfo: { equipment, avatar, badge, gem },
+    equipInfo: { equipment, avatar },
     engrave,
   } = userData.abilityInfo;
   const { battle, basic } = characteristicInfo;
+
   const sortedEngrave = useMemo(
     () =>
       [...engrave.values()]
@@ -45,6 +46,7 @@ const AbilityContainer = ({
         }),
     [engrave]
   );
+
   const memoized = useMemo(() => {
     return [
       <DoubleListContainer data={Object.values(equipment)} divideType="equip">
@@ -74,11 +76,6 @@ const AbilityContainer = ({
           <Characteristic />
         </MapContainer>
       </>,
-      <DoubleListContainer data={Object.values(gem)}>
-        <ListItem setDialog={setDialog}>
-          <DetailContent />
-        </ListItem>
-      </DoubleListContainer>,
     ];
   }, [equipment, avatar, basic, battle, setDialog, sortedEngrave]);
 

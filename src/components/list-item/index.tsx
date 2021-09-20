@@ -36,7 +36,8 @@ const ListItem = ({
 
   const setDialogHandler = useCallback(() => {
     if (!detail?.hover) return;
-    setDialog?.(children && cloneElement(children, { data }));
+    const dialog = cloneElement(children, { data });
+    setDialog(dialog);
   }, [children, data, setDialog, detail]);
 
   return (

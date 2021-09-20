@@ -1,17 +1,3 @@
-export const GEM_ARR = [
-  "000_gem",
-  "001_gem",
-  "002_gem",
-  "003_gem",
-  "004_gem",
-  "005_gem",
-  "006_gem",
-  "007_gem",
-  "008_gem",
-  "009_gem",
-  "010_gem",
-];
-
 export const PARTS_ARR = [
   "000_weapon",
   "001_head",
@@ -32,20 +18,15 @@ export const PARTS_ARR = [
   "016_av_inst",
   "017_av_face1",
   "018_av_face2",
-  "019_av_outer_weapon",
-  "020_av_outer_head",
-  "021_av_outer_cloth",
-  "022_av_outer_pants",
+  "019_av_in_weapon",
+  "020_av_in_head",
+  "021_av_in_cloth",
+  "022_av_in_pants",
   null,
   null,
   null,
   "026_wristband",
 ];
-
-export const BADGE_ARR = ["023_campus", "023_amulet", "023_arms"];
-
-export const GEM_IMAGE =
-  "/2018/obt/assets/images/pc/profile/bg_slot.png?e5db503c76ebf953934c4c91b2f16c5a";
 
 export const PARTS_IMAGE = [
   "/2018/obt/assets/images/common/game/bg_equipment_slot6.png?847938d1e0f475ca73717df97334937d",
@@ -76,6 +57,3 @@ export const PARTS_IMAGE = [
   null,
   "/2018/obt/assets/images/common/game/bg_equipment_slot19.png?fbb7afdbba6c583bf59e835104e5f80b",
 ];
-
-export const BADGE_IMAGE =
-  "/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1";
