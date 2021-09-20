@@ -1,9 +1,4 @@
-import React, {
-  PropsWithChildren,
-  ReactElement,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { ReactElement, useCallback, useMemo } from "react";
 import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -20,11 +15,7 @@ interface INavigation {
   arr?: (string | ReactElement)[];
 }
 
-const Navigation = ({
-  arr,
-  selectedNav,
-  setNav,
-}: PropsWithChildren<INavigation>) => {
+const Navigation = ({ arr, selectedNav, setNav }: INavigation) => {
   return (
     <Styled.Container>
       <MapContainer data={arr} dataKey="navName">
@@ -34,12 +25,7 @@ const Navigation = ({
   );
 };
 
-export const Item = ({
-  navName,
-  setNav,
-  selectedSub,
-  i,
-}: PropsWithChildren<IItem>) => {
+export const Item = ({ navName, setNav, selectedSub, i }: IItem) => {
   const handleNavigation = useCallback(() => {
     setNav(i);
   }, [i, setNav]);

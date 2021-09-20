@@ -1,8 +1,7 @@
-import React, { HTMLAttributes, PropsWithChildren, ReactNode } from "react";
+import React, { HTMLAttributes, PropsWithChildren } from "react";
 import * as Styled from "./index.style";
 
 export interface IText extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
   type: string;
   color: string;
 }

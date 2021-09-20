@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { DangerousHTML, MapContainer } from "../";
 import * as Styled from "./index.style";
 
@@ -11,7 +11,7 @@ interface IIndengString<T> {
   data?: T;
 }
 
-const IntentString = ({ data }: PropsWithChildren<IIndengString<IData>>) => {
+const IntentString = ({ data }: IIndengString<IData>) => {
   return (
     <Styled.Content>
       <DangerousHTML html={data.title} />

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Image, Text, DangerousHTML } from "components/";
 import * as Styled from "./index.style";
 
@@ -6,7 +6,7 @@ interface EngraveProps {
   data?: any;
 }
 
-const Engrave = ({ data }: PropsWithChildren<EngraveProps>) => {
+const Engrave = ({ data }: EngraveProps) => {
   return (
     <Styled.Engrave className="engrave-item">
       <Image src={data.src} />

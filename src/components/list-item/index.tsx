@@ -1,9 +1,4 @@
-import React, {
-  cloneElement,
-  PropsWithChildren,
-  ReactElement,
-  useCallback,
-} from "react";
+import React, { cloneElement, ReactElement, useCallback } from "react";
 import { Image, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
@@ -15,23 +10,19 @@ interface IDetail {
   hover: boolean;
 }
 
-interface IData<T> {
+interface IData {
   backSrc?: string;
   type?: string;
-  detail: T;
+  detail: IDetail;
 }
 
-interface IListItem<T> {
+interface IListItem {
   children: ReactElement;
   setDialog: (T: ReactElement) => void;
-  data: T;
+  data: IData;
 }
 
-const ListItem = ({
-  data,
-  children,
-  setDialog,
-}: PropsWithChildren<Partial<IListItem<IData<IDetail>>>>) => {
+const ListItem = ({ data, children, setDialog }: Partial<IListItem>) => {
   const { backSrc, detail } = data;
 
   const setDialogHandler = useCallback(() => {

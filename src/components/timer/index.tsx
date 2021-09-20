@@ -1,36 +1,25 @@
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-} from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useTimer } from "hooks/use-timer";
 import { useConditionalTimer } from "hooks/use-conditional-timer";
 import { Text, Image } from "components/";
 import { interval } from "utils/events/interval";
 import * as Styled from "./index.style";
 
-interface IData {
-  name: string;
-  src: string;
-  lv: string;
-  time: string;
-  endTime: string;
-  position: string;
-  endPosition: string;
-}
-
-interface ITimer<T> {
+interface ITimer {
   setTime: (T: string) => void;
-  data?: T;
+  data?: {
+    name: string;
+    src: string;
+    lv: string;
+    time: string;
+    endTime: string;
+    position: string;
+    endPosition: string;
+  };
   notification?;
 }
 
-const Timer = ({
-  setTime,
-  data,
-  notification,
-}: PropsWithChildren<ITimer<IData>>) => {
+const Timer = ({ setTime, data, notification }: ITimer) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
   const pos =
     typeof position !== "string" ? position[0] || endPosition : position;

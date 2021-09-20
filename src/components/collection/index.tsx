@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { DoubleListContainer } from "components/";
 import ListItem from "components/list-item";
 
@@ -11,7 +11,7 @@ interface ICollection {
   };
 }
 
-const Collection = ({ data, mini }: PropsWithChildren<ICollection>) => {
+const Collection = ({ data, mini }: ICollection) => {
   const lt = mini.title;
   const rt = `획득 : ${mini.getCount} 총 : ${mini.totalCount}`;
   return (

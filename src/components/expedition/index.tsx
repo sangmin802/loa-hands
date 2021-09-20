@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useCallback } from "react";
+import React, { ReactElement, useCallback } from "react";
 import Server from "./server/index";
 import { Button, Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
@@ -17,7 +17,7 @@ const UserExpedition = ({
   userData,
   setUserData,
   setDialog,
-}: PropsWithChildren<IUserExpedition<IUserData>>) => {
+}: IUserExpedition<IUserData>) => {
   const {
     expeditionInfo: { expeditionUserWrap },
   } = userData;

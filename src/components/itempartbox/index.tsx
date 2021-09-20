@@ -1,17 +1,15 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { DangerousHTML } from "../";
 import * as Styled from "./index.style";
 
-interface IData {
-  title: string;
-  desc: string;
+interface IItemPartBox {
+  data?: {
+    title: string;
+    desc: string;
+  };
 }
 
-interface IItemPartBox<T> {
-  data?: T;
-}
-
-const ItemPartBox = ({ data }: PropsWithChildren<IItemPartBox<IData>>) => {
+const ItemPartBox = ({ data }: IItemPartBox) => {
   return (
     <Styled.Content>
       <DangerousHTML html={data.title} />

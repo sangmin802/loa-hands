@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Image, Text } from "../";
 import * as Styled from "./index.style";
 
@@ -14,7 +14,7 @@ interface IRune {
   };
 }
 
-const Rune = ({ data }: PropsWithChildren<IRune>) => {
+const Rune = ({ data }: IRune) => {
   const rune = data.detail.rune;
 
   if (!rune) return null;
