@@ -27,6 +27,7 @@ import { NotificationHandler } from "utils/events/notification";
 interface IFetchCalendar {
   queryKey: string | (string | number)[];
   isMidnight: Date;
+  notification: typeof NotificationHandler;
 }
 
 interface IFetchEvent {
@@ -117,7 +118,11 @@ const Home = () => {
             suspenseFallback={<LoadingSpinner />}
             errorFallback={<ErrorFallback />}
           >
-            <FetchCalendar queryKey={queryKey[1]} isMidnight={isMidnight} />
+            <FetchCalendar
+              queryKey={queryKey[1]}
+              isMidnight={isMidnight}
+              notification={notification.activeNotification}
+            />
           </AsyncBoundary>
         </SectionContainer>
       </Styled.Section>
@@ -172,6 +177,7 @@ const Home = () => {
 const FetchCalendar = React.memo(function ({
   queryKey,
   isMidnight,
+  notification,
 }: IFetchCalendar) {
   const yoil = isMidnight.getDay();
   const calendarData = useCalendar(queryKey);
@@ -189,6 +195,7 @@ const FetchCalendar = React.memo(function ({
             isWeek ? calendarData.calendar[0] : calendarData.calendar[1] ?? []
           }
           rerenderKey={isMidnight}
+          notification={notification}
         />
       </SectionContainer>
     </Styled.Section>
