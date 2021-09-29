@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { DangerousHTML, Image } from "../";
 import * as Styled from "./index.style";
 
