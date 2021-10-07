@@ -15,6 +15,7 @@ import {
   Collection,
   SearchLoading,
   ErrorBoundary,
+  ConditionalRender,
 } from "components/";
 import { useUser } from "hooks/use-user";
 import { useNavigation } from "hooks/use-navigation";
@@ -138,7 +139,17 @@ const FetchUserInfo = React.memo(function ({
 
   return (
     <Styled.UserInfo data-testid={userData.expeditionInfo.name}>
-      {dialog && <Dialog dialog={dialog} setDialog={setDialog} />}
+      <ConditionalRender
+        Component={Dialog}
+        render={dialog ? true : false}
+        dialog={dialog}
+        setDialog={setDialog}
+      />
+      {/* <Dialog
+        render={dialog ? true : false}
+        dialog={dialog}
+        setDialog={setDialog}
+      /> */}
       <Styled.Top>
         <Styled.ButtonContainer>
           <Button onClick={setExpeditionDialog} data-testid="expedition-button">
