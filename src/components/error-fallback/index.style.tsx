@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import Button from "components/button";
+import Image from "components/image";
+import Text from "components/text";
 
-export const ErrorFallback = styled.section`
+const ErrorFallback = styled.section`
   padding: 2rem 0;
 `;
 
-export const ImageContainer = styled.div`
+const ErrorImage = styled(Image)`
   width: 40%;
   max-width: 300px;
   margin: 20px auto 40px;
@@ -12,13 +15,16 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 `;
 
-export const TextContainer = styled.div`
+const ErrorText = styled(Text)`
   text-align: center;
 `;
 
-export const ButtonContainer = styled.div`
+const RetryButton = styled(Button)`
+  display: block;
   width: fit-content;
   padding: 0.3rem 0.6rem;
   margin: 10px auto 0;
   ${({ theme }) => theme.contentBox}
 `;
+
+export { ErrorFallback, ErrorImage, ErrorText, RetryButton };

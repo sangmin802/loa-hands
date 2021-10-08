@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Image from "components/image";
 
-export const BackgroundContainer = styled.article`
+const BackgroundContainer = styled.article`
   width: 100%;
   position: absolute;
   top: 0;
@@ -10,11 +11,14 @@ export const BackgroundContainer = styled.article`
   z-index: 99;
 `;
 
-export const ImageContainer = styled.div`
+const ImageContainer = styled(Image)`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   overflow: hidden;
+  width: fit-content;
 `;
+
+export { BackgroundContainer, ImageContainer };

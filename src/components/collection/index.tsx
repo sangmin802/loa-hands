@@ -1,5 +1,5 @@
 import React from "react";
-import { DoubleListContainer } from "components/";
+import DoubleListContainer from "components/double-list-container";
 import ListItem from "components/list-item";
 
 interface ICollection {

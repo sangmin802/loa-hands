@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text } from "../";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IRune {
@@ -29,15 +29,13 @@ const Rune = ({ data }: IRune) => {
   if (runeGrade.includes("유물")) gradeColor = 5;
 
   return (
-    <Styled.Container role="rune-grade" data-grade={gradeColor}>
-      <Image src={runeImg} color={`gradient${gradeColor}`} />
+    <Styled.Rune role="rune-grade" data-grade={gradeColor}>
+      <Styled.Thumbnail src={runeImg} color={`gradient${gradeColor}`} />
       <Styled.Desc>
         <Text color={`color${gradeColor}`}>{runeGrade}</Text>
-        <Styled.FullText>
-          <Text type="desc">{runeInfo}</Text>
-        </Styled.FullText>
+        <Styled.RuneText type="desc">{runeInfo}</Styled.RuneText>
       </Styled.Desc>
-    </Styled.Container>
+    </Styled.Rune>
   );
 };
 

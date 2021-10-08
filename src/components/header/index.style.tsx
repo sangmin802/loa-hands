@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import { BACKGROUND } from "constants/index";
+import Input from "components/input";
+import Button from "components/button";
 
-export const Container = styled.header`
+const Container = styled.header`
   max-width: 600px;
   margin: 0 auto;
   padding: 0.5rem;
 `;
 
-export const Background = styled.div`
+const Background = styled.div`
   background-image: url("${BACKGROUND}");
   background-position: 403px 3.5px;
   width: 160px;
@@ -16,24 +18,26 @@ export const Background = styled.div`
   cursor: pointer;
 `;
 
-export const Form = styled.form`
+const Form = styled.form`
   display: flex;
   margin: 0 auto;
   width: 60%;
   height: fit-content;
 `;
 
-export const InputText = styled.div`
+const Logo = styled(Button)`
+  width: 100%;
+  height: 100%;
+`;
+
+const InputText = styled(Input)`
   width: 80%;
   padding: 0.3rem;
   border-bottom: 1px solid #f0f4f5;
-
-  input {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
 `;
 
-export const InputSubmit = styled.div`
+const InputSubmit = styled(Button)`
   width: 20%;
   display: flex;
   justify-content: center;
@@ -42,3 +46,5 @@ export const InputSubmit = styled.div`
   ${({ theme }) => theme.contentBox}
   border-radius: 3px 3px 3px 0;
 `;
+
+export { Container, Background, Form, InputText, InputSubmit, Logo };

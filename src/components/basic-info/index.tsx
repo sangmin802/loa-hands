@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text } from "../";
+import Text from "components/text";
 import * as Styled from "./index.styles";
 
 interface IUserData {
@@ -35,7 +35,7 @@ const BasicInfo = <T extends IUserData>({ userData }: IBasicInfo<T>) => {
           <Text type="desc">클래스</Text>
         </Styled.Content>
         <Styled.Content>
-          <Image src={classSrc} />
+          <Styled.ClassThumbnail src={classSrc} />
           <Text type="desc">{className}</Text>
         </Styled.Content>
       </Styled.Container>

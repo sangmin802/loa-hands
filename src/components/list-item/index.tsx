@@ -1,5 +1,7 @@
 import React, { cloneElement, ReactElement, useCallback } from "react";
-import { Image, Text, MapContainer } from "components/";
+import Image from "components/image";
+import MapContainer from "components/map-container";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IDetail {
@@ -22,7 +24,12 @@ interface IListItem {
   data: IData;
 }
 
-const ListItem = ({ data, children, setDialog }: Partial<IListItem>) => {
+const ListItem = ({
+  data,
+  children,
+  setDialog,
+  ...props
+}: Partial<IListItem>) => {
   const { backSrc, detail } = data;
 
   const setDialogHandler = useCallback(() => {
@@ -35,9 +42,13 @@ const ListItem = ({ data, children, setDialog }: Partial<IListItem>) => {
       data-testid="list-item"
       hover={detail?.hover}
       onClick={setDialogHandler}
-      type={data.type}
+      {...props}
     >
-      <Image src={detail?.src ?? backSrc} color={`gradient${detail?.grade}`} />
+      <Styled.Thumbnail
+        type={data.type}
+        src={detail?.src ?? backSrc}
+        color={`gradient${detail?.grade}`}
+      />
       <Styled.Desc type={data.type}>
         <MapContainer data={detail?.subTitle} dataKey="children">
           <Text

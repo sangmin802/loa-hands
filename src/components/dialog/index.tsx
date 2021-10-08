@@ -1,7 +1,9 @@
 import React, { ReactElement, useCallback, useEffect } from "react";
+import ConditionalRender from "components/conditional-render";
 import * as Styled from "./index.style";
 
 interface IDialog {
+  // render: boolean;
   dialog: ReactElement;
   setDialog: (T: null) => void;
 }
@@ -48,4 +50,5 @@ const Dialog = ({ dialog, setDialog }: IDialog) => {
   );
 };
 
+// export default React.memo(ConditionalRender(Dialog));
 export default React.memo(Dialog);

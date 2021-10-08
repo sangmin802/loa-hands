@@ -1,5 +1,6 @@
 import React from "react";
-import { DangerousHTML, Text, MapContainer } from "../";
+import DangerousHTML from "components/dangerous-html";
+import MapContainer from "components/map-container";
 import * as Styled from "./index.style";
 
 interface IContent {
@@ -19,9 +20,7 @@ interface ICharacteristic<T> {
 const Chararteristic = <T extends IData>({ data }: ICharacteristic<T>) => {
   return (
     <Styled.Container key={data.title}>
-      <Styled.Title>
-        <Text type="title">{data.title}</Text>
-      </Styled.Title>
+      <Styled.TitleText type="title">{data.title}</Styled.TitleText>
       <MapContainer data={data.content}>
         <Item />
       </MapContainer>
@@ -36,11 +35,9 @@ interface IItem<T> {
 const Item = <T extends IContent>({ data }: IItem<T>) => {
   return (
     <Styled.Item key={data.title[0]}>
-      <Styled.Title type="itemTitle">
-        <Text>
-          {data.title[0]} {data.title[1]}
-        </Text>
-      </Styled.Title>
+      <Styled.TitleText isItem={true}>
+        {data.title[0]} {data.title[1]}
+      </Styled.TitleText>
       <DangerousHTML html={data.desc} />
     </Styled.Item>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import { DangerousHTML, Image } from "../";
 import * as Styled from "./index.style";
 
 interface ITripodSkillCustom {
@@ -15,17 +14,13 @@ const TripodSkillCustom = ({ data }: ITripodSkillCustom) => {
   const { name = null, desc = null, grade = null, src = null } = data;
 
   return (
-    <Styled.Content src={src}>
-      <Image src={src} color={`gradient${grade}`} />
+    <Styled.TripodSkillCustom src={src}>
+      <Styled.Thunbnail src={src} color={`gradient${grade}`} />
       <>
-        <Styled.TextContainer type="title" src={src}>
-          <DangerousHTML html={name} />
-        </Styled.TextContainer>
-        <Styled.TextContainer type="desc" src={src}>
-          <DangerousHTML html={desc} />
-        </Styled.TextContainer>
+        <Styled.HTMLWrapper type="title" src={src} html={name} />
+        <Styled.HTMLWrapper type="desc" src={src} html={desc} />
       </>
-    </Styled.Content>
+    </Styled.TripodSkillCustom>
   );
 };
 

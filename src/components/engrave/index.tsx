@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, Text, DangerousHTML } from "components/";
+import DangerousHTML from "components/dangerous-html";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface EngraveProps {
@@ -9,7 +10,9 @@ interface EngraveProps {
 const Engrave = ({ data }: EngraveProps) => {
   return (
     <Styled.Engrave className="engrave-item">
-      <Image src={data.src} />
+      <Styled.ImgAfter>
+        <Styled.Thumbnail src={data.src} />
+      </Styled.ImgAfter>
       <Styled.Desc>
         <Text>{data.name}</Text>
         <DangerousHTML html={data.options[data.grade - 1]} />

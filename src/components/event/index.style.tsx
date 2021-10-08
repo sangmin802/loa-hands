@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.article`
+const Container = styled.article`
   cursor: pointer;
   flex-direction: column;
 
@@ -8,10 +8,12 @@ export const Container = styled.article`
   ${({ theme }) => theme.contentBox}
 `;
 
-export const Desc = styled.div`
+const Desc = styled.div`
   padding: 0.5rem 0 0.3rem;
 
   * {
     text-align: center;
   }
 `;
+
+export { Container, Desc };

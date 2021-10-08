@@ -1,27 +1,24 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  BasicInfo,
-  Expedition,
-  Navigation,
-  Dialog,
-  Button,
-  Text,
-  MapContainer,
-  AbilityContainer,
-  SkillContainer,
-  AsyncBoundary,
-  LoadingSpinner,
-  ErrorFallback,
-  Collection,
-  SearchLoading,
-  ErrorBoundary,
-} from "components/";
 import { useUser } from "hooks/use-user";
 import { useNavigation } from "hooks/use-navigation";
 import { useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
 import { useUserCollection } from "hooks/use-user-collection";
 import { useCancelQuery } from "hooks/use-cancel-query";
+import BasicInfo from "components/basic-info";
+import Expedition from "components/expedition";
+import Dialog from "components/dialog";
+import Text from "components/text";
+import AbilityContainer from "components/ability-container";
+import SkillContainer from "components/skill-container";
+import AsyncBoundary from "components/async-boundary";
+import LoadingSpinner from "components/loading-spinner";
+import ErrorFallback from "components/error-fallback";
+import Collection from "components/collection";
+import SearchLoading from "components/search-loading";
+import ErrorBoundary from "components/error-boundary";
+import ConditionalRender from "components/conditional-render";
+import MapContainer from "components/map-container";
 
 interface IFetchUserCollection {
   member: string[];
@@ -138,32 +135,39 @@ const FetchUserInfo = React.memo(function ({
 
   return (
     <Styled.UserInfo data-testid={userData.expeditionInfo.name}>
-      {dialog && <Dialog dialog={dialog} setDialog={setDialog} />}
+      <ConditionalRender
+        Component={Dialog}
+        render={dialog ? true : false}
+        dialog={dialog}
+        setDialog={setDialog}
+      />
+      {/* <Dialog
+        render={dialog ? true : false}
+        dialog={dialog}
+        setDialog={setDialog}
+      /> */}
       <Styled.Top>
-        <Styled.ButtonContainer>
-          <Button onClick={setExpeditionDialog} data-testid="expedition-button">
-            <Text>원정대 캐릭터 보기</Text>
-          </Button>
-        </Styled.ButtonContainer>
+        <Styled.ExpeditionButton
+          onClick={setExpeditionDialog}
+          data-testid="expedition-button"
+        >
+          <Text>원정대 캐릭터 보기</Text>
+        </Styled.ExpeditionButton>
         <BasicInfo userData={userData} />
       </Styled.Top>
       <Styled.Bottom>
-        <Styled.Navigation type="main">
-          <Navigation
-            arr={nav.mainNavs}
-            selectedNav={nav.mainNav}
-            setNav={nav.handleMainNavigation}
+        <Styled.MainNavigation
+          arr={nav.mainNavs}
+          selectedNav={nav.mainNav}
+          setNav={nav.handleMainNavigation}
+        />
+        <MapContainer data={nav.subNavs} dataKey="arr">
+          <Styled.SubNavigation
+            isShow={nav.mainNav}
+            selectedNav={nav.subNav}
+            setNav={nav.setSubNav}
           />
-        </Styled.Navigation>
-        <Styled.Navigation
-          type="sub"
-          isShow={nav.mainNav}
-          selected={nav.subNav}
-        >
-          <MapContainer data={nav.subNavs} dataKey="arr">
-            <Navigation selectedNav={nav.subNav} setNav={nav.setSubNav} />
-          </MapContainer>
-        </Styled.Navigation>
+        </MapContainer>
         <Styled.Container data-testid="content">
           {memoized[nav.mainNav]}
         </Styled.Container>

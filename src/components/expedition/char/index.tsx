@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text } from "components/";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IData {
@@ -12,13 +12,13 @@ interface IChar<T> {
 }
 
 const Char = ({ data }: IChar<IData>) => (
-  <Styled.Container>
-    <Button aria-label="expedition-char">
+  <Styled.Char>
+    <Styled.CharButton aria-label="expedition-char">
       <Text type="desc" data-name={data.name}>
         {data.lv} {data.name}
       </Text>
-    </Button>
-  </Styled.Container>
+    </Styled.CharButton>
+  </Styled.Char>
 );
 
 export default Char;

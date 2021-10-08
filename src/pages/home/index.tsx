@@ -8,21 +8,17 @@ import {
 } from "json/timer";
 import { useCalendar } from "hooks/use-calendar";
 import { useEvent } from "hooks/use-event";
-import {
-  SectionContainer,
-  TimerContainer,
-  LoadingSpinner,
-  Event,
-  AsyncBoundary,
-  ErrorFallback,
-  MapContainer,
-  Button,
-  Text,
-} from "components/";
 import { interval } from "utils/events/interval";
-import * as Styled from "./index.style";
 import { useCancelQuery } from "hooks/use-cancel-query";
 import { NotificationHandler } from "utils/events/notification";
+
+import TimerContainer from "components/timer-container";
+import LoadingSpinner from "components/loading-spinner";
+import AsyncBoundary from "components/async-boundary";
+import ErrorFallback from "components/error-fallback";
+
+import Text from "components/text";
+import * as Styled from "./index.style";
 
 interface IFetchCalendar {
   queryKey: string | (string | number)[];
@@ -97,78 +93,62 @@ const Home = () => {
 
   return (
     <Styled.Home>
-      <Styled.Section>
-        <SectionContainer title="진행중인 이벤트">
-          <AsyncBoundary
-            suspenseFallback={<LoadingSpinner />}
-            errorFallback={<ErrorFallback />}
-          >
-            <FetchEvent queryKey={queryKey[0]} />
-          </AsyncBoundary>
-        </SectionContainer>
+      <Styled.Section title="진행중인 이벤트">
+        <AsyncBoundary
+          suspenseFallback={<LoadingSpinner />}
+          errorFallback={<ErrorFallback />}
+        >
+          <FetchEvent queryKey={queryKey[0]} />
+        </AsyncBoundary>
       </Styled.Section>
-      <Styled.Notification>
-        <Button onClick={notification.requestPermission}>
-          <Text>알림 활성화</Text>
-        </Button>
+      <Styled.Notification onClick={notification.requestPermission}>
+        <Text>알림 활성화</Text>
       </Styled.Notification>
-      <Styled.Section>
-        <SectionContainer title="오늘의 캘린더섬">
-          <AsyncBoundary
-            suspenseFallback={<LoadingSpinner />}
-            errorFallback={<ErrorFallback />}
-          >
-            <FetchCalendar
-              queryKey={queryKey[1]}
-              isMidnight={isMidnight}
-              notification={notification.activeNotification}
-            />
-          </AsyncBoundary>
-        </SectionContainer>
-      </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="오늘의 모험섬">
-          <TimerContainer
-            data={DAILY_ISLAND}
+      <Styled.Section title="오늘의 캘린더섬">
+        <AsyncBoundary
+          suspenseFallback={<LoadingSpinner />}
+          errorFallback={<ErrorFallback />}
+        >
+          <FetchCalendar
+            queryKey={queryKey[1]}
+            isMidnight={isMidnight}
             notification={notification.activeNotification}
           />
-        </SectionContainer>
+        </AsyncBoundary>
       </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="오늘의 필드보스">
-          <TimerContainer
-            data={FIELD_BOSS[isSix.getDay()]}
-            rerenderKey={isSix}
-            notification={notification.activeNotification}
-          />
-        </SectionContainer>
+      <Styled.Section title="오늘의 모험섬">
+        <TimerContainer
+          data={DAILY_ISLAND}
+          notification={notification.activeNotification}
+        />
       </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="오늘의 카오스 게이트">
-          <TimerContainer
-            data={CHAOS_GATE[isSix.getDay()]}
-            rerenderKey={isSix}
-            notification={notification.activeNotification}
-          />
-        </SectionContainer>
+      <Styled.Section title="오늘의 필드보스">
+        <TimerContainer
+          data={FIELD_BOSS[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
       </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="오늘의 유령선">
-          <TimerContainer
-            data={PHANTOM_SHIP[isSix.getDay()]}
-            rerenderKey={isSix}
-            notification={notification.activeNotification}
-          />
-        </SectionContainer>
+      <Styled.Section title="오늘의 카오스 게이트">
+        <TimerContainer
+          data={CHAOS_GATE[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
       </Styled.Section>
-      <Styled.Section>
-        <SectionContainer title="오늘의 항해">
-          <TimerContainer
-            data={OCEAN_ACT[isSix.getDay()]}
-            rerenderKey={isSix}
-            notification={notification.activeNotification}
-          />
-        </SectionContainer>
+      <Styled.Section title="오늘의 유령선">
+        <TimerContainer
+          data={PHANTOM_SHIP[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+      <Styled.Section title="오늘의 항해">
+        <TimerContainer
+          data={OCEAN_ACT[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
       </Styled.Section>
     </Styled.Home>
   );
@@ -188,16 +168,14 @@ const FetchCalendar = React.memo(function ({
   }, [isWeek]);
 
   return (
-    <Styled.Section>
-      <SectionContainer title={title}>
-        <TimerContainer
-          data={
-            isWeek ? calendarData.calendar[0] : calendarData.calendar[1] ?? []
-          }
-          rerenderKey={isMidnight}
-          notification={notification}
-        />
-      </SectionContainer>
+    <Styled.Section title={title}>
+      <TimerContainer
+        data={
+          isWeek ? calendarData.calendar[0] : calendarData.calendar[1] ?? []
+        }
+        rerenderKey={isMidnight}
+        notification={notification}
+      />
     </Styled.Section>
   );
 });
@@ -206,11 +184,9 @@ const FetchEvent = React.memo(function ({ queryKey }: IFetchEvent) {
   const eventData = useEvent(queryKey);
 
   return (
-    <Styled.Content type="event">
-      <MapContainer data={eventData.events} dataKey="event">
-        <Event />
-      </MapContainer>
-    </Styled.Content>
+    <Styled.EventSection data={eventData.events} dataKey="event">
+      <Styled.Event />
+    </Styled.EventSection>
   );
 });
 

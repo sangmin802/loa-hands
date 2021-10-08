@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Text from "components/text";
 
 const titleType = {
   itemTitle: css`
@@ -13,7 +14,7 @@ const titleType = {
   `,
 };
 
-export const Container = styled.div`
+const Container = styled.div`
   margin-bottom: 2rem;
 
   &:last-child {
@@ -26,7 +27,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Item = styled.div`
+const Item = styled.div`
   margin-bottom: 0.5rem;
 
   &:last-child {
@@ -34,8 +35,10 @@ export const Item = styled.div`
   }
 `;
 
-export const Title = styled.div<{ type?: string }>`
+const TitleText = styled(Text)<{ isItem?: boolean }>`
   text-align: center;
 
-  ${({ type }) => titleType[type]}
+  ${({ isItem }) => (isItem ? titleType["itemTitle"] : "")}
 `;
+
+export { Container, Item, TitleText };

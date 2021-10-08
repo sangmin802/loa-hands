@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Button, Image } from "components/";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IErrorFallback {
@@ -10,17 +10,13 @@ interface IErrorFallback {
 const ErrorFallback = ({ error, resetBoundary }: Partial<IErrorFallback>) => {
   return (
     <Styled.ErrorFallback>
-      <Styled.TextContainer data-testid="error-message">
-        <Text>{error.message}</Text>
-      </Styled.TextContainer>
-      <Styled.ButtonContainer>
-        <Button data-testid="retry-button" onClick={resetBoundary}>
-          <Text>재시도</Text>
-        </Button>
-      </Styled.ButtonContainer>
-      <Styled.ImageContainer>
-        <Image src={`${process.env.PUBLIC_URL}/img/emoticon_3.gif`} />
-      </Styled.ImageContainer>
+      <Styled.ErrorText data-testid="error-message">
+        {error.message}
+      </Styled.ErrorText>
+      <Styled.RetryButton data-testid="retry-button" onClick={resetBoundary}>
+        <Text>재시도</Text>
+      </Styled.RetryButton>
+      <Styled.ErrorImage src={`${process.env.PUBLIC_URL}/img/emoticon_3.gif`} />
     </Styled.ErrorFallback>
   );
 };

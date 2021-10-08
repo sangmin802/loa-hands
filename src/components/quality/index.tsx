@@ -1,6 +1,6 @@
 import React from "react";
+import Text from "components/text";
 import * as Styled from "./index.style";
-import { Text } from "components/";
 
 interface IQuality {
   data?: {
@@ -21,14 +21,14 @@ const Quality = ({ data }: IQuality) => {
   if (quality === 100) qualityColor = 4;
 
   return (
-    <Styled.Container>
+    <Styled.Quality>
       <Text type="subTitle">품질 {quality}%</Text>
       <Styled.Background
         role="quality-background"
         color={`gradient${qualityColor}`}
         width={String(quality)}
       />
-    </Styled.Container>
+    </Styled.Quality>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-import { Text, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface IListContainer {
@@ -8,16 +7,12 @@ interface IListContainer {
   children: ReactElement;
 }
 
-const ListContainer = ({ title, arr, children }: IListContainer) => {
+const ListContainer = ({ title, arr, children, ...props }: IListContainer) => {
   return (
-    <>
-      <Styled.Title>
-        <Text>{title}</Text>
-      </Styled.Title>
-      <Styled.Content>
-        <MapContainer data={arr}>{children}</MapContainer>
-      </Styled.Content>
-    </>
+    <article {...props}>
+      <Styled.ListTitle>{title}</Styled.ListTitle>
+      <Styled.ListContent data={arr}>{children}</Styled.ListContent>
+    </article>
   );
 };
 

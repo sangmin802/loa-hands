@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Text from "components/text";
 
-export const Container = styled.article<{ borderColor: string }>`
+const Timer = styled.article<{ borderColor: string }>`
   overflow: hidden;
   position: relative;
 
@@ -8,7 +9,7 @@ export const Container = styled.article<{ borderColor: string }>`
   border-color : ${({ borderColor }) => borderColor};
 `;
 
-export const Background = styled.div<{ isShow: boolean }>`
+const Background = styled.div<{ isShow: boolean }>`
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -18,26 +19,26 @@ export const Background = styled.div<{ isShow: boolean }>`
   ${({ theme }) => theme.isShow}
 `;
 
-export const Title = styled.div`
+const TimerTitle = styled(Text)`
   padding: 0.1rem;
   text-align: center;
 
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
 `;
 
-export const Content = styled.div`
+const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.3rem;
 `;
 
-export const TimerImg = styled.div`
+const TimerImg = styled.div`
   width: 25%;
   position: relative;
 `;
 
-export const Lv = styled.div`
+const TimerLv = styled(Text)`
   position: absolute;
   bottom: 0;
   right: 0;
@@ -46,7 +47,7 @@ export const Lv = styled.div`
   border-radius: 3px;
 `;
 
-export const Time = styled.div`
+const Time = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -54,8 +55,19 @@ export const Time = styled.div`
   align-items: center;
 `;
 
-export const Position = styled.div`
+const TimerPosition = styled(Text)`
   text-align: center;
 
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
 `;
+
+export {
+  Timer,
+  Background,
+  TimerTitle,
+  Content,
+  TimerImg,
+  TimerLv,
+  Time,
+  TimerPosition,
+};
