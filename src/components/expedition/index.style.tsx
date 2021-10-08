@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import Button from "components/button";
 
-export const Container = styled.section``;
+const Container = styled.section``;
 
-export const ButtonContainer = styled.div`
+const CloseButton = styled(Button)`
   width: 100%;
   margin-bottom: 10px;
   display: flex;
@@ -13,3 +14,5 @@ export const ButtonContainer = styled.div`
     padding: 0.3rem;
   }
 `;
+
+export { Container, CloseButton };

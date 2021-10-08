@@ -1,5 +1,6 @@
 import React from "react";
-import { DangerousHTML, MapContainer } from "../";
+import DangerousHTML from "components/dangerous-html";
+import MapContainer from "components/map-container";
 import * as Styled from "./index.style";
 
 interface IData {
@@ -13,12 +14,12 @@ interface IIndengString<T> {
 
 const IntentString = ({ data }: IIndengString<IData>) => {
   return (
-    <Styled.Content>
+    <Styled.IndengString>
       <DangerousHTML html={data.title} />
       <MapContainer data={data.desc} dataKey="html">
         <DangerousHTML />
       </MapContainer>
-    </Styled.Content>
+    </Styled.IndengString>
   );
 };
 

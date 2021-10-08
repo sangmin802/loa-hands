@@ -5,12 +5,7 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   color: string;
 }
 
-const Image = ({ color, ...props }: Partial<Props>) => {
-  return (
-    <div className="img-container">
-      <Styled.Image color={color} {...props} />
-    </div>
-  );
-};
-
+const Image = ({ color, ...props }: Partial<Props>) => (
+  <Styled.Image color={color} {...props} />
+);
 export default Image;

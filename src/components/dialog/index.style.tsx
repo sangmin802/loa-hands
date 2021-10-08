@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Background = styled.div`
+const Background = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -10,7 +10,7 @@ export const Background = styled.div`
   top: 0;
 `;
 
-export const Container = styled.div`
+const Container = styled.div`
   padding: 0.5rem;
   position: fixed;
   width: 30%;
@@ -25,3 +25,5 @@ export const Container = styled.div`
   ${({ theme }) => theme.contentBox}
   ${({ theme }) => theme.scrollbar}
 `;
+
+export { Background, Container };

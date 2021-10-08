@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Image from "components/image";
 
 const contentType = {
   title: css`
@@ -11,19 +12,19 @@ const contentType = {
   `,
 };
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   width: 100%;
   margin-top: 0.5rem;
 `;
 
-export const InnerContainer = styled.div`
+const InnerContainer = styled.div`
   display: flex;
   width: calc((100% - 0.5rem) / 2 - 0.1px);
   margin-right: 0.5rem;
 `;
 
-export const Content = styled.div<{ type?: string }>`
+const Content = styled.div<{ type?: string }>`
   width: fit-content;
   min-height: 40px;
   display: flex;
@@ -32,16 +33,18 @@ export const Content = styled.div<{ type?: string }>`
   align-items: center;
   margin-right: 0.5rem;
 
-  & .img-container {
-    width: 12%;
-    min-width: 40px;
-    margin-right: 0.5rem;
-  }
-
   ${({ type }) => (type ? contentType[type] : "")}
 `;
 
-export const Collection = styled.div`
+const ClassThumbnail = styled(Image)`
+  width: 12%;
+  min-width: 40px;
+  margin-right: 0.5rem;
+`;
+
+const Collection = styled.div`
   display: flex;
   margin-top: 15px;
 `;
+
+export { Container, InnerContainer, Content, Collection, ClassThumbnail };

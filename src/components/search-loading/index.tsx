@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Image } from "components/";
-import * as Styeld from "./index.style";
+import * as Styled from "./index.style";
 
 const SearchLoading = () => {
   useEffect(() => {
@@ -14,11 +13,11 @@ const SearchLoading = () => {
   }, []);
 
   return (
-    <Styeld.BackgroundContainer data-testid="search-loading">
-      <Styeld.ImageContainer>
-        <Image src={`${process.env.PUBLIC_URL}/img/emoticon_5.gif`} />
-      </Styeld.ImageContainer>
-    </Styeld.BackgroundContainer>
+    <Styled.BackgroundContainer data-testid="search-loading">
+      <Styled.ImageContainer
+        src={`${process.env.PUBLIC_URL}/img/emoticon_5.gif`}
+      />
+    </Styled.BackgroundContainer>
   );
 };
 

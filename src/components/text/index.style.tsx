@@ -5,7 +5,7 @@ interface Props {
   color: string;
 }
 
-export const Text = styled.div<Partial<Props>>`
+const Text = styled.div<Partial<Props>>`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -13,3 +13,5 @@ export const Text = styled.div<Partial<Props>>`
   color: ${({ color = "white", theme }) => theme.fontColor[color]};
   font-size: ${({ type = "normal", theme }) => theme.fontSize[type]};
 `;
+
+export { Text };

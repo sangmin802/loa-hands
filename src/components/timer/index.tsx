@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useTimer } from "hooks/use-timer";
 import { useConditionalTimer } from "hooks/use-conditional-timer";
-import { Text, Image } from "components/";
 import { interval } from "utils/events/interval";
+import Text from "components/text";
+import Image from "components/image";
 import * as Styled from "./index.style";
 
 interface ITimer {
@@ -19,7 +20,7 @@ interface ITimer {
   notification?;
 }
 
-const Timer = ({ setTime, data, notification }: ITimer) => {
+const Timer = ({ setTime, data, notification, ...props }: ITimer) => {
   const { name, src, lv, time, endTime, position, endPosition } = data;
   const pos =
     typeof position !== "string" ? position[0] || endPosition : position;
@@ -73,21 +74,18 @@ const Timer = ({ setTime, data, notification }: ITimer) => {
   }, [name, notification, timerType]);
 
   return (
-    <Styled.Container
+    <Styled.Timer
+      {...props}
       role="timer-border"
       data-border={borderColor}
       borderColor={borderColor}
     >
       <Styled.Background isShow={endTimeBg}></Styled.Background>
-      <Styled.Title>
-        <Text type="desc">{name}</Text>
-      </Styled.Title>
+      <Styled.TimerTitle type="desc">{name}</Styled.TimerTitle>
       <Styled.Content>
         <Styled.TimerImg>
           <Image src={`${process.env.PUBLIC_URL}${src}`} />
-          <Styled.Lv>
-            <Text type="small">{lv}</Text>
-          </Styled.Lv>
+          <Styled.TimerLv type="small">{lv}</Styled.TimerLv>
         </Styled.TimerImg>
         <Styled.Time>
           <Text type="subTitle" role="timer-alert">
@@ -100,10 +98,8 @@ const Timer = ({ setTime, data, notification }: ITimer) => {
           </Text>
         </Styled.Time>
       </Styled.Content>
-      <Styled.Position role="position">
-        <Text type="desc">{pos}</Text>
-      </Styled.Position>
-    </Styled.Container>
+      <Styled.TimerPosition type="desc">{pos}</Styled.TimerPosition>
+    </Styled.Timer>
   );
 };
 

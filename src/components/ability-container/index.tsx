@@ -1,13 +1,11 @@
 import React, { ReactElement, useMemo } from "react";
-import {
-  DoubleListContainer,
-  ListItem,
-  DetailContent,
-  Quality,
-  MapContainer,
-  Characteristic,
-  Engrave,
-} from "components/";
+import DoubleListContainer from "components/double-list-container";
+import ListItem from "components/list-item";
+import DetailContent from "components/detail-content";
+import Quality from "components/quality";
+import MapContainer from "components/map-container";
+import Characteristic from "components/characteristic";
+import Engrave from "components/engrave";
 import * as Styled from "./index.style";
 
 interface IUserData {
@@ -31,7 +29,7 @@ const AbilityContainer = ({
 }: IAbilityContainer<IUserData>) => {
   const {
     characteristicInfo,
-    equipInfo: { equipment, avatar, badge, gem },
+    equipInfo: { equipment, avatar, gem },
     engrave,
   } = userData.abilityInfo;
   const { battle, basic } = characteristicInfo;
@@ -45,6 +43,7 @@ const AbilityContainer = ({
         }),
     [engrave]
   );
+
   const memoized = useMemo(() => {
     return [
       <DoubleListContainer data={Object.values(equipment)} divideType="equip">
@@ -60,16 +59,14 @@ const AbilityContainer = ({
         </ListItem>
       </DoubleListContainer>,
       <>
-        <Styled.ContainerMargin>
-          <DoubleListContainer
-            data={sortedEngrave}
-            lt="증가 능력"
-            rt="감소 능력"
-            divideType="buff"
-          >
-            <Engrave />
-          </DoubleListContainer>
-        </Styled.ContainerMargin>
+        <Styled.EngraveDoubleListContainer
+          data={sortedEngrave}
+          lt="증가 능력"
+          rt="감소 능력"
+          divideType="buff"
+        >
+          <Engrave />
+        </Styled.EngraveDoubleListContainer>
         <MapContainer data={[basic, battle]}>
           <Characteristic />
         </MapContainer>

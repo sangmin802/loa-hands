@@ -1,5 +1,5 @@
 import React, { ReactElement, useCallback, useMemo } from "react";
-import { Button, Text, MapContainer } from "components/";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IItem {
@@ -12,16 +12,21 @@ interface IItem {
 interface INavigation {
   selectedNav: number;
   setNav: (T: number) => void;
+  isShow?: number;
   arr?: (string | ReactElement)[];
 }
 
-const Navigation = ({ arr, selectedNav, setNav }: INavigation) => {
+const Navigation = ({
+  arr,
+  selectedNav,
+  setNav,
+  isShow,
+  ...props
+}: INavigation) => {
   return (
-    <Styled.Container>
-      <MapContainer data={arr} dataKey="navName">
-        <Item setNav={setNav} selectedSub={selectedNav} />
-      </MapContainer>
-    </Styled.Container>
+    <Styled.Navigation {...props} data={arr} dataKey="navName">
+      <Item setNav={setNav} selectedSub={selectedNav} />
+    </Styled.Navigation>
   );
 };
 
@@ -35,9 +40,9 @@ export const Item = ({ navName, setNav, selectedSub, i }: IItem) => {
   const fontColor = useMemo(() => (selected ? "white" : "#666"), [selected]);
 
   return (
-    <Button onClick={handleNavigation}>
+    <Styled.NavigationButton onClick={handleNavigation}>
       <Text color={fontColor}>{navName}</Text>
-    </Button>
+    </Styled.NavigationButton>
   );
 };
 

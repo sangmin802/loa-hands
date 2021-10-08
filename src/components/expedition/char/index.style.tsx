@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Button from "components/button";
 
-export const Container = styled.article`
+const Char = styled.article`
   width: 50%;
   padding: 0.5rem;
   border-radius: 3px;
@@ -9,9 +10,11 @@ export const Container = styled.article`
   &:hover {
     background: ${({ theme }) => theme.backgroundColor.darkLow};
   }
-
-  button {
-    width: 100%;
-    text-align: left;
-  }
 `;
+
+const CharButton = styled(Button)`
+  width: 100%;
+  text-align: left;
+`;
+
+export { Char, CharButton };

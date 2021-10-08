@@ -1,24 +1,19 @@
+import Image from "components/image";
 import styled, { css } from "styled-components";
 
 const containerType = {
   normal: css`
-    .img-container {
-      width: 40px;
-      height: 40px;
-      margin-right: 0.5rem;
-      img {
-        ${({ theme }) => theme.contentBox}
-      }
-    }
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+    ${({ theme }) => theme.contentBox}
   `,
   collection: css`
-    .img-container {
-      display: none;
-    }
+    display: none;
   `,
 };
 
-export const Container = styled.article<{ hover: boolean; type: string }>`
+const Container = styled.article<{ hover: boolean }>`
   display: flex;
   align-items: center;
   position: relative;
@@ -27,6 +22,9 @@ export const Container = styled.article<{ hover: boolean; type: string }>`
 
   cursor: ${({ hover }) => (hover ? "pointer" : "")};
   background: ${({ theme }) => theme.backgroundColor.darkLow};
+`;
+
+const Thumbnail = styled(Image)<{ type: string }>`
   ${({ type }) => {
     const index = type === "collection" ? type : "normal";
     return containerType[index];
@@ -45,9 +43,11 @@ const descType = {
   `,
 };
 
-export const Desc = styled.div<{ type: string }>`
+const Desc = styled.div<{ type: string }>`
   ${({ type }) => {
     const index = type === "collection" ? type : "normal";
     return descType[index];
   }}
 `;
+
+export { Container, Desc, Thumbnail };

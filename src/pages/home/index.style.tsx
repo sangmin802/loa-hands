@@ -1,37 +1,35 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import SectionContainer from "components/section-container";
+import MapContainer from "components/map-container";
+import Button from "components/button";
+import Event from "components/event";
 
-const contentType = {
-  event: css`
-    display: flex;
-    flex-wrap: wrap;
-  `,
-};
-
-export const Home = styled.section`
+const Home = styled.section`
   padding: 0.5rem;
 `;
 
-export const Section = styled.section`
+const Section = styled(SectionContainer)`
   margin-top: 0.7rem;
 `;
 
-export const Content = styled.section<{ type?: string }>`
-  ${({ type }) => contentType[type]}
+const EventSection = styled(MapContainer)`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-  & > article {
-    width: calc((100% - 0.5rem) / 2 - 0.1px);
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
+const StyledEvent = styled(Event)`
+  width: calc((100% - 0.5rem) / 2 - 0.1px);
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
 
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
+  &:nth-child(2n) {
+    margin-right: 0;
   }
 `;
 
-export const Notification = styled.div`
+const Notification = styled(Button)`
   width: fit-content;
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,3 +39,5 @@ export const Notification = styled.div`
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
   border-radius: 3px 3px 3px 0;
 `;
+
+export { Home, Section, EventSection, Notification, StyledEvent as Event };

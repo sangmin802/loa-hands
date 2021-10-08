@@ -5,7 +5,7 @@ import React, {
   Suspense,
 } from "react";
 import { useQueryErrorResetBoundary } from "react-query";
-import { ErrorBoundary } from "components/";
+import ErrorBoundary from "components/error-boundary";
 
 interface IAsyncBoundary {
   suspenseFallback: ReactNode;

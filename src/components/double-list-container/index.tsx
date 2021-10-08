@@ -1,5 +1,4 @@
 import React, { ReactElement, useMemo } from "react";
-import { ListContainer } from "../";
 import * as Styled from "./index.style";
 
 interface IDoubleListContainer {
@@ -18,6 +17,7 @@ const DoubleListContainer = ({
   lt = null,
   rt = null,
   children,
+  ...props
 }: IDoubleListContainer) => {
   const [left, right] = useMemo(() => {
     return data.reduce(
@@ -38,18 +38,26 @@ const DoubleListContainer = ({
   }, [data, divideType]);
 
   return (
-    <Styled.Container>
-      <Styled.Content role="left" type="left" data-size={left.length}>
-        <ListContainer title={lt} arr={left}>
-          {children}
-        </ListContainer>
-      </Styled.Content>
-      <Styled.Content role="right" type="right" data-size={right.length}>
-        <ListContainer title={rt} arr={right}>
-          {children}
-        </ListContainer>
-      </Styled.Content>
-    </Styled.Container>
+    <Styled.DoubleListContainer {...props}>
+      <Styled.ListContainer
+        type="left"
+        data-testid="left"
+        data-size={left.length}
+        title={lt}
+        arr={left}
+      >
+        {children}
+      </Styled.ListContainer>
+      <Styled.ListContainer
+        type="right"
+        data-testid="right"
+        data-size={right.length}
+        title={rt}
+        arr={right}
+      >
+        {children}
+      </Styled.ListContainer>
+    </Styled.DoubleListContainer>
   );
 };
 

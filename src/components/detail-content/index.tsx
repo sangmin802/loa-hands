@@ -1,12 +1,10 @@
 import React, { cloneElement, ReactElement, useMemo } from "react";
-import {
-  ItemPartBox,
-  IndentString,
-  TripodSkillCustom,
-  Image,
-  Text,
-  MapContainer,
-} from "..";
+import IndentString from "components/indentstring";
+import ItemPartBox from "components/itempartbox";
+import MapContainer from "components/map-container";
+import Text from "components/text";
+import TripodSkillCustom from "components/tripodskillcustom";
+
 import * as Styled from "./index.style";
 
 interface IDetail {
@@ -54,7 +52,7 @@ const DetailContent = ({ data, children }: Partial<IDetailContent>) => {
     <>
       <Styled.Top>
         <Styled.Container>
-          <Image
+          <Styled.Thumbnail
             role="gradient"
             src={src ?? backSrc}
             color={`gradient${grade}`}
