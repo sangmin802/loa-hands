@@ -1,6 +1,7 @@
 import React, { ReactElement, useCallback } from "react";
 import Server from "./server/index";
-import { Button, Text, MapContainer } from "components/";
+import Text from "components/text";
+import MapContainer from "components/map-container";
 import * as Styled from "./index.style";
 
 interface IUserData {
@@ -34,11 +35,9 @@ const UserExpedition = ({
 
   return (
     <Styled.Container onClick={handleExpedition}>
-      <Styled.ButtonContainer>
-        <Button>
-          <Text data-close>닫기</Text>
-        </Button>
-      </Styled.ButtonContainer>
+      <Styled.CloseButton>
+        <Text data-close>닫기</Text>
+      </Styled.CloseButton>
       <MapContainer data={expeditionUserWrap}>
         <Server />
       </MapContainer>

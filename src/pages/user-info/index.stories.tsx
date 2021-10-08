@@ -1,6 +1,8 @@
 import React from "react";
 import UserInfo from "./index";
-import { AsyncBoundary, SearchLoading, ErrorFallback } from "components/";
+import AsyncBoundary from "components/async-boundary";
+import ErrorFallback from "components/error-fallback";
+import SearchLoading from "components/search-loading";
 
 export default {
   title: "UserInfo",

@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-import { Text, Timer, MapContainer } from "components/";
 import * as Styled from "./index.style";
 
 interface ITimerContainer {
@@ -72,17 +71,11 @@ const TimerContainer = ({
   const dataLength = replacedData.length;
   return (
     <>
-      {dataLength === 0 && (
-        <Styled.Alert>
-          <Text>다음에 만나요</Text>
-        </Styled.Alert>
-      )}
+      {dataLength === 0 && <Styled.Alert>다음에 만나요</Styled.Alert>}
       {dataLength !== 0 && (
-        <Styled.Container role="timer-container">
-          <MapContainer data={replacedData}>
-            <Timer setTime={setTime} notification={notification} />
-          </MapContainer>
-        </Styled.Container>
+        <Styled.TimerContainer data={replacedData}>
+          <Styled.TimerWrapper setTime={setTime} notification={notification} />
+        </Styled.TimerContainer>
       )}
     </>
   );

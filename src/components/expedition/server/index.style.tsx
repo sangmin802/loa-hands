@@ -1,14 +1,18 @@
 import styled from "styled-components";
+import Text from "components/text";
+import MapContainer from "components/map-container";
 
-export const Server = styled.article`
+const Server = styled.article`
   margin-bottom: 20px;
 `;
 
-export const Title = styled.div`
+const ServerName = styled(Text)`
   margin-bottom: 0.3rem;
 `;
 
-export const InnerContainer = styled.div`
+const CharList = styled(MapContainer)`
   display: flex;
   flex-wrap: wrap;
 `;
+
+export { Server, ServerName, CharList };

@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
-import { Image, Text } from "../";
+import Image from "components/image";
+import Text from "components/text";
 import * as Styled from "./index.style";
 
 interface IData {
@@ -13,7 +14,7 @@ interface IEvent<T> {
   event?: T;
 }
 
-const Event = ({ event }: IEvent<IData>) => {
+const Event = ({ event, ...props }: IEvent<IData>) => {
   const { date, href, img, name } = event;
 
   const handleOpenEvent = useCallback(() => {
@@ -21,7 +22,7 @@ const Event = ({ event }: IEvent<IData>) => {
   }, [href]);
 
   return (
-    <Styled.Container title="event" onClick={handleOpenEvent}>
+    <Styled.Container {...props} title="event" onClick={handleOpenEvent}>
       <Image src={img} />
       <Styled.Desc>
         <Text>{name}</Text>

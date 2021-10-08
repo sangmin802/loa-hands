@@ -1,10 +1,10 @@
 import React, { useRef, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import * as Styled from "./index.style";
-import { Input, Button, Text } from "components/";
 import { useQueryErrorResetBoundary } from "react-query";
+import Text from "components/text";
 
-const Header = () => {
+const Header = ({ ...props }) => {
   const { reset } = useQueryErrorResetBoundary();
   const textInput = useRef(null);
   const history = useHistory();
@@ -34,28 +34,24 @@ const Header = () => {
   );
 
   return (
-    <Styled.Container>
-      <Button onClick={handleGoHome}>
+    <Styled.Container {...props}>
+      <Styled.Logo onClick={handleGoHome}>
         <Styled.Background data-testid="go-home" />
-      </Button>
+      </Styled.Logo>
       <Styled.Form
         data-testid="submit-form"
         className="submit-area"
         onSubmit={handleSubmit}
       >
-        <Styled.InputText>
-          <Input
-            data-testid="search-area"
-            className="search-area"
-            type="text"
-            ref={textInput}
-            autoComplete="off"
-          />
-        </Styled.InputText>
+        <Styled.InputText
+          data-testid="search-area"
+          className="search-area"
+          type="text"
+          ref={textInput}
+          autoComplete="off"
+        />
         <Styled.InputSubmit>
-          <Button>
-            <Text>검색</Text>
-          </Button>
+          <Text>검색</Text>
         </Styled.InputSubmit>
       </Styled.Form>
     </Styled.Container>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+const Input = styled.input`
   background: none;
   width: 100%;
   padding: 0.3rem;
@@ -14,3 +14,5 @@ export const Input = styled.input`
   color : ${({ theme }) => theme.fontColor.white};
 }
 `;
+
+export { Input };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
+const Content = styled.div`
   width: 80px;
   height: 80px;
 
@@ -80,3 +80,5 @@ export const Content = styled.div`
     }
   }
 `;
+
+export { Content };

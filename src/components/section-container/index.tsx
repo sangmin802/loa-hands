@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from "react";
 import * as Styled from "./index.style";
-import { Text } from "components/";
 
 interface ISectionContainer {
   title: string;
@@ -12,9 +11,7 @@ const SectionContainer = ({
 }: PropsWithChildren<ISectionContainer>) => {
   return (
     <article>
-      <Styled.Title>
-        <Text>{title}</Text>
-      </Styled.Title>
+      <Styled.Title>{title}</Styled.Title>
       <>{children}</>
     </article>
   );

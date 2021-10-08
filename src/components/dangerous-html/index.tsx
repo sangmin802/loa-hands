@@ -5,8 +5,7 @@ interface IDangerousHTML {
   html?: string;
 }
 
-const DangerousHTML = ({ html }: IDangerousHTML) => {
-  return <Styled.Container dangerouslySetInnerHTML={{ __html: html }} />;
-};
-
+const DangerousHTML = ({ html, ...props }: IDangerousHTML) => (
+  <Styled.Container {...props} dangerouslySetInnerHTML={{ __html: html }} />
+);
 export default DangerousHTML;

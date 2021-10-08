@@ -1,5 +1,5 @@
 import React, { ReactElement, useCallback, useEffect } from "react";
-import { ConditionalRender } from "components";
+import ConditionalRender from "components/conditional-render";
 import * as Styled from "./index.style";
 
 interface IDialog {

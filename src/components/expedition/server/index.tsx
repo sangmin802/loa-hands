@@ -1,7 +1,6 @@
 import React from "react";
 import Char from "../char/index";
 import * as Styled from "./index.style";
-import { Text, MapContainer } from "components/";
 
 interface IData {
   server: string;
@@ -14,14 +13,10 @@ interface IServer<T> {
 
 const Server = ({ data }: IServer<IData>) => (
   <Styled.Server>
-    <Styled.Title>
-      <Text>{data.server}</Text>
-    </Styled.Title>
-    <Styled.InnerContainer>
-      <MapContainer data={data.charList}>
-        <Char />
-      </MapContainer>
-    </Styled.InnerContainer>
+    <Styled.ServerName>{data.server}</Styled.ServerName>
+    <Styled.CharList data={data.charList}>
+      <Char />
+    </Styled.CharList>
   </Styled.Server>
 );
 

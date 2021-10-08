@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.article`
+const Quality = styled.article`
   position: relative;
   width: 100%;
   text-align: center;
@@ -8,7 +8,7 @@ export const Container = styled.article`
   ${({ theme }) => theme.contentBox}
 `;
 
-export const Background = styled.div<{ color: string; width: string }>`
+const Background = styled.div<{ color: string; width: string }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -18,3 +18,5 @@ export const Background = styled.div<{ color: string; width: string }>`
   width: ${({ width }) => width}%;
   background: ${({ theme, color }) => theme.gradientColor[color]};
 `;
+
+export { Quality, Background };

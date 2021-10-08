@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import DoubleListContainer from "components/double-list-container";
 
-export const ContainerMargin = styled.div`
+const EngraveDoubleListContainer = styled(DoubleListContainer)`
   margin-bottom: 2rem;
   & .engrave-item {
     margin-bottom: 1.5rem;
@@ -10,3 +11,5 @@ export const ContainerMargin = styled.div`
     }
   }
 `;
+
+export { EngraveDoubleListContainer };

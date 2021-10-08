@@ -1,10 +1,8 @@
 import React, { ReactElement, useMemo } from "react";
-import {
-  DoubleListContainer,
-  ListItem,
-  DetailContent,
-  Rune,
-} from "components/";
+import DetailContent from "components/detail-content";
+import DoubleListContainer from "components/double-list-container";
+import ListItem from "components/list-item";
+import Rune from "components/rune";
 
 interface ISkillContainer {
   userData: {
