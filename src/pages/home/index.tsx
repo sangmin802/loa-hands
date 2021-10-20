@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,
@@ -8,9 +8,9 @@ import {
 } from "json/timer";
 import { useCalendar } from "hooks/use-calendar";
 import { useEvent } from "hooks/use-event";
-import { interval } from "utils/events/interval";
 import { useCancelQuery } from "hooks/use-cancel-query";
-import { NotificationHandler } from "utils/events/notification";
+import { useHomeRerender } from "hooks/use-home-rerender";
+import { useTimerNotification } from "hooks/use-timer-notification";
 
 import TimerContainer from "components/timer-container";
 import LoadingSpinner from "components/loading-spinner";
@@ -23,7 +23,7 @@ import * as Styled from "./index.style";
 interface IFetchCalendar {
   queryKey: string | (string | number)[];
   isMidnight: Date;
-  notification: typeof NotificationHandler;
+  notification: ReturnType<typeof useTimerNotification>;
 }
 
 interface IFetchEvent {
@@ -31,68 +31,20 @@ interface IFetchEvent {
 }
 
 const Home = () => {
-  const [isMidnight, setMidnight] = useState(new Date());
-  const [isSix, setSix] = useState(new Date());
+  const { isMidnight, isSix } = useHomeRerender();
   const queryKey = useMemo(
     () => ["fetchEventData", ["fetchCalendarData", isMidnight.getDate()]],
     [isMidnight]
   );
-
-  const updateTime = useCallback(arr => {
-    const [setMidnight, setSix] = arr;
-    const now = new Date();
-    const hour = now.getHours();
-    const min = now.getMinutes();
-    const sec = now.getSeconds();
-    if (hour === 0 && min === 0 && sec === 0) setMidnight(now);
-    if (hour === 6 && min === 0 && sec === 0) setSix(now);
-  }, []);
-
-  const { startInterval, endInterval } = useMemo(
-    () => interval(1, updateTime),
-    [updateTime]
-  );
-
-  const createNotification = useCallback(works => {
-    const [start, ready] = works.reduce(
-      (prev, cur) => {
-        cur.type === "START" ? prev[0].push(cur) : prev[1].push(cur);
-        return prev;
-      },
-      [[], []]
-    );
-
-    const startBody = start.length
-      ? `\n시작 컨텐츠\n[${start[0].name}] 등 ${start.length}개`
-      : "";
-    const readyBody = ready.length
-      ? `\n준비 컨텐츠\n[${ready[0].name}] 등 ${ready.length}개`
-      : "";
-
-    return {
-      title: `Loa-Hands 알림`,
-      option: {
-        body: startBody + readyBody,
-      },
-    };
-  }, []);
-
-  const notification = useMemo(
-    () => new NotificationHandler(createNotification),
-    [createNotification]
-  );
-
-  useEffect(() => {
-    startInterval([setMidnight, setSix]);
-    return () => {
-      endInterval();
-    };
-  }, [endInterval, startInterval, setSix]);
+  const notification = useTimerNotification();
 
   useCancelQuery(queryKey);
 
   return (
     <Styled.Home>
+      <Styled.Notification onClick={notification.requestPermission}>
+        <Text>타이머 알림 활성화</Text>
+      </Styled.Notification>
       <Styled.Section title="진행중인 이벤트">
         <AsyncBoundary
           suspenseFallback={<LoadingSpinner />}
@@ -101,9 +53,6 @@ const Home = () => {
           <FetchEvent queryKey={queryKey[0]} />
         </AsyncBoundary>
       </Styled.Section>
-      <Styled.Notification onClick={notification.requestPermission}>
-        <Text>알림 활성화</Text>
-      </Styled.Notification>
       <Styled.Section title="오늘의 캘린더섬">
         <AsyncBoundary
           suspenseFallback={<LoadingSpinner />}

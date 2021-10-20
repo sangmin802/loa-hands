@@ -29,7 +29,7 @@ const StyledEvent = styled(Event)`
 
 const Notification = styled(Button)`
   width: fit-content;
-  margin: 20px 0;
+  margin: 5px 0;
   display: flex;
   justify-content: center;
   align-items: center;
