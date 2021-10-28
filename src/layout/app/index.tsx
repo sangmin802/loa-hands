@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Home from "pages/home";
-import UserInfo from "pages/user-info";
+import Home from "pages/home/home";
+import FetchUserInfo from "pages/userInfo/fetchUserInfo/index";
 import * as Styled from "./index.style";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Styled.Header />
       <Styled.Main>
         <Route exact path="/" component={Home} />
-        <Route path="/userInfo/:name" component={UserInfo} />
+        <Route path="/userInfo/:name" component={FetchUserInfo} />
       </Styled.Main>
     </Styled.Container>
   );

@@ -2,12 +2,17 @@ import React, { HTMLAttributes, PropsWithChildren } from "react";
 import * as Styled from "./index.style";
 
 export interface IText extends HTMLAttributes<HTMLDivElement> {
-  type: string;
+  size: string;
   color: string;
 }
 
-const Text = ({ children, ...props }: PropsWithChildren<Partial<IText>>) => (
-  <Styled.Text className="text" {...props}>
+const Text = ({
+  color = "white",
+  size = "1",
+  children,
+  ...props
+}: PropsWithChildren<Partial<IText>>) => (
+  <Styled.Text color={color} size={size} {...props}>
     {children}
   </Styled.Text>
 );

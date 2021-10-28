@@ -21,9 +21,14 @@ const Container = styled.div`
   background: rgba(0, 0, 0, 0.85);
   max-height: 400px;
   z-index: 3;
-
-  ${({ theme }) => theme.contentBox}
-  ${({ theme }) => theme.scrollbar}
+  border-radius: 3px;
+  border: 1px solid #f0f4f5;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export { Background, Container };
