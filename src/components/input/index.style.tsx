@@ -11,7 +11,7 @@ const Input = styled.input`
     background: none;
   };
 
-  color : ${({ theme }) => theme.fontColor.white};
+  color : #fff;
 }
 `;
 

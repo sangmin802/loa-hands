@@ -1,25 +1,35 @@
-import React, { ReactElement, useCallback, useEffect } from "react";
-import ConditionalRender from "components/conditional-render";
+import React, {
+  ReactElement,
+  useCallback,
+  useEffect,
+  useState,
+  cloneElement,
+} from "react";
 import * as Styled from "./index.style";
 
-interface IDialog {
-  // render: boolean;
-  dialog: ReactElement;
-  setDialog: (T: null) => void;
+interface DialogProps {
+  children: ReactElement;
+  rerender: any;
 }
 
-const Dialog = ({ dialog, setDialog }: IDialog) => {
+const Dialog = ({ children, rerender }: DialogProps) => {
+  const [dialog, setDialog] = useState<ReactElement | null>(null);
+
+  useEffect(() => {
+    setDialog(null);
+  }, [rerender]);
+
   const handleCloseDialog = useCallback(() => {
     setDialog(null);
-  }, [setDialog]);
+  }, []);
 
   const fixViewport = useCallback((body, top) => {
     const style = `
-    position: fixed;
-    top: -${top}px;
-    left: 0px;
-    right: 0px;
-  `;
+      position: fixed;
+      top: -${top}px;
+      left: 0px;
+      right: 0px;
+    `;
     body.setAttribute("style", style);
   }, []);
 
@@ -29,26 +39,34 @@ const Dialog = ({ dialog, setDialog }: IDialog) => {
   }, []);
 
   useEffect(() => {
+    if (!dialog) return;
     const body = document.querySelector("body");
     const top = window.pageYOffset;
 
     fixViewport(body, top);
 
     return () => {
+      if (!dialog) return;
       resetViewport(body, top);
     };
-  }, [fixViewport, resetViewport]);
+  }, [dialog, fixViewport, resetViewport]);
 
   return (
     <>
-      <Styled.Background
-        onClick={handleCloseDialog}
-        data-testid="close-dialog"
-      />
-      <Styled.Container data-testid="dialog-content">{dialog}</Styled.Container>
+      {dialog && (
+        <>
+          <Styled.Background
+            onClick={handleCloseDialog}
+            data-testid="close-dialog"
+          />
+          <Styled.Container data-testid="dialog-content">
+            {dialog}
+          </Styled.Container>
+        </>
+      )}
+      {cloneElement(children, { setDialog })}
     </>
   );
 };
 
-// export default React.memo(ConditionalRender(Dialog));
 export default React.memo(Dialog);

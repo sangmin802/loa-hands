@@ -1,7 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "store/index";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -22,16 +20,14 @@ export const queryClient = new QueryClient({
 
 const AllProviders = ({ children }) => {
   return (
-    <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <ThemeProvider theme={THEME}>
-          <QueryClientProvider client={queryClient}>
-            <ReactQueryDevtools />
-            {children}
-          </QueryClientProvider>
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <ThemeProvider theme={THEME}>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools />
+          {children}
+        </QueryClientProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 

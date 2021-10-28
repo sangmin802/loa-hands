@@ -3,25 +3,20 @@
     "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true
+    "jsx": "react-jsx"
   },
-  "include": [
-    "src",
-    "store/controller/actions.ts",
-    "store/model/store.ts",
-    "selector.ts"
-  ]
+  "include": ["src"]
 }
