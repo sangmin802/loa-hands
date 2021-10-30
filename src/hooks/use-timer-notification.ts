@@ -4,7 +4,7 @@ import { NotificationHandler } from "utils/events/notification";
 export function useTimerNotification() {
   const createNotification = useCallback(works => {
     const [start, ready] = works.reduce(
-      (prev, cur) => {
+      <T extends { type: string }>(prev: T[][], cur: T) => {
         cur.type === "START" ? prev[0].push(cur) : prev[1].push(cur);
         return prev;
       },
@@ -28,7 +28,7 @@ export function useTimerNotification() {
 
   const notification = useMemo(
     () => new NotificationHandler(createNotification),
-    [createNotification]
+    []
   );
 
   return notification;

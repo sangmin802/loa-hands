@@ -105,7 +105,15 @@ export const DAILY_ISLAND = [
 ];
 
 // 캘린더섬 리스트
-export const CALENDAR_ISLAND = {
+export const CALENDAR_ISLAND: {
+  [key: string]: {
+    name: string;
+    src: string;
+    lv: number;
+    position: string;
+    contType: string;
+  };
+} = {
   "기회의 섬": {
     name: "기회의 섬",
     src: "/img/calendar/calendar_00.jpg",

@@ -1,13 +1,14 @@
 import React from "react";
-import TimerContainer from "./timerList";
+import TimerList, { TimerListProps } from "./timerList";
 import { DAILY_ISLAND } from "json/timer";
+import { Story } from "@storybook/react";
 
 export default {
-  title: "TimerContainer",
-  component: TimerContainer,
+  title: "TimerList",
+  component: TimerList,
 };
 
-const Template = args => <TimerContainer {...args} />;
+const Template: Story<TimerListProps> = args => <TimerList {...args} />;
 
 export const Default = Template.bind({});
 

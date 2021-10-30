@@ -5,7 +5,7 @@ import React, {
   cloneElement,
 } from "react";
 
-interface NavigationRenderProps {
+interface NavigationProps {
   onSelected: (...args: any[]) => ReactElement;
   unSelected: (...args: any[]) => ReactElement;
   navigation: string[];
@@ -13,13 +13,13 @@ interface NavigationRenderProps {
   buttonContainer?: (...args: any[]) => ReactElement;
 }
 
-function NavigationRender({
+function Navigation({
   onSelected: OnSelected,
   unSelected: UnSelected,
   navigation,
   children,
   buttonContainer: ButtonContainer = () => <></>,
-}: NavigationRenderProps) {
+}: NavigationProps) {
   const [nav, setNav] = useState(0);
 
   const handleNavDelegation = useCallback(e => {
@@ -47,4 +47,4 @@ function NavigationRender({
   );
 }
 
-export default React.memo(NavigationRender);
+export default React.memo(Navigation);

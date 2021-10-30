@@ -1,3 +1,4 @@
+import { Story } from "@storybook/react";
 import React from "react";
 import Home from "./home";
 
@@ -6,7 +7,7 @@ export default {
   component: Home,
 };
 
-const Template = args => <Home {...args} />;
+const Template: Story = args => <Home {...args} />;
 
 export const Default = Template.bind({});
 

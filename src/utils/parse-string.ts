@@ -1,7 +1,7 @@
-export function getOnlyText(string) {
+export function getOnlyText(string: string) {
   if (!string) return;
   const newStr = string.replace(/<BR>$/gi, "").replace(/<BR>/gi, "enter");
-  const parsed = parseFromString(newStr).body.textContent;
+  const parsed = parseFromString(newStr).body.textContent as string;
   if (parsed.includes("enter")) {
     const split = parsed.split("enter");
     return split.map(res => {
@@ -13,12 +13,12 @@ export function getOnlyText(string) {
   }
 }
 
-export function returnBody(data) {
+export function returnBody(data: string) {
   const body = parseFromString(data).getElementsByTagName("body")[0];
   return body;
 }
 
-export function parseFromString(string) {
+export function parseFromString(string: string) {
   const parser = new DOMParser();
   return parser.parseFromString(string, "text/html");
 }

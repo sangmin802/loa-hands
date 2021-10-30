@@ -1,15 +1,17 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, MemoExoticComponent } from "react";
 import * as Styled from "./list.style";
 
-interface IList {
+export interface ListProps {
   data: any[];
-  item: (...args: any[]) => ReactElement;
+  item:
+    | ((...args: any[]) => ReactElement)
+    | MemoExoticComponent<(...args: any[]) => ReactElement>;
   dispatcher?:
     | { [key: string]: (...args: any[]) => void }
     | ((...args: any[]) => void);
 }
 
-function List({ data, item: Item, dispatcher, ...props }: IList) {
+function List({ data, item: Item, dispatcher, ...props }: ListProps) {
   return (
     <Styled.List {...props}>
       {data.map((data, index) => (

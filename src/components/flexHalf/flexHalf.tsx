@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
 import * as Styled from "./flexHalf.style";
 
-interface FlexHalf {
+interface FlexHalfProps {
   left: ReactNode;
   right: ReactNode;
 }
 
-function FlexHalf({ left, right, ...props }: FlexHalf) {
+function FlexHalf({ left, right, ...props }: FlexHalfProps) {
   return (
     <Styled.FlexContainer {...props}>
       <Styled.HalfContainer>{left}</Styled.HalfContainer>

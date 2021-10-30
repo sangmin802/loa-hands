@@ -1,24 +1,20 @@
 import React, { ReactElement, useMemo } from "react";
 import { reducePerType } from "utils/util";
 import { useNavigation } from "hooks/use-navigation";
-import InfoItem from "pages/userInfo/infoItem";
+import InfoItem from "pages/userInfo/infoItem/infoItem";
 import List from "components/list/list";
 import FlexHalf from "components/flexHalf/flexHalf";
+import UserInfo from "models/userInfo";
 import * as Styled from "./skill.style";
 
-interface ISkillContainer {
-  userData: {
-    skillInfo: {
-      battleSkill;
-      lifeSkill;
-    };
-  };
+interface SkillProps {
+  userData: UserInfo;
   setDialog(T: ReactElement): void;
 }
 
 const navList = ["전투스킬", "생활스킬"];
 
-const SkillContainer = ({ userData, setDialog }: ISkillContainer) => {
+function Skill({ userData, setDialog }: SkillProps) {
   const [[skillLeft, skillRight], [lifeLeft, lifeRight]] = useMemo(() => {
     const { battleSkill, lifeSkill } = userData.skillInfo;
 
@@ -63,6 +59,6 @@ const SkillContainer = ({ userData, setDialog }: ISkillContainer) => {
       </Styled.NAVContent>
     </>
   );
-};
+}
 
-export default React.memo(SkillContainer);
+export default React.memo(Skill);

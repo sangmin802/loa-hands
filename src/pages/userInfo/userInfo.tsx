@@ -1,31 +1,34 @@
 import React, { Dispatch, ReactElement } from "react";
 import { useUser } from "hooks/use-user";
 import { useNavigation } from "hooks/use-navigation";
-import Text from "components/text";
+import Text from "components/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
-import SearchLoading from "pages/userInfo/searchLoading";
+import SearchLoading from "pages/userInfo/searchLoading/searchLoading";
 import UserCollection from "./userCollection/userCollection";
 import FlexHalf from "components/flexHalf/flexHalf";
-import ErrorFallback from "components/errorFallback";
-import LoadingSpinner from "components/loadingSpinner";
-import AsyncBoundary from "components/asyncBoundary";
+import ErrorFallback from "components/errorFallback/errorFallback";
+import LoadingSpinner from "components/loadingSpinner/loadingSpinner";
+import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
 import * as Styled from "./userInfo.style";
+import UserInfoModel from "models/userInfo";
 
-interface IUserInfo {
+export interface UserInfoProps {
   userKey: string[];
   userCollectionKey: string[];
-  setDialog?: Dispatch<ReactElement>;
+  setDialog?: (T: ReactElement | null) => void;
 }
 
 const navList = ["능력치", "스킬", "수집형포인트"];
 
-function UserInfo({ userKey, userCollectionKey, setDialog }: IUserInfo) {
-  const { status, data: userData } = useUser(userKey);
+function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
+  const { status, data } = useUser(userKey);
   const { nav, handleNavDelegation } = useNavigation([userKey]);
 
   if (status === "loading") return <SearchLoading />;
 
+  const userData = data as UserInfoModel;
+  const setDialogAssertion = setDialog as (T: ReactElement | null) => void;
   const { basicInfo: BI, expeditionInfo: EI } = userData;
 
   return (
@@ -33,7 +36,7 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: IUserInfo) {
       <Styled.Top>
         <Styled.ExpeditionButton
           userData={userData}
-          setDialog={setDialog}
+          setDialog={setDialogAssertion}
           data-testid="expedition-button"
         />
         <Styled.BasicInfoLabel title={<Styled.Label>클래스</Styled.Label>}>
@@ -112,8 +115,12 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: IUserInfo) {
           ))}
         </Styled.Navigation>
         <Styled.NAVContent data-testid="content">
-          {nav === 0 && <Ability userData={userData} setDialog={setDialog} />}
-          {nav === 1 && <Skill userData={userData} setDialog={setDialog} />}
+          {nav === 0 && (
+            <Ability userData={userData} setDialog={setDialogAssertion} />
+          )}
+          {nav === 1 && (
+            <Skill userData={userData} setDialog={setDialogAssertion} />
+          )}
           {nav === 2 && (
             <AsyncBoundary
               suspenseFallback={<LoadingSpinner />}

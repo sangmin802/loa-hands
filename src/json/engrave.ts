@@ -1,4 +1,10 @@
-export const ENGRAVE = {
+export const ENGRAVE: {
+  [key: string]: {
+    divideType: string;
+    no: number;
+    options: string[];
+  };
+} = {
   원한: {
     divideType: "buff",
     no: 71,

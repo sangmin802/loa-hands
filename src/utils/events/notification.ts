@@ -1,33 +1,43 @@
-export function NotificationHandler(createNotification) {
-  let notificationWorks = [];
-  let timeout = null;
-  this.notification = null;
+interface NotificationHandlerProps<T> {
+  requestPermission: () => Promise<Notification | undefined>;
+  checkPermission: () => boolean | undefined;
+  removeTimeout: () => void;
+  activeNotification: (P: T) => void;
+}
 
-  this.requestPermission = async () => {
+export class NotificationHandler<T> implements NotificationHandlerProps<T> {
+  notificationWorks: T[] = [];
+  timeout: NodeJS.Timeout | null = null;
+  notification: null | Notification = null;
+  constructor(public createNotification: Function) {}
+
+  requestPermission = async () => {
     const permission = await Notification.requestPermission(res => res);
 
     if (permission === "granted")
       return new Notification("알림이 허용되었습니다.");
   };
 
-  this.checkPermission = () => {
+  checkPermission = () => {
     const permission = Notification.permission;
     if (permission === "granted") return true;
     if (permission === "default") return false;
     if (permission === "denied") return false;
   };
 
-  this.removeTimeout = () => clearTimeout(timeout);
+  removeTimeout = () => {
+    this.timeout && clearTimeout(this.timeout);
+  };
 
-  this.activeNotification = data => {
+  activeNotification = (data: T) => {
     if (!this.checkPermission()) return;
     this.removeTimeout();
-    notificationWorks.push(data);
-    timeout = setTimeout(() => {
+    this.notificationWorks.push(data);
+    this.timeout = setTimeout(() => {
       this.notification?.close.bind(this.notification);
-      const { title, option } = createNotification(notificationWorks);
+      const { title, option } = this.createNotification(this.notificationWorks);
       this.notification = new Notification(title, option);
-      notificationWorks = [];
+      this.notificationWorks = [];
     }, 300);
   };
 }

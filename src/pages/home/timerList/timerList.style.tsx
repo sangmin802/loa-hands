@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Text from "components/text";
-import TimerItem from "pages/home/timerList/timerItem";
+import Text from "components/text/text";
+import TimerItem from "pages/home/timerList/timerItem/timerItem";
 import List from "components/list/list";
 
 const Alert = styled(Text)`

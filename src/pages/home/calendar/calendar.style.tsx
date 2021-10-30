@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SectionContainer from "components/sectionContainer/sectionContainer";
-import Text from "components/text";
+import Text from "components/text/text";
 
 const Section = styled(SectionContainer)`
   flex-direction: column;

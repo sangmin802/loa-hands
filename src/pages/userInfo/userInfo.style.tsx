@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ExpeditionDialog from "./expeditionDialog";
-import Image from "components/image";
-import Button from "components/button";
+import ExpeditionDialog from "./expeditionDialog/expeditionDialog";
+import Image from "components/image/image";
+import Button from "components/button/button";
 import SectionContainer from "components/sectionContainer/sectionContainer";
-import Text from "components/text";
+import Text from "components/text/text";
 
 const UserInfo = styled.section`
   padding: 0.5rem;

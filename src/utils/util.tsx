@@ -1,11 +1,11 @@
-export function addZero(num) {
+export function addZero(num: number) {
   if (num < 10) {
     return "0" + num;
   }
   return num;
 }
 
-export function reducePerType(data, type = null) {
+export function reducePerType(data: any[], type: null | string = null) {
   return data.reduce(
     (prev, cur, i) => {
       const condition = type ? cur.divideType.includes(type) : i % 2 === 0;
@@ -21,7 +21,7 @@ export function reducePerType(data, type = null) {
   );
 }
 
-export function getQualityColor(quality) {
+export function getQualityColor(quality: number) {
   if (quality === -1) return null;
 
   let qualityColor = -2;

@@ -1,13 +1,20 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
-export function useTimer() {
-  const [restTime, setRestTimeProps] = useState(null);
+export function useTimer(): {
+  restTime: null | { [key: string]: string };
+  calcTimer: (T: number) => number;
+  calcRestTimeProps: (T: number | null) => void;
+} {
+  const [restTime, setRestTimeProps] = useState<null | {
+    [key: string]: string;
+  }>(null);
 
-  const calcTimer = useCallback(endTime => {
+  const calcTimer = (endTime: number) => {
     return Math.ceil((endTime - new Date().getTime()) / 1000) * 1000;
-  }, []);
+  };
 
-  const calcRestTimeProps = useCallback(time => {
+  const calcRestTimeProps = (time: number | null): void => {
+    if (!time) return setRestTimeProps(null);
     const _sec = 1000;
     const _min = _sec * 60;
     const _hour = _min * 60;
@@ -15,21 +22,19 @@ export function useTimer() {
     const min = Math.floor((time % _hour) / _min);
     const sec = Math.floor((time % _min) / _sec);
 
-    time !== null
-      ? setRestTimeProps({
-          hour: addZero(hour),
-          min: addZero(min),
-          sec: addZero(sec),
-        })
-      : setRestTimeProps(null);
-  }, []);
+    setRestTimeProps({
+      hour: addZero(hour),
+      min: addZero(min),
+      sec: addZero(sec),
+    });
+  };
 
-  return [restTime, calcTimer, calcRestTimeProps];
+  return { restTime, calcTimer, calcRestTimeProps };
 }
 
-function addZero(num) {
+function addZero(num: number) {
   if (num < 10) {
     return "0" + num;
   }
-  return num;
+  return `${num}`;
 }

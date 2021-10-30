@@ -3,7 +3,7 @@ import { useEvent } from "hooks/use-event";
 import * as Styled from "./event.style";
 
 interface EventProps {
-  queryKey: string | (string | number)[];
+  queryKey: string;
 }
 
 function Event({ queryKey }: EventProps) {

@@ -4,7 +4,7 @@ import "style/fonts.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle, { THEME } from "global-style";
-import App from "layout/app/index";
+import App from "layout/app/app";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 

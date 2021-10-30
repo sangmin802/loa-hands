@@ -1,13 +1,12 @@
 import React, { useMemo } from "react";
 import { useCalendar } from "hooks/use-calendar";
-import { useTimerNotification } from "hooks/use-timer-notification";
 import TimerList from "../timerList/timerList";
 import * as Styled from "./calendar.style";
 
 interface CalendarProps {
-  queryKey: string | (string | number)[];
+  queryKey: (string | number)[];
   isMidnight: Date;
-  notification: ReturnType<typeof useTimerNotification>;
+  notification: (...args: any[]) => void;
 }
 
 function Calendar({ queryKey, isMidnight, notification }: CalendarProps) {
