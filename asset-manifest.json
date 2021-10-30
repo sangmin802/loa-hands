@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/loa-hands/static/css/main.c68d20e8.chunk.css",
-    "main.js": "/loa-hands/static/js/main.1f66a8cb.chunk.js",
-    "main.js.map": "/loa-hands/static/js/main.1f66a8cb.chunk.js.map",
+    "main.js": "/loa-hands/static/js/main.f4ff0b38.chunk.js",
+    "main.js.map": "/loa-hands/static/js/main.f4ff0b38.chunk.js.map",
     "runtime-main.js": "/loa-hands/static/js/runtime-main.47bb0c31.js",
     "runtime-main.js.map": "/loa-hands/static/js/runtime-main.47bb0c31.js.map",
-    "static/js/2.c70dc439.chunk.js": "/loa-hands/static/js/2.c70dc439.chunk.js",
-    "static/js/2.c70dc439.chunk.js.map": "/loa-hands/static/js/2.c70dc439.chunk.js.map",
+    "static/js/2.f636c18d.chunk.js": "/loa-hands/static/js/2.f636c18d.chunk.js",
+    "static/js/2.f636c18d.chunk.js.map": "/loa-hands/static/js/2.f636c18d.chunk.js.map",
     "index.html": "/loa-hands/index.html",
     "static/css/main.c68d20e8.chunk.css.map": "/loa-hands/static/css/main.c68d20e8.chunk.css.map",
-    "static/js/2.c70dc439.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.c70dc439.chunk.js.LICENSE.txt",
+    "static/js/2.f636c18d.chunk.js.LICENSE.txt": "/loa-hands/static/js/2.f636c18d.chunk.js.LICENSE.txt",
     "static/media/fonts.css": "/loa-hands/static/media/oneMobilePop.d95ebd91.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.47bb0c31.js",
-    "static/js/2.c70dc439.chunk.js",
+    "static/js/2.f636c18d.chunk.js",
     "static/css/main.c68d20e8.chunk.css",
-    "static/js/main.1f66a8cb.chunk.js"
+    "static/js/main.f4ff0b38.chunk.js"
   ]
 }
