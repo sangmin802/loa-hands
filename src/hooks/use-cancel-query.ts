@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useQueryClient } from "react-query";
 
-export const useCancelQuery = queryKey => {
+export const useCancelQuery = (queryKey: any[]) => {
   const queryClient = useQueryClient();
 
   useEffect(() => {

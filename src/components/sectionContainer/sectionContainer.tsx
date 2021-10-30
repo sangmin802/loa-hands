@@ -1,21 +1,21 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import * as Styled from "./sectionContainer.style";
 
-interface ISectionContainer {
+export interface SectionContainerProps {
   title: ReactNode;
 }
 
-const SectionContainer = ({
+function SectionContainer({
   children,
   title,
   ...props
-}: PropsWithChildren<ISectionContainer>) => {
+}: PropsWithChildren<SectionContainerProps>) {
   return (
     <Styled.Section {...props}>
       {title}
       {children}
     </Styled.Section>
   );
-};
+}
 
 export default React.memo(SectionContainer);

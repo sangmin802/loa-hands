@@ -1,11 +1,13 @@
 import React from "react";
 import * as Styled from "./html.style";
 
-interface IHTML {
-  html?: string;
+export interface HTMLProps {
+  html: string;
 }
 
-const HTML = ({ html, ...props }: IHTML) => (
-  <Styled.Container {...props} dangerouslySetInnerHTML={{ __html: html }} />
-);
+function HTML({ html, ...props }: HTMLProps) {
+  return (
+    <Styled.Container {...props} dangerouslySetInnerHTML={{ __html: html }} />
+  );
+}
 export default HTML;

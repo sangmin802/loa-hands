@@ -1,32 +1,22 @@
 import React, { ReactElement, useMemo } from "react";
 import { reducePerType } from "utils/util";
 import { useNavigation } from "hooks/use-navigation";
-import InfoItem from "pages/userInfo/infoItem";
+import InfoItem from "pages/userInfo/infoItem/infoItem";
 import Characteristic from "./characteristic/characteristic";
 import FlexHalf from "components/flexHalf/flexHalf";
 import List from "components/list/list";
 import HTMLItem from "../htmlItem/htmlItem";
+import UserInfo from "models/userInfo";
 import * as Styled from "./ability.style";
 
-interface IUserData {
-  abilityInfo: {
-    characteristicInfo: { battle; basic; engrave };
-    equipInfo: { equipment; avatar; badge; gem };
-    engrave;
-  };
-}
-
-interface IAbilityContainer<T> {
+interface AbilityProps<T> {
   userData: T;
   setDialog(T: ReactElement): void;
 }
 
 const navList = ["착용 아이템", "착용 아바타", "각인·특성", "보석"];
 
-const AbilityContainer = ({
-  userData,
-  setDialog,
-}: IAbilityContainer<IUserData>) => {
+function Ability({ userData, setDialog }: AbilityProps<UserInfo>) {
   const [
     [equipLeft, equipRight],
     [avatarLeft, avatarRight],
@@ -110,6 +100,6 @@ const AbilityContainer = ({
       </Styled.NAVContent>
     </>
   );
-};
+}
 
-export default React.memo(AbilityContainer);
+export default React.memo(Ability);

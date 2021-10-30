@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
 import * as Styled from "./timerList.style";
 
-interface TimerListProps {
+export interface TimerListProps {
   data: any[];
   rerenderKey?: null | Date;
-  notification?;
+  notification: (...args: any[]) => void;
 }
 
 const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
@@ -86,11 +86,11 @@ const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
   );
 };
 
-function replaceColon(string) {
+function replaceColon(string: string) {
   return Number(string?.replace(":", ""));
 }
 
-function beforeCurTime(time, now) {
+function beforeCurTime(time: number, now: number) {
   return time + 3 <= now ? (time += 2400) : time;
 }
 

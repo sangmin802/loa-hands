@@ -1,6 +1,7 @@
-import React from "react";
-import SectionContainer from "./sectionContainer";
+import React, { PropsWithChildren } from "react";
+import SectionContainer, { SectionContainerProps } from "./sectionContainer";
 import styled from "styled-components";
+import { Story } from "@storybook/react";
 
 const Content = styled.div`
   color: #fff;
@@ -12,7 +13,9 @@ export default {
   component: SectionContainer,
 };
 
-const Template = args => <SectionContainer {...args} />;
+const Template: Story<PropsWithChildren<SectionContainerProps>> = args => (
+  <SectionContainer {...args} />
+);
 
 export const Default = Template.bind({});
 

@@ -1,17 +1,16 @@
-import { ReactNode } from "react";
 import HTML from "components/html/html";
-import Image from "components/image/index";
+import Image from "components/image/image";
 import * as Styled from "./htmlItem.style";
 
-interface IHTMLItem {
+interface HTMLItemProps {
   data: {
     desc: string[];
     title: string;
-    src;
+    src: string;
   };
 }
 
-function HTMLItem({ data, ...props }: IHTMLItem) {
+function HTMLItem({ data, ...props }: HTMLItemProps) {
   const { title, desc, src } = data;
 
   return (

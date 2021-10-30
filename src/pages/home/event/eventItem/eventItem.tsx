@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import Image from "components/image";
-import Text from "components/text";
+import Image from "components/image/image";
+import Text from "components/text/text";
 import * as Styled from "./eventItem.style";
 
-interface EventProps {
+export interface EventProps {
   data: {
     date: string;
     href: string;
@@ -12,7 +12,7 @@ interface EventProps {
   };
 }
 
-const Event = ({ data, ...props }: EventProps) => {
+function Event({ data, ...props }: EventProps) {
   const { date, href, img, name } = data;
 
   const handleOpenEvent = useCallback(() => {
@@ -28,6 +28,6 @@ const Event = ({ data, ...props }: EventProps) => {
       </Styled.Desc>
     </Styled.Container>
   );
-};
+}
 
 export default Event;

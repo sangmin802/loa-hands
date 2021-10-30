@@ -1,7 +1,8 @@
 import { getUserCollection } from "api/api";
+import CollectionInfo from "models/collectionInfo";
 import { useQuery } from "react-query";
 
-export function useUserCollection(queryKey, member) {
+export function useUserCollection(queryKey: string[], member: string[]) {
   const { data: userColection } = useQuery(
     queryKey,
     () => getUserCollection(member),
@@ -11,5 +12,5 @@ export function useUserCollection(queryKey, member) {
     }
   );
 
-  return userColection;
+  return userColection as CollectionInfo;
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SectionContainer from "components/sectionContainer/sectionContainer";
-import Button from "components/button";
-import Text from "components/text";
+import Button from "components/button/button";
+import Text from "components/text/text";
 
 const Home = styled.section`
   padding: 0.5rem;

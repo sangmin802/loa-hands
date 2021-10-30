@@ -1,24 +1,25 @@
 import React from "react";
 import { fireEvent, render, screen } from "utils/test";
-import Expedition from "./dialog";
+import Dialog from "./dialog";
 import Char from "../char/char";
 
-describe("Expedition", () => {
+describe("Dialog", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("Expedition 컴포넌트 닫기", () => {
+  it("Dialog 컴포넌트 닫기", () => {
     const setDialog = jest.fn();
+    const setUserData = jest.fn();
     const userData = {
       expeditionInfo: {
         expeditionUserWrap: [],
       },
     };
     render(
-      <Expedition
+      <Dialog
         userData={userData}
-        setUserData={null}
+        setUserData={setUserData}
         setDialog={setDialog}
       />
     );

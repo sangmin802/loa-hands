@@ -1,6 +1,6 @@
 import { BACKGROUND } from "constants/index";
 import styled, { css } from "styled-components";
-import Button from "components/button/index";
+import Button from "components/button/button";
 
 const positionX = [
   "718px",

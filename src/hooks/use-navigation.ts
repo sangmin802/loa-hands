@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-export function useNavigation(deps = []) {
+export function useNavigation(deps: any[] = []) {
   const [nav, setNav] = useState(0);
 
   const handleNavDelegation = useCallback(e => {

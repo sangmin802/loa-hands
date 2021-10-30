@@ -11,23 +11,22 @@ import { useHomeRerender } from "hooks/use-home-rerender";
 import { useTimerNotification } from "hooks/use-timer-notification";
 
 import TimerList from "./timerList/timerList";
-import LoadingSpinner from "components/loadingSpinner";
-import AsyncBoundary from "components/asyncBoundary";
-import ErrorFallback from "components/errorFallback";
+import LoadingSpinner from "components/loadingSpinner/loadingSpinner";
+import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
+import ErrorFallback from "components/errorFallback/errorFallback";
 import Calendar from "./calendar/calendar";
 import Event from "./event/event";
-import Text from "components/text";
+import Text from "components/text/text";
 
 import * as Styled from "./home.style";
 
-const Home = () => {
+function Home() {
   const { isMidnight, isSix } = useHomeRerender();
   const queryKey = useMemo(
     () => ["fetchEventData", ["fetchCalendarData", isMidnight.getDate()]],
     [isMidnight]
   );
   const notification = useTimerNotification();
-
   useCancelQuery(queryKey);
 
   return (
@@ -42,7 +41,7 @@ const Home = () => {
           suspenseFallback={<LoadingSpinner />}
           errorFallback={<ErrorFallback />}
         >
-          <Event queryKey={queryKey[0]} />
+          <Event queryKey={queryKey[0] as string} />
         </AsyncBoundary>
       </Styled.Section>
       <Styled.Section
@@ -53,7 +52,7 @@ const Home = () => {
           errorFallback={<ErrorFallback />}
         >
           <Calendar
-            queryKey={queryKey[1]}
+            queryKey={queryKey[1] as (string | number)[]}
             isMidnight={isMidnight}
             notification={notification.activeNotification}
           />
@@ -105,6 +104,6 @@ const Home = () => {
       </Styled.Section>
     </Styled.Home>
   );
-};
+}
 
 export default Home;

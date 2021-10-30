@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SectionContainer from "components/sectionContainer/sectionContainer";
 import HTML from "components/html/html";
-import Text from "components/text/index";
+import Text from "components/text/text";
 
 const Characteristic = styled(SectionContainer)`
   flex-direction: column;
