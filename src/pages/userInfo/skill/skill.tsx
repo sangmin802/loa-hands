@@ -9,12 +9,11 @@ import * as Styled from "./skill.style";
 
 interface SkillProps {
   userData: UserInfo;
-  setDialog(T: ReactElement): void;
 }
 
 const navList = ["전투스킬", "생활스킬"];
 
-function Skill({ userData, setDialog }: SkillProps) {
+function Skill({ userData }: SkillProps) {
   const [[skillLeft, skillRight], [lifeLeft, lifeRight]] = useMemo(() => {
     const { battleSkill, lifeSkill } = userData.skillInfo;
 
@@ -38,22 +37,14 @@ function Skill({ userData, setDialog }: SkillProps) {
       <Styled.NAVContent>
         {nav === 0 && (
           <FlexHalf
-            left={
-              <List data={skillLeft} item={InfoItem} dispatcher={setDialog} />
-            }
-            right={
-              <List data={skillRight} item={InfoItem} dispatcher={setDialog} />
-            }
+            left={<List data={skillLeft} item={InfoItem} />}
+            right={<List data={skillRight} item={InfoItem} />}
           />
         )}
         {nav === 1 && (
           <FlexHalf
-            left={
-              <List data={lifeLeft} item={InfoItem} dispatcher={setDialog} />
-            }
-            right={
-              <List data={lifeRight} item={InfoItem} dispatcher={setDialog} />
-            }
+            left={<List data={lifeLeft} item={InfoItem} />}
+            right={<List data={lifeRight} item={InfoItem} />}
           />
         )}
       </Styled.NAVContent>

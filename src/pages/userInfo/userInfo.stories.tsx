@@ -13,7 +13,7 @@ export default {
 const Template: Story<UserInfoProps> = args => (
   <AsyncBoundary
     suspenseFallback={<SearchLoading />}
-    errorFallback={<ErrorFallback />}
+    errorFallback={ErrorFallback}
   >
     <UserInfo {...args} />
   </AsyncBoundary>

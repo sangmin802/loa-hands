@@ -1,10 +1,10 @@
-import React, { Dispatch, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { useUser } from "hooks/use-user";
 import { useNavigation } from "hooks/use-navigation";
 import Text from "components/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
-import SearchLoading from "pages/userInfo/searchLoading/searchLoading";
+import SearchLoading from "./searchLoading/searchLoading";
 import UserCollection from "./userCollection/userCollection";
 import FlexHalf from "components/flexHalf/flexHalf";
 import ErrorFallback from "components/errorFallback/errorFallback";
@@ -28,7 +28,6 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
   if (status === "loading") return <SearchLoading />;
 
   const userData = data as UserInfoModel;
-  const setDialogAssertion = setDialog as (T: ReactElement | null) => void;
   const { basicInfo: BI, expeditionInfo: EI } = userData;
 
   return (
@@ -36,7 +35,6 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
       <Styled.Top>
         <Styled.ExpeditionButton
           userData={userData}
-          setDialog={setDialogAssertion}
           data-testid="expedition-button"
         />
         <Styled.BasicInfoLabel title={<Styled.Label>클래스</Styled.Label>}>
@@ -115,16 +113,12 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
           ))}
         </Styled.Navigation>
         <Styled.NAVContent data-testid="content">
-          {nav === 0 && (
-            <Ability userData={userData} setDialog={setDialogAssertion} />
-          )}
-          {nav === 1 && (
-            <Skill userData={userData} setDialog={setDialogAssertion} />
-          )}
+          {nav === 0 && <Ability userData={userData} />}
+          {nav === 1 && <Skill userData={userData} />}
           {nav === 2 && (
             <AsyncBoundary
               suspenseFallback={<LoadingSpinner />}
-              errorFallback={<ErrorFallback />}
+              errorFallback={ErrorFallback}
               keys={userCollectionKey}
             >
               <UserCollection

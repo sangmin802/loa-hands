@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "utils/test";
-import Dialog from "./dialog";
+import Dialog from "./dialogProvider";
 
 describe("Dialog", () => {
   beforeEach(() => {

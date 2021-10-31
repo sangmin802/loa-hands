@@ -11,12 +11,11 @@ import * as Styled from "./ability.style";
 
 interface AbilityProps<T> {
   userData: T;
-  setDialog(T: ReactElement): void;
 }
 
 const navList = ["착용 아이템", "착용 아바타", "각인·특성", "보석"];
 
-function Ability({ userData, setDialog }: AbilityProps<UserInfo>) {
+function Ability({ userData }: AbilityProps<UserInfo>) {
   const [
     [equipLeft, equipRight],
     [avatarLeft, avatarRight],
@@ -60,22 +59,14 @@ function Ability({ userData, setDialog }: AbilityProps<UserInfo>) {
       <Styled.NAVContent>
         {nav === 0 && (
           <FlexHalf
-            left={
-              <List data={equipLeft} item={InfoItem} dispatcher={setDialog} />
-            }
-            right={
-              <List data={equipRight} item={InfoItem} dispatcher={setDialog} />
-            }
+            left={<List data={equipLeft} item={InfoItem} />}
+            right={<List data={equipRight} item={InfoItem} />}
           />
         )}
         {nav === 1 && (
           <FlexHalf
-            left={
-              <List data={avatarLeft} item={InfoItem} dispatcher={setDialog} />
-            }
-            right={
-              <List data={avatarRight} item={InfoItem} dispatcher={setDialog} />
-            }
+            left={<List data={avatarLeft} item={InfoItem} />}
+            right={<List data={avatarRight} item={InfoItem} />}
           />
         )}
         {nav === 2 && (
@@ -89,12 +80,8 @@ function Ability({ userData, setDialog }: AbilityProps<UserInfo>) {
         )}
         {nav === 3 && (
           <FlexHalf
-            left={
-              <List data={gemLeft} item={InfoItem} dispatcher={setDialog} />
-            }
-            right={
-              <List data={gemRight} item={InfoItem} dispatcher={setDialog} />
-            }
+            left={<List data={gemLeft} item={InfoItem} />}
+            right={<List data={gemRight} item={InfoItem} />}
           />
         )}
       </Styled.NAVContent>

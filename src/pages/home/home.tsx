@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,
@@ -26,8 +26,18 @@ function Home() {
     () => ["fetchEventData", ["fetchCalendarData", isMidnight.getDate()]],
     [isMidnight]
   );
+  const yoil = isMidnight.getDay();
+  const isWeek = 6 > yoil && yoil > 0;
   const notification = useTimerNotification();
   useCancelQuery(queryKey);
+
+  // useEffect(() => {
+  //   // timer 웬지 브라우저 focus off 될 때, 문제생기는거같음
+  //   // 그게 사실이라면 아래 기능 사용
+  //   window.addEventListener("focus", e => {
+  //     console.log("focus");
+  //   });
+  // }, []);
 
   return (
     <Styled.Home>
@@ -39,22 +49,30 @@ function Home() {
       >
         <AsyncBoundary
           suspenseFallback={<LoadingSpinner />}
-          errorFallback={<ErrorFallback />}
+          errorFallback={ErrorFallback}
         >
           <Event queryKey={queryKey[0] as string} />
         </AsyncBoundary>
       </Styled.Section>
       <Styled.Section
-        title={<Styled.SectionTitle>오늘의 캘린더섬</Styled.SectionTitle>}
+        title={
+          <Styled.SectionTitle>
+            오늘의 캘린더섬
+            <Styled.SectionSmallTitle>
+              {isWeek ? "19:00 ~ 23:00" : "11:00 ~ 21:00"}
+            </Styled.SectionSmallTitle>
+          </Styled.SectionTitle>
+        }
       >
         <AsyncBoundary
           suspenseFallback={<LoadingSpinner />}
-          errorFallback={<ErrorFallback />}
+          errorFallback={ErrorFallback}
         >
           <Calendar
             queryKey={queryKey[1] as (string | number)[]}
             isMidnight={isMidnight}
             notification={notification.activeNotification}
+            isWeek={isWeek}
           />
         </AsyncBoundary>
       </Styled.Section>

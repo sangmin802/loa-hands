@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function useConditionalTimer(
-  time: string,
+  time: string[],
   endTime: string,
   setTime: (T: number) => void
 ): {
@@ -50,8 +50,8 @@ export function useConditionalTimer(
 
     // 해당 시간 끝
     if (time < 0) {
-      setTimerType("CLOSE");
-      setTime(time);
+      console.log("set closetTime", closeTime);
+      setTime(closeTime);
       return null;
     }
 

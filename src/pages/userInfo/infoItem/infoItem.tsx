@@ -1,7 +1,8 @@
-import React, { ReactElement, useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import Text from "components/text/text";
-import * as Styled from "./infoItem.style";
 import Dialog from "./dialog/dialog";
+import { DialogContext } from "components/dialogProvider/dialogProvider";
+import * as Styled from "./infoItem.style";
 
 interface DataProps {
   backSrc: string;
@@ -16,15 +17,15 @@ interface DataProps {
 }
 
 export interface InfoItemProps {
-  dispatcher: (T: ReactElement) => void;
   data: DataProps;
 }
 
-function InfoItem({ data, dispatcher: setDialog, ...props }: InfoItemProps) {
+function InfoItem({ data, ...props }: InfoItemProps) {
   const { backSrc, detail } = data;
+  const setDialog = useContext(DialogContext);
 
   const handleDialog = useCallback(() => {
-    detail?.hover && setDialog(<Dialog data={data} />);
+    detail?.hover && setDialog?.(<Dialog data={data} />);
   }, [data, setDialog]);
 
   return (

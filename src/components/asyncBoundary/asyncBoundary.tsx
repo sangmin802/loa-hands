@@ -4,7 +4,7 @@ import ErrorBoundary from "components/errorBoundary/errorBoundary";
 
 export interface AsyncBoundaryProps {
   suspenseFallback: ReactElement;
-  errorFallback: ReactElement;
+  errorFallback: (...args: any[]) => ReactElement;
   keys?: any;
 }
 

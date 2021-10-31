@@ -15,7 +15,7 @@ Default.args = {
   data: {
     name: "무릉도원",
     src: "/img/island/island_04.png",
-    time: "18:00",
+    time: ["18:00"],
     endTime: "18:00",
     lv: "400",
     position: "대항해",

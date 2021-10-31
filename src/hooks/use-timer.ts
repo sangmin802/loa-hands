@@ -14,7 +14,8 @@ export function useTimer(): {
   };
 
   const calcRestTimeProps = (time: number | null): void => {
-    if (!time) return setRestTimeProps(null);
+    if (time === null) return setRestTimeProps(null);
+
     const _sec = 1000;
     const _min = _sec * 60;
     const _hour = _min * 60;

@@ -3,7 +3,7 @@ import { useCancelQuery } from "hooks/use-cancel-query";
 import ErrorFallback from "components/errorFallback/errorFallback";
 import ErrorBoundary from "components/errorBoundary/errorBoundary";
 import UserInfo from "pages/userInfo/userInfo";
-import Dialog from "components/dialog/dialog";
+import Dialog from "components/dialogProvider/dialogProvider";
 
 interface FetchUserInfoProps {
   match: {
@@ -29,7 +29,7 @@ function FetchUserInfo({
   useCancelQuery([userCollectionKey]);
 
   return (
-    <ErrorBoundary errorFallback={<ErrorFallback />} keys={name}>
+    <ErrorBoundary errorFallback={ErrorFallback} keys={name}>
       <Dialog rerender={userKey}>
         <UserInfo userKey={userKey} userCollectionKey={userCollectionKey} />
       </Dialog>

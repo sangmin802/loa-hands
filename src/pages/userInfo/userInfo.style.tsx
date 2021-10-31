@@ -65,7 +65,7 @@ const Label = styled(Text)`
 `;
 
 const ClassThumbnail = styled(Image)`
-  width: fit-content;
+  width: 30px;
   height: inherit;
 `;
 
