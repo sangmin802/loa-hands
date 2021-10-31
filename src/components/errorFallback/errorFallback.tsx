@@ -7,7 +7,7 @@ interface ErrorFallbackProps {
   resetBoundary: () => void;
 }
 
-function ErrorFallback({ error, resetBoundary }: Partial<ErrorFallbackProps>) {
+function ErrorFallback({ error, resetBoundary }: ErrorFallbackProps) {
   return (
     <Styled.ErrorFallback>
       <Styled.ErrorText data-testid="error-message">

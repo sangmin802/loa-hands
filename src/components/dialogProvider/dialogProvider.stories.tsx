@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import Dialog, { DialogProps } from "./dialog";
+import Dialog, { DialogProps } from "./dialogProvider";
 import styled from "styled-components";
 import { Story } from "@storybook/react";
 

@@ -10,7 +10,7 @@ const initialData = {
   src: "/img/ocean/ocean_01.png",
   position: "애니츠",
   endPosition: "애니츠",
-  time: "00:20",
+  time: ["00:20"],
   endTime: "00:20",
 };
 

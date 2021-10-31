@@ -1,16 +1,14 @@
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useState,
-  cloneElement,
-} from "react";
-import * as Styled from "./dialog.style";
+import React, { ReactElement, useCallback, useEffect, useState } from "react";
+import * as Styled from "./dialogProvider.style";
 
 export interface DialogProps {
   children: ReactElement;
   rerender: any;
 }
+
+export const DialogContext = React.createContext<
+  null | ((T: ReactElement | null) => void)
+>(null);
 
 function Dialog({ children, rerender }: DialogProps) {
   const [dialog, setDialog] = useState<ReactElement | null>(null);
@@ -52,7 +50,7 @@ function Dialog({ children, rerender }: DialogProps) {
   }, [dialog, fixViewport, resetViewport]);
 
   return (
-    <>
+    <DialogContext.Provider value={setDialog}>
       {dialog && (
         <>
           <Styled.Background
@@ -64,8 +62,8 @@ function Dialog({ children, rerender }: DialogProps) {
           </Styled.Container>
         </>
       )}
-      {cloneElement(children, { setDialog })}
-    </>
+      {children}
+    </DialogContext.Provider>
   );
 }
 

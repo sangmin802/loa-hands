@@ -1,8 +1,8 @@
-import React, { cloneElement, ReactElement } from "react";
+import React, { ReactElement } from "react";
 
 interface ErrorBoundaryProps {
   resetQuery?: () => void;
-  errorFallback: ReactElement;
+  errorFallback: (...args: any[]) => ReactElement;
   children: ReactElement;
   keys: any;
 }
@@ -47,13 +47,11 @@ export default class ErrorBoundary extends React.Component<
 
   render() {
     if (this.state.hasError) {
-      const { errorFallback } = this.props;
+      const { errorFallback: ErrorFallback } = this.props;
       const { error } = this.state;
       // 폴백 UI를 커스텀하여 렌더링할 수 있습니다.
-      return cloneElement(errorFallback, {
-        error,
-        resetBoundary: this.resetBoundary,
-      });
+
+      return <ErrorFallback error={error} resetBoundary={this.resetBoundary} />;
     }
     return this.props.children;
   }

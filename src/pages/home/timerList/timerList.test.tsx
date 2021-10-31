@@ -48,7 +48,8 @@ const expectData = [
 
 describe("TimerContainer", () => {
   it("컨텐츠에서 종료되지 않은 시간대만 유지 및 빠른순으로 정렬", () => {
-    render(<TimerContainer data={initialData} />);
+    const notification = jest.fn();
+    render(<TimerContainer data={initialData} notification={notification} />);
 
     expect(screen.getByRole("timer-container").dataset.timers).toEqual(
       JSON.stringify(expectData)

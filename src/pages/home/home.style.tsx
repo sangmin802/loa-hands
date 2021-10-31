@@ -19,6 +19,10 @@ const SectionTitle = styled(Text)`
   padding: 0.3rem 0;
 `;
 
+const SectionSmallTitle = styled.small`
+  margin-left: 0.5rem;
+`;
+
 const Notification = styled(Button)`
   width: fit-content;
   margin: 5px 0;
@@ -32,4 +36,4 @@ const Notification = styled(Button)`
   border-radius: 3px 3px 3px 0;
 `;
 
-export { Home, Section, SectionTitle, Notification };
+export { Home, Section, SectionTitle, SectionSmallTitle, Notification };

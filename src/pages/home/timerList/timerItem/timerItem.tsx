@@ -11,7 +11,7 @@ export interface TimerProps {
     name: string;
     src: string;
     lv: string;
-    time: string;
+    time: string[];
     endTime: string;
     position: string;
     endPosition: string;
@@ -39,8 +39,7 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
 
   const timer = useCallback(time => {
     const now = new Date();
-    const startTime = time[0] ?? null;
-    if (!startTime) return calcRestTimeProps(null);
+    const startTime = time[0];
     const closeTime = calcCloseTime(startTime, now);
     const restTime = calcTimer(closeTime);
     const conditionalRestTime = calcConditionalRestTime(
@@ -55,15 +54,16 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
 
   useEffect(() => {
     if (time.length) startInterval(time);
-    if (!time.length) {
-      setTimerType("END");
-      setTime("종료");
-    }
+    if (!time.length) setTimerType("END");
 
     return () => {
       endInterval();
     };
   }, [time]);
+
+  useEffect(() => {
+    if (timerType === "END") calcRestTimeProps(null);
+  }, [timerType]);
 
   useEffect(() => {
     if (timerType === "READY") notification({ name, type: "READY" });
