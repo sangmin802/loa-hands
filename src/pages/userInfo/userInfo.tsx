@@ -16,12 +16,11 @@ import UserInfoModel from "models/userInfo";
 export interface UserInfoProps {
   userKey: string[];
   userCollectionKey: string[];
-  setDialog?: (T: ReactElement | null) => void;
 }
 
 const navList = ["능력치", "스킬", "수집형포인트"];
 
-function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
+function UserInfo({ userKey, userCollectionKey }: UserInfoProps) {
   const { status, data } = useUser(userKey);
   const { nav, handleNavDelegation } = useNavigation([userKey]);
 
@@ -41,24 +40,16 @@ function UserInfo({ userKey, userCollectionKey, setDialog }: UserInfoProps) {
           <Styled.ClassThumbnail src={BI.classSrc} />
           <Text>{BI.className}</Text>
         </Styled.BasicInfoLabel>
-        <FlexHalf
-          left={
-            <Styled.BasicInfoLabel title={<Styled.Label>이름</Styled.Label>}>
-              <Text>
-                {EI.Lv} {EI.name}
-              </Text>
-            </Styled.BasicInfoLabel>
-          }
-          right={
-            <Styled.BasicInfoLabel
-              title={<Styled.Label>원정대 레벨</Styled.Label>}
-            >
-              <Text size="0.9">
-                {EI.server} Lv {BI.expeditionLv}
-              </Text>
-            </Styled.BasicInfoLabel>
-          }
-        />
+        <Styled.BasicInfoLabel title={<Styled.Label>이름</Styled.Label>}>
+          <Text>
+            {EI.Lv} {EI.name}
+          </Text>
+        </Styled.BasicInfoLabel>
+        <Styled.BasicInfoLabel title={<Styled.Label>원정대 레벨</Styled.Label>}>
+          <Text size="0.9">
+            {EI.server} Lv {BI.expeditionLv}
+          </Text>
+        </Styled.BasicInfoLabel>
         <FlexHalf
           left={
             <Styled.BasicInfoLabel
