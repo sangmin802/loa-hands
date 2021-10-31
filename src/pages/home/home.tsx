@@ -59,7 +59,7 @@ function Home() {
           <Styled.SectionTitle>
             오늘의 캘린더섬
             <Styled.SectionSmallTitle>
-              {isWeek ? "19:00 ~ 23:00" : "11:00 ~ 21:00"}
+              {isWeek ? "19:00 ~ 23:00" : "09:00 ~ 23:00"}
             </Styled.SectionSmallTitle>
           </Styled.SectionTitle>
         }

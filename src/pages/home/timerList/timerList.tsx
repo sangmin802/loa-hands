@@ -9,8 +9,6 @@ export interface TimerListProps {
 
 const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
   const [stateTime, setTime] = useState<number | null>(null);
-
-  console.log("rerender", stateTime);
   const date = new Date();
   const isMustUseBefore =
     rerenderKey && date.getDate() !== rerenderKey.getDate() ? true : false;
@@ -41,8 +39,6 @@ const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
           break;
         }
       }
-
-      if (!rerenderKey) console.log(cachedTime, now, d.name, stateTime);
 
       return {
         ...d,
