@@ -50,7 +50,6 @@ export function useConditionalTimer(
 
     // 해당 시간 끝
     if (time < 0) {
-      console.log("set closetTime", closeTime);
       setTime(closeTime);
       return null;
     }
