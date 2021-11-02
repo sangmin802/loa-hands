@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,
@@ -30,14 +30,6 @@ function Home() {
   const isWeek = 6 > yoil && yoil > 0;
   const notification = useTimerNotification();
   useCancelQuery(queryKey);
-
-  // useEffect(() => {
-  //   // timer 웬지 브라우저 focus off 될 때, 문제생기는거같음
-  //   // 그게 사실이라면 아래 기능 사용
-  //   window.addEventListener("focus", e => {
-  //     console.log("focus");
-  //   });
-  // }, []);
 
   return (
     <Styled.Home>
