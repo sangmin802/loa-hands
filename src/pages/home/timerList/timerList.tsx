@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-import { useBrowserFocus } from "hooks/useBrowserFocus";
 import * as Styled from "./timerList.style";
 
 export interface TimerListProps {
@@ -67,8 +66,6 @@ const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
     }),
     []
   );
-
-  useBrowserFocus();
 
   return (
     <>
