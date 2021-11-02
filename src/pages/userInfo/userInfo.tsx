@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigation } from "hooks/useNavigation";
 import Text from "components/text/text";
@@ -10,8 +10,8 @@ import FlexHalf from "components/flexHalf/flexHalf";
 import ErrorFallback from "components/errorFallback/errorFallback";
 import LoadingSpinner from "components/loadingSpinner/loadingSpinner";
 import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
-import * as Styled from "./userInfo.style";
 import UserInfoModel from "models/userInfo";
+import * as Styled from "./userInfo.style";
 
 export interface UserInfoProps {
   userKey: string[];
