@@ -1,6 +1,6 @@
 import React, { ReactElement, useMemo } from "react";
 import { reducePerType } from "utils/util";
-import { useNavigation } from "hooks/use-navigation";
+import { useNavigation } from "hooks/useNavigation";
 import InfoItem from "pages/userInfo/infoItem/infoItem";
 import Characteristic from "./characteristic/characteristic";
 import FlexHalf from "components/flexHalf/flexHalf";

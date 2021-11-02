@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { useUserCollection } from "hooks/use-user-collection";
+import { useUserCollection } from "hooks/useUserCollection";
 import { reducePerType } from "utils/util";
-import { useNavigation } from "hooks/use-navigation";
+import { useNavigation } from "hooks/useNavigation";
 import InfoItem from "pages/userInfo/infoItem/infoItem";
 import FlexHalf from "components/flexHalf/flexHalf";
 import List from "components/list/list";

@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { useUser } from "hooks/use-user";
-import { useNavigation } from "hooks/use-navigation";
+import { useUser } from "hooks/useUser";
+import { useNavigation } from "hooks/useNavigation";
 import Text from "components/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useCancelQuery } from "hooks/use-cancel-query";
+import { useCancelQuery } from "hooks/useCancelQuery";
 import ErrorFallback from "components/errorFallback/errorFallback";
 import ErrorBoundary from "components/errorBoundary/errorBoundary";
 import UserInfo from "pages/userInfo/userInfo";

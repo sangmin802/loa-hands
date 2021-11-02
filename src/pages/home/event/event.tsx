@@ -1,5 +1,5 @@
 import React from "react";
-import { useEvent } from "hooks/use-event";
+import { useEvent } from "hooks/useEvent";
 import * as Styled from "./event.style";
 
 interface EventProps {

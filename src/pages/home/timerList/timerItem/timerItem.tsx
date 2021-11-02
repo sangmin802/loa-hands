@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { useTimer } from "hooks/use-timer";
-import { useConditionalTimer } from "hooks/use-conditional-timer";
-import { interval } from "utils/events/interval";
+import { useTimer } from "hooks/useTimer";
+import { useConditionalTimer } from "hooks/useConditionalTimer";
+import { animationFrame } from "utils/events/requestAnimationFrame";
 import Text from "components/text/text";
 import Image from "components/image/image";
 import * as Styled from "./timerItem.style";
@@ -50,14 +50,14 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
     calcRestTimeProps(conditionalRestTime);
   }, []);
 
-  const { startInterval, endInterval } = useMemo(() => interval(1, timer), []);
+  const { start, cancel } = useMemo(() => animationFrame(1000, timer), []);
 
   useEffect(() => {
-    if (time.length) startInterval(time);
+    if (time.length) start(time);
     if (!time.length) setTimerType("END");
 
     return () => {
-      endInterval();
+      cancel();
     };
   }, [time]);
 

@@ -2,11 +2,10 @@ import { fireEvent, render } from "utils/test";
 import UserInfo from "./fetchUserInfo";
 import { createMemoryHistory } from "history";
 import { Router, Route } from "react-router-dom";
-import { useUser } from "hooks/use-user";
+import { useUser } from "hooks/useUser";
 import { USER_DATA } from "constants/index";
-import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
 import ErrorFallback from "components/errorFallback/errorFallback";
-import SearchLoading from "pages/userInfo/searchLoading/searchLoading";
+import ErrorBoundary from "components/errorBoundary/errorBoundary";
 import { ReactElement } from "react";
 
 // 정상적인 userInfo 렌더링
@@ -25,12 +24,9 @@ const renderWithRouter = (component: ReactElement, route: string) => {
 
   return (
     <Router history={history}>
-      <AsyncBoundary
-        suspenseFallback={SearchLoading}
-        errorFallback={ErrorFallback}
-      >
+      <ErrorBoundary keys={match.params.name} errorFallback={ErrorFallback}>
         <Route path="/userInfo/:name">{component}</Route>
-      </AsyncBoundary>
+      </ErrorBoundary>
     </Router>
   );
 };
