@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo } from "react";
+import React, { useMemo } from "react";
 import { reducePerType } from "utils/util";
 import { useNavigation } from "hooks/useNavigation";
 import InfoItem from "pages/userInfo/infoItem/infoItem";

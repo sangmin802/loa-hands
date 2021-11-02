@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { THEME } from "global-style";
+import { THEME } from "globalStyle";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,7 +18,7 @@ export const queryClient = new QueryClient({
   },
 });
 
-const AllProviders = ({ children }) => {
+const AllProviders = ({ children }: { children: ReactElement }) => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={THEME}>
@@ -31,7 +31,7 @@ const AllProviders = ({ children }) => {
   );
 };
 
-const customRender = (ui, options?) =>
+const customRender = (ui: ReactElement, options: any) =>
   render(ui, { wrapper: AllProviders, ...options });
 
 export * from "@testing-library/react";
