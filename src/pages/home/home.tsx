@@ -6,9 +6,9 @@ import {
   OCEAN_ACT,
   PHANTOM_SHIP,
 } from "json/timer";
-import { useCancelQuery } from "hooks/use-cancel-query";
-import { useHomeRerender } from "hooks/use-home-rerender";
-import { useTimerNotification } from "hooks/use-timer-notification";
+import { useCancelQuery } from "hooks/useCancelQuery";
+import { useHomeRerender } from "hooks/useHomeRerender";
+import { useTimerNotification } from "hooks/useTimerNotification";
 
 import TimerList from "./timerList/timerList";
 import LoadingSpinner from "components/loadingSpinner/loadingSpinner";

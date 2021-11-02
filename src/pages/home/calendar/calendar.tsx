@@ -1,5 +1,5 @@
 import React from "react";
-import { useCalendar } from "hooks/use-calendar";
+import { useCalendar } from "hooks/useCalendar";
 import TimerList from "../timerList/timerList";
 
 interface CalendarProps {
