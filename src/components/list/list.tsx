@@ -15,7 +15,12 @@ function List({ data, item: Item, dispatcher, ...props }: ListProps) {
   return (
     <Styled.List {...props}>
       {data.map((data, index) => (
-        <Item data={data} index={index} key={index} dispatcher={dispatcher} />
+        <Item
+          data={data}
+          index={index}
+          key={data.id ?? index}
+          dispatcher={dispatcher}
+        />
       ))}
     </Styled.List>
   );
