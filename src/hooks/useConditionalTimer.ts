@@ -50,7 +50,6 @@ export function useConditionalTimer(
 
     // 해당 시간 끝
     if (time < 0) {
-      console.log("call rerender");
       setTime(closeTime);
       return null;
     }
