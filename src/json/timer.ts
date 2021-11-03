@@ -1,5 +1,6 @@
 export const DAILY_ISLAND = [
   {
+    id: 1,
     name: "에라스모의 섬",
     src: "/img/island/island_10.png",
     time: ["06:00", "14:00", "20:00"],
@@ -8,6 +9,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 2,
     name: "환각의 섬",
     src: "/img/island/island_00.png",
     time: [
@@ -29,6 +31,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 3,
     name: "무릉도원",
     src: "/img/island/island_04.png",
     time: ["00:00", "06:00", "12:00", "18:00"],
@@ -37,6 +40,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 4,
     name: "잠자는 노래의 섬",
     src: "/img/island/island_05.png",
     time: [
@@ -54,6 +58,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 5,
     name: "두키 섬",
     src: "/img/island/island_06.png",
     time: ["00:50", "04:50", "08:50", "12:50", "16:50", "20:50"],
@@ -62,6 +67,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 6,
     name: "그릇된 욕망의 섬",
     src: "/img/island/island_07.png",
     time: ["01:20", "07:20", "13:20", "19:20"],
@@ -70,6 +76,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 7,
     name: "스피다 섬",
     src: "/img/island/island_08.png",
     time: ["01:40", "07:40", "13:40", "19:40", "22:40"],
@@ -78,6 +85,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 8,
     name: "알라케르",
     src: "/img/island/island_09.png",
     time: ["01:50", "07:50", "13:50", "19:50"],
@@ -85,8 +93,8 @@ export const DAILY_ISLAND = [
     position: "대항해",
     contType: "ISLAND",
   },
-
   {
+    id: 9,
     name: "신월의 섬",
     src: "/img/island/island_02.png",
     time: ["03:00", "07:00", "11:00", "15:00", "19:00", "23:00"],
@@ -95,6 +103,7 @@ export const DAILY_ISLAND = [
     contType: "ISLAND",
   },
   {
+    id: 10,
     name: "미지의 섬",
     src: "/img/island/island_01.png",
     time: ["00:20", "04:20", "10:20", "13:20", "16:20", "22:20"],
@@ -107,6 +116,7 @@ export const DAILY_ISLAND = [
 // 캘린더섬 리스트
 export const CALENDAR_ISLAND: {
   [key: string]: {
+    id: number;
     name: string;
     src: string;
     lv: number;
@@ -115,6 +125,7 @@ export const CALENDAR_ISLAND: {
   };
 } = {
   "기회의 섬": {
+    id: 1,
     name: "기회의 섬",
     src: "/img/calendar/calendar_00.jpg",
     lv: 505,
@@ -122,6 +133,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   수라도: {
+    id: 2,
     name: "수라도",
     src: "/img/calendar/calendar_01.jpg",
     lv: 400,
@@ -129,6 +141,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   포르페: {
+    id: 3,
     name: "포르페",
     src: "/img/calendar/calendar_02.jpg",
     lv: 325,
@@ -136,6 +149,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "쿵덕쿵 아일랜드": {
+    id: 4,
     name: "쿵덕쿵 아일랜드",
     src: "/img/calendar/calendar_03.jpg",
     lv: 250,
@@ -143,6 +157,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "볼라르 섬": {
+    id: 5,
     name: "볼라르 섬",
     src: "/img/calendar/calendar_04.jpg",
     lv: 250,
@@ -150,6 +165,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "블루홀 섬": {
+    id: 6,
     name: "블루홀 섬",
     src: "/img/calendar/calendar_05.jpg",
     lv: 1005,
@@ -157,6 +173,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "하모니 섬": {
+    id: 7,
     name: "하모니 섬",
     src: "/img/calendar/calendar_06.jpg",
     lv: 400,
@@ -164,6 +181,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "고요한 안식의 섬": {
+    id: 8,
     name: "고요한 안식의 섬",
     src: "/img/calendar/calendar_07.jpg",
     lv: 505,
@@ -171,6 +189,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "몬테 섬": {
+    id: 9,
     name: "몬테 섬",
     src: "/img/calendar/calendar_08.jpg",
     lv: 900,
@@ -178,6 +197,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "죽음의 협곡": {
+    id: 10,
     name: "죽음의 협곡",
     src: "/img/calendar/calendar_09.jpg",
     lv: 400,
@@ -185,6 +205,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   메데이아: {
+    id: 11,
     name: "메데이아",
     src: "/img/calendar/calendar_10.jpg",
     lv: 250,
@@ -192,6 +213,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "스노우팡 아일랜드": {
+    id: 12,
     name: "스노우팡 아일랜드",
     src: "/img/calendar/calendar_11.jpg",
     lv: 250,
@@ -199,6 +221,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "환영 나비의 섬": {
+    id: 13,
     name: "환영 나비의 섬",
     src: "/img/calendar/calendar_12.jpg",
     lv: 460,
@@ -206,6 +229,7 @@ export const CALENDAR_ISLAND: {
     contType: "ISLAND",
   },
   "우거진 갈대의 섬": {
+    id: 14,
     name: "우거진 갈대섬",
     src: "/img/calendar/calendar_13.jpg",
     lv: 505,
@@ -1085,6 +1109,7 @@ export const FIELD_BOSS = [
 export const CHAOS_GATE = [
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime3,
@@ -1095,6 +1120,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime3,
@@ -1105,6 +1131,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime3,
@@ -1115,6 +1142,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime3,
@@ -1127,6 +1155,7 @@ export const CHAOS_GATE = [
   ],
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime3,
@@ -1137,6 +1166,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime3,
@@ -1147,6 +1177,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime3,
@@ -1157,6 +1188,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime3,
@@ -1169,6 +1201,7 @@ export const CHAOS_GATE = [
   ],
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime2,
@@ -1178,6 +1211,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime2,
@@ -1187,6 +1221,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime2,
@@ -1196,6 +1231,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime2,
@@ -1208,6 +1244,7 @@ export const CHAOS_GATE = [
   [],
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime1,
@@ -1218,6 +1255,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime1,
@@ -1228,6 +1266,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime1,
@@ -1238,6 +1277,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime1,
@@ -1250,6 +1290,7 @@ export const CHAOS_GATE = [
   ],
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime2,
@@ -1259,6 +1300,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime2,
@@ -1268,6 +1310,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime2,
@@ -1277,6 +1320,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime2,
@@ -1288,6 +1332,7 @@ export const CHAOS_GATE = [
   ],
   [
     {
+      id: 1,
       name: "일렁이는 질병군단",
       src: "/img/chaos/chaos_01.png",
       time: partTime1,
@@ -1298,6 +1343,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 2,
       name: "일렁이는 어둠군단",
       src: "/img/chaos/chaos_04.png",
       time: partTime1,
@@ -1308,6 +1354,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 3,
       name: "일렁이는 광기군단",
       src: "/img/chaos/chaos_02.png",
       time: partTime1,
@@ -1318,6 +1365,7 @@ export const CHAOS_GATE = [
       contType: "CHAOS_GATE",
     },
     {
+      id: 4,
       name: "일렁이는 ??군단",
       src: "/img/chaos/chaos_05.png",
       time: partTime1,
@@ -1334,6 +1382,7 @@ export const CHAOS_GATE = [
 export const OCEAN_ACT = [
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1344,6 +1393,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1356,6 +1406,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1366,6 +1417,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1376,6 +1428,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 3,
       name: "조화의 관문",
       contType: "GATE",
       lv: "-",
@@ -1387,6 +1440,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 4,
       name: "대지의 관문",
       contType: "GATE",
       lv: "-",
@@ -1398,6 +1452,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 5,
       name: "인내의 관문",
       contType: "GATE",
       lv: "-",
@@ -1409,6 +1464,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 6,
       name: "지혜의 관문",
       contType: "GATE",
       lv: "-",
@@ -1420,6 +1476,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 7,
       name: "인도의 관문",
       contType: "GATE",
       lv: "-",
@@ -1433,6 +1490,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1443,6 +1501,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1455,6 +1514,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1465,6 +1525,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1475,6 +1536,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 3,
       name: "조화의 관문",
       contType: "GATE",
       lv: "-",
@@ -1486,6 +1548,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 4,
       name: "지혜의 관문",
       contType: "GATE",
       lv: "-",
@@ -1497,6 +1560,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 5,
       name: "인도의 관문",
       contType: "GATE",
       lv: "-",
@@ -1508,6 +1572,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 6,
       name: "대지의 관문",
       contType: "GATE",
       lv: "-",
@@ -1519,6 +1584,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 7,
       name: "인내의 관문",
       contType: "GATE",
       lv: "-",
@@ -1532,6 +1598,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1542,6 +1609,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1554,6 +1622,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1564,6 +1633,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1576,6 +1646,7 @@ export const OCEAN_ACT = [
   ],
   [
     {
+      id: 1,
       name: "기에나",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1586,6 +1657,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 2,
       name: "프로키온",
       contType: "CO_OCEAN",
       lv: "-",
@@ -1596,6 +1668,7 @@ export const OCEAN_ACT = [
       endTime: "23:30",
     },
     {
+      id: 3,
       name: "조화의 관문",
       contType: "GATE",
       lv: "-",
@@ -1607,6 +1680,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 4,
       name: "대지의 관문",
       contType: "GATE",
       lv: "-",
@@ -1618,6 +1692,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 5,
       name: "인내의 관문",
       contType: "GATE",
       lv: "-",
@@ -1629,6 +1704,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 6,
       name: "지혜의 관문",
       contType: "GATE",
       lv: "-",
@@ -1640,6 +1716,7 @@ export const OCEAN_ACT = [
       waiting: 1,
     },
     {
+      id: 7,
       name: "인도의 관문",
       contType: "GATE",
       lv: "-",
@@ -1657,6 +1734,7 @@ export const OCEAN_ACT = [
 export const PHANTOM_SHIP = [
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1667,6 +1745,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1677,6 +1756,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,
@@ -1690,6 +1770,7 @@ export const PHANTOM_SHIP = [
   [],
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1701,6 +1782,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1712,6 +1794,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,
@@ -1725,6 +1808,7 @@ export const PHANTOM_SHIP = [
   ],
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1735,6 +1819,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1745,6 +1830,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,
@@ -1757,6 +1843,7 @@ export const PHANTOM_SHIP = [
   ],
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1768,6 +1855,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1779,6 +1867,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,
@@ -1792,6 +1881,7 @@ export const PHANTOM_SHIP = [
   ],
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1802,6 +1892,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1812,6 +1903,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime2End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,
@@ -1824,6 +1916,7 @@ export const PHANTOM_SHIP = [
   ],
   [
     {
+      id: 1,
       name: "악몽을 떠도는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 460,
@@ -1835,6 +1928,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 2,
       name: "그림자를 헤매는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 960,
@@ -1846,6 +1940,7 @@ export const PHANTOM_SHIP = [
       endTime: partTime1End,
     },
     {
+      id: 3,
       name: "폭풍을 부르는 유령선",
       contType: "PHANTOM_SHIP",
       lv: 1370,

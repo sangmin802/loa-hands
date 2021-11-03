@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useEffect, useState } from "react";
-import { animationFrame } from "utils/events/requestAnimationFrame";
+import { interval } from "utils/events/interval";
 
 export function useHomeRerender() {
   const [isMidnight, setMidnight] = useState(new Date());
@@ -15,7 +15,7 @@ export function useHomeRerender() {
     if (hour === 6 && min === 0 && sec === 0) setSix(now);
   }, []);
 
-  const { start, cancel } = useMemo(() => animationFrame(1000, updateTime), []);
+  const { start, cancel } = useMemo(() => interval(1, updateTime), []);
 
   useEffect(() => {
     start([setMidnight, setSix]);
