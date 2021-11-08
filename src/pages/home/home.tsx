@@ -22,10 +22,10 @@ import * as Styled from "./home.style";
 
 function Home() {
   const { isMidnight, isSix } = useHomeRerender();
-  const queryKey = useMemo(
-    () => ["fetchEventData", ["fetchCalendarData", isMidnight.getDate()]],
-    [isMidnight]
-  );
+  const queryKey = [
+    "fetchEventData",
+    ["fetchCalendarData", isMidnight.getDate()],
+  ];
   const yoil = isMidnight.getDay();
   const isWeek = 6 > yoil && yoil > 0;
   const notification = useTimerNotification();

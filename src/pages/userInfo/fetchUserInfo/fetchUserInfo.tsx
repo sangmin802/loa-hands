@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { useCancelQuery } from "hooks/useCancelQuery";
 import ErrorFallback from "components/errorFallback/errorFallback";
 import ErrorBoundary from "components/errorBoundary/errorBoundary";
@@ -18,13 +18,8 @@ function FetchUserInfo({
     params: { name },
   },
 }: FetchUserInfoProps) {
-  const [userKey, userCollectionKey] = useMemo(
-    () => [
-      ["userInfo", name],
-      ["userCollection", name],
-    ],
-    [name]
-  );
+  const userKey = ["userInfo", name];
+  const userCollectionKey = ["userCollection", name];
 
   useCancelQuery([userCollectionKey]);
 
@@ -37,4 +32,4 @@ function FetchUserInfo({
   );
 }
 
-export default FetchUserInfo;
+export default React.memo(FetchUserInfo);
