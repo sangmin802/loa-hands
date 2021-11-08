@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Image from "components/image/image";
 import Text from "components/text/text";
 import * as Styled from "./eventItem.style";
@@ -15,9 +15,9 @@ export interface EventProps {
 function Event({ data, ...props }: EventProps) {
   const { date, href, img, name } = data;
 
-  const handleOpenEvent = useCallback(() => {
+  const handleOpenEvent = () => {
     window.open(`https://lostark.game.onstove.com/${href}`);
-  }, [href]);
+  };
 
   return (
     <Styled.Container {...props} title="event" onClick={handleOpenEvent}>

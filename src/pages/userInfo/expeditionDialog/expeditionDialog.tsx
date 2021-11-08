@@ -15,7 +15,9 @@ function ExpeditionDialog({ userData, ...props }: ExpeditionDialogProps) {
   const setDialog = useContext(DialogContext);
 
   const handleSearchUser = useCallback(name => {
-    history.push(`/userInfo/${name}`);
+    const path = `/userInfo/${name}`;
+    const curPath = history.location.pathname;
+    path !== curPath && history.push(path);
   }, []);
 
   const handleDialog = useCallback(() => {
