@@ -18,4 +18,4 @@ function SectionContainer({
   );
 }
 
-export default React.memo(SectionContainer);
+export default SectionContainer;

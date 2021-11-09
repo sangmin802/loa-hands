@@ -29,7 +29,7 @@ const renderAsyncBoundary = (key: string, mock: Function) => {
   return (
     <AsyncBoundary
       errorFallback={ErrorFallback}
-      suspenseFallback={SuspenseFallback}
+      suspenseFallback={<SuspenseFallback />}
     >
       <Component />
     </AsyncBoundary>

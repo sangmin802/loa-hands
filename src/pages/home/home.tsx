@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import {
   DAILY_ISLAND,
   FIELD_BOSS,

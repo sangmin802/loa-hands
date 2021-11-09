@@ -67,4 +67,4 @@ function Dialog({ children, rerender }: DialogProps) {
   );
 }
 
-export default React.memo(Dialog);
+export default Dialog;
