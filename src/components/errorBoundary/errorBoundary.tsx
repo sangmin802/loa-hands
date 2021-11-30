@@ -22,8 +22,11 @@ export default class ErrorBoundary extends React.Component<
     this.state = initialState;
   }
 
+  prevKeys = null;
+
   static getDerivedStateFromError(error: Error) {
     // 다음 렌더링에서 폴백 UI가 보이도록 상태를 업데이트 합니다.
+    console.log("error ");
     return { hasError: true, error };
   }
 
@@ -34,18 +37,23 @@ export default class ErrorBoundary extends React.Component<
   // Fallback 컴포넌트의 내부 이벤트를 통한 리렌더링
   resetBoundary = () => {
     this.props.resetQuery?.();
+    this.prevKeys = this.props.keys;
     this.setState(initialState);
   };
 
   // 부모 컴포넌트에서의 props 변경 감지를 통한 리렌더링
   componentDidUpdate(prev: ErrorBoundaryProps) {
-    if (prev.keys !== this.props.keys) {
-      this.resetBoundary();
-    }
-    return;
+    if (prev.keys !== this.props.keys) this.resetBoundary();
+
+    return false;
+  }
+
+  componentDidMount() {
+    this.resetBoundary();
   }
 
   render() {
+    if (this.prevKeys !== this.props.keys) return null;
     if (this.state.hasError) {
       const { errorFallback: ErrorFallback } = this.props;
       const { error } = this.state;
@@ -53,6 +61,7 @@ export default class ErrorBoundary extends React.Component<
 
       return <ErrorFallback error={error} resetBoundary={this.resetBoundary} />;
     }
+
     return this.props.children;
   }
 }

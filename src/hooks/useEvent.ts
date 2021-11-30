@@ -5,7 +5,6 @@ import { useQuery } from "react-query";
 export function useEvent(queryKey: string): EventData {
   const { data: eventData } = useQuery(queryKey, () => getEventData(), {
     refetchOnWindowFocus: false,
-    suspense: true,
   });
 
   return eventData as EventData;

@@ -1,11 +1,10 @@
 import { useQuery } from "react-query";
 import { getUserData } from "api/api";
 
-export function useUser(queryKey: string[]) {
-  const query = useQuery(queryKey, () => getUserData(queryKey[1]), {
+export function useUser(name: string) {
+  const { data } = useQuery(`userInfo-${name}`, () => getUserData(name), {
     refetchOnWindowFocus: false,
-    suspense: false,
   });
 
-  return query;
+  return data;
 }
