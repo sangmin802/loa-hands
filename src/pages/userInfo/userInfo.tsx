@@ -4,7 +4,6 @@ import { useNavigation } from "hooks/useNavigation";
 import Text from "components/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
-import SearchLoading from "./searchLoading/searchLoading";
 import UserCollection from "./userCollection/userCollection";
 import FlexHalf from "components/flexHalf/flexHalf";
 import ErrorFallback from "components/errorFallback/errorFallback";
@@ -14,18 +13,14 @@ import UserInfoModel from "models/userInfo";
 import * as Styled from "./userInfo.style";
 
 export interface UserInfoProps {
-  userKey: string[];
-  userCollectionKey: string[];
+  name: string;
 }
 
 const navList = ["능력치", "스킬", "수집형포인트"];
 
-function UserInfo({ userKey, userCollectionKey }: UserInfoProps) {
-  const { status, data } = useUser(userKey);
-  const { nav, handleNavDelegation } = useNavigation([userKey]);
-
-  if (status === "loading") return <SearchLoading />;
-
+function UserInfo({ name }: UserInfoProps) {
+  const data = useUser(name);
+  const { nav, handleNavDelegation } = useNavigation([name]);
   const userData = data as UserInfoModel;
   const { basicInfo: BI, expeditionInfo: EI } = userData;
 
@@ -110,12 +105,9 @@ function UserInfo({ userKey, userCollectionKey }: UserInfoProps) {
             <AsyncBoundary
               suspenseFallback={<LoadingSpinner />}
               errorFallback={ErrorFallback}
-              keys={userCollectionKey}
+              keys={name}
             >
-              <UserCollection
-                queryKey={userCollectionKey}
-                member={userData.memberArr}
-              />
+              <UserCollection queryKey={name} member={userData.memberArr} />
             </AsyncBoundary>
           )}
         </Styled.NAVContent>

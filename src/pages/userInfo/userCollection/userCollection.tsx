@@ -9,7 +9,7 @@ import * as Styled from "./userCollection.style";
 
 interface UserCollectionProps {
   member: string[];
-  queryKey: string[];
+  queryKey: string;
 }
 
 const navList = ["", "", "", "", "", "", "", ""];

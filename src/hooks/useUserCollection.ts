@@ -2,13 +2,12 @@ import { getUserCollection } from "api/api";
 import CollectionInfo from "models/collectionInfo";
 import { useQuery } from "react-query";
 
-export function useUserCollection(queryKey: string[], member: string[]) {
+export function useUserCollection(name: string, member: string[]) {
   const { data: userColection } = useQuery(
-    queryKey,
+    `userCollection-${name}`,
     () => getUserCollection(member),
     {
       refetchOnWindowFocus: false,
-      suspense: true,
     }
   );
 

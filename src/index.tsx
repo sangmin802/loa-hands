@@ -13,6 +13,7 @@ export const queryClient = new QueryClient({
     queries: {
       retry: false,
       useErrorBoundary: true,
+      suspense: true,
       cacheTime: 1000 * 60 * 5,
       staleTime: 1000 * 60 * 3,
     },
