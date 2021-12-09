@@ -15,6 +15,3 @@ describe("Home", () => {
     });
   });
 });
-
-// 자정이 되었을 때 dispatcher가 실행되는것을 확인해야함
-// Redux textcode를 작성하면서 재시도해봐야 할 듯

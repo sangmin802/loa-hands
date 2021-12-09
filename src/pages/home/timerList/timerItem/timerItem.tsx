@@ -41,7 +41,7 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
     const now = new Date();
     const startTime = time[0];
     const closeTime = calcCloseTime(startTime, now);
-    const restTime = calcTimer(closeTime);
+    const restTime = calcTimer(closeTime, now.getTime());
     const conditionalRestTime = calcConditionalRestTime(
       closeTime,
       now,
@@ -73,8 +73,8 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
   return (
     <Styled.Timer
       {...props}
-      role="timer-border"
-      data-border={borderColor}
+      data-testid={timerType}
+      data-time={new Date()}
       borderColor={borderColor}
     >
       <Styled.Background isShow={endTimeBg} />
