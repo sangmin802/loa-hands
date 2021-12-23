@@ -15,14 +15,16 @@ export function useHomeRerender() {
     if (hour === 6 && min === 0 && sec === 0) setSix(now);
   }, []);
 
-  const { start, cancel } = useMemo(() => interval(1, updateTime), []);
+  const { start, cancel } = useMemo(() => interval(1, updateTime), [
+    updateTime,
+  ]);
 
   useEffect(() => {
     start([setMidnight, setSix]);
     return () => {
       cancel();
     };
-  }, []);
+  }, [start, cancel]);
 
   return { isMidnight, isSix };
 }

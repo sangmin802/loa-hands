@@ -24,14 +24,17 @@ function Header({ ...props }) {
       e.target.search.value = null;
       history.replace(`/userInfo/${name}`);
     },
-    [textInput]
+    [textInput, history, reset]
   );
 
-  const handleGoHome = useCallback(e => {
-    e.preventDefault();
-    reset();
-    history.replace(`/`);
-  }, []);
+  const handleGoHome = useCallback(
+    e => {
+      e.preventDefault();
+      reset();
+      history.replace(`/`);
+    },
+    [history, reset]
+  );
 
   const handleUnDisabled = useCallback(e => {
     if (!e.target.disabled) return;

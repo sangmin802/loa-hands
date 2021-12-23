@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export function useConditionalTimer(
   time: string[],
@@ -17,45 +17,44 @@ export function useConditionalTimer(
 } {
   const [timerType, setTimerType] = useState("NORMAL");
 
-  const calcConditionalRestTime = (
-    closeTime: number,
-    now: Date,
-    time: number
-  ): number | null => {
-    const additionalTime = 1000 * 60 * 60 * 24;
+  const calcConditionalRestTime = useCallback(
+    (closeTime: number, now: Date, time: number): number | null => {
+      const additionalTime = 1000 * 60 * 60 * 24;
 
-    // 자정 이후
-    if (time < -10000) {
-      time =
-        Math.ceil((closeTime + additionalTime - now.getTime()) / 1000) * 1000;
-    }
+      // 자정 이후
+      if (time < -10000) {
+        time =
+          Math.ceil((closeTime + additionalTime - now.getTime()) / 1000) * 1000;
+      }
 
-    // NORMAL
-    if (time >= 780000) {
-      setTimerType("NORMAL");
-      return time - 180000;
-    }
+      // NORMAL
+      if (time >= 780000) {
+        setTimerType("NORMAL");
+        return time - 180000;
+      }
 
-    // READY 10분
-    if (180000 <= time && time < 780000) {
-      setTimerType("READY");
-      return time - 180000;
-    }
+      // READY 10분
+      if (180000 <= time && time < 780000) {
+        setTimerType("READY");
+        return time - 180000;
+      }
 
-    // START 3분
-    if (0 <= time && time < 180000) {
-      setTimerType("START");
-      return time;
-    }
+      // START 3분
+      if (0 <= time && time < 180000) {
+        setTimerType("START");
+        return time;
+      }
 
-    // 해당 시간 끝
-    if (time < 0) {
-      setTime(closeTime);
+      // 해당 시간 끝
+      if (time < 0) {
+        setTime(closeTime);
+        return null;
+      }
+
       return null;
-    }
-
-    return null;
-  };
+    },
+    [setTime]
+  );
 
   const timerTypes: {
     [key: string]: {
@@ -91,13 +90,13 @@ export function useConditionalTimer(
     },
   };
 
-  const calcCloseTime = (time: string, now: Date) => {
+  const calcCloseTime = useCallback((time: string, now: Date) => {
     const [hour, min] = time.split(":");
     const year = now.getFullYear();
     const month = now.getMonth();
     const date = now.getDate();
     return new Date(year, month, date, Number(hour), Number(min) + 3).getTime();
-  };
+  }, []);
 
   return {
     timerTypeConts: timerTypes[timerType],
