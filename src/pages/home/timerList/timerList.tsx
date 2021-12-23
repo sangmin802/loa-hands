@@ -65,7 +65,7 @@ const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
       setTime,
       notification,
     }),
-    []
+    [notification]
   );
 
   useBrowserFocus();

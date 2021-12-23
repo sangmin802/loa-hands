@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export function useTimer(): {
   restTime: null | { [key: string]: string };
-  // calcTimer: (T: number) => number;
   calcTimer: (T: number, U: number) => number;
   calcRestTimeProps: (T: number | null) => void;
 } {
@@ -10,13 +9,11 @@ export function useTimer(): {
     [key: string]: string;
   }>(null);
 
-  // const calcTimer = (endTime: number) => {
-  const calcTimer = (endTime: number, now: number) => {
-    // return Math.ceil((endTime - new Date().getTime()) / 1000) * 1000;
+  const calcTimer = useCallback((endTime: number, now: number) => {
     return Math.ceil((endTime - now) / 1000) * 1000;
-  };
+  }, []);
 
-  const calcRestTimeProps = (time: number | null): void => {
+  const calcRestTimeProps = useCallback((time: number | null): void => {
     if (time === null) return setRestTimeProps(null);
 
     const _sec = 1000;
@@ -31,7 +28,7 @@ export function useTimer(): {
       min: addZero(min),
       sec: addZero(sec),
     });
-  };
+  }, []);
 
   return { restTime, calcTimer, calcRestTimeProps };
 }

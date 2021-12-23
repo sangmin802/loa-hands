@@ -28,7 +28,7 @@ export function useTimerNotification() {
 
   const notification = useMemo(
     () => new NotificationHandler(createNotification),
-    []
+    [createNotification]
   );
 
   return notification;

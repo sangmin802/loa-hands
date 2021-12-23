@@ -37,20 +37,23 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
     timerType,
   } = useConditionalTimer(time, endTime, setTime);
 
-  const timer = useCallback(time => {
-    const now = new Date();
-    const startTime = time[0];
-    const closeTime = calcCloseTime(startTime, now);
-    const restTime = calcTimer(closeTime, now.getTime());
-    const conditionalRestTime = calcConditionalRestTime(
-      closeTime,
-      now,
-      restTime
-    );
-    calcRestTimeProps(conditionalRestTime);
-  }, []);
+  const timer = useCallback(
+    time => {
+      const now = new Date();
+      const startTime = time[0];
+      const closeTime = calcCloseTime(startTime, now);
+      const restTime = calcTimer(closeTime, now.getTime());
+      const conditionalRestTime = calcConditionalRestTime(
+        closeTime,
+        now,
+        restTime
+      );
+      calcRestTimeProps(conditionalRestTime);
+    },
+    [calcConditionalRestTime, calcRestTimeProps, calcTimer, calcCloseTime]
+  );
 
-  const { start, cancel } = useMemo(() => interval(1, timer), []);
+  const { start, cancel } = useMemo(() => interval(1, timer), [timer]);
 
   useEffect(() => {
     if (time.length) start(time);
@@ -59,11 +62,11 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
     return () => {
       cancel();
     };
-  }, [time]);
+  }, [time, start, setTimerType, cancel]);
 
   useEffect(() => {
     if (timerType === "END") calcRestTimeProps(null);
-  }, [timerType]);
+  }, [timerType, calcRestTimeProps]);
 
   useEffect(() => {
     if (timerType === "READY") notification({ name, type: "READY" });

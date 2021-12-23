@@ -25,7 +25,7 @@ function InfoItem({ data, ...props }: InfoItemProps) {
   const setDialog = useContext(DialogContext);
 
   const handleDialog = useCallback(() => {
-    detail?.hover && setDialog?.(<Dialog data={data} />);
+    data.detail?.hover && setDialog?.(<Dialog data={data} />);
   }, [data, setDialog]);
 
   return (

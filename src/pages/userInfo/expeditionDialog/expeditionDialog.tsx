@@ -14,11 +14,14 @@ function ExpeditionDialog({ userData, ...props }: ExpeditionDialogProps) {
   const history = useHistory();
   const setDialog = useContext(DialogContext);
 
-  const handleSearchUser = useCallback(name => {
-    const path = `/userInfo/${name}`;
-    const curPath = history.location.pathname;
-    path !== curPath && history.push(path);
-  }, []);
+  const handleSearchUser = useCallback(
+    name => {
+      const path = `/userInfo/${name}`;
+      const curPath = history.location.pathname;
+      path !== curPath && history.push(path);
+    },
+    [history]
+  );
 
   const handleDialog = useCallback(() => {
     setDialog?.(
@@ -28,7 +31,7 @@ function ExpeditionDialog({ userData, ...props }: ExpeditionDialogProps) {
         setDialog={setDialog}
       />
     );
-  }, [userData, setDialog]);
+  }, [userData, setDialog, handleSearchUser]);
 
   return (
     <Styled.ExpeditionButton onClick={handleDialog} {...props}>
