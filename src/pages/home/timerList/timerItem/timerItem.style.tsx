@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 
 const Timer = styled.article<{ borderColor: string }>`
   overflow: hidden;

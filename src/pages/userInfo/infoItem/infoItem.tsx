@@ -1,32 +1,20 @@
 import React, { useCallback, useContext } from "react";
 import Text from "components/common/text/text";
-import Dialog from "./dialog/dialog";
-import { DialogContext } from "components/dialogProvider/dialogProvider";
+import { ModalContext } from "components/modal/modal";
+import { IUserDetail } from "types/modal";
 import * as Styled from "./infoItem.style";
 
-interface DataProps {
-  backSrc: string;
-  type: string;
-  detail: {
-    src: string;
-    grade: string;
-    subTitle: string[];
-    title: string;
-    hover: boolean;
-  };
-}
-
 export interface InfoItemProps {
-  data: DataProps;
+  data: IUserDetail;
 }
 
 function InfoItem({ data, ...props }: InfoItemProps) {
   const { backSrc, detail } = data;
-  const setDialog = useContext(DialogContext);
+  const setModal = useContext(ModalContext);
 
   const handleDialog = useCallback(() => {
-    data.detail?.hover && setDialog?.(<Dialog data={data} />);
-  }, [data, setDialog]);
+    data.detail?.hover && setModal?.({ type: "ITEM", data });
+  }, [data, setModal]);
 
   return (
     <Styled.InfoItem

@@ -5,17 +5,11 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { IModalState, IUserDetail } from "types/modal";
+import * as Styled from "./modal.style";
+import UserDetail from "./content/userDetail/userDetail";
+import Expedition from "./content/expedition/expedition";
 import ExpeditionInfo from "models/expeditionInfo";
-import UserInfo from "models/userInfo";
-import * as Styled from "./modalProvider.style";
-
-type ModalData = UserInfo | ExpeditionInfo | null;
-type ModalType = "ITEM" | "EXPEDITION" | null;
-
-interface IModalState {
-  type: ModalType;
-  data: ModalData;
-}
 
 const initialState = {
   type: null,
@@ -34,7 +28,7 @@ function Modal({ children }: PropsWithChildren<{}>) {
   }, []);
 
   useEffect(() => {
-    if (!modal) return;
+    if (!modal.type) return;
     const body = document.querySelector("body") as HTMLBodyElement;
 
     const fixViewport = () => {
@@ -64,8 +58,15 @@ function Modal({ children }: PropsWithChildren<{}>) {
             data-testid="close-modal"
           />
           <Styled.Container data-testid="modal-content">
-            {modal.type === "ITEM" && <>아이템</>}
-            {modal.type === "EXPEDITION" && <>원정대</>}
+            {modal.type === "ITEM" && (
+              <UserDetail data={modal.data as IUserDetail} />
+            )}
+            {modal.type === "EXPEDITION" && (
+              <Expedition
+                data={modal.data as ExpeditionInfo}
+                closeModal={handleCloseModal}
+              />
+            )}
           </Styled.Container>
         </>
       )}

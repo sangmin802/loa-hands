@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import ExpeditionDialog from "./expeditionDialog/expeditionDialog";
-import Image from "components/image/image";
-import Button from "components/button/button";
-import SectionContainer from "components/sectionContainer/sectionContainer";
-import Text from "components/text/text";
+import Image from "components/common/image/image";
+import Button from "components/common/button/button";
+import SectionContainer from "components/common/sectionContainer/sectionContainer";
+import Text from "components/common/text/text";
 
 const UserInfo = styled.section`
   padding: 0.5rem;
@@ -21,8 +20,14 @@ const Bottom = styled.section`
   margin-top: 1rem;
 `;
 
-const ExpeditionButton = styled(ExpeditionDialog)`
+const ExpeditionButton = styled(Button)`
   margin-left: auto;
+  display: block;
+  margin-left: auto;
+  padding: 0.3rem;
+
+  ${({ theme }) => theme.contentBox}
+  background: ${({ theme }) => theme.backgroundColor.darkLow};
 `;
 
 const NAVContent = styled.section`

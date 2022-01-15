@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactElement, Suspense } from "react";
 import { useQueryErrorResetBoundary } from "react-query";
-import ErrorBoundary from "components/errorBoundary/errorBoundary";
+import ErrorBoundary from "components/common/errorBoundary/errorBoundary";
 
 export interface AsyncBoundaryProps {
   suspenseFallback: ReactElement;

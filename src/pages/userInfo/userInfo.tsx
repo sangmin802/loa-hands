@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigation } from "hooks/useNavigation";
+import { ModalContext } from "components/modal/modal";
 import Text from "components/common/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
@@ -23,14 +24,21 @@ function UserInfo({ name }: UserInfoProps) {
   const { nav, handleNavDelegation } = useNavigation([name]);
   const userData = data as UserInfoModel;
   const { basicInfo: BI, expeditionInfo: EI } = userData;
+  const setModal = useContext(ModalContext);
+
+  const handlModal = useCallback(() => {
+    setModal?.({
+      type: "EXPEDITION",
+      data: userData,
+    });
+  }, [userData, setModal]);
 
   return (
     <Styled.UserInfo data-testid={EI.name}>
       <Styled.Top>
-        <Styled.ExpeditionButton
-          userData={userData}
-          data-testid="expedition-button"
-        />
+        <Styled.ExpeditionButton onClick={handlModal}>
+          <Text>원정대</Text>
+        </Styled.ExpeditionButton>
         <Styled.BasicInfoLabel title={<Styled.Label>클래스</Styled.Label>}>
           <Styled.ClassThumbnail src={BI.classSrc} />
           <Text>{BI.className}</Text>
