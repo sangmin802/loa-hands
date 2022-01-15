@@ -1,5 +1,5 @@
-import HTML from "components/html/html";
-import Image from "components/image/image";
+import HTML from "components/common/html/html";
+import Image from "components/common/image/image";
 import * as Styled from "./htmlItem.style";
 
 interface HTMLItemProps {

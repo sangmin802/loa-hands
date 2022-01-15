@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Text from "components/text/text";
-import List from "components/list/list";
+import Text from "components/common/text/text";
+import List from "components/common/list/list";
 import Char from "../char/char";
-import SectionContainer from "components/sectionContainer/sectionContainer";
+import SectionContainer from "components/common/sectionContainer/sectionContainer";
 
 const Server = styled(SectionContainer)`
   flex-direction: column;

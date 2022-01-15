@@ -1,33 +1,15 @@
 import React from "react";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import HTMLItem from "pages/userInfo/htmlItem/htmlItem";
-
-import * as Styled from "./dialog.style";
+import { IUserDetail } from "types/modal";
+import * as Styled from "./userDetail.style";
 import { getQualityColor } from "utils/util";
 
 export interface DialogProps {
-  data: {
-    backSrc: string;
-    detail: {
-      src: string;
-      grade: string;
-      title: string;
-      subTitle: string[];
-      rune?: {
-        runeGrade: string;
-        runeImg: string;
-        runeInfo: string;
-        runeGradeNo: number;
-      };
-      quality?: number;
-      itemPartBox?: [];
-      indentStringGroup?: [];
-      tripodSkillCustom?: [];
-    };
-  };
+  data: IUserDetail;
 }
 
-function DetailContent({ data }: DialogProps) {
+function UserDetail({ data }: DialogProps) {
   const { backSrc, detail } = data;
   const {
     src,
@@ -94,4 +76,4 @@ function DetailContent({ data }: DialogProps) {
   );
 }
 
-export default React.memo(DetailContent);
+export default React.memo(UserDetail);

@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { useTimer } from "hooks/useTimer";
 import { useConditionalTimer } from "hooks/useConditionalTimer";
 import { interval } from "utils/events/interval";
-import Text from "components/text/text";
-import Image from "components/image/image";
+import Text from "components/common/text/text";
+import Image from "components/common/image/image";
 import * as Styled from "./timerItem.style";
 
 export interface TimerProps {

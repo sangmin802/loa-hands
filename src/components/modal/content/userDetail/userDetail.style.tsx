@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import List from "components/list/list";
-import Image from "components/image/image";
+import List from "components/common/list/list";
+import Image from "components/common/image/image";
 
 const Top = styled.div`
   width: 100%;

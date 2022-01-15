@@ -1,7 +1,7 @@
 import React from "react";
 import { useCancelQuery } from "hooks/useCancelQuery";
-import ErrorFallback from "components/errorFallback/errorFallback";
-import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
+import ErrorFallback from "components/common/errorFallback/errorFallback";
+import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
 import UserInfo from "pages/userInfo/userInfo";
 import Dialog from "components/dialogProvider/dialogProvider";
 import SearchLoading from "../searchLoading/searchLoading";

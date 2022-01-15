@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import List from "components/list/list";
+import List from "components/common/list/list";
 import Item from "./eventItem/eventItem";
 
 const EventList = styled(List)`

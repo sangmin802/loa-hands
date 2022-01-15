@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import TimerItem from "pages/home/timerList/timerItem/timerItem";
-import List from "components/list/list";
+import List from "components/common/list/list";
 
 const Alert = styled(Text)`
   text-align: center;
