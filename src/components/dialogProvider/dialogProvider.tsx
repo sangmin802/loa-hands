@@ -23,10 +23,7 @@ function Dialog({ children, rerender }: DialogProps) {
 
   const fixViewport = useCallback((body, top) => {
     const style = `
-      position: fixed;
-      top: -${top}px;
-      left: 0px;
-      right: 0px;
+      overflow : hidden;
     `;
     body.setAttribute("style", style);
   }, []);

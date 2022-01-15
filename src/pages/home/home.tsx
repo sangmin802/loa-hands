@@ -10,12 +10,12 @@ import { useHomeRerender } from "hooks/useHomeRerender";
 import { useTimerNotification } from "hooks/useTimerNotification";
 
 import TimerList from "./timerList/timerList";
-import LoadingSpinner from "components/loadingSpinner/loadingSpinner";
-import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
-import ErrorFallback from "components/errorFallback/errorFallback";
+import LoadingSpinner from "components/common/loadingSpinner/loadingSpinner";
+import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
+import ErrorFallback from "components/common/errorFallback/errorFallback";
 import Calendar from "./calendar/calendar";
 import Event from "./event/event";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 
 import * as Styled from "./home.style";
 

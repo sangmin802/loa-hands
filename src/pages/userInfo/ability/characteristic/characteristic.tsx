@@ -1,6 +1,6 @@
 import React from "react";
-import List from "components/list/list";
-import Text from "components/text/text";
+import List from "components/common/list/list";
+import Text from "components/common/text/text";
 import * as Styled from "./characteristic.style";
 
 interface ItemProps {

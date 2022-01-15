@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BACKGROUND } from "constants/index";
-import Input from "components/input/input";
-import Button from "components/button/button";
+import Input from "components/common/input/input";
+import Button from "components/common/button/button";
 
 const Container = styled.header`
   max-width: 600px;

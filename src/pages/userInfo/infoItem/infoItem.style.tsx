@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import Image from "components/image/image";
+import Image from "components/common/image/image";
 
 const InfoItemType = {
   normal: css`

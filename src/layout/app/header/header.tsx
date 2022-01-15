@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useQueryErrorResetBoundary } from "react-query";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import * as Styled from "./header.style";
 
 function Header({ ...props }) {

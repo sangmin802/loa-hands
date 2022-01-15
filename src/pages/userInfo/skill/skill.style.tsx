@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "components/button/button";
+import Button from "components/common/button/button";
 
 const Navigation = styled.section`
   display: block;

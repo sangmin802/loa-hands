@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Button from "components/button/button";
-import Image from "components/image/image";
-import Text from "components/text/text";
+import Button from "components/common/button/button";
+import Image from "components/common/image/image";
+import Text from "components/common/text/text";
 
 const ErrorFallback = styled.section`
   padding: 2rem 0;

@@ -3,8 +3,8 @@ import { useUserCollection } from "hooks/useUserCollection";
 import { reducePerType } from "utils/util";
 import { useNavigation } from "hooks/useNavigation";
 import InfoItem from "pages/userInfo/infoItem/infoItem";
-import FlexHalf from "components/flexHalf/flexHalf";
-import List from "components/list/list";
+import FlexHalf from "components/common/flexHalf/flexHalf";
+import List from "components/common/list/list";
 import * as Styled from "./userCollection.style";
 
 interface UserCollectionProps {

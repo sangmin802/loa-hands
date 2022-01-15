@@ -1,7 +1,7 @@
 import React from "react";
 import UserInfo, { UserInfoProps } from "./userInfo";
-import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
-import ErrorFallback from "components/errorFallback/errorFallback";
+import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
+import ErrorFallback from "components/common/errorFallback/errorFallback";
 import SearchLoading from "pages/userInfo/searchLoading/searchLoading";
 import { Story } from "@storybook/react";
 

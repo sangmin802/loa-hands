@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "components/image/image";
+import Image from "components/common/image/image";
 
 const BackgroundContainer = styled.article`
   width: 100%;
