@@ -1,8 +1,9 @@
 import React, { useCallback, useContext } from "react";
 import { useHistory } from "react-router";
-import { DialogContext } from "components/dialogProvider/dialogProvider";
+// import { DialogContext } from "components/dialogProvider/dialogProvider";
+import { ModalContext } from "components/modal/modal";
 import Dialog from "./dialog/dialog";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import * as Styled from "./expeditionDialog.style";
 import UserInfo from "models/userInfo";
 
@@ -12,7 +13,7 @@ interface ExpeditionDialogProps {
 
 function ExpeditionDialog({ userData, ...props }: ExpeditionDialogProps) {
   const history = useHistory();
-  const setDialog = useContext(DialogContext);
+  const setModal = useContext(ModalContext);
 
   const handleSearchUser = useCallback(
     name => {
@@ -24,14 +25,20 @@ function ExpeditionDialog({ userData, ...props }: ExpeditionDialogProps) {
   );
 
   const handleDialog = useCallback(() => {
-    setDialog?.(
-      <Dialog
-        userData={userData}
-        setUserData={handleSearchUser}
-        setDialog={setDialog}
-      />
-    );
-  }, [userData, setDialog, handleSearchUser]);
+    setModal?.({
+      type: "EXPEDITION",
+      data: userData,
+    });
+  }, [userData, setModal, handleSearchUser]);
+  // const handleDialog = useCallback(() => {
+  //   setDialog?.(
+  //     <Dialog
+  //       userData={userData}
+  //       setUserData={handleSearchUser}
+  //       setDialog={setDialog}
+  //     />
+  //   );
+  // }, [userData, setDialog, handleSearchUser]);
 
   return (
     <Styled.ExpeditionButton onClick={handleDialog} {...props}>

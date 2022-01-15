@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from "react";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import Dialog from "./dialog/dialog";
 import { DialogContext } from "components/dialogProvider/dialogProvider";
 import * as Styled from "./infoItem.style";

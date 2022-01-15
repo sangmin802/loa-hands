@@ -1,14 +1,14 @@
 import React from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigation } from "hooks/useNavigation";
-import Text from "components/text/text";
+import Text from "components/common/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
 import UserCollection from "./userCollection/userCollection";
-import FlexHalf from "components/flexHalf/flexHalf";
-import ErrorFallback from "components/errorFallback/errorFallback";
-import LoadingSpinner from "components/loadingSpinner/loadingSpinner";
-import AsyncBoundary from "components/asyncBoundary/asyncBoundary";
+import FlexHalf from "components/common/flexHalf/flexHalf";
+import ErrorFallback from "components/common/errorFallback/errorFallback";
+import LoadingSpinner from "components/common/loadingSpinner/loadingSpinner";
+import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
 import UserInfoModel from "models/userInfo";
 import * as Styled from "./userInfo.style";
 

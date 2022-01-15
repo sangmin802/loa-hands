@@ -1,7 +1,7 @@
 import React, { ReactElement, useCallback } from "react";
 import Server from "../server/server";
-import Text from "components/text/text";
-import List from "components/list/list";
+import Text from "components/common/text/text";
+import List from "components/common/list/list";
 import * as Styled from "./dialog.style";
 
 export interface DialogProps<T> {

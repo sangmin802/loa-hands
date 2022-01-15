@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { reducePerType } from "utils/util";
 import { useNavigation } from "hooks/useNavigation";
 import InfoItem from "pages/userInfo/infoItem/infoItem";
-import List from "components/list/list";
-import FlexHalf from "components/flexHalf/flexHalf";
+import List from "components/common/list/list";
+import FlexHalf from "components/common/flexHalf/flexHalf";
 import UserInfo from "models/userInfo";
 import * as Styled from "./skill.style";
 
