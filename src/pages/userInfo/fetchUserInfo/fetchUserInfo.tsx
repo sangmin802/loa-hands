@@ -3,7 +3,6 @@ import { useCancelQuery } from "hooks/useCancelQuery";
 import ErrorFallback from "components/common/errorFallback/errorFallback";
 import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
 import UserInfo from "pages/userInfo/userInfo";
-import Dialog from "components/dialogProvider/dialogProvider";
 import SearchLoading from "../searchLoading/searchLoading";
 
 interface FetchUserInfoProps {
@@ -27,9 +26,7 @@ function FetchUserInfo({
       suspenseFallback={<SearchLoading />}
       keys={name}
     >
-      <Dialog rerender={name}>
-        <UserInfo name={name} />
-      </Dialog>
+      <UserInfo name={name} />
     </AsyncBoundary>
   );
 }

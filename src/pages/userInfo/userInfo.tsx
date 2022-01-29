@@ -1,7 +1,7 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback } from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigation } from "hooks/useNavigation";
-import { ModalContext } from "components/modal/modal";
+import { useModal } from "components/modal/modal";
 import Text from "components/common/text/text";
 import Ability from "pages/userInfo/ability/ability";
 import Skill from "pages/userInfo/skill/skill";
@@ -24,7 +24,7 @@ function UserInfo({ name }: UserInfoProps) {
   const { nav, handleNavDelegation } = useNavigation([name]);
   const userData = data as UserInfoModel;
   const { basicInfo: BI, expeditionInfo: EI } = userData;
-  const setModal = useContext(ModalContext);
+  const setModal = useModal();
 
   const handlModal = useCallback(() => {
     setModal?.({

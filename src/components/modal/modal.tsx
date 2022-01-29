@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useEffect,
   useState,
+  useContext,
 } from "react";
 import { IModalState, IUserDetail } from "types/modal";
 import * as Styled from "./modal.style";
@@ -74,5 +75,11 @@ function Modal({ children }: PropsWithChildren<{}>) {
     </ModalContext.Provider>
   );
 }
+
+export const useModal = () => {
+  const modal = useContext(ModalContext);
+
+  return modal;
+};
 
 export default Modal;
