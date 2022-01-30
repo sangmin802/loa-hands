@@ -392,6 +392,24 @@ export const ENGRAVE: {
       "<p><font color='ffd200'>레벨 3</font> (활성도 15)</p>치명타 적중률이 <font color='99ff99'>20%</font> 증가하지만 치명타 피해가 <font color='ff9999'>12%</font> 감소한다.",
     ],
   },
+  회귀: {
+    divideType: "classbuff",
+    no: 97,
+    options: [
+      "<p><font color='ffd200'>레벨 1</font> (활성도 5)</p>저무는 달 및 떠오르는 해 스킬 사용 시, 도화가 자신에게 60초 동안 치명타 적중률 <font color='99ff99'>6%</font> 증가하고, 치명타 피해가<font color='99ff99'>20%</font> 증가하는 효과를 부여한다.",
+      "<p><font color='ffd200'>레벨 2</font> (활성도 10)</p>저무는 달 및 떠오르는 해 스킬 사용 시, 도화가 자신에게 60초 동안 치명타 적중률 <font color='99ff99'>9%</font> 증가하고, 치명타 피해가<font color='99ff99'>30%</font> 증가하는 효과를 부여한다.",
+      "<p><font color='ffd200'>레벨 3</font> (활성도 15)</p>저무는 달 및 떠오르는 해 스킬 사용 시, 도화가 자신에게 60초 동안 치명타 적중률 <font color='99ff99'>12%</font> 증가하고, 치명타 피해가<font color='99ff99'>40%</font> 증가하는 효과를 부여한다.",
+    ],
+  },
+  만개: {
+    divideType: "classbuff",
+    no: 98,
+    options: [
+      "<p><font color='ffd200'>레벨 1</font> (활성도 5)</p>해 구슬 획득 시 떠오르는 해의 기운이 널리 퍼져 구슬을 획득한 대상을 포함한 24m 범위 내에 있는 파티원에게 도화가의 최대 생명력 <font color='99ff99'>7%</font>에 해당하는 생명력을 회복시킨다.",
+      "<p><font color='ffd200'>레벨 2</font> (활성도 10)</p>해 구슬 획득 시 떠오르는 해의 기운이 널리 퍼져 구슬을 획득한 대상을 포함한 24m 범위 내에 있는 파티원에게 도화가의 최대 생명력 <font color='99ff99'>11%</font>에 해당하는 생명력을 회복시킨다.",
+      "<p><font color='ffd200'>레벨 3</font> (활성도 15)</p>해 구슬 획득 시 떠오르는 해의 기운이 널리 퍼져 구슬을 획득한 대상을 포함한 24m 범위 내에 있는 파티원에게 도화가의 최대 생명력 <font color='99ff99'>15%</font>에 해당하는 생명력을 회복시킨다.",
+    ],
+  },
   "절실한 구원": {
     divideType: "classbuff",
     no: 135,
