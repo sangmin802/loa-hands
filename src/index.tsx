@@ -7,7 +7,6 @@ import GlobalStyle, { THEME } from "globalStyle";
 import App from "layout/app/app";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import Modal from "components/modal/modal";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,9 +27,7 @@ ReactDOM.render(
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <Modal>
-          <App />
-        </Modal>
+        <App />
       </QueryClientProvider>
       {/* </React.StrictMode> */}
     </ThemeProvider>

@@ -11,6 +11,7 @@ export interface TimerListProps {
 const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
   const [, setTime] = useState<number | null>(null);
   const date = new Date();
+  // 특정 타이머가 종료되어 setTime이 다시 호출되어 리렌더링 되는데, 자정이 넘어간 상태일 경우
   const isMustUseBefore =
     rerenderKey && date.getDate() !== rerenderKey.getDate() ? true : false;
   const min =
@@ -34,6 +35,7 @@ const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
             typeof d.position !== "string" ? [...d.position] : d.position;
           break;
         }
+        // rerenderKey는 있어도 추가시간이 없는 캘린더가 있어서 rerenderKey가 존재한다는 조건은 사용불가능
         if (!cachedTime.length && d.additionalTime) {
           cachedTime = [...d.additionalTime];
           cachedPosition = d.position;
