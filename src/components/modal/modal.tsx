@@ -1,32 +1,17 @@
-import React, {
-  createContext,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useState,
-  useContext,
-} from "react";
-import { IModalState, IUserDetail } from "types/modal";
+import React, { useCallback, useEffect } from "react";
+import { IUserDetail } from "types/modal";
 import * as Styled from "./modal.style";
 import UserDetail from "./content/userDetail/userDetail";
 import Expedition from "./content/expedition/expedition";
 import ExpeditionInfo from "models/expeditionInfo";
+import { initialState, useModal } from "./modalManager";
 
-const initialState = {
-  type: null,
-  data: null,
-};
-
-export const ModalContext = createContext<null | ((T: IModalState) => void)>(
-  null
-);
-
-function Modal({ children }: PropsWithChildren<{}>) {
-  const [modal, setModal] = useState<IModalState>(initialState);
+function Modal() {
+  const { modal, setModal } = useModal();
 
   const handleCloseModal = useCallback(() => {
     setModal(initialState);
-  }, []);
+  }, [setModal]);
 
   useEffect(() => {
     if (!modal.type) return;
@@ -51,7 +36,7 @@ function Modal({ children }: PropsWithChildren<{}>) {
   }, [modal]);
 
   return (
-    <ModalContext.Provider value={setModal}>
+    <>
       {modal.type && (
         <>
           <Styled.Background
@@ -71,15 +56,8 @@ function Modal({ children }: PropsWithChildren<{}>) {
           </Styled.Container>
         </>
       )}
-      {children}
-    </ModalContext.Provider>
+    </>
   );
 }
-
-export const useModal = () => {
-  const modal = useContext(ModalContext);
-
-  return modal;
-};
 
 export default Modal;
