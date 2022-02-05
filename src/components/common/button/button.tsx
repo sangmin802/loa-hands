@@ -1,14 +1,14 @@
 import React, { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import * as Styled from "./button.style";
 
-export type ButtonType = "normal" | "black" | "gray" | "submit";
+export type ButtonType = "default" | "black" | "gray" | "submit";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: ButtonType;
 }
 
 function Button({
-  buttonType = "normal",
+  buttonType = "default",
   children,
   ...props
 }: PropsWithChildren<ButtonProps>) {

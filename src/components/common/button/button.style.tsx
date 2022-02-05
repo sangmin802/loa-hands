@@ -7,7 +7,7 @@ const borderRadius = css`
 `;
 
 const buttonTypes = {
-  normal: css``,
+  default: css``,
   black: css`
     background: #000000;
     ${borderRadius}

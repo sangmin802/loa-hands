@@ -5,22 +5,23 @@ import { Story } from "@storybook/react";
 export default {
   title: "Button",
   component: Button,
+  // controls에 추가할 속성들
+  argTypes: {
+    // controls에 추가될 속성
+    buttonType: {
+      // control 방식
+      control: { type: "radio" },
+      // 속성들
+      options: ["default", "black", "gray", "submit"],
+    },
+  },
 };
 
-const Template: Story<ButtonProps> = args => <Button {...args}>Button</Button>;
+const Template: Story<ButtonProps> = args => <Button {...args} />;
 
-export const Default = Template.bind({});
-export const Black = Template.bind({});
-export const Gray = Template.bind({});
-export const Submit = Template.bind({});
+// default story 생성
+export const StoryButton = Template.bind({});
 
-Default.args = {};
-Black.args = {
-  buttonType: "black",
-};
-Gray.args = {
-  buttonType: "gray",
-};
-Submit.args = {
-  buttonType: "submit",
+StoryButton.args = {
+  children: "Button",
 };
