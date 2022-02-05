@@ -55,7 +55,7 @@ function Header({ ...props }) {
           ref={textInput}
           autoComplete="off"
         />
-        <Styled.InputSubmit>
+        <Styled.InputSubmit type="submit" buttonType="submit">
           <Text>검색</Text>
         </Styled.InputSubmit>
       </Styled.Form>

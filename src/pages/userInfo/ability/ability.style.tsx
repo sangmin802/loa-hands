@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import Button from "components/common/button/button";
 
 const Navigation = styled.section`
   display: block;
   background: ${({ theme }) => theme.backgroundColor.darkDeep};
 `;
 
-const NavButton = styled(Button)<{ selected: boolean }>`
+const NavButton = styled.div<{ selected: boolean }>`
+  display: inline-block;
+  cursor: pointer;
   padding: 0.5rem;
   width: fit-content;
   color: ${({ selected }) => (selected ? "#fff" : "#666")};

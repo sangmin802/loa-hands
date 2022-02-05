@@ -44,7 +44,7 @@ function Dialog({ data, closeModal }: DialogProps) {
 
   return (
     <Styled.Container onClick={handleExpedition}>
-      <Styled.CloseButton>
+      <Styled.CloseButton buttonType="gray">
         <Text data-close>닫기</Text>
       </Styled.CloseButton>
       <List data={expeditionUserWrap} item={Server} />

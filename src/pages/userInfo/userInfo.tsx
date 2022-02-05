@@ -36,7 +36,7 @@ function UserInfo({ name }: UserInfoProps) {
   return (
     <Styled.UserInfo data-testid={EI.name}>
       <Styled.Top>
-        <Styled.ExpeditionButton onClick={handlModal}>
+        <Styled.ExpeditionButton buttonType="gray" onClick={handlModal}>
           <Text>원정대</Text>
         </Styled.ExpeditionButton>
         <Styled.BasicInfoLabel title={<Styled.Label>클래스</Styled.Label>}>

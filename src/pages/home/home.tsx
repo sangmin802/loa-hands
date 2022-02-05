@@ -32,7 +32,10 @@ function Home() {
 
   return (
     <Styled.Home>
-      <Styled.Notification onClick={notification.requestPermission}>
+      <Styled.Notification
+        buttonType="black"
+        onClick={notification.requestPermission}
+      >
         <Text>타이머 알림 활성화</Text>
       </Styled.Notification>
       <Styled.Section

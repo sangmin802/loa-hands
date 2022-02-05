@@ -22,10 +22,7 @@ const ErrorText = styled(Text)`
 const RetryButton = styled(Button)`
   display: block;
   width: fit-content;
-  padding: 0.3rem 0.6rem;
   margin: 10px auto 0;
-  border-radius: 3px;
-  border: 1px solid #f0f4f5;
 `;
 
 export { ErrorFallback, ErrorImage, ErrorText, RetryButton };

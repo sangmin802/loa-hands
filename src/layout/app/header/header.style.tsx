@@ -43,9 +43,6 @@ const InputSubmit = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  ${({ theme }) => theme.contentBox}
-  border-radius: 3px 3px 3px 0;
 `;
 
 export { Container, Background, Form, InputText, InputSubmit, Logo };
