@@ -4,9 +4,10 @@ import "style/fonts.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle, { THEME } from "globalStyle";
-import App from "layout/app/app";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+
+import App from "layout/app/app";
 
 export const queryClient = new QueryClient({
   defaultOptions: {

@@ -1,7 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import Home from "pages/home/home";
-import FetchUserInfo from "pages/userInfo/fetchUserInfo/fetchUserInfo";
+import Routes from "router";
+
 import ModalManager from "components/modal/modalManager";
 import Modal from "components/modal/modal";
 import * as Styled from "./app.style";
@@ -12,8 +11,7 @@ function App() {
       <Styled.Container>
         <Styled.Header />
         <Styled.Main>
-          <Route exact path="/" component={Home} />
-          <Route path="/userInfo/:name" component={FetchUserInfo} />
+          <Routes />
         </Styled.Main>
       </Styled.Container>
       <Modal />
