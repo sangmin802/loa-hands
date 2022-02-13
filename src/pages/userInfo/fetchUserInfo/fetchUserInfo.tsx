@@ -1,23 +1,14 @@
 import React from "react";
 import { useCancelQuery } from "hooks/useCancelQuery";
+import { useParams } from "react-router-dom";
+
 import ErrorFallback from "components/common/errorFallback/errorFallback";
 import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
 import UserInfo from "pages/userInfo/userInfo";
 import SearchLoading from "../searchLoading/searchLoading";
 
-interface FetchUserInfoProps {
-  match: {
-    params: {
-      name: string;
-    };
-  };
-}
-
-function FetchUserInfo({
-  match: {
-    params: { name },
-  },
-}: FetchUserInfoProps) {
+function FetchUserInfo() {
+  const { name } = useParams();
   useCancelQuery([`userInfo-${name}`, `userCollection-${name}`]);
 
   return (
@@ -26,7 +17,7 @@ function FetchUserInfo({
       suspenseFallback={<SearchLoading />}
       keys={name}
     >
-      <UserInfo name={name} />
+      <UserInfo name={name as string} />
     </AsyncBoundary>
   );
 }
