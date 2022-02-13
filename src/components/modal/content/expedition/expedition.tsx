@@ -1,10 +1,12 @@
 import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Server from "./server/server";
 import Text from "components/common/text/text";
 import List from "components/common/list/list";
-import * as Styled from "./expedition.style";
-import { useHistory } from "react-router-dom";
 import ExpeditionInfo from "models/expeditionInfo";
+
+import * as Styled from "./expedition.style";
 
 export interface DialogProps {
   data: ExpeditionInfo;
@@ -14,16 +16,17 @@ export interface DialogProps {
 function Dialog({ data, closeModal }: DialogProps) {
   const {
     expeditionInfo: { expeditionUserWrap },
+    name: prevName,
   } = data;
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSearchUser = useCallback(
     name => {
       const path = `/userInfo/${name}`;
-      const curPath = history.location.pathname;
-      path !== curPath && history.push(path);
+
+      prevName !== name && navigate(path);
     },
-    [history]
+    [navigate, prevName]
   );
 
   const handleExpedition = useCallback(

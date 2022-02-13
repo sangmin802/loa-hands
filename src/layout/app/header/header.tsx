@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQueryErrorResetBoundary } from "react-query";
 import Text from "components/common/text/text";
 import * as Styled from "./header.style";
@@ -7,7 +7,7 @@ import * as Styled from "./header.style";
 function Header({ ...props }) {
   const { reset } = useQueryErrorResetBoundary();
   const textInput = useRef<HTMLInputElement>(null);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = useCallback(
     e => {
@@ -22,18 +22,18 @@ function Header({ ...props }) {
       reset();
       e.target.search.disabled = true;
       e.target.search.value = null;
-      history.replace(`/userInfo/${name}`);
+      navigate(`/userInfo/${name}`, { replace: true });
     },
-    [textInput, history, reset]
+    [textInput, navigate, reset]
   );
 
   const handleGoHome = useCallback(
     e => {
       e.preventDefault();
       reset();
-      history.replace(`/`);
+      navigate(`/`, { replace: true });
     },
-    [history, reset]
+    [navigate, reset]
   );
 
   const handleUnDisabled = useCallback(e => {
