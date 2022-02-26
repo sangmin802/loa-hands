@@ -1,27 +1,25 @@
 import React from "react";
-import Button, { ButtonProps } from "./button";
-import { Story } from "@storybook/react";
+import Button from "./button";
+
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
   title: "Button",
   component: Button,
-  // controls에 추가할 속성들
   argTypes: {
-    // controls에 추가될 속성
     buttonType: {
-      // control 방식
+      description: "타입별 버튼입니다.<br> `default` `black` `gray` `submit`",
+      defaultValue: "default",
       control: { type: "radio" },
-      // 속성들
       options: ["default", "black", "gray", "submit"],
     },
+    children: {
+      description: "버튼의 컨텐츠 입니다",
+      control: { type: "text" },
+    },
   },
-};
+} as ComponentMeta<typeof Button>;
 
-const Template: Story<ButtonProps> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-// default story 생성
 export const StoryButton = Template.bind({});
-
-StoryButton.args = {
-  children: "Button",
-};
