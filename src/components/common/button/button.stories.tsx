@@ -20,6 +20,37 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => {
+  const handleOnClick = () => {
+    alert("click");
+  };
 
-export const StoryButton = Template.bind({});
+  return (
+    <Button onClick={handleOnClick} {...args}>
+      {args.children}
+    </Button>
+  );
+};
+
+export const DefaultButton = Template.bind({});
+DefaultButton.args = {
+  children: "버튼",
+};
+
+export const BlackButton = Template.bind({});
+BlackButton.args = {
+  ...DefaultButton.args,
+  buttonType: "black",
+};
+
+export const GrayButton = Template.bind({});
+GrayButton.args = {
+  ...DefaultButton.args,
+  buttonType: "gray",
+};
+
+export const SubmitButton = Template.bind({});
+SubmitButton.args = {
+  ...DefaultButton.args,
+  buttonType: "submit",
+};
