@@ -1,11 +1,12 @@
-import { getCalendarData } from "api/api";
-import CalendarData from "models/calendarData";
-import { useQuery } from "react-query";
+import { useQuery } from 'react-query';
+
+import { getCalendarData } from '@/api/api';
+import CalendarData from '@/models/calendarData';
 
 export function useCalendar(queryKey: (number | string)[]): CalendarData {
-  const { data: calendarData } = useQuery(queryKey, () => getCalendarData(), {
-    refetchOnWindowFocus: false,
-  });
+	const { data: calendarData } = useQuery(queryKey, () => getCalendarData(), {
+		refetchOnWindowFocus: false,
+	});
 
-  return calendarData as CalendarData;
+	return calendarData as CalendarData;
 }
