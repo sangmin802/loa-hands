@@ -1,17 +1,18 @@
-import React from "react";
-import TimerList, { TimerListProps } from "./timerList";
-import { DAILY_ISLAND } from "json/timer";
-import { Story } from "@storybook/react";
+import { Story } from '@storybook/react';
+import React from 'react';
+
+import { DAILY_ISLAND } from '@/json/timer';
+import TimerList, { TimerListProps } from '@/pages/home/timerList/timerList';
 
 export default {
-  title: "TimerList",
-  component: TimerList,
+	title: 'TimerList',
+	component: TimerList,
 };
 
-const Template: Story<TimerListProps> = args => <TimerList {...args} />;
+const Template: Story<TimerListProps> = (args) => <TimerList {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-  data: DAILY_ISLAND,
+	data: DAILY_ISLAND,
 };

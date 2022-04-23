@@ -8,6 +8,7 @@ import { QueryClientProvider } from "react-query";
 import { queryClient } from "../src/index";
 import { ReactQueryDevtools } from "react-query/devtools";
 import "../src/style/fonts.css";
+import {URL} from '../src/constants/env'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -22,7 +23,7 @@ export const parameters = {
 export const decorators = [
   Story => (
     <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename={URL}>
         <ThemeProvider theme={THEME}>
           <GlobalStyle />
           <QueryClientProvider client={queryClient}>
