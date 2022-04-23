@@ -5,11 +5,11 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
 	plugins: [react(), tsconfigPaths()],
-	base: '/loa-hands/',
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
 	},
+	publicDir: 'public',
 	cacheDir: path.resolve(__dirname, './.vite'),
 });

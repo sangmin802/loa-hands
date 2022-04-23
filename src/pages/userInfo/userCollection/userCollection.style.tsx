@@ -1,5 +1,6 @@
-import { BACKGROUND } from "@/constants/index";
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+
+import { BACKGROUND } from '@/constants/index';
 
 const positionX = [
 	'718px',
@@ -19,14 +20,14 @@ const Navigation = styled.section`
 `;
 
 const NavButton = styled.div<{ selected: boolean }>`
-  cursor: pointer;
-  padding: 0.5rem;
-  background: ${({ theme }) => theme.backgroundColor.darkDeep};
-  flex-grow: 1;
-  height: 24px;
-  position: relative;
-  padding: 0;
-  border-radius: 3px;
+	cursor: pointer;
+	padding: 0.5rem;
+	background: ${({ theme }) => theme.backgroundColor.darkDeep};
+	flex-grow: 1;
+	height: 24px;
+	position: relative;
+	padding: 0;
+	border-radius: 3px;
 
 	&:after {
 		content: '';
