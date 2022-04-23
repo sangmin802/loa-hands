@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FlexContainer = styled.article`
-  display: flex;
-  gap: 5px;
+	display: flex;
+	gap: 5px;
 `;
 
 const HalfContainer = styled.article`
-  flex-basis: 50%;
-  overflow: hidden;
+	flex-basis: 50%;
+	overflow: hidden;
 `;
 
 export { FlexContainer, HalfContainer };

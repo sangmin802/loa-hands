@@ -1,34 +1,32 @@
+import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
+import ErrorFallback from '@/components/common/errorFallback/errorFallback';
+import LoadingSpinner from '@/components/common/loadingSpinner/loadingSpinner';
+import Text from '@/components/common/text/text';
+import { useCancelQuery } from '@/hooks/useCancelQuery';
+import { useHomeRerender } from '@/hooks/useHomeRerender';
+import { useTimerNotification } from '@/hooks/useTimerNotification';
 import {
-  DAILY_ISLAND,
-  FIELD_BOSS,
-  CHAOS_GATE,
-  OCEAN_ACT,
-  PHANTOM_SHIP,
-} from "json/timer";
-import { useCancelQuery } from "hooks/useCancelQuery";
-import { useHomeRerender } from "hooks/useHomeRerender";
-import { useTimerNotification } from "hooks/useTimerNotification";
-
-import TimerList from "./timerList/timerList";
-import LoadingSpinner from "components/common/loadingSpinner/loadingSpinner";
-import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
-import ErrorFallback from "components/common/errorFallback/errorFallback";
-import Calendar from "./calendar/calendar";
-import Event from "./event/event";
-import Text from "components/common/text/text";
-
-import * as Styled from "./home.style";
+	CHAOS_GATE,
+	DAILY_ISLAND,
+	FIELD_BOSS,
+	OCEAN_ACT,
+	PHANTOM_SHIP,
+} from '@/json/timer';
+import Calendar from '@/pages/home/calendar/calendar';
+import Event from '@/pages/home/event/event';
+import * as Styled from '@/pages/home/home.style';
+import TimerList from '@/pages/home/timerList/timerList';
 
 function Home() {
-  const { isMidnight, isSix } = useHomeRerender();
-  const queryKey = [
-    "fetchEventData",
-    ["fetchCalendarData", isMidnight.getDate()],
-  ];
-  const yoil = isMidnight.getDay();
-  const isWeek = 6 > yoil && yoil > 0;
-  const notification = useTimerNotification();
-  useCancelQuery(queryKey);
+	const { isMidnight, isSix } = useHomeRerender();
+	const queryKey = [
+		'fetchEventData',
+		['fetchCalendarData', isMidnight.getDate()],
+	];
+	const yoil = isMidnight.getDay();
+	const isWeek = 6 > yoil && yoil > 0;
+	const notification = useTimerNotification();
+	useCancelQuery(queryKey);
 
   return (
     <Styled.Home>

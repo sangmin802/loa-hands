@@ -1,10 +1,12 @@
-import React from "react";
-import Text from "components/common/text/text";
-import * as Styled from "./errorFallback.style";
+import React from 'react';
+
+import * as Styled from '@/components/common/errorFallback/errorFallback.style';
+import Text from '@/components/common/text/text';
+import { URL } from '@/constants/env';
 
 interface ErrorFallbackProps {
-  error: Error;
-  resetBoundary: () => void;
+	error: Error;
+	resetBoundary: () => void;
 }
 
 function ErrorFallback({ error, resetBoundary }: ErrorFallbackProps) {

@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import Button from "components/common/button/button";
+import styled from 'styled-components';
+
+import Button from '@/components/common/button/button';
 
 const Char = styled.article`
   border-radius: 3px;

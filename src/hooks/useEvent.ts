@@ -1,11 +1,12 @@
-import { getEventData } from "api/api";
-import EventData from "models/eventData";
-import { useQuery } from "react-query";
+import { useQuery } from 'react-query';
+
+import { getEventData } from '@/api/api';
+import EventData from '@/models/eventData';
 
 export function useEvent(queryKey: string): EventData {
-  const { data: eventData } = useQuery(queryKey, () => getEventData(), {
-    refetchOnWindowFocus: false,
-  });
+	const { data: eventData } = useQuery(queryKey, () => getEventData(), {
+		refetchOnWindowFocus: false,
+	});
 
-  return eventData as EventData;
+	return eventData as EventData;
 }

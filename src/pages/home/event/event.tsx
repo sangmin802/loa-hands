@@ -1,15 +1,16 @@
-import React from "react";
-import { useEvent } from "hooks/useEvent";
-import * as Styled from "./event.style";
+import React from 'react';
+
+import { useEvent } from '@/hooks/useEvent';
+import * as Styled from '@/pages/home/event/event.style';
 
 interface EventProps {
-  queryKey: string;
+	queryKey: string;
 }
 
 function Event({ queryKey }: EventProps) {
-  const eventData = useEvent(queryKey);
+	const eventData = useEvent(queryKey);
 
-  return <Styled.EventList data={eventData.events} item={Styled.EventItem} />;
+	return <Styled.EventList data={eventData.events} item={Styled.EventItem} />;
 }
 
 export default React.memo(Event);

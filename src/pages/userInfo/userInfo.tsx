@@ -1,37 +1,39 @@
-import React, { useCallback } from "react";
-import { useUser } from "hooks/useUser";
-import { useNavigation } from "hooks/useNavigation";
-import { useModal } from "components/modal/modalManager";
-import Text from "components/common/text/text";
-import Ability from "pages/userInfo/ability/ability";
-import Skill from "pages/userInfo/skill/skill";
-import UserCollection from "./userCollection/userCollection";
-import FlexHalf from "components/common/flexHalf/flexHalf";
-import ErrorFallback from "components/common/errorFallback/errorFallback";
-import LoadingSpinner from "components/common/loadingSpinner/loadingSpinner";
-import AsyncBoundary from "components/common/asyncBoundary/asyncBoundary";
-import UserInfoModel from "models/userInfo";
-import * as Styled from "./userInfo.style";
+import React, { useCallback } from 'react';
+
+import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
+import ErrorFallback from '@/components/common/errorFallback/errorFallback';
+import FlexHalf from '@/components/common/flexHalf/flexHalf';
+import LoadingSpinner from '@/components/common/loadingSpinner/loadingSpinner';
+import Text from '@/components/common/text/text';
+import { useModal } from '@/components/modal/modalManager';
+import { useNavigation } from '@/hooks/useNavigation';
+import { useUser } from '@/hooks/useUser';
+import UserInfoModel from '@/models/userInfo';
+import Ability from '@/pages/userInfo/ability/ability';
+import Skill from '@/pages/userInfo/skill/skill';
+
+import UserCollection from './userCollection/userCollection';
+import * as Styled from './userInfo.style';
 
 export interface UserInfoProps {
-  name: string;
+	name: string;
 }
 
-const navList = ["능력치", "스킬", "수집형포인트"];
+const navList = ['능력치', '스킬', '수집형포인트'];
 
 function UserInfo({ name }: UserInfoProps) {
-  const data = useUser(name);
-  const { nav, handleNavDelegation } = useNavigation([name]);
-  const userData = data as UserInfoModel;
-  const { basicInfo: BI, expeditionInfo: EI } = userData;
-  const { setModal } = useModal();
+	const data = useUser(name);
+	const { nav, handleNavDelegation } = useNavigation([name]);
+	const userData = data as UserInfoModel;
+	const { basicInfo: BI, expeditionInfo: EI } = userData;
+	const { setModal } = useModal();
 
-  const handlModal = useCallback(() => {
-    setModal?.({
-      type: "EXPEDITION",
-      data: userData,
-    });
-  }, [userData, setModal]);
+	const handlModal = useCallback(() => {
+		setModal?.({
+			type: 'EXPEDITION',
+			data: userData,
+		});
+	}, [userData, setModal]);
 
   return (
     <Styled.UserInfo data-testid={EI.name}>
