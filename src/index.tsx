@@ -24,8 +24,6 @@ export const queryClient = new QueryClient({
 	},
 });
 
-console.log(URL);
-
 ReactDOM.render(
 	<Router basename={URL}>
 		<ThemeProvider theme={THEME}>
