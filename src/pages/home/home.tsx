@@ -28,89 +28,92 @@ function Home() {
 	const notification = useTimerNotification();
 	useCancelQuery(queryKey);
 
-	return (
-		<Styled.Home>
-			<Styled.Notification onClick={notification.requestPermission}>
-				<Text>타이머 알림 활성화</Text>
-			</Styled.Notification>
-			<Styled.Section
-				title={<Styled.SectionTitle>진행중인 이벤트</Styled.SectionTitle>}
-			>
-				<AsyncBoundary
-					suspenseFallback={<LoadingSpinner />}
-					errorFallback={ErrorFallback}
-				>
-					<Event queryKey={queryKey[0] as string} />
-				</AsyncBoundary>
-			</Styled.Section>
-			<Styled.Section
-				title={
-					<Styled.SectionTitle>
-						오늘의 캘린더섬
-						<Styled.SectionSmallTitle>
-							{isWeek ? '11:00 ~ 23:00' : '09:00 ~ 23:00'}
-						</Styled.SectionSmallTitle>
-					</Styled.SectionTitle>
-				}
-			>
-				<AsyncBoundary
-					suspenseFallback={<LoadingSpinner />}
-					errorFallback={ErrorFallback}
-				>
-					<Calendar
-						queryKey={queryKey[1] as (string | number)[]}
-						isMidnight={isMidnight}
-						notification={notification.activeNotification}
-						isWeek={isWeek}
-					/>
-				</AsyncBoundary>
-			</Styled.Section>
-			<Styled.Section
-				title={<Styled.SectionTitle>오늘의 모험섬</Styled.SectionTitle>}
-			>
-				<TimerList
-					data={DAILY_ISLAND}
-					notification={notification.activeNotification}
-				/>
-			</Styled.Section>
-			<Styled.Section
-				title={<Styled.SectionTitle>오늘의 필드보스</Styled.SectionTitle>}
-			>
-				<TimerList
-					data={FIELD_BOSS[isSix.getDay()]}
-					rerenderKey={isSix}
-					notification={notification.activeNotification}
-				/>
-			</Styled.Section>
-			<Styled.Section
-				title={<Styled.SectionTitle>오늘의 카오스 게이트</Styled.SectionTitle>}
-			>
-				<TimerList
-					data={CHAOS_GATE[isSix.getDay()]}
-					rerenderKey={isSix}
-					notification={notification.activeNotification}
-				/>
-			</Styled.Section>
-			<Styled.Section
-				title={<Styled.SectionTitle>오늘의 유령선</Styled.SectionTitle>}
-			>
-				<TimerList
-					data={PHANTOM_SHIP[isSix.getDay()]}
-					rerenderKey={isSix}
-					notification={notification.activeNotification}
-				/>
-			</Styled.Section>
-			<Styled.Section
-				title={<Styled.SectionTitle>오늘의 항해</Styled.SectionTitle>}
-			>
-				<TimerList
-					data={OCEAN_ACT[isSix.getDay()]}
-					rerenderKey={isSix}
-					notification={notification.activeNotification}
-				/>
-			</Styled.Section>
-		</Styled.Home>
-	);
+  return (
+    <Styled.Home>
+      <Styled.Notification
+        buttonType="black"
+        onClick={notification.requestPermission}
+      >
+        <Text>타이머 알림 활성화</Text>
+      </Styled.Notification>
+      <Styled.Section
+        title={<Styled.SectionTitle>진행중인 이벤트</Styled.SectionTitle>}
+      >
+        <AsyncBoundary
+          suspenseFallback={<LoadingSpinner />}
+          errorFallback={ErrorFallback}
+        >
+          <Event queryKey={queryKey[0] as string} />
+        </AsyncBoundary>
+      </Styled.Section>
+      <Styled.Section
+        title={
+          <Styled.SectionTitle>
+            오늘의 캘린더섬
+            <Styled.SectionSmallTitle>
+              {isWeek ? "11:00 ~ 23:00" : "09:00 ~ 23:00"}
+            </Styled.SectionSmallTitle>
+          </Styled.SectionTitle>
+        }
+      >
+        <AsyncBoundary
+          suspenseFallback={<LoadingSpinner />}
+          errorFallback={ErrorFallback}
+        >
+          <Calendar
+            queryKey={queryKey[1] as (string | number)[]}
+            isMidnight={isMidnight}
+            notification={notification.activeNotification}
+            isWeek={isWeek}
+          />
+        </AsyncBoundary>
+      </Styled.Section>
+      <Styled.Section
+        title={<Styled.SectionTitle>오늘의 모험섬</Styled.SectionTitle>}
+      >
+        <TimerList
+          data={DAILY_ISLAND}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+      <Styled.Section
+        title={<Styled.SectionTitle>오늘의 필드보스</Styled.SectionTitle>}
+      >
+        <TimerList
+          data={FIELD_BOSS[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+      <Styled.Section
+        title={<Styled.SectionTitle>오늘의 카오스 게이트</Styled.SectionTitle>}
+      >
+        <TimerList
+          data={CHAOS_GATE[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+      <Styled.Section
+        title={<Styled.SectionTitle>오늘의 유령선</Styled.SectionTitle>}
+      >
+        <TimerList
+          data={PHANTOM_SHIP[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+      <Styled.Section
+        title={<Styled.SectionTitle>오늘의 항해</Styled.SectionTitle>}
+      >
+        <TimerList
+          data={OCEAN_ACT[isSix.getDay()]}
+          rerenderKey={isSix}
+          notification={notification.activeNotification}
+        />
+      </Styled.Section>
+    </Styled.Home>
+  );
 }
 
 export default Home;

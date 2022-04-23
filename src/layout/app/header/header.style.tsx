@@ -40,13 +40,10 @@ const InputText = styled(Input)`
 `;
 
 const InputSubmit = styled(Button)`
-	width: 20%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	${({ theme }) => theme.contentBox}
-	border-radius: 3px 3px 3px 0;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export { Background, Container, Form, InputSubmit, InputText, Logo };

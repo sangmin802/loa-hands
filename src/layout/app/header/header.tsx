@@ -43,26 +43,26 @@ function Header({ ...props }) {
 		e.target.disabled = false;
 	}, []);
 
-	return (
-		<Styled.Container {...props}>
-			<Styled.Logo onClick={handleGoHome}>
-				<Styled.Background data-testid="go-home" />
-			</Styled.Logo>
-			<Styled.Form data-testid="submit-form" onSubmit={handleSubmit}>
-				<Styled.InputText
-					onMouseOverCapture={handleUnDisabled}
-					data-testid="search-area"
-					type="text"
-					name="search"
-					ref={textInput}
-					autoComplete="off"
-				/>
-				<Styled.InputSubmit>
-					<Text>검색</Text>
-				</Styled.InputSubmit>
-			</Styled.Form>
-		</Styled.Container>
-	);
+  return (
+    <Styled.Container {...props}>
+      <Styled.Logo onClick={handleGoHome}>
+        <Styled.Background data-testid="go-home" />
+      </Styled.Logo>
+      <Styled.Form data-testid="submit-form" onSubmit={handleSubmit}>
+        <Styled.InputText
+          onMouseOverCapture={handleUnDisabled}
+          data-testid="search-area"
+          type="text"
+          name="search"
+          ref={textInput}
+          autoComplete="off"
+        />
+        <Styled.InputSubmit type="submit" buttonType="submit">
+          <Text>검색</Text>
+        </Styled.InputSubmit>
+      </Styled.Form>
+    </Styled.Container>
+  );
 }
 
 export default React.memo(Header);

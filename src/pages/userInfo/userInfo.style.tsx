@@ -22,13 +22,8 @@ const Bottom = styled.section`
 `;
 
 const ExpeditionButton = styled(Button)`
-	margin-left: auto;
-	display: block;
-	margin-left: auto;
-	padding: 0.3rem;
-
-	${({ theme }) => theme.contentBox}
-	background: ${({ theme }) => theme.backgroundColor.darkLow};
+  margin-left: auto;
+  display: block;
 `;
 
 const NAVContent = styled.section`
@@ -44,9 +39,11 @@ const Navigation = styled.section`
 	overflow: hidden;
 `;
 
-const NAVButton = styled(Button)<{ selected: boolean; isCollection?: boolean }>`
-	padding: 0.5rem;
-	width: fit-content;
+const NAVButton = styled.div<{ selected: boolean; isCollection?: boolean }>`
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: fit-content;
 
 	background: ${({ theme }) => theme.backgroundColor.darkDeep};
 	color: ${({ selected }) => (selected ? '#fff' : '#666')};

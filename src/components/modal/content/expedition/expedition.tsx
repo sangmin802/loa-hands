@@ -13,45 +13,45 @@ export interface DialogProps {
 }
 
 function Dialog({ data, closeModal }: DialogProps) {
-	const {
-		expeditionInfo: { expeditionUserWrap },
-		name: prevName,
-	} = data;
-	const navigate = useNavigate();
+  const {
+    expeditionInfo: { expeditionUserWrap },
+    name: prevName,
+  } = data;
+  const navigate = useNavigate();
 
-	const handleSearchUser = useCallback(
-		(name) => {
-			const path = `/userInfo/${name}`;
+  const handleSearchUser = useCallback(
+    name => {
+      const path = `/userInfo/${name}`;
 
-			prevName !== name && navigate(path);
-		},
-		[navigate, prevName],
-	);
+      prevName !== name && navigate(path);
+    },
+    [navigate, prevName]
+  );
 
-	const handleExpedition = useCallback(
-		(e) => {
-			const type = e.target.dataset;
-			if (type.close) return closeModal();
+  const handleExpedition = useCallback(
+    e => {
+      const type = e.target.dataset;
+      if (type.close) return closeModal();
 
-			if (type.name) {
-				(async function () {
-					closeModal();
-				})().then(() => {
-					handleSearchUser(type.name);
-				});
-			}
-		},
-		[closeModal, handleSearchUser],
-	);
+      if (type.name) {
+        (async function () {
+          closeModal();
+        })().then(() => {
+          handleSearchUser(type.name);
+        });
+      }
+    },
+    [closeModal, handleSearchUser]
+  );
 
-	return (
-		<Styled.Container onClick={handleExpedition}>
-			<Styled.CloseButton>
-				<Text data-close>닫기</Text>
-			</Styled.CloseButton>
-			<List data={expeditionUserWrap} item={Server} />
-		</Styled.Container>
-	);
+  return (
+    <Styled.Container onClick={handleExpedition}>
+      <Styled.CloseButton buttonType="gray">
+        <Text data-close>닫기</Text>
+      </Styled.CloseButton>
+      <List data={expeditionUserWrap} item={Server} />
+    </Styled.Container>
+  );
 }
 
 export default React.memo(Dialog);

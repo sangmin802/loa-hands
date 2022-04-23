@@ -25,16 +25,8 @@ const SectionSmallTitle = styled.small`
 `;
 
 const Notification = styled(Button)`
-	width: fit-content;
-	margin: 5px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.2rem 0.4rem;
-
-	${({ theme }) => theme.contentBox};
-	background: ${({ theme }) => theme.backgroundColor.darkDeep};
-	border-radius: 3px 3px 3px 0;
+  width: fit-content;
+  margin: 5px;
 `;
 
 export { Home, Notification, Section, SectionSmallTitle, SectionTitle };

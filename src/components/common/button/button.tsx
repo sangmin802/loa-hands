@@ -1,11 +1,22 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import React, { ButtonHTMLAttributes } from "react";
+import * as Styled from "./button.style";
 
-import * as Styled from '@/components/common/button/button.style';
+export type ButtonType = "default" | "black" | "gray" | "submit";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
-
-function Button({ children, ...props }: PropsWithChildren<ButtonProps>) {
-	return <Styled.Button {...props}>{children}</Styled.Button>;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonType?: ButtonType;
 }
+
+const Button: React.FC<ButtonProps> = ({
+  buttonType = "default",
+  children,
+  ...props
+}) => {
+  return (
+    <Styled.Button buttonType={buttonType} {...props}>
+      {children}
+    </Styled.Button>
+  );
+};
 
 export default Button;
