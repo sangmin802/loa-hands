@@ -124,7 +124,7 @@ export default class AbilityInfo implements Props {
 			...detail,
 			title: name,
 			desc: [detail.options[grade - 1]],
-			src: `${URL}/img/engrave/${detail.no}.png`,
+			src: `${URL}src/assets/img/engrave/${detail.no}.png`,
 			size: newSize,
 			grade,
 		});

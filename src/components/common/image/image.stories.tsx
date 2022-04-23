@@ -15,5 +15,5 @@ const Template: Story<ImageProps> = (args) => <Image {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-	src: `${URL}/img/event.jpg`,
+	src: `${URL}src/assets/img/event.jpg`,
 };

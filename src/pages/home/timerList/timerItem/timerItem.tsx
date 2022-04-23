@@ -91,10 +91,17 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
 					<Styled.TimerLv size="0.7">{lv}</Styled.TimerLv>
 				</Styled.TimerImg>
 				<Styled.Time>
-					<Text size="0.9" role="timer-alert">
+					<Text
+						size="0.9"
+						role="timer-alert"
+					>
 						{contentAlert}
 					</Text>
-					<Text size="0.9" role="timeout" color="timeOut">
+					<Text
+						size="0.9"
+						role="timeout"
+						color="timeOut"
+					>
 						{restTime
 							? `${restTime.hour}:${restTime.min}:${restTime.sec}`
 							: '종료'}
