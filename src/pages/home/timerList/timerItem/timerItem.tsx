@@ -87,7 +87,7 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
 			<Styled.TimerTitle size="0.9">{name}</Styled.TimerTitle>
 			<Styled.Content>
 				<Styled.TimerImg>
-					<Image src={`${src}`} />
+					<Image src={`${URL}${src}`} />
 					<Styled.TimerLv size="0.7">{lv}</Styled.TimerLv>
 				</Styled.TimerImg>
 				<Styled.Time>

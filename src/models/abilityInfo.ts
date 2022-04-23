@@ -1,3 +1,4 @@
+import { URL } from '@/constants/env';
 import { ENGRAVE } from '@/json/engrave';
 import {
 	BADGE_ARR,
@@ -123,7 +124,7 @@ export default class AbilityInfo implements Props {
 			...detail,
 			title: name,
 			desc: [detail.options[grade - 1]],
-			src: `/img/engrave/${detail.no}.png`,
+			src: `${URL}/img/engrave/${detail.no}.png`,
 			size: newSize,
 			grade,
 		});

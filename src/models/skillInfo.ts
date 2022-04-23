@@ -150,7 +150,7 @@ export default class SkillInfos {
 		this.lifeSkill = [...li].map((li, index) => {
 			const divideType = index < half ? 'leftSkill' : 'rightSkill';
 			const type = 'lifeSkill';
-			const backSrc = `/img/lifeskill/${index}.PNG`;
+			const backSrc = `${URL}/img/lifeskill/${index}.PNG`;
 
 			return {
 				type,

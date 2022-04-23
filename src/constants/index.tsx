@@ -1,4 +1,6 @@
-export const BACKGROUND = `/img/all.png`;
+import { URL } from '@/constants/env';
+
+export const BACKGROUND = `${URL}/img/all.png`;
 
 export const USER_DATA = {
 	basicInfo: {
