@@ -5,8 +5,6 @@
 /.pnp
 .pnp.js
 proxy.js
-API.ts
-models/
 backup.js
 
 # zero-install
@@ -23,6 +21,7 @@ backup.js
 
 # production
 /build 
+/dist
 # build 이그노어 지우면 public path 된다는 말도 있음
 
 # misc
