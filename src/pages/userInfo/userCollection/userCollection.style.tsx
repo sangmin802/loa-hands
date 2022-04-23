@@ -1,4 +1,4 @@
-import { BACKGROUND } from "constants/index";
+import { BACKGROUND } from "@/constants/index";
 import styled, { css } from "styled-components";
 
 const positionX = [
