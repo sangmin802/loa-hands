@@ -6,6 +6,7 @@
 .pnp.js
 proxy.js
 backup.js
+.vite/*
 
 # zero-install
 .yarn/*
