@@ -22,7 +22,7 @@ function ErrorFallback({ error, resetBoundary }: ErrorFallbackProps) {
 			>
 				<Text>재시도</Text>
 			</Styled.RetryButton>
-			<Styled.ErrorImage src={`${URL}src/assets/img/emoticon_3.gif`} />
+			<Styled.ErrorImage src={`public/img/emoticon_3.gif`} />
 		</Styled.ErrorFallback>
 	);
 }
