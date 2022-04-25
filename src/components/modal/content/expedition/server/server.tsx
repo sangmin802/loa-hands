@@ -1,22 +1,21 @@
-import React from 'react';
-
 import * as Styled from '@/components/modal/content/expedition/server/server.style';
 
-interface ServerProps<T> {
-	data: T;
+interface IServer {
+	data: {
+		server: string;
+		charList: [];
+	};
 }
 
-function Server({
-	data,
-}: ServerProps<{
-	server: string;
-	charList: [];
-}>) {
+const Server = ({ data }: IServer) => {
 	return (
 		<Styled.Server title={<Styled.ServerName>{data.server}</Styled.ServerName>}>
-			<Styled.CharList data={data.charList} item={Styled.CharItem} />
+			<Styled.CharList
+				data={data.charList}
+				item={Styled.CharItem}
+			/>
 		</Styled.Server>
 	);
-}
+};
 
 export default Server;

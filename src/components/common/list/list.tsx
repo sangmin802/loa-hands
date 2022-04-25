@@ -2,7 +2,7 @@ import React, { MemoExoticComponent, ReactElement } from 'react';
 
 import * as Styled from '@/components/common/list/list.style';
 
-export interface ListProps {
+export interface IList {
 	data: any[];
 	item:
 		| ((...args: any[]) => ReactElement)
@@ -12,14 +12,18 @@ export interface ListProps {
 		| ((...args: any[]) => void);
 }
 
-function List({ data, item: Item, dispatcher, ...props }: ListProps) {
+const List = ({ data, item: Item, dispatcher, ...props }: IList) => {
 	return (
 		<Styled.List {...props}>
 			{data.map((data, index) => (
-				<Item data={data} key={data.id ?? index} dispatcher={dispatcher} />
+				<Item
+					data={data}
+					key={data.id ?? index}
+					dispatcher={dispatcher}
+				/>
 			))}
 		</Styled.List>
 	);
-}
+};
 
 export default React.memo(List);

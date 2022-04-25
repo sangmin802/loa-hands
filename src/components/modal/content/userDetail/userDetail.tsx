@@ -2,16 +2,16 @@ import React from 'react';
 
 import Text from '@/components/common/text/text';
 import HTMLItem from '@/pages/userInfo/htmlItem/htmlItem';
-import { IUserDetail } from '@/types/modal';
+import { IUserDetail as IData } from '@/types/modal';
 import { getQualityColor } from '@/utils/util';
 
 import * as Styled from './userDetail.style';
 
-export interface DialogProps {
-	data: IUserDetail;
+export interface IUserDetail {
+	data: IData;
 }
 
-function UserDetail({ data }: DialogProps) {
+const UserDetail = ({ data }: IUserDetail) => {
 	const { backSrc, detail } = data;
 	const {
 		src,
@@ -35,18 +35,27 @@ function UserDetail({ data }: DialogProps) {
 					/>
 					<Styled.TitleBox>
 						{subTitle.map((subTitle, i) => (
-							<Text size="0.9" key={i}>
+							<Text
+								size="0.9"
+								key={i}
+							>
 								{subTitle}
 							</Text>
 						))}
-						<Text size="1.2" color={grade ? `color${grade}` : 'white'}>
+						<Text
+							size="1.2"
+							color={grade ? `color${grade}` : 'white'}
+						>
 							{title}
 						</Text>
 					</Styled.TitleBox>
 				</Styled.Container>
 			</Styled.Top>
 			{rune && (
-				<Styled.Rune role="rune-grade" data-grade={rune.runeGradeNo}>
+				<Styled.Rune
+					role="rune-grade"
+					data-grade={rune.runeGradeNo}
+				>
 					<Styled.RuneThumbnail
 						color={`gradient${rune.runeGradeNo}`}
 						src={rune.runeImg}
@@ -67,15 +76,26 @@ function UserDetail({ data }: DialogProps) {
 					/>
 				</Styled.Quality>
 			)}
-			{itemPartBox && <Styled.SectionList data={itemPartBox} item={HTMLItem} />}
+			{itemPartBox && (
+				<Styled.SectionList
+					data={itemPartBox}
+					item={HTMLItem}
+				/>
+			)}
 			{indentStringGroup && (
-				<Styled.SectionList data={indentStringGroup} item={HTMLItem} />
+				<Styled.SectionList
+					data={indentStringGroup}
+					item={HTMLItem}
+				/>
 			)}
 			{tripodSkillCustom && (
-				<Styled.SectionList data={tripodSkillCustom} item={HTMLItem} />
+				<Styled.SectionList
+					data={tripodSkillCustom}
+					item={HTMLItem}
+				/>
 			)}
 		</>
 	);
-}
+};
 
 export default React.memo(UserDetail);

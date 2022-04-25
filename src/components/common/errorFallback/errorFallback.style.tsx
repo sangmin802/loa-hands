@@ -21,9 +21,9 @@ const ErrorText = styled(Text)`
 `;
 
 const RetryButton = styled(Button)`
-  display: block;
-  width: fit-content;
-  margin: 10px auto 0;
+	display: block;
+	width: fit-content;
+	margin: 10px auto 0;
 `;
 
 export { ErrorFallback, ErrorImage, ErrorText, RetryButton };

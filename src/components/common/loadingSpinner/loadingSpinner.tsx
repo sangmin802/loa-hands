@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 import * as Styled from '@/components/common/loadingSpinner/loadingSpinner.style';
 
-export type LoadingSpinnerProps = HTMLAttributes<HTMLElement>;
+export type LoadingSpinnerType = HTMLAttributes<HTMLElement>;
 
-function LoadingSpinner({ ...props }: LoadingSpinnerProps) {
+const LoadingSpinner = ({ ...props }: LoadingSpinnerType) => {
 	return (
 		<Styled.Content {...props}>
 			<div></div>
@@ -21,6 +21,6 @@ function LoadingSpinner({ ...props }: LoadingSpinnerProps) {
 			<div></div>
 		</Styled.Content>
 	);
-}
+};
 
 export default LoadingSpinner;

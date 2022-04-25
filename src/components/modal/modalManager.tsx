@@ -1,6 +1,6 @@
 import React, {
 	createContext,
-	PropsWithChildren,
+	ReactNode,
 	useContext,
 	useMemo,
 	useState,
@@ -13,6 +13,10 @@ interface IModalContext {
 	setModal: React.Dispatch<React.SetStateAction<IModalState>>;
 }
 
+interface IModalManager {
+	children: ReactNode;
+}
+
 export const initialState = {
 	type: null,
 	data: null,
@@ -20,7 +24,7 @@ export const initialState = {
 
 export const ModalContext = createContext<null | IModalContext>(null);
 
-function ModalManager({ children }: PropsWithChildren<any>) {
+const ModalManager = ({ children }: IModalManager) => {
 	const [modal, setModal] = useState<IModalState>(initialState);
 
 	const contextState = useMemo(
@@ -36,7 +40,7 @@ function ModalManager({ children }: PropsWithChildren<any>) {
 			{children}
 		</ModalContext.Provider>
 	);
-}
+};
 
 export const useModal = () => {
 	const modal = useContext(ModalContext);

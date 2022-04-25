@@ -8,7 +8,7 @@ import { IUserDetail } from '@/types/modal';
 
 import { initialState, useModal } from './modalManager';
 
-function Modal() {
+const Modal = () => {
 	const { modal, setModal } = useModal();
 
 	const handleCloseModal = useCallback(() => {
@@ -60,6 +60,6 @@ function Modal() {
 			)}
 		</>
 	);
-}
+};
 
 export default Modal;

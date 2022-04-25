@@ -1,23 +1,23 @@
 import React, { ReactElement } from 'react';
 
-interface ErrorBoundaryProps {
+interface IErrorBoundary {
 	resetQuery?: () => void;
 	errorFallback: (...args: any[]) => ReactElement;
 	children: ReactElement;
 	keys: any;
 }
 
-interface ErrorBoundaryStates {
+interface IErrorBoundaryState {
 	hasError: boolean;
 	error: Error | null;
 }
 const initialState = { hasError: false, error: null };
 
 export default class ErrorBoundary extends React.Component<
-	ErrorBoundaryProps,
-	ErrorBoundaryStates
+	IErrorBoundary,
+	IErrorBoundaryState
 > {
-	constructor(props: ErrorBoundaryProps) {
+	constructor(props: IErrorBoundary) {
 		super(props);
 		this.state = initialState;
 	}
@@ -41,7 +41,7 @@ export default class ErrorBoundary extends React.Component<
 	};
 
 	// 부모 컴포넌트에서의 props 변경 감지를 통한 리렌더링
-	componentDidUpdate(prev: ErrorBoundaryProps) {
+	componentDidUpdate(prev: IErrorBoundary) {
 		if (prev.keys !== this.props.keys) this.resetBoundary();
 
 		return false;
@@ -58,7 +58,12 @@ export default class ErrorBoundary extends React.Component<
 			const { error } = this.state;
 			// 폴백 UI를 커스텀하여 렌더링할 수 있습니다.
 
-			return <ErrorFallback error={error} resetBoundary={this.resetBoundary} />;
+			return (
+				<ErrorFallback
+					error={error}
+					resetBoundary={this.resetBoundary}
+				/>
+			);
 		}
 
 		return this.props.children;
