@@ -4,15 +4,15 @@ import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
 import ErrorFallback from '@/components/common/errorFallback/errorFallback';
 import FlexHalf from '@/components/common/flexHalf/flexHalf';
 import LoadingSpinner from '@/components/common/loadingSpinner/loadingSpinner';
+import { useModal } from '@/components/common/modal/modalManager';
 import Text from '@/components/common/text/text';
-import { useModal } from '@/components/modal/modalManager';
+import Ability from '@/components/userInfo/ability/ability';
+import Skill from '@/components/userInfo/skill/skill';
+import UserCollection from '@/components/userInfo/userCollection/userCollection';
+import { useUser } from '@/hooks/query/useUser';
 import { useNavigation } from '@/hooks/useNavigation';
-import { useUser } from '@/hooks/useUser';
 import UserInfoModel from '@/models/userInfo';
-import Ability from '@/pages/userInfo/ability/ability';
-import Skill from '@/pages/userInfo/skill/skill';
 
-import UserCollection from './userCollection/userCollection';
 import * as Styled from './userInfo.style';
 
 export interface UserInfoProps {

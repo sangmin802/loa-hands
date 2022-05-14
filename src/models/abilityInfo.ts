@@ -1,5 +1,5 @@
+import { ENGRAVE } from '@/constants/engrave';
 import { URL } from '@/constants/env';
-import { ENGRAVE } from '@/json/engrave';
 import {
 	BADGE_ARR,
 	BADGE_IMAGE,
@@ -7,7 +7,7 @@ import {
 	GEM_IMAGE,
 	PARTS_ARR,
 	PARTS_IMAGE,
-} from '@/json/equip';
+} from '@/constants/equip';
 import Characteristic from '@/models/characteristic';
 import EquipInfo from '@/models/equipInfo';
 
