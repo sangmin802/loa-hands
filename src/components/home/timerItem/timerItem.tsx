@@ -2,14 +2,13 @@ import { useCallback, useEffect, useMemo } from 'react';
 
 import Image from '@/components/common/image/image';
 import Text from '@/components/common/text/text';
+import * as Styled from '@/components/home/timerItem/timerItem.style';
 import { URL } from '@/constants/env';
 import { useConditionalTimer } from '@/pages/home/hooks/useConditionalTimer';
 import { useTimer } from '@/pages/home/hooks/useTimer';
 import { interval } from '@/utils/events/interval';
 
-import * as Styled from './timerItem.style';
-
-export interface TimerProps {
+export interface ITimerItem {
 	data: {
 		name: string;
 		src: string;
@@ -25,7 +24,7 @@ export interface TimerProps {
 	};
 }
 
-function TimerItem({ data, dispatcher, ...props }: TimerProps) {
+const TimerItem = ({ data, dispatcher, ...props }: ITimerItem) => {
 	const { setTime, notification } = dispatcher;
 	const { name, src, lv, time, endTime, position, endPosition } = data;
 	const pos =
@@ -111,6 +110,6 @@ function TimerItem({ data, dispatcher, ...props }: TimerProps) {
 			<Styled.TimerPosition size="0.9">{pos}</Styled.TimerPosition>
 		</Styled.Timer>
 	);
-}
+};
 
 export default TimerItem;

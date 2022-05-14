@@ -5,11 +5,18 @@ import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
 import ErrorFallback from '@/components/common/errorFallback/errorFallback';
 import SearchLoading from '@/components/userInfo/searchLoading/searchLoading';
 import { useCancelQuery } from '@/hooks/query/useCancelQuery';
+import {
+	USER_COLLECTION_QUERY_KEY,
+	USER_QUERY_KEY,
+} from '@/hooks/query/useLoaHandsQuery';
 import UserInfo from '@/pages/userInfo/userInfo';
 
-function FetchUserInfo() {
+const FetchUserInfo = () => {
 	const { name } = useParams();
-	useCancelQuery([`userInfo-${name}`, `userCollection-${name}`]);
+	useCancelQuery([
+		[USER_QUERY_KEY, name],
+		[USER_COLLECTION_QUERY_KEY, name],
+	]);
 
 	return (
 		<AsyncBoundary
@@ -20,6 +27,6 @@ function FetchUserInfo() {
 			<UserInfo name={name as string} />
 		</AsyncBoundary>
 	);
-}
+};
 
 export default React.memo(FetchUserInfo);

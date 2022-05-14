@@ -2,7 +2,7 @@ import HTML from '@/components/common/html/html';
 import Image from '@/components/common/image/image';
 import * as Styled from '@/components/userInfo/htmlItem/htmlItem.style';
 
-interface HTMLItemProps {
+interface IHtmlItem {
 	data: {
 		desc: string[];
 		title: string;
@@ -10,7 +10,7 @@ interface HTMLItemProps {
 	};
 }
 
-function HTMLItem({ data, ...props }: HTMLItemProps) {
+const HTMLItem = ({ data, ...props }: IHtmlItem) => {
 	const { title, desc, src } = data;
 
 	return (
@@ -31,6 +31,6 @@ function HTMLItem({ data, ...props }: HTMLItemProps) {
 			</div>
 		</Styled.HTMLItem>
 	);
-}
+};
 
 export default HTMLItem;

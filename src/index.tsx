@@ -1,4 +1,3 @@
-// import "./style/fonts.css";
 import '@/style/fonts.css';
 
 import React from 'react';
@@ -18,8 +17,7 @@ export const queryClient = new QueryClient({
 			retry: false,
 			useErrorBoundary: true,
 			suspense: true,
-			cacheTime: 1000 * 60 * 5,
-			staleTime: 1000 * 60 * 3,
+			refetchOnWindowFocus: false,
 		},
 	},
 });

@@ -1,16 +1,15 @@
 import React, { useMemo, useState } from 'react';
 
+import * as Styled from '@/components/home/timerList/timerList.style';
 import { useBrowserFocus } from '@/hooks/useBrowserFocus';
 
-import * as Styled from './timerList.style';
-
-export interface TimerListProps {
+export interface ITimerList {
 	data: any[];
 	rerenderKey?: null | Date;
 	notification: (...args: any[]) => void;
 }
 
-const TimerList = ({ data, rerenderKey, notification }: TimerListProps) => {
+const TimerList = ({ data, rerenderKey, notification }: ITimerList) => {
 	const [, setTime] = useState<number | null>(null);
 	const date = new Date();
 	// 특정 타이머가 종료되어 setTime이 다시 호출되어 리렌더링 되는데, 자정이 넘어간 상태일 경우

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import List from '@/components/common/list/list';
-import Char from '@/components/common/modal/content/expedition/char/char';
+import Char from '@/components/common/modal/item/expedition/char';
 import SectionContainer from '@/components/common/sectionContainer/sectionContainer';
 import Text from '@/components/common/text/text';
 

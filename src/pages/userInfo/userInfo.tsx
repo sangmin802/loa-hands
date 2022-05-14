@@ -9,24 +9,25 @@ import Text from '@/components/common/text/text';
 import Ability from '@/components/userInfo/ability/ability';
 import Skill from '@/components/userInfo/skill/skill';
 import UserCollection from '@/components/userInfo/userCollection/userCollection';
-import { useUser } from '@/hooks/query/useUser';
+import { useUserQuery } from '@/hooks/query/useLoaHandsQuery';
 import { useNavigation } from '@/hooks/useNavigation';
 import UserInfoModel from '@/models/userInfo';
 
 import * as Styled from './userInfo.style';
 
-export interface UserInfoProps {
+export interface IUserInfo {
 	name: string;
 }
 
 const navList = ['능력치', '스킬', '수집형포인트'];
 
-function UserInfo({ name }: UserInfoProps) {
-	const data = useUser(name);
-	const { nav, handleNavDelegation } = useNavigation([name]);
+const UserInfo = ({ name }: IUserInfo) => {
+	const { data } = useUserQuery(name);
 	const userData = data as UserInfoModel;
-	const { basicInfo: BI, expeditionInfo: EI } = userData;
+
+	const { nav, handleNavDelegation } = useNavigation([name]);
 	const { setModal } = useModal();
+	const { basicInfo: BI, expeditionInfo: EI } = userData;
 
 	const handlModal = useCallback(() => {
 		setModal?.({
@@ -134,6 +135,6 @@ function UserInfo({ name }: UserInfoProps) {
 			</Styled.Bottom>
 		</Styled.UserInfo>
 	);
-}
+};
 
 export default React.memo(UserInfo);

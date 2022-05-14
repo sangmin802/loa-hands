@@ -1,4 +1,4 @@
-import * as Styled from '@/components/common/modal/content/expedition/char/char.style';
+import * as Styled from '@/components/common/modal/item/expedition/char.style';
 import Text from '@/components/common/text/text';
 
 interface IChar {

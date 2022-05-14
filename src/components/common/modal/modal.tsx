@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 
-import Expedition from '@/components/common/modal/content/expedition/expedition';
-import UserDetail from '@/components/common/modal/content/userDetail/userDetail';
+import Expedition from '@/components/common/modal/item/expedition/expedition';
+import UserDetail from '@/components/common/modal/item/userDetail/userDetail';
 import * as Styled from '@/components/common/modal/modal.style';
 import ExpeditionInfo from '@/models/expeditionInfo';
 import { IUserDetail } from '@/types/modal';
