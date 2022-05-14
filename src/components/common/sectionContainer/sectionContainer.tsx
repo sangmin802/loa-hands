@@ -1,22 +1,19 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import * as Styled from '@/components/common/sectionContainer/sectionContainer.style';
 
-export interface SectionContainerProps {
+export interface ISectionContainer {
 	title: ReactNode;
+	children: ReactNode;
 }
 
-function SectionContainer({
-	children,
-	title,
-	...props
-}: PropsWithChildren<SectionContainerProps>) {
+const SectionContainer = ({ children, title, ...props }: ISectionContainer) => {
 	return (
 		<Styled.Section {...props}>
 			{title}
 			{children}
 		</Styled.Section>
 	);
-}
+};
 
 export default SectionContainer;

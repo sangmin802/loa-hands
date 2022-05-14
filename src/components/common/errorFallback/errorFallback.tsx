@@ -1,15 +1,13 @@
-import React from 'react';
-
 import * as Styled from '@/components/common/errorFallback/errorFallback.style';
 import Text from '@/components/common/text/text';
 import { URL } from '@/constants/env';
 
-interface ErrorFallbackProps {
+interface IErrorFallback {
 	error: Error;
 	resetBoundary: () => void;
 }
 
-function ErrorFallback({ error, resetBoundary }: ErrorFallbackProps) {
+const ErrorFallback = ({ error, resetBoundary }: IErrorFallback) => {
 	return (
 		<Styled.ErrorFallback>
 			<Styled.ErrorText data-testid="error-message">
@@ -25,6 +23,6 @@ function ErrorFallback({ error, resetBoundary }: ErrorFallbackProps) {
 			<Styled.ErrorImage src={`${URL}/img/emoticon_3.gif`} />
 		</Styled.ErrorFallback>
 	);
-}
+};
 
 export default ErrorFallback;

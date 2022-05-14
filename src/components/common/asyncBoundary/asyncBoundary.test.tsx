@@ -15,7 +15,10 @@ const ErrorFallback = ({
 	return (
 		<>
 			<span data-testid="error-message">{error?.message}</span>
-			<button data-testid="retry-button" onClick={resetBoundary}>
+			<button
+				data-testid="retry-button"
+				onClick={resetBoundary}
+			>
 				재시도
 			</button>
 		</>

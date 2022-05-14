@@ -2,7 +2,7 @@
 import '@/style/fonts.css';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -24,7 +24,7 @@ export const queryClient = new QueryClient({
 	},
 });
 
-ReactDOM.render(
+createRoot(document.getElementById('root') as HTMLElement).render(
 	<Router basename={URL}>
 		<ThemeProvider theme={THEME}>
 			{/* <React.StrictMode> */}
@@ -36,5 +36,4 @@ ReactDOM.render(
 			{/* </React.StrictMode> */}
 		</ThemeProvider>
 	</Router>,
-	document.getElementById('root'),
 );
