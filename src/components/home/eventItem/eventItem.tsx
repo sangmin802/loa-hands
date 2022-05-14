@@ -4,7 +4,7 @@ import Image from '@/components/common/image/image';
 import Text from '@/components/common/text/text';
 import * as Styled from '@/components/home/eventItem/eventItem.style';
 
-export interface EventProps {
+export interface IEventItem {
 	data: {
 		date: string;
 		href: string;
@@ -13,7 +13,7 @@ export interface EventProps {
 	};
 }
 
-function Event({ data, ...props }: EventProps) {
+const EventItem = ({ data, ...props }: IEventItem) => {
 	const { date, href, img, name } = data;
 
 	const handleOpenEvent = () => {
@@ -33,6 +33,6 @@ function Event({ data, ...props }: EventProps) {
 			</Styled.Desc>
 		</Styled.Container>
 	);
-}
+};
 
-export default Event;
+export default EventItem;

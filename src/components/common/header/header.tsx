@@ -2,11 +2,10 @@ import React, { FormEvent, MouseEvent, useCallback, useRef } from 'react';
 import { useQueryErrorResetBoundary } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
+import * as Styled from '@/components/common/header/header.style';
 import Text from '@/components/common/text/text';
 
-import * as Styled from './header.style';
-
-function Header({ ...props }) {
+const Header = ({ ...props }) => {
 	const { reset } = useQueryErrorResetBoundary();
 	const textInput = useRef<HTMLInputElement>(null);
 	const navigate = useNavigate();
@@ -69,6 +68,6 @@ function Header({ ...props }) {
 			</Styled.Form>
 		</Styled.Container>
 	);
-}
+};
 
 export default React.memo(Header);

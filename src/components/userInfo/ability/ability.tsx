@@ -10,13 +10,13 @@ import { useNavigation } from '@/hooks/useNavigation';
 import UserInfo from '@/models/userInfo';
 import { reducePerType } from '@/utils/util';
 
-interface AbilityProps<T> {
-	userData: T;
+interface IAbility {
+	userData: UserInfo;
 }
 
 const navList = ['착용 아이템', '착용 아바타', '각인·특성', '보석'];
 
-function Ability({ userData }: AbilityProps<UserInfo>) {
+const Ability = ({ userData }: IAbility) => {
 	const [
 		[equipLeft, equipRight],
 		[avatarLeft, avatarRight],
@@ -135,6 +135,6 @@ function Ability({ userData }: AbilityProps<UserInfo>) {
 			</Styled.NAVContent>
 		</>
 	);
-}
+};
 
 export default React.memo(Ability);

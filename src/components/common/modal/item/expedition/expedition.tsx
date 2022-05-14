@@ -2,8 +2,8 @@ import React, { MouseEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import List from '@/components/common/list/list';
-import * as Styled from '@/components/common/modal/content/expedition/expedition.style';
-import Server from '@/components/common/modal/content/expedition/server/server';
+import * as Styled from '@/components/common/modal/item/expedition/expedition.style';
+import Server from '@/components/common/modal/item/expedition/server';
 import Text from '@/components/common/text/text';
 import ExpeditionInfo from '@/models/expeditionInfo';
 

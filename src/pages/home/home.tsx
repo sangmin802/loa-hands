@@ -3,7 +3,7 @@ import ErrorFallback from '@/components/common/errorFallback/errorFallback';
 import LoadingSpinner from '@/components/common/loadingSpinner/loadingSpinner';
 import Text from '@/components/common/text/text';
 import Calendar from '@/components/home/calendar/calendar';
-import Event from '@/components/home/event/event';
+import EventList from '@/components/home/eventList/eventList';
 import TimerList from '@/components/home/timerList/timerList';
 import {
 	CHAOS_GATE,
@@ -13,15 +13,19 @@ import {
 	PHANTOM_SHIP,
 } from '@/constants/timer';
 import { useCancelQuery } from '@/hooks/query/useCancelQuery';
+import {
+	CALENDAR_QUERY_KEY,
+	EVENT_QUERY_KEY,
+} from '@/hooks/query/useLoaHandsQuery';
 import { useHomeRerender } from '@/hooks/useHomeRerender';
 import { useTimerNotification } from '@/hooks/useTimerNotification';
 import * as Styled from '@/pages/home/home.style';
 
-function Home() {
+const Home = () => {
 	const { isMidnight, isSix } = useHomeRerender();
 	const queryKey = [
-		'fetchEventData',
-		['fetchCalendarData', isMidnight.getDate()],
+		EVENT_QUERY_KEY,
+		[CALENDAR_QUERY_KEY, isMidnight.getDate()],
 	];
 	const yoil = isMidnight.getDay();
 	const isWeek = 6 > yoil && yoil > 0;
@@ -43,7 +47,7 @@ function Home() {
 					suspenseFallback={<LoadingSpinner />}
 					errorFallback={ErrorFallback}
 				>
-					<Event queryKey={queryKey[0] as string} />
+					<EventList />
 				</AsyncBoundary>
 			</Styled.Section>
 			<Styled.Section
@@ -61,7 +65,7 @@ function Home() {
 					errorFallback={ErrorFallback}
 				>
 					<Calendar
-						queryKey={queryKey[1] as (string | number)[]}
+						queryKey={isMidnight.getDate()}
 						isMidnight={isMidnight}
 						notification={notification.activeNotification}
 						isWeek={isWeek}
@@ -114,6 +118,6 @@ function Home() {
 			</Styled.Section>
 		</Styled.Home>
 	);
-}
+};
 
 export default Home;

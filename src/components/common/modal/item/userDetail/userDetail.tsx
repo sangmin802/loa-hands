@@ -1,11 +1,10 @@
 import React from 'react';
 
+import * as Styled from '@/components/common/modal/item/userDetail/userDetail.style';
 import Text from '@/components/common/text/text';
 import HTMLItem from '@/components/userInfo/htmlItem/htmlItem';
 import { IUserDetail as IData } from '@/types/modal';
 import { getQualityColor } from '@/utils/util';
-
-import * as Styled from './userDetail.style';
 
 export interface IUserDetail {
 	data: IData;

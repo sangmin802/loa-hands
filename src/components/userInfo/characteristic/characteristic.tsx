@@ -2,23 +2,20 @@ import React from 'react';
 
 import List from '@/components/common/list/list';
 import Text from '@/components/common/text/text';
+import * as Styled from '@/components/userInfo/characteristic/characteristic.style';
 
-import * as Styled from './characteristic.style';
-
-interface ItemProps {
+interface IItem {
 	data: { title: string[]; desc: string };
 }
 
-interface CharacterasticProps<T> {
-	data: T;
+interface ICharacteristic {
+	data: {
+		title: string;
+		content: IItem[];
+	};
 }
 
-function Characterastic<
-	T extends {
-		title: string;
-		content: ItemProps[];
-	},
->({ data }: CharacterasticProps<T>) {
+const Characteristic = ({ data }: ICharacteristic) => {
 	return (
 		<Styled.Characteristic title={<Text>{data.title}</Text>}>
 			<List
@@ -27,9 +24,9 @@ function Characterastic<
 			/>
 		</Styled.Characteristic>
 	);
-}
+};
 
-function Item({ data }: ItemProps) {
+const Item = ({ data }: IItem) => {
 	return (
 		<Styled.ColumnLabel
 			title={
@@ -41,6 +38,6 @@ function Item({ data }: ItemProps) {
 			<Styled.DecorationBatch html={data.desc} />
 		</Styled.ColumnLabel>
 	);
-}
+};
 
-export default React.memo(Characterastic);
+export default React.memo(Characteristic);

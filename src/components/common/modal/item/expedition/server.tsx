@@ -1,4 +1,4 @@
-import * as Styled from '@/components/common/modal/content/expedition/server/server.style';
+import * as Styled from '@/components/common/modal/item/expedition/server.style';
 
 interface IServer {
 	data: {

@@ -3,21 +3,23 @@ import React, { useMemo } from 'react';
 import FlexHalf from '@/components/common/flexHalf/flexHalf';
 import List from '@/components/common/list/list';
 import InfoItem from '@/components/userInfo/infoItem/infoItem';
-import { useUserCollection } from '@/hooks/query/useUserCollection';
+import { useUserCollectionQuery } from '@/hooks/query/useLoaHandsQuery';
 import { useNavigation } from '@/hooks/useNavigation';
+import CollectionInfo from '@/models/collectionInfo';
 import { reducePerType } from '@/utils/util';
 
 import * as Styled from './userCollection.style';
 
-interface UserCollectionProps {
+interface IUserColletion {
 	member: string[];
 	queryKey: string;
 }
 
 const navList = ['', '', '', '', '', '', '', ''];
 
-function UserCollection({ queryKey, member }: UserCollectionProps) {
-	const userCollection = useUserCollection(queryKey, member);
+const UserCollection = ({ queryKey, member }: IUserColletion) => {
+	const { data } = useUserCollectionQuery(queryKey, member);
+	const userCollection = data as CollectionInfo;
 	const arr = useMemo(
 		() =>
 			userCollection.collectionDetail.map((data) => reducePerType(data, 'get')),
@@ -63,6 +65,6 @@ function UserCollection({ queryKey, member }: UserCollectionProps) {
 			</Styled.NAVContent>
 		</>
 	);
-}
+};
 
 export default React.memo(UserCollection);

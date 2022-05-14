@@ -8,13 +8,13 @@ import { useNavigation } from '@/hooks/useNavigation';
 import UserInfo from '@/models/userInfo';
 import { reducePerType } from '@/utils/util';
 
-interface SkillProps {
+interface ISkill {
 	userData: UserInfo;
 }
 
 const navList = ['전투스킬', '생활스킬'];
 
-function Skill({ userData }: SkillProps) {
+const Skill = ({ userData }: ISkill) => {
 	const [[skillLeft, skillRight], [lifeLeft, lifeRight]] = useMemo(() => {
 		const { battleSkill, lifeSkill } = userData.skillInfo;
 
@@ -75,6 +75,6 @@ function Skill({ userData }: SkillProps) {
 			</Styled.NAVContent>
 		</>
 	);
-}
+};
 
 export default React.memo(Skill);

@@ -1,30 +1,35 @@
 import React from 'react';
 
 import TimerList from '@/components/home/timerList/timerList';
-import { useCalendar } from '@/hooks/query/useCalendar';
+import { useCalendarQuery } from '@/hooks/query/useLoaHandsQuery';
+import CalendarData from '@/models/calendarData';
 
-interface CalendarProps {
-	queryKey: (string | number)[];
+interface ICalendar {
+	queryKey: number;
 	isMidnight: Date;
 	notification: (...args: any[]) => void;
 	isWeek: boolean;
 }
 
-function Calendar({
+const Calendar = ({
 	queryKey,
 	isMidnight,
 	isWeek,
 	notification,
-}: CalendarProps) {
-	const calendarData = useCalendar(queryKey);
+}: ICalendar) => {
+	const { data: calendarData } = useCalendarQuery(queryKey);
 
 	return (
 		<TimerList
-			data={isWeek ? calendarData.calendar[0] : calendarData.calendar[1] ?? []}
+			data={
+				isWeek
+					? (calendarData as CalendarData).calendar[0]
+					: (calendarData as CalendarData).calendar[1] ?? []
+			}
 			rerenderKey={isMidnight}
 			notification={notification}
 		/>
 	);
-}
+};
 
 export default React.memo(Calendar);

@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import * as Styled from './button.style';
+import * as Styled from '@/components/common/button/button.style';
 
 export type ButtonType = 'default' | 'black' | 'gray' | 'submit';
 

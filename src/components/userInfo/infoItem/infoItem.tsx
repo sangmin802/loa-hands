@@ -5,11 +5,11 @@ import Text from '@/components/common/text/text';
 import * as Styled from '@/components/userInfo/infoItem/infoItem.style';
 import { IUserDetail } from '@/types/modal';
 
-export interface InfoItemProps {
+export interface IInfoItem {
 	data: IUserDetail;
 }
 
-function InfoItem({ data, ...props }: InfoItemProps) {
+const InfoItem = ({ data, ...props }: IInfoItem) => {
 	const { backSrc, detail } = data;
 	const { setModal } = useModal();
 
@@ -43,6 +43,6 @@ function InfoItem({ data, ...props }: InfoItemProps) {
 			</Styled.Desc>
 		</Styled.InfoItem>
 	);
-}
+};
 
 export default React.memo(InfoItem);
