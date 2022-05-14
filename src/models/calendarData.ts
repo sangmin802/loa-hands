@@ -1,4 +1,4 @@
-import { CALENDAR_ISLAND } from '@/json/timer';
+import { CALENDAR_ISLAND } from '@/constants/timer';
 import { returnBody } from '@/utils/parse-string';
 import { addZero } from '@/utils/util';
 

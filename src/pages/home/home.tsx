@@ -5,16 +5,16 @@ import Text from '@/components/common/text/text';
 import Calendar from '@/components/home/calendar/calendar';
 import Event from '@/components/home/event/event';
 import TimerList from '@/components/home/timerList/timerList';
-import { useCancelQuery } from '@/hooks/query/useCancelQuery';
-import { useHomeRerender } from '@/hooks/useHomeRerender';
-import { useTimerNotification } from '@/hooks/useTimerNotification';
 import {
 	CHAOS_GATE,
 	DAILY_ISLAND,
 	FIELD_BOSS,
 	OCEAN_ACT,
 	PHANTOM_SHIP,
-} from '@/json/timer';
+} from '@/constants/timer';
+import { useCancelQuery } from '@/hooks/query/useCancelQuery';
+import { useHomeRerender } from '@/hooks/useHomeRerender';
+import { useTimerNotification } from '@/hooks/useTimerNotification';
 import * as Styled from '@/pages/home/home.style';
 
 function Home() {
