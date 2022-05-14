@@ -3,7 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { NotificationHandler } from '@/utils/events/notification';
 
 export function useTimerNotification() {
-	const createNotification = useCallback((works) => {
+	const createNotification = useCallback((works: any) => {
+		console.log(works);
 		const [start, ready] = works.reduce(
 			<T extends { type: string }>(prev: T[][], cur: T) => {
 				cur.type === 'START' ? prev[0].push(cur) : prev[1].push(cur);

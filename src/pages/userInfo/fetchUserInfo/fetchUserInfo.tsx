@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
 import ErrorFallback from '@/components/common/errorFallback/errorFallback';
-import { useCancelQuery } from '@/hooks/useCancelQuery';
-import SearchLoading from '@/pages/userInfo/searchLoading/searchLoading';
+import SearchLoading from '@/components/userInfo/searchLoading/searchLoading';
+import { useCancelQuery } from '@/hooks/query/useCancelQuery';
 import UserInfo from '@/pages/userInfo/userInfo';
 
 function FetchUserInfo() {

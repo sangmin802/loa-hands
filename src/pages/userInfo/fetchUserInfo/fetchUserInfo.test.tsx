@@ -1,11 +1,10 @@
-import { createMemoryHistory } from 'history';
 import { ReactElement } from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route, useNavigate } from 'react-router-dom';
 
 import ErrorBoundary from '@/components/common/errorBoundary/errorBoundary';
 import ErrorFallback from '@/components/common/errorFallback/errorFallback';
-import { USER_DATA } from '@/constants/index';
-import { useUser } from '@/hooks/useUser';
+import { USER_DATA } from '@/constants/_backup';
+import { useUser } from '@/hooks/query/useUser';
 import UserInfo from '@/pages/userInfo/fetchUserInfo/fetchUserInfo';
 import { fireEvent, render } from '@/utils/test';
 
@@ -18,13 +17,16 @@ const match = {
 	},
 };
 
-const renderWithRouter = (component: ReactElement, route: string) => {
-	const history = createMemoryHistory();
+const useRenderWithRouter = (component: ReactElement, route: string) => {
+	const navigate = useNavigate();
 
-	if (route) history.push(route);
+	if (route) navigate(route);
 
 	return (
-		<ErrorBoundary keys={match.params.name} errorFallback={ErrorFallback}>
+		<ErrorBoundary
+			keys={match.params.name}
+			errorFallback={ErrorFallback}
+		>
 			<Route path="/userInfo/:name">{component}</Route>
 		</ErrorBoundary>
 	);
@@ -40,7 +42,7 @@ window.scrollTo = jest.fn();
 
 describe('UserInfo', () => {
 	it('useUser name 변수 확인', async () => {
-		render(renderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'));
+		render(useRenderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'));
 
 		expect(useUser as jest.Mock).toBeCalledWith('모여요꿈동산');
 	});
@@ -52,7 +54,7 @@ describe('UserInfo', () => {
 
 		it('name변수에 맞는 유저정보 fetched', () => {
 			const { getByTestId } = render(
-				renderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
+				useRenderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
 			);
 
 			expect(getByTestId('모여요꿈동산')).toBeTruthy();
@@ -66,7 +68,7 @@ describe('UserInfo', () => {
 
 		it('네비게이션 변경', () => {
 			const { getByTestId } = render(
-				renderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
+				useRenderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
 			);
 
 			expect(getByTestId('main-content-0')).toBeTruthy();
@@ -79,7 +81,7 @@ describe('UserInfo', () => {
 
 		it('상세보기 다이얼로그 활성화', () => {
 			const { getAllByTestId, queryByTestId, getByTestId } = render(
-				renderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
+				useRenderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
 			);
 
 			expect(queryByTestId('dialog-content')).toBe(null);
@@ -91,7 +93,7 @@ describe('UserInfo', () => {
 
 		it('원정대 유저 팝업 활성화 및 검색 실행', () => {
 			const { queryByTestId, getByTestId, getByText, debug } = render(
-				renderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
+				useRenderWithRouter(<UserInfo />, '/userInfo/모여요꿈동산'),
 			);
 
 			expect(queryByTestId('dialog-content')).toBe(null);

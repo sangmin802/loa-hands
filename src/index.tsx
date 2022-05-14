@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { URL } from '@/constants/env';
 import GlobalStyle, { THEME } from '@/globalStyle';
-import App from '@/layout/app/app';
+import App from '@/layout/app';
 
 export const queryClient = new QueryClient({
 	defaultOptions: {
