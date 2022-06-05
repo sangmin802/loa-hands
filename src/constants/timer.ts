@@ -236,6 +236,14 @@ export const CALENDAR_ISLAND: {
 		position: '대항해',
 		contType: 'ISLAND',
 	},
+	'잔혹한 장난감 섬': {
+		id: 15,
+		name: '잔혹한 장난감 섬',
+		src: '/img/calendar/calendar_15.jpg',
+		lv: 250,
+		position: '대항해',
+		contType: 'ISLAND',
+	},
 };
 
 const partTime1 = [
