@@ -1,26 +1,32 @@
-import React, { PropsWithChildren, ReactElement, Suspense } from "react";
-import { useQueryErrorResetBoundary } from "react-query";
-import ErrorBoundary from "components/common/errorBoundary/errorBoundary";
+import { ReactElement, ReactNode, Suspense } from 'react';
+import { useQueryErrorResetBoundary } from 'react-query';
 
-export interface AsyncBoundaryProps {
-  suspenseFallback: ReactElement;
-  errorFallback: (...args: any[]) => ReactElement;
-  keys?: any;
+import ErrorBoundary from '@/components/common/errorBoundary/errorBoundary';
+
+export interface IAsyncBoundary {
+	suspenseFallback: ReactElement;
+	errorFallback: (...args: any[]) => ReactElement;
+	children: ReactNode;
+	keys?: any;
 }
 
-function AsyncBoundary({
-  suspenseFallback,
-  errorFallback,
-  children,
-  keys,
-}: PropsWithChildren<AsyncBoundaryProps>) {
-  const { reset } = useQueryErrorResetBoundary();
+const AsyncBoundary = ({
+	suspenseFallback,
+	errorFallback,
+	children,
+	keys,
+}: IAsyncBoundary) => {
+	const { reset } = useQueryErrorResetBoundary();
 
-  return (
-    <ErrorBoundary resetQuery={reset} errorFallback={errorFallback} keys={keys}>
-      <Suspense fallback={suspenseFallback}>{children}</Suspense>
-    </ErrorBoundary>
-  );
-}
+	return (
+		<ErrorBoundary
+			resetQuery={reset}
+			errorFallback={errorFallback}
+			keys={keys}
+		>
+			<Suspense fallback={suspenseFallback}>{children}</Suspense>
+		</ErrorBoundary>
+	);
+};
 
 export default AsyncBoundary;

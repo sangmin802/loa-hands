@@ -1,22 +1,27 @@
-import React, { HTMLAttributes, PropsWithChildren } from "react";
-import * as Styled from "./text.style";
+import { HTMLAttributes } from 'react';
 
-export interface TextProps extends HTMLAttributes<HTMLDivElement> {
-  size: string;
-  color: string;
+import * as Styled from '@/components/common/text/text.style';
+
+export interface IText extends HTMLAttributes<HTMLDivElement> {
+	size: string;
+	color: string;
 }
 
-function Text({
-  color = "white",
-  size = "1",
-  children,
-  ...props
-}: PropsWithChildren<Partial<TextProps>>) {
-  return (
-    <Styled.Text color={color} size={size} {...props}>
-      {children}
-    </Styled.Text>
-  );
-}
+const Text = ({
+	color = 'white',
+	size = '1',
+	children,
+	...props
+}: Partial<IText>) => {
+	return (
+		<Styled.Text
+			color={color}
+			size={size}
+			{...props}
+		>
+			{children}
+		</Styled.Text>
+	);
+};
 
 export default Text;

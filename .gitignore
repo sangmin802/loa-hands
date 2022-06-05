@@ -5,19 +5,29 @@
 /.pnp
 .pnp.js
 proxy.js
-API.ts
-models/
 backup.js
+.vite/*
+
+# zero-install
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # testing
 /coverage
 
 # production
 /build 
+/dist
 # build 이그노어 지우면 public path 된다는 말도 있음
 
 # misc
 .DS_Store
+.env.*
 .env.local
 .env.development.local
 .env.test.local

@@ -1,13 +1,15 @@
-import React from "react";
-import * as Styled from "./html.style";
+import * as Styled from '@/components/common/html/html.style';
 
-export interface HTMLProps {
-  html: string;
+export interface IHtml {
+	html: string;
 }
 
-function HTML({ html, ...props }: HTMLProps) {
-  return (
-    <Styled.Container {...props} dangerouslySetInnerHTML={{ __html: html }} />
-  );
-}
+const HTML = ({ html, ...props }: IHtml) => {
+	return (
+		<Styled.Container
+			{...props}
+			dangerouslySetInnerHTML={{ __html: html }}
+		/>
+	);
+};
 export default HTML;

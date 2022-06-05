@@ -1,9 +1,10 @@
-import React, { ImgHTMLAttributes } from "react";
-import * as Styled from "./image.style";
+import { ImgHTMLAttributes } from 'react';
 
-export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {}
+import * as Styled from '@/components/common/image/image.style';
 
-function Image({ ...props }: ImageProps) {
-  return <Styled.Image {...props} />;
-}
+export type ImageType = ImgHTMLAttributes<HTMLImageElement>;
+
+const Image = ({ ...props }: ImageType) => {
+	return <Styled.Image {...props} />;
+};
 export default Image;

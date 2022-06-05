@@ -1,25 +1,26 @@
-import React, { HTMLAttributes } from "react";
-import * as Styled from "./loadingSpinner.style";
+import { HTMLAttributes } from 'react';
 
-export interface LoadingSpinnerProps extends HTMLAttributes<HTMLElement> {}
+import * as Styled from '@/components/common/loadingSpinner/loadingSpinner.style';
 
-function LoadingSpinner({ ...props }: LoadingSpinnerProps) {
-  return (
-    <Styled.Content {...props}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </Styled.Content>
-  );
-}
+export type LoadingSpinnerType = HTMLAttributes<HTMLElement>;
+
+const LoadingSpinner = ({ ...props }: LoadingSpinnerType) => {
+	return (
+		<Styled.Content {...props}>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</Styled.Content>
+	);
+};
 
 export default LoadingSpinner;

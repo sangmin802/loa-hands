@@ -1,16 +1,19 @@
-import { useCallback, useEffect, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useState } from 'react';
 
 export function useNavigation(deps: any[] = []) {
-  const [nav, setNav] = useState(0);
+	const [nav, setNav] = useState(0);
 
-  const handleNavDelegation = useCallback(e => {
-    const { id } = e.target.dataset;
-    id && setNav(id * 1);
-  }, []);
+	const handleNavDelegation = useCallback((e: MouseEvent) => {
+		const { id } = (e.target as HTMLElement).dataset;
 
-  useEffect(() => {
-    setNav(0);
-  }, [...deps]);
+		if (id) {
+			setNav(Number(id));
+		}
+	}, []);
 
-  return { nav, setNav, handleNavDelegation };
+	useEffect(() => {
+		setNav(0);
+	}, [...deps]);
+
+	return { nav, setNav, handleNavDelegation };
 }

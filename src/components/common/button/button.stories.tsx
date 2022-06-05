@@ -1,21 +1,59 @@
-import React from "react";
-import Button, { ButtonProps } from "./button";
-import { Story } from "@storybook/react";
-import styled from "styled-components";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 
-const Text = styled.div`
-  color: white;
-`;
+import Button from './button';
 
 export default {
-  title: "Button",
-  component: Button,
+	title: 'Button',
+	component: Button,
+	argTypes: {
+		buttonType: {
+			description: '타입별 버튼입니다.<br> `default` `black` `gray` `submit`',
+			defaultValue: 'default',
+			control: { type: 'radio' },
+			options: ['default', 'black', 'gray', 'submit'],
+		},
+		children: {
+			description: '버튼의 컨텐츠 입니다',
+			control: { type: 'text' },
+		},
+	},
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => {
+	const handleOnClick = () => {
+		alert('click');
+	};
+
+	return (
+		<Button
+			onClick={handleOnClick}
+			{...args}
+		>
+			{args.children}
+		</Button>
+	);
 };
 
-const Template: Story<ButtonProps> = args => <Button {...args} />;
+export const DefaultButton = Template.bind({});
+DefaultButton.args = {
+	children: '버튼',
+};
 
-export const Default = Template.bind({});
+export const BlackButton = Template.bind({});
+BlackButton.args = {
+	...DefaultButton.args,
+	buttonType: 'black',
+};
 
-Default.args = {
-  children: <Text>Text</Text>,
+export const GrayButton = Template.bind({});
+GrayButton.args = {
+	...DefaultButton.args,
+	buttonType: 'gray',
+};
+
+export const SubmitButton = Template.bind({});
+SubmitButton.args = {
+	...DefaultButton.args,
+	buttonType: 'submit',
 };
