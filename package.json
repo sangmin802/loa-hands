@@ -82,5 +82,9 @@
     "styled-components": "^5.3.5",
     "vite": "^2.9.5",
     "vite-tsconfig-paths": "^3.4.1"
+  },
+  "volta": {
+    "node": "16.15.1",
+    "yarn": "1.22.19"
   }
 }
