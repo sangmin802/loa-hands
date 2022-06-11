@@ -74,7 +74,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["styled-components", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:5.3.5"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["vite", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:2.9.5"],\
-            ["vite-tsconfig-paths", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:3.4.1"]\
+            ["vite-tsconfig-paths", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:3.4.1"],\
+            ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -15943,7 +15944,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["styled-components", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:5.3.5"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["vite", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:2.9.5"],\
-            ["vite-tsconfig-paths", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:3.4.1"]\
+            ["vite-tsconfig-paths", "virtual:e6ee6c120e2a94bca5f0b2711d2e1ee66d3168c1d22a61de50ba6a80f5e8fc4327aa1a3802b0868e4799379a7dd306d0a93e480379ea7c543c1de1b6b807184c#npm:3.4.1"],\
+            ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21152,6 +21154,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/web-namespaces-npm-1.1.4-a6dfacb865-5149842ccb.zip/node_modules/web-namespaces/",\
           "packageDependencies": [\
             ["web-namespaces", "npm:1.1.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["web-vitals", [\
+        ["npm:2.1.4", {\
+          "packageLocation": "./.yarn/cache/web-vitals-npm-2.1.4-68bdd9ecb2-03d3f47dbf.zip/node_modules/web-vitals/",\
+          "packageDependencies": [\
+            ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "HARD"\
         }]\
