@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter } from 'react-router-dom';

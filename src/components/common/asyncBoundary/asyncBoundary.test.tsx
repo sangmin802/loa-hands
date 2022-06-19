@@ -1,8 +1,7 @@
 import { useQuery } from 'react-query';
 
-import { fireEvent, render, waitFor } from '@/utils/test';
-
-import AsyncBoundary from './asyncBoundary';
+import AsyncBoundary from '@/components/common/asyncBoundary/asyncBoundary';
+import { act, fireEvent, render, waitFor } from '@/utils/test';
 
 const SuspenseFallback = () => <span data-testid="loading">로딩중</span>;
 const ErrorFallback = ({
@@ -27,7 +26,7 @@ const ErrorFallback = ({
 
 const renderAsyncBoundary = (key: string, mock: () => void) => {
 	const Component = () => {
-		useQuery(key, () => mock());
+		useQuery(key, () => act(() => mock()));
 		return <span data-testid="fetched-data">성공</span>;
 	};
 
@@ -48,6 +47,12 @@ describe('asyncBoundary', () => {
 	});
 
 	describe('에러 발생', () => {
+		jest.spyOn(console, 'error').mockImplementation(() => null);
+
+		afterAll(() => {
+			jest.restoreAllMocks();
+		});
+
 		it('에러 핸들링', async () => {
 			const mock = jest.fn().mockRejectedValue(new Error('에러'));
 			const { getByTestId } = render(renderAsyncBoundary('에러', mock));
