@@ -22,9 +22,15 @@ const createAxios = function () {
 		},
 	);
 
-	customAxios.interceptors.response.use((response: AxiosResponse) => {
-		return response;
-	});
+	customAxios.interceptors.response.use(
+		(response: AxiosResponse) => {
+			return response;
+		},
+		(error) => {
+			console.dir(error, '인터셉터에서 에러 확인!');
+			Promise.reject(error);
+		},
+	);
 
 	return customAxios;
 };
