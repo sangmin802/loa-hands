@@ -5,11 +5,7 @@ import { useEventQuery } from '@/hooks/query/useLoaHandsQuery';
 import EventData from '@/models/eventData';
 
 const EventList = () => {
-	const { data: eventData } = useEventQuery({
-		onError: () => {
-			console.log('쿼리에서 수신하는 에러!');
-		},
-	});
+	const { data: eventData } = useEventQuery();
 
 	return (
 		<Styled.EventList
