@@ -24,7 +24,7 @@
     "start": "vite --mode development",
     "build": "vite build --mode production",
     "predeploy": "yarn run build",
-    "deploy": "yarn run build gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
