@@ -9,6 +9,7 @@ import {
 	CHAOS_GATE,
 	DAILY_ISLAND,
 	FIELD_BOSS,
+	LOWEN,
 	OCEAN_ACT,
 	PHANTOM_SHIP,
 } from '@/constants/timer';
@@ -114,6 +115,15 @@ const Home = () => {
 					data={OCEAN_ACT[isSix.getDay()]}
 					rerenderKey={isSix}
 					notification={notification.activeNotification}
+				/>
+			</Styled.Section>
+			<Styled.Section
+				title={<Styled.SectionTitle>오늘의 로웬</Styled.SectionTitle>}
+			>
+				<TimerList
+					data={LOWEN[isSix.getDay()]}
+					notification={notification.activeNotification}
+					rerenderKey={isSix}
 				/>
 			</Styled.Section>
 		</Styled.Home>
