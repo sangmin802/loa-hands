@@ -1,37 +1,26 @@
 import '@/style/fonts.css';
 
-import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { getCLS, getFID, getLCP } from 'web-vitals';
 
 import { URL } from '@/constants/env';
-import GlobalStyle, { THEME } from '@/globalStyle';
+import QueryClientContext from '@/context/queryClientContext';
+import StyleContext from '@/context/styleContext';
 import App from '@/layout/app';
 
-export const queryClient = new QueryClient({
-	defaultOptions: {
-		queries: {
-			retry: false,
-			useErrorBoundary: true,
-			suspense: true,
-			refetchOnWindowFocus: false,
-		},
-	},
-});
+getCLS(console.log);
+getFID(console.log);
+getLCP(console.log);
 
 createRoot(document.getElementById('root') as HTMLElement).render(
 	<Router basename={URL}>
-		<ThemeProvider theme={THEME}>
-			{/* <React.StrictMode> */}
-			<GlobalStyle />
-			<QueryClientProvider client={queryClient}>
-				<ReactQueryDevtools initialIsOpen={false} />
+		<StyleContext>
+			<QueryClientContext>
+				{/* <React.StrictMode> */}
 				<App />
-			</QueryClientProvider>
-			{/* </React.StrictMode> */}
-		</ThemeProvider>
+				{/* </React.StrictMode> */}
+			</QueryClientContext>
+		</StyleContext>
 	</Router>,
 );
