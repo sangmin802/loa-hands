@@ -22,9 +22,14 @@ const createAxios = function () {
 		},
 	);
 
-	customAxios.interceptors.response.use((response: AxiosResponse) => {
-		return response;
-	});
+	customAxios.interceptors.response.use(
+		(response: AxiosResponse) => {
+			return response;
+		},
+		(error) => {
+			Promise.reject(error);
+		},
+	);
 
 	return customAxios;
 };
