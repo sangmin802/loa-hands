@@ -23,7 +23,7 @@ const Header = ({ ...props }) => {
 			reset();
 			(e.target as HTMLFormElement).search.disabled = true;
 			(e.target as HTMLFormElement).search.value = null;
-			navigate(`/userInfo/${name}?test=userInfo`, { replace: true });
+			navigate(`/userInfo/${name}`, { replace: true });
 		},
 		[textInput, navigate, reset],
 	);
@@ -32,7 +32,7 @@ const Header = ({ ...props }) => {
 		(e: MouseEvent) => {
 			e.preventDefault();
 			reset();
-			navigate(`/?test=home`, { replace: true });
+			navigate('/', { replace: true });
 		},
 		[navigate, reset],
 	);
