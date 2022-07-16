@@ -24,14 +24,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     
-    - uses: borales/actions-yarn@v3.0.0
-      with:
-        cmd: install # will run `yarn install` command
-        
-    - uses: borales/actions-yarn@v3.0.0
-      with:
-        cmd: build # will run `yarn build` command
-        
-    - uses: borales/actions-yarn@v3.0.0
-      with:
-        cmd: test # will run `yarn test` command
+    - name: Setup Yarn
+      run: yarn intall
+      
+    - name: Build
+      run: yarn build
