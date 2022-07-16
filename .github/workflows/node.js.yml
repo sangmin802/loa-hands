@@ -22,7 +22,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: $
-        cache: 'npm'
-    - run: npm ci
+        cache: 'yarn'
+    - run: yarn install --immutable --immutable-cache --check-cache
     - run: yarn run build
     - run: yarn run test:headless
