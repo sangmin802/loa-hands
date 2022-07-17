@@ -23,5 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
       
+      
+    - run: yarn add vite
+    
     - name: Build
       run: yarn build
