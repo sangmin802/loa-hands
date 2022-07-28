@@ -1,24 +1,31 @@
 name: Node.js CI
 
+# 해당 CI가 실행될 깃의 이벤트(푸시, pr 등등)
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
+# workflows 내부에 여러개의 job을 넣어줄 수 있다.
+
 jobs:
+  # job의 이름.
   Node_test:
 
     runs-on: ubuntu-latest
 
+    # 명시된 모든 버전에 대해 해당 job을 실행, 테스트를 진행.
     strategy:
       matrix:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    # 현재 리포지토리로 진입(깃 브랜치 checkout과 유사함)
     - uses: actions/checkout@v3
     
+    # 노드환경 설치(위의 전략에 설정해준 버전 배열이 각각 job을 수행하면서 환경변수로 전달됨)
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
